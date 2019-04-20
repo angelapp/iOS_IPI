@@ -72,3 +72,15 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+
+# Project
+#
+# 
+
+IPI/IPI.xcodeproj/project.pbxproj
+IPI/IPI/Info.plist
+
+IPI/.DS_Store
+IPI/IPI.xcworkspace/
+IPI/Podfile
