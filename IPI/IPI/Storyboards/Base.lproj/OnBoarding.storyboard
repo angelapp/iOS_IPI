@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="LM2-Wg-T83">
+            <objects>
+                <viewController id="VEh-nl-ceA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SCT-Pv-CgM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_degradado" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-J3-3mv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfg-Xz-Dgk">
+                                <rect key="frame" x="25" y="45" width="54" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="SALTAR">
+                                    <color key="titleColor" red="0.0" green="0.27058823529411763" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t3R-J3-3mv" firstAttribute="top" secondItem="SCT-Pv-CgM" secondAttribute="top" id="2RV-PG-9AU"/>
+                            <constraint firstItem="rfg-Xz-Dgk" firstAttribute="leading" secondItem="IeQ-x4-Xpk" secondAttribute="leading" constant="25" id="K3M-Q9-JXh"/>
+                            <constraint firstItem="rfg-Xz-Dgk" firstAttribute="top" secondItem="IeQ-x4-Xpk" secondAttribute="top" constant="25" id="eEl-Nj-CrC"/>
+                            <constraint firstItem="IeQ-x4-Xpk" firstAttribute="bottom" secondItem="t3R-J3-3mv" secondAttribute="bottom" id="n3r-SK-WZl"/>
+                            <constraint firstItem="t3R-J3-3mv" firstAttribute="leading" secondItem="IeQ-x4-Xpk" secondAttribute="leading" id="vTB-YM-Anz"/>
+                            <constraint firstItem="IeQ-x4-Xpk" firstAttribute="trailing" secondItem="t3R-J3-3mv" secondAttribute="trailing" id="vXB-AO-Qay"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IeQ-x4-Xpk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BcX-Q7-2kO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="-325.18740629685158"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_degradado" width="1080" height="1920"/>
+    </resources>
+</document>
