@@ -79,7 +79,5 @@ fastlane/test_output
 # 
 
 IPI/IPI.xcodeproj/project.pbxproj
-IPI/IPI/Info.plist
-
 IPI/.DS_Store
 IPI/IPI.xcworkspace/
