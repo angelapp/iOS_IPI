@@ -26,3 +26,9 @@ enum ViewControllerTag : Int {
     case OnBoardingVC, OnBoardingContentVC, OnBoardingPageVC
     case welcomeVC, signinVC, signupVC, recoveryVC
 }
+
+// Cells Identifiers
+enum CellID: String {
+    case signupCell
+}
+

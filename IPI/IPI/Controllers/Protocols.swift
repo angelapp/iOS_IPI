@@ -8,7 +8,14 @@
 
 import Foundation
 
-// Delegate for update view in the onBoarding
+// Protocol for update view in the onBoarding
 protocol OnBoardingPageViewControllerDelegate: class {
     func didUpdatePageIndex (currentIndex index: Int)
+}
+
+// Protocol for manage rgister events
+protocol SignupViewControllerDelegate: class {
+    func facebookSignup()
+    func googleSignup()
+    func signupRequest(email:String, password:String, confrimPass: String)
 }

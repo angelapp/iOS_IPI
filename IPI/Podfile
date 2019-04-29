@@ -9,6 +9,10 @@ target 'IPI' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'AlamofireObjectMapper'
+  pod 'FacebookCore', '~> 0.5.0'
+  pod 'FacebookLogin', '~> 0.5.0'
+  pod 'ObjectMapper'
+  pod 'SwiftyJSON', '~> 4.0.0'
   
   target 'IPITests' do
     inherit! :search_paths
