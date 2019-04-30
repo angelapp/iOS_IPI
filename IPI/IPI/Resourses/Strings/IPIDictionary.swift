@@ -46,12 +46,12 @@ struct JSONKeys {
     ////MARK: - B
     ////static let birthdate = "birthdate"
 	static let basic_right_list = "basic_right_list"
-	static let basic_right_type= "basic_right_type"
+	static let basic_right_type = "basic_right_type"
     static let body_part = "body_part"
     static let body_parts_list = "body_parts_list"
     //
     ////MARK: - C
-    ////static let city = "city"
+    static let city = "city"
     ////static let city_list = "city_list"
     //static let code = "code"
     //static let condition = "condition"
@@ -63,7 +63,7 @@ struct JSONKeys {
 	static let countries = "countries"
 	static let country_cities = "country_cities"
     static let course = "course"
-    //static let course_list = "course_list"
+    static let course_list = "course_list"
     static let course_topics = "course_topics"
     //
     ////MARK: - D
@@ -117,6 +117,7 @@ struct JSONKeys {
     //
     ////MARK: - M
 	static let migration_condition = "migration_condition"
+    static let migration_condition_types = "migration_condition_types"
     static let message_type = "message_type"
     static let min_pin_length = "min_pin_length"
     static let mobile_phone = "mobile_phone"
@@ -131,13 +132,14 @@ struct JSONKeys {
     ////MARK: - O
     //static let organization_by_type = "organization_by_type"
     static let organization_type = "organization_type"
+    static let organization_types = "organization_types"
     //static let origin_city = "origin_city"
 	static let origin_country = "origin_country"
     //
     ////MARK: - P
     static let password = "password"
     //static let phone = "phone"
-    //static let ponderation_progress = "ponderation_progress"
+    static let ponderation_progress = "ponderation_progress"
     //static let profile = "profile"
     static let psw_error_recomendation = "psw_error_recomendation"
     static let psw_regular_expression = "psw_regular_expression"

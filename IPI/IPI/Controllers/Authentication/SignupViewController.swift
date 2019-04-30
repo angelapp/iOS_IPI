@@ -154,13 +154,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let user = UserModel()
             user.email = nullString
-            user.phone = nullString
-            user.terms = true
-            user.registryType = OptionSelector.getTypeLogin(type: LoginRegisterType.facebook)
-            
-            if let imageURL = ((data[FBDic.picture] as? [String: Any])?[FBDic.data] as? [String: Any])?[FBDic.url] as? String {
-                user.photoURL = imageURL
-            }
             
             if let email = data[FBDic.email] as? String {
                 user.email = email
