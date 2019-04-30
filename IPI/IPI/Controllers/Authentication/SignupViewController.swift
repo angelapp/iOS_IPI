@@ -96,6 +96,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.signupCell.rawValue, for: indexPath) as! SignupTableViewCell
         
         cell.fillCell()
+        cell.signupDelegate = self
         
         return cell
     }
@@ -155,32 +156,22 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let user = UserModel()
             user.email = nullString
             
-            if let email = data[FBDic.email] as? String {
+            if let email = data[FBKeys.email] as? String {
                 user.email = email
             }
             
-            if let name = data[FBDic.first_name] as? String {
-                
-                if let lastName = data[FBDic.last_name] as? String {
-                    user.name = String(format: Formats.fullName, name, lastName)
-                }
-                else {
-                    user.name = name
-                }
-            }
-            
             let fbToken = fbloginresult.token.tokenString
-            user.accesstoken = fbToken
+//            user.accesstoken = fbToken
             
-            //Lanza una vista modal para agregar datos
-            let sb = UIStoryboard(name: StoryBoardID.main, bundle: nil)
-            let nextVC = sb.instantiateViewController(withIdentifier: VCIdentifiers.alert) as! AlertViewController
-            
-            nextVC.user = user
-            nextVC.placeHolder = Strings.placeholderPhone
-            nextVC.modalPresentationStyle = .overCurrentContext
-            nextVC.modalTransitionStyle = .crossDissolve
-            self.present(nextVC, animated: true, completion: nil)
+//            //Lanza una vista modal para agregar datos
+//            let sb = UIStoryboard(name: StoryBoardID.main, bundle: nil)
+//            let nextVC = sb.instantiateViewController(withIdentifier: VCIdentifiers.alert) as! AlertViewController
+//
+//            nextVC.user = user
+//            nextVC.placeHolder = Strings.placeholderPhone
+//            nextVC.modalPresentationStyle = .overCurrentContext
+//            nextVC.modalTransitionStyle = .crossDissolve
+//            self.present(nextVC, animated: true, completion: nil)
         })
     }
     

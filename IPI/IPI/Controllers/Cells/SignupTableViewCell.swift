@@ -72,6 +72,7 @@ class SignupTableViewCell: UITableViewCell, UITextFieldDelegate {
         switch  sender {
             
         case btn_facebook:
+            signupDelegate?.facebookSignup()
             break
             
         case btn_google:

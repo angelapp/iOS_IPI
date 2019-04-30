@@ -10,33 +10,33 @@ import Foundation
 import ObjectMapper
 
 /* State: pending */
-class ContactModel: Mappable {
-    var fullName: String!
-    var number: String!
-    
-    init() {}
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        fullName <- map[JSONKeys.full_name]
-        number <- map[JSONKeys.number]
-    }
-}
-
-/* State: pending */
-class ContactListModel: Mappable {
-    
-    var contacList: Array<ContactModel>!
-    
-    init() {}
-    
-    required init?(map: Map) {}
-    
-    func mapping(map: Map) {
-        contacList <- map[JSONKeys.contact_emergency_List]
-    }
-}
+//class ContactModel: Mappable {
+//    var fullName: String!
+//    var number: String!
+//
+//    init() {}
+//
+//    required init?(map: Map) {}
+//
+//    func mapping(map: Map) {
+//        fullName <- map[JSONKeys.full_name]
+//        number <- map[JSONKeys.number]
+//    }
+//}
+//
+///* State: pending */
+//class ContactListModel: Mappable {
+//
+//    var contacList: Array<ContactModel>!
+//
+//    init() {}
+//
+//    required init?(map: Map) {}
+//
+//    func mapping(map: Map) {
+//        contacList <- map[JSONKeys.contact_emergency_List]
+//    }
+//}
 
 /* State: pending */
 class CourseListModel: Mappable {
@@ -90,7 +90,7 @@ class RequestAvatar: Mappable {
     var piece: Int!
     
     init(pieceID: Int) {
-        self.user = AplicationRuntime.sharedManager.getUser().id
+        //self.user = AplicationRuntime.sharedManager.getUser().id
         self.piece = pieceID
     }
     
