@@ -29,6 +29,6 @@ enum ViewControllerTag : Int {
 
 // Cells Identifiers
 enum CellID: String {
-    case signupCell
+    case signupCell, signinCell, recoveryPassCell
 }
 

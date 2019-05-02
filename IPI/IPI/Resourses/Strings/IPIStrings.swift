@@ -23,6 +23,11 @@ let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
 let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
 let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 
+/*
+ let ID_cliente_Google = "773365250219-f2l0oelfvnsh3ansn3h6o8ur2r3ugh4h.apps.googleusercontent.com"
+*/
+
+
 // MARK: - AVATAR, CONFIG
 struct AvatarStrings {
     static let avatarTitle = "Arma tu Conse"
@@ -54,6 +59,7 @@ struct Buttons {
 // MARK: - Lables
 struct Labels {
     static let create_account = "Crea tu cuenta"
+    static let login_title = "Ingresa tus datos"
     static let welcome = "Te damos la bienvenida a:"
     
     static let hint_email = "Correo electrónico"

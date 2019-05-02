@@ -13,9 +13,20 @@ protocol OnBoardingPageViewControllerDelegate: class {
     func didUpdatePageIndex (currentIndex index: Int)
 }
 
-// Protocol for manage rgister events
+// Protocol for manage register events
 protocol SignupViewControllerDelegate: class {
     func facebookSignup()
     func googleSignup()
     func signupRequest(email:String, password:String, confrimPass: String)
+}
+
+// Protocol for manage Sing In events
+protocol SigninViewControllerDelegate: class {
+    func signinRequest(email:String?, password:String?)
+}
+
+// Protocol for manage recovery pass events
+protocol RecoveryViewControllerDelegate: class {
+    func recoveryRequest(email:String?)
+    func dismiss()
 }
