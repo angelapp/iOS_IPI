@@ -17,7 +17,6 @@ enum IPIKeys: String {
     case image, isLogin
     case user, userJSON
     case title
-    case wasLoggedAtSomeTime
 }
 
 /// Facebook key dictionary

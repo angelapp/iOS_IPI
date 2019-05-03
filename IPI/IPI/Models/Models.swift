@@ -128,12 +128,12 @@ class UserModel {
 
 /// Model Used for keep the Authentication states
 class StatesModel {
-    var wasLoggedAtSomeTime: Bool!
+    var hasViewedOnboarding: Bool!
     var isLogin: Bool!
 
     init() {
         self.isLogin = false
-        self.wasLoggedAtSomeTime = false
+        self.hasViewedOnboarding = false
     }
 }
 

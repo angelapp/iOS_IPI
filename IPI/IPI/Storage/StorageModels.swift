@@ -47,7 +47,7 @@ class UserPreferences: NSObject{
 /// Modelo de datos para tener en local si ya se ha iniciado sesion
 class StatesPreferences: NSObject {
 
-    var wasLoggedAtSomeTime: Bool!
+    var hasViewedOnboarding: Bool!
     var isLogin: Bool!
 
     /// Inicializa el modelo para almacenar en local apartir del modelo de datos
@@ -55,14 +55,14 @@ class StatesPreferences: NSObject {
     convenience init(states: StatesModel){
         self.init()
         self.isLogin = states.isLogin
-        self.wasLoggedAtSomeTime = states.wasLoggedAtSomeTime
+        self.hasViewedOnboarding = states.hasViewedOnboarding
     }
 
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
         aCoder.encode(self.isLogin as Bool, forKey: IPIKeys.isLogin.rawValue)
-        aCoder.encode(self.wasLoggedAtSomeTime as Bool, forKey: IPIKeys.wasLoggedAtSomeTime.rawValue)
+        aCoder.encode(self.hasViewedOnboarding as Bool, forKey: IPIKeys.hasViewedOnboarding.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -71,7 +71,7 @@ class StatesPreferences: NSObject {
         var myDic = [String:Any]()
 
         myDic[IPIKeys.isLogin.rawValue] = self.isLogin
-        myDic[IPIKeys.wasLoggedAtSomeTime.rawValue] = self.wasLoggedAtSomeTime
+        myDic[IPIKeys.hasViewedOnboarding.rawValue] = self.hasViewedOnboarding
 
         return myDic
     }
@@ -82,7 +82,7 @@ class StatesPreferences: NSObject {
     class func initState(fromDic dic: [String: Any]) -> StatesModel {
         let state = StatesModel()
         state.isLogin = dic[IPIKeys.isLogin.rawValue] as? Bool ?? false
-        state.wasLoggedAtSomeTime = dic[IPIKeys.wasLoggedAtSomeTime.rawValue] as? Bool ?? false
+        state.hasViewedOnboarding = dic[IPIKeys.hasViewedOnboarding.rawValue] as? Bool ?? false
 
         return state
     }

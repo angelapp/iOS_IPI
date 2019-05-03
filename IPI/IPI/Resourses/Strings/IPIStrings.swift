@@ -61,7 +61,7 @@ struct Labels {
     static let create_account = "Crea tu cuenta"
     static let login_title = "Ingresa tus datos"
     static let welcome = "Te damos la bienvenida a:"
-    
+
     static let hint_email = "Correo electrónico"
     static let hint_password = "Contraseña"
     static let hint_new_password = "Escribe una contraseña"
@@ -83,4 +83,40 @@ struct ErrorMessages {
     static let registerTitle = "Error al registrar"
     static let requiredField = "Por favor completa este campo para continuar"
     static let tryAgain = "Inténtalo de nuevo más tarde"
+}
+
+// MARK: Website
+struct WebsiteURL {
+    static let office = "http://www.nrc.org.co/directorio-oficinas-nrc/"
+    static let facebook = "https://www.facebook.com/consejonoruegopararefugiados/"
+    static let twitter = "https://twitter.com/NRC_LAC"
+    static let nrc = "http://www.nrc.org.co/"
+    static let ipi = "https://ipi.conse.co/"
+}
+
+/// Id's de los videos en Youtube!
+struct VideosID {
+    static let DEFAULT_VIDEO = "KuUWKzD8e00"
+    static let PROTECTION_VIDEO = "7t0rIdNhayM"
+}
+
+// MARK: - Formats
+
+/// Formatos de fecha
+struct DateTimeFormat {
+    static let formatByZone = "yyyy-MM-dd'T'HH:mm:ssXXX"
+    static let formatInMillis = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+    static let formatInMillisZone = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+
+    static let shortDateFormat = "dd/MM"
+    static let shortTimeFormat = "HH:mm"
+    static let commonDateFormat = "dd/MM/yyyy"
+    static let sendDateFormat = "yyyy-MM-dd"
+}
+
+/// Formatos, y Expresiones regulares
+struct Formats {
+    static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    static let matchesFormat = "SELF MATCHES %@"
+    static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }
