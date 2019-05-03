@@ -10,11 +10,14 @@ import Foundation
 
 /// Ipi key dictionary
 enum IPIKeys: String {
-    
+
+    case appConfig, activitiesProgress
     case description
-    case image
-    case title
     case hasViewedOnboarding
+    case image, isLogin
+    case user, userJSON
+    case title
+    case wasLoggedAtSomeTime
 }
 
 /// Facebook key dictionary
@@ -34,7 +37,7 @@ struct FBKeys {
 
 /// Claves para los serializadores JSON
 struct JSONKeys {
-    
+
     //MARK: - A
     //static let about_noruegan_council = "about_noruegan_council"
     static let abreviature = "abreviature"

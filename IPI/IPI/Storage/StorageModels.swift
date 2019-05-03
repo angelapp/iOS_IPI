@@ -22,7 +22,7 @@ class UserPreferences: NSObject{
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.jsonUserData as String, forKey: DicKeys.userJSON)
+        aCoder.encode(self.jsonUserData as String, forKey: IPIKeys.userJSON.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -30,7 +30,7 @@ class UserPreferences: NSObject{
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.userJSON] = self.jsonUserData
+        myDic[IPIKeys.userJSON.rawValue] = self.jsonUserData
 
         return myDic
     }
@@ -39,7 +39,7 @@ class UserPreferences: NSObject{
     /// - Parameter dic: Diccionario de datos
     /// - Returns: Modelo de datos
     class func initUser(fromDic dic: [String: Any]) -> String {
-        let user =  dic[DicKeys.userJSON] as! String
+        let user =  dic[IPIKeys.userJSON.rawValue] as! String
         return user
     }
 }
@@ -61,8 +61,8 @@ class StatesPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.isLogin as Bool, forKey: DicKeys.isLogin)
-        aCoder.encode(self.wasLoggedAtSomeTime as Bool, forKey: DicKeys.wasLoggedAtSomeTime)
+        aCoder.encode(self.isLogin as Bool, forKey: IPIKeys.isLogin.rawValue)
+        aCoder.encode(self.wasLoggedAtSomeTime as Bool, forKey: IPIKeys.wasLoggedAtSomeTime.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -70,8 +70,8 @@ class StatesPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.isLogin] = self.isLogin
-        myDic[DicKeys.wasLoggedAtSomeTime] = self.wasLoggedAtSomeTime
+        myDic[IPIKeys.isLogin.rawValue] = self.isLogin
+        myDic[IPIKeys.wasLoggedAtSomeTime.rawValue] = self.wasLoggedAtSomeTime
 
         return myDic
     }
@@ -81,47 +81,10 @@ class StatesPreferences: NSObject {
     /// - Returns: Modelo de datos
     class func initState(fromDic dic: [String: Any]) -> StatesModel {
         let state = StatesModel()
-        state.isLogin = dic[DicKeys.isLogin] as? Bool ?? false
-        state.wasLoggedAtSomeTime = dic[DicKeys.wasLoggedAtSomeTime] as? Bool ?? false
+        state.isLogin = dic[IPIKeys.isLogin.rawValue] as? Bool ?? false
+        state.wasLoggedAtSomeTime = dic[IPIKeys.wasLoggedAtSomeTime.rawValue] as? Bool ?? false
 
         return state
-    }
-}
-
-/// Modelo de datos para tener en local los contactos de confianza
-class ContactPreferences: NSObject {
-
-    var jsonContact: String!
-
-    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
-    /// - Parameter jsonContacts: Lista de contactos mapeados en formato JSON
-    convenience init(jsonContacts: String) {
-        self.init()
-        self.jsonContact = jsonContacts
-    }
-
-    ///Codifica los datos del modelo y lo asocia a una clave
-    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
-    func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.jsonContact as String, forKey: DicKeys.contactList)
-    }
-
-    /// Crea un diccionario con los datos del modelo
-    /// - Returns: EL diccionario de datos del modelo
-    func dictionary() -> [String:Any] {
-        var myDic = [String:Any]()
-
-        myDic[DicKeys.contactList] = self.jsonContact
-
-        return myDic
-    }
-
-    /// Crea un modelo de datos a aprtir de un diccionario de datos
-    /// - Parameter dic: Diccionario de datos
-    /// - Returns: Modelo de datos
-    class func initContactList(fromDic dic: [String: Any]) -> String {
-        let json = dic[DicKeys.contactList] as! String
-        return json
     }
 }
 
@@ -139,7 +102,7 @@ class AppConfigPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.jsonAppConfig as String, forKey: DicKeys.appConfig)
+        aCoder.encode(self.jsonAppConfig as String, forKey: IPIKeys.appConfig.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -147,7 +110,7 @@ class AppConfigPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.appConfig] = self.jsonAppConfig
+        myDic[IPIKeys.appConfig.rawValue] = self.jsonAppConfig
 
         return myDic
     }
@@ -156,7 +119,7 @@ class AppConfigPreferences: NSObject {
     /// - Parameter dic: Diccionario de datos
     /// - Returns: Modelo de datos
     class func initConfig(fromDic dic: [String: Any]) -> String {
-        let json = dic[DicKeys.appConfig] as! String
+        let json = dic[IPIKeys.appConfig.rawValue] as! String
         return json
     }
 }
@@ -175,7 +138,7 @@ class ProgressActivitiesPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.jsonCourseActivities as String, forKey: DicKeys.activitiesProgress)
+        aCoder.encode(self.jsonCourseActivities as String, forKey: IPIKeys.activitiesProgress.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -183,7 +146,7 @@ class ProgressActivitiesPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.activitiesProgress] = self.jsonCourseActivities
+        myDic[IPIKeys.activitiesProgress.rawValue] = self.jsonCourseActivities
 
         return myDic
     }
@@ -192,7 +155,7 @@ class ProgressActivitiesPreferences: NSObject {
     /// - Parameter dic: Diccionario de datos
     /// - Returns: Modelo de datos
     class func initCourse(fromDic dic: [String: Any]) -> String {
-        let json = dic[DicKeys.activitiesProgress] as! String
+        let json = dic[IPIKeys.activitiesProgress.rawValue] as! String
         return json
     }
 }
@@ -214,8 +177,8 @@ class ProgressPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.vbg_index as Int, forKey: DicKeys.vbgProgress)
-        aCoder.encode(self.plc_index as Int, forKey: DicKeys.plcProgress)
+        aCoder.encode(self.vbg_index as Int, forKey: IPIKeys.vbgProgress)
+        aCoder.encode(self.plc_index as Int, forKey: IPIKeys.plcProgress)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -223,8 +186,8 @@ class ProgressPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.vbgProgress] = self.vbg_index
-        myDic[DicKeys.plcProgress] = self.plc_index
+        myDic[IPIKeys.vbgProgress] = self.vbg_index
+        myDic[IPIKeys.plcProgress] = self.plc_index
 
         return myDic
     }
@@ -235,8 +198,8 @@ class ProgressPreferences: NSObject {
     class func initProgress(fromDic dic: [String: Any]) -> CoursesProgress {
         let progress = CoursesProgress()
 
-        progress.VBG_INDEX = dic[DicKeys.vbgProgress] as? Int ?? 0
-        progress.PLC_INDEX = dic[DicKeys.plcProgress] as? Int ?? 0
+        progress.VBG_INDEX = dic[IPIKeys.vbgProgress] as? Int ?? 0
+        progress.PLC_INDEX = dic[IPIKeys.plcProgress] as? Int ?? 0
 
         return progress
     }
@@ -267,12 +230,12 @@ class MyAvatarPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.skin as Int, forKey: DicKeys.skin)
-        aCoder.encode(self.hair as Int, forKey: DicKeys.hair)
-        aCoder.encode(self.eyes as Int, forKey: DicKeys.eyes)
-        aCoder.encode(self.mounth as Int, forKey: DicKeys.mounth)
-        aCoder.encode(self.acc as Int, forKey: DicKeys.accesories)
-        aCoder.encode(self.gender as Int, forKey: DicKeys.gender)
+        aCoder.encode(self.skin as Int, forKey: IPIKeys.skin)
+        aCoder.encode(self.hair as Int, forKey: IPIKeys.hair)
+        aCoder.encode(self.eyes as Int, forKey: IPIKeys.eyes)
+        aCoder.encode(self.mounth as Int, forKey: IPIKeys.mounth)
+        aCoder.encode(self.acc as Int, forKey: IPIKeys.accesories)
+        aCoder.encode(self.gender as Int, forKey: IPIKeys.gender)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -280,12 +243,12 @@ class MyAvatarPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[DicKeys.skin] = self.skin
-        myDic[DicKeys.hair] = self.hair
-        myDic[DicKeys.eyes] = self.eyes
-        myDic[DicKeys.mounth] = self.mounth
-        myDic[DicKeys.accesories] = self.acc
-        myDic[DicKeys.gender] = self.gender
+        myDic[IPIKeys.skin] = self.skin
+        myDic[IPIKeys.hair] = self.hair
+        myDic[IPIKeys.eyes] = self.eyes
+        myDic[IPIKeys.mounth] = self.mounth
+        myDic[IPIKeys.accesories] = self.acc
+        myDic[IPIKeys.gender] = self.gender
 
         return myDic
     }
@@ -296,12 +259,12 @@ class MyAvatarPreferences: NSObject {
     class func initAvatar(fromDic dic: [String: Any]) -> MyAvatarPieces {
         let avatarPieces = MyAvatarPieces()
 
-        avatarPieces.skinID = dic[DicKeys.skin] as? Int ?? 0
-        avatarPieces.hairID = dic[DicKeys.hair] as? Int ?? 0
-        avatarPieces.eyesID = dic[DicKeys.eyes] as? Int ?? 0
-        avatarPieces.mouthID = dic[DicKeys.mounth] as? Int ?? 0
-        avatarPieces.accID = dic[DicKeys.accesories] as? Int ?? 0
-        avatarPieces.genderID = dic[DicKeys.gender] as? Int ?? 0
+        avatarPieces.skinID = dic[IPIKeys.skin] as? Int ?? 0
+        avatarPieces.hairID = dic[IPIKeys.hair] as? Int ?? 0
+        avatarPieces.eyesID = dic[IPIKeys.eyes] as? Int ?? 0
+        avatarPieces.mouthID = dic[IPIKeys.mounth] as? Int ?? 0
+        avatarPieces.accID = dic[IPIKeys.accesories] as? Int ?? 0
+        avatarPieces.genderID = dic[IPIKeys.gender] as? Int ?? 0
 
         return avatarPieces
     }

@@ -40,15 +40,15 @@ import ObjectMapper
 
 /* State: pending */
 class CourseListModel: Mappable {
-    
+
     var courseList: Array<Course>!
-    
+
     init(courseList: Array<Course>!) {
         self.courseList = courseList
     }
-    
+
     required init?(map: Map) {}
-    
+
     func mapping(map: Map) {
         courseList <- map[JSONKeys.course_list]
     }
@@ -68,15 +68,15 @@ class RequestCompleted: Mappable {
     var user: Int!
     var topic_activity: Int!
     var date_completed: String!
-    
+
     init(user: Int, activity: Int, date: String) {
         self.user = user
         self.topic_activity = activity
         self.date_completed = date
     }
-    
+
     required init?(map: Map) {}
-    
+
     func mapping(map: Map) {
         user <- map[JSONKeys.user]
         topic_activity <- map[JSONKeys.topic_activity]
@@ -88,16 +88,16 @@ class RequestCompleted: Mappable {
 class RequestAvatar: Mappable {
     var user: Int!
     var piece: Int!
-    
+
     init(pieceID: Int) {
         //self.user = AplicationRuntime.sharedManager.getUser().id
         self.piece = pieceID
     }
-    
+
     required init?(map: Map) {
-        
+
     }
-    
+
     func mapping(map: Map) {
         user <- map[JSONKeys.user]
         piece <- map[JSONKeys.avatar_piece]
@@ -106,14 +106,14 @@ class RequestAvatar: Mappable {
 
 /* State: pending */
 class MyAvatarPieces {
-    
+
     var skinID: Int!
     var hairID: Int!
     var eyesID: Int!
     var mouthID: Int!
     var accID: Int!
     var genderID: Int!
-    
+
     init() {
     }
 }
@@ -126,11 +126,11 @@ class UserModel {
     var id: Int!
 }
 
-/* State: pending */
+/// Model Used for keep the Authentication states
 class StatesModel {
     var wasLoggedAtSomeTime: Bool!
     var isLogin: Bool!
-    
+
     init() {
         self.isLogin = false
         self.wasLoggedAtSomeTime = false
@@ -139,11 +139,11 @@ class StatesModel {
 
 /* State: pending */
 class FormatsBankItem {
-    
+
     var name: String!
     var file: String!
     var ext: String!
-    
+
     init(name: String, file: String, ext: String) {
         self.file = file
         self.name = name
@@ -153,14 +153,14 @@ class FormatsBankItem {
 
 /* State: pending */
 class MyCommunityItem {
-    
+
     var title: String!
     var objective: String!
     var note: String!
     var downloadCopy: String!
     var file: String!
     var ext: String!
-    
+
     init(title: String, objective: String, note: String, downloadCopy: String, file: String, ext: String) {
         self.title = title
         self.objective = objective
@@ -176,7 +176,7 @@ class ModuleProgressItem {
     var image: String!
     var title: String!
     var progress: Float!
-    
+
     init(image: String, title: String, progress: Float) {
         self.image = image
         self.title = title
@@ -187,10 +187,10 @@ class ModuleProgressItem {
 /** Modelo para mantener el indice de la pág actual de los cursos */
 /* State: pending */
 class CoursesProgress {
-    
+
     var VBG_INDEX: Int! // Indice de pág para el curso Violencia Basada en Genero
     var PLC_INDEX: Int! // Indice de pág para el curso Protección Lideres Comunitarios
-    
+
     init() {
         self.VBG_INDEX = 0
         self.PLC_INDEX = 0
