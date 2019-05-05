@@ -18,8 +18,8 @@ class OnBoardingViewController: UIViewController, OnBoardingPageViewControllerDe
     @IBOutlet var pageControl: UIPageControl!
     
     // MARK: - Properties
-    
     var onboardingPageVC: OnBoardingPageViewController?
+    weak var welcomeDelegate: WelcomeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,9 @@ class OnBoardingViewController: UIViewController, OnBoardingPageViewControllerDe
             break
             
         default:
-            UserDefaults.standard.set(true, forKey: IPIKeys.hasViewedOnboarding.rawValue)
+            //Save in local that Onboarding has viwed one time
+            welcomeDelegate?.updateOnboardingState(withState: true)
+            
             self.dismiss(animated: true, completion: nil)
             break
         }

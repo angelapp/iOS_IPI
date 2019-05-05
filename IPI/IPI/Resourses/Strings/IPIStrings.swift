@@ -71,8 +71,9 @@ struct Labels {
 // MARK: - Error Messages
 struct ErrorMessages {
     static let blankFields = "Por favor completa todos los campos para continuar"
+    static let completeInformation = "Debe completar información"
     static let email = "Por favor revisa tu correo he inténtalo de nuevo"
-    static let invalidEmail = "Por favor ingresa un correo valido he inténtalo de nuevo"
+    static let invalidEmail = "Correo no válido"
     static let failedDataUpdate = "Error al actualizar datos"
     static let fbCanceledLogin = "Inicio de sesión con Facebook cancelado"
     static let fbCanceledRegister = "Registro con Facebook cancelado"
@@ -81,8 +82,22 @@ struct ErrorMessages {
     static let notLoggedIn = "No has iniciado sesión"
     static let pswNotMatch = "¡Las contraseñas no coinciden!"
     static let registerTitle = "Error al registrar"
-    static let requiredField = "Por favor completa este campo para continuar"
+    static let requiredField = "Debes diligenciar este campo"
     static let tryAgain = "Inténtalo de nuevo más tarde"
+}
+
+struct LoaderStrings {
+    static let avatarUpload = "Guardando avatar..."
+    static let configApp = "Obteniendo configuración de la aplicación"
+    static let download = "Descargando..."
+    static let getLegal = "Obteniendo biblioteca ..."
+    static let getNews = "Obteniendo listado de noticias..."
+    static let getShield = "Obteniendo Listado de Escudos de Protección"
+    static let loading = "Cargando..."
+    static let login = "Autenticando usuario..."
+    static let recording = "Guardando..."
+    static let recovery = "Recuperando contraseña..."
+    static let sendEmail = "Enviando email ..."
 }
 
 // MARK: Website

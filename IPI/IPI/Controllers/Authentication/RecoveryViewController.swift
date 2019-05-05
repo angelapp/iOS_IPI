@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class RecoveryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecoveryViewControllerDelegate {
     
@@ -102,18 +103,53 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: - Recovery Delegate
-    func recoveryRequest(email: String?) {
-        if email == nil || email == nullString {
-            self.showErrorMessage(withMessage: ErrorMessages.blankFields)
-        }
-        else {
-            
-        }
+    
+    func sendMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
     }
     
     func dismiss() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - Request Functions
+    /// Se envia correo del usuario para recuperar la contraseña
+    func sendRecoveryPost(email: RegisterUserProfileModel) {
+        
+        let loader = LoadingOverlay(text: LoaderStrings.recovery)
+        let json = Mapper().toJSONString(email, prettyPrint: true)
+        let headers:[[String:String]] = []
+        
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
+        Network.buildRequest(urlApi: NetworkPOST.PASSWORD_RECOVERY, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let resp = objReceiver as! [String: Any]
+                self.showErrorMessage(withMessage: resp[JSONKeys.detail] as! String)
+                
+                break
+                
+            default:
+                break
+            }
+        })
+    }
 }

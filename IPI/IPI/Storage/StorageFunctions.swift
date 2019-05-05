@@ -26,7 +26,7 @@ class StorageFunctions: NSObject {
         let saveData = UserPreferences(user: jsonUserData)
         let strRepresentation = saveData.dictionary()
         if let data = UserPreferences.archive(user: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.user, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.user.rawValue, value: data as AnyObject)
         }
     }
 
@@ -41,7 +41,7 @@ class StorageFunctions: NSObject {
         let saveData = AppConfigPreferences(jsonConfig: jsonConf!)
         let strRepresentation = saveData.dictionary()
         if let data = AppConfigPreferences.archive(conf: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.appConfig, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.appConfig.rawValue, value: data as AnyObject)
         }
     }
 
@@ -51,11 +51,11 @@ class StorageFunctions: NSObject {
         let saveDate = StatesPreferences(states: states)
         let strRepresentation = saveDate.dictionary()
         if let data = StatesPreferences.archive(states: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.states, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.states.rawValue, value: data as AnyObject)
         }
     }
 
-    /// Guarda la lista de contactos
+    /* // Guarda la lista de contactos
     class func saveContactList(list: ContactListModel) {
 
         let json = Mapper().toJSONString(list, prettyPrint: true)
@@ -64,19 +64,9 @@ class StorageFunctions: NSObject {
         let saveDate = ContactPreferences(jsonContacts: json!)
         let strRepresentation = saveDate.dictionary()
         if let data = ContactPreferences.archive(list: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.contactList, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.contactList, value: data as AnyObject)
         }
-    }
-
-    /// Guarda en local, los indices del progreso del curso
-    class func saveProgress(progress: CoursesProgress) {
-        let storage = StorageConfig.share
-        let saveDate = ProgressPreferences(indices: progress)
-        let strRepresentation = saveDate.dictionary()
-        if let data = ProgressPreferences.archive(progress: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.progress, value: data as AnyObject)
-        }
-    }
+    }*/
 
     /** Guarda los el progreso de actividades de los cursos */
     class func saveActivitiesProgress(courses: CourseListModel!) {
@@ -89,7 +79,7 @@ class StorageFunctions: NSObject {
         let saveData = ProgressActivitiesPreferences(jsonCourse: jsonCourse!)
         let strRepresentation = saveData.dictionary()
         if let data = ProgressActivitiesPreferences.archive(course: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.activitiesProgress, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.activitiesProgress.rawValue, value: data as AnyObject)
         }
     }
 
@@ -101,7 +91,7 @@ class StorageFunctions: NSObject {
         let saveData = MyAvatarPreferences(pieces: avatarPieces)
         let strRepresentation = saveData.dictionary()
         if let data = MyAvatarPreferences.archive(avatar: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.avaterPieces, value: data as AnyObject)
+            storage.saveParameterFromKey(key: IPIKeys.avatarPieces.rawValue, value: data as AnyObject)
         }
     }
 
@@ -110,7 +100,7 @@ class StorageFunctions: NSObject {
     /// Get local storage data
     class func getAppConfig() -> ApplicationConfiguration! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.appConfig) as! Data? else { return nil}
+        guard let data = storage.getParameterFromKey(key: IPIKeys.appConfig.rawValue) as! Data? else { return nil}
         guard let dic = AppConfigPreferences.unarchive(data: data) else { return nil}
         let strConf = AppConfigPreferences.initConfig(fromDic: dic) as String?
         let appConf = Mapper<ApplicationConfiguration>().map(JSON: convertToDictionary(text: strConf!)!)
@@ -118,18 +108,11 @@ class StorageFunctions: NSObject {
     }
 
     /// Get storage progress
-    class func getProgress() -> CoursesProgress {
-        let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data? else { return CoursesProgress() }
-        guard let dic = ProgressPreferences.unarchive(data: data) else { return CoursesProgress() }
-        let progress = ProgressPreferences.initProgress(fromDic: dic)
-        return progress
-    }
 
     /// Get storage states
     class func getStates() -> StatesModel {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.states) as! Data? else { return StatesModel() }
+        guard let data = storage.getParameterFromKey(key: IPIKeys.states.rawValue) as! Data? else { return StatesModel() }
         guard let dic = StatesPreferences.unarchive(data: data) else { return StatesModel()}
         let states = StatesPreferences.initState(fromDic: dic)
         return states
@@ -138,27 +121,27 @@ class StorageFunctions: NSObject {
     /// Get local storage data
     class func getUser() -> RegisterUserResponse! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.user) as! Data? else { return nil }
+        guard let data = storage.getParameterFromKey(key: IPIKeys.user.rawValue) as! Data? else { return nil }
         guard let dic = UserPreferences.unarchive(data: data) else { return nil }
         let userJSON = UserPreferences.initUser(fromDic: dic) as String?
         let user = Mapper<RegisterUserResponse>().map(JSON: convertToDictionary(text: userJSON!)!)
         return user
     }
 
-    /// Get local list data
+    /*// Get local list data
     class func getContactList() -> Array<ContactModel>! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.contactList) as! Data? else { return nil }
+        guard let data = storage.getParameterFromKey(key: IPIKeys.contactList) as! Data? else { return nil }
         guard let dic = ContactPreferences.unarchive(data: data) else { return nil }
         let json = ContactPreferences.initContactList(fromDic: dic) as String?
         let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
         return contactList?.contacList
-    }
+    }*/
 
     /** carga los datos de cursos del, local  */
     class func loadActivitiesProgress() -> Array<Course>! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.activitiesProgress) as! Data? else { return nil }
+        guard let data = storage.getParameterFromKey(key: IPIKeys.activitiesProgress.rawValue) as! Data? else { return nil }
         guard let dic = ProgressActivitiesPreferences.unarchive(data: data) else { return nil }
         let json = ProgressActivitiesPreferences.initCourse(fromDic: dic) as String?
         let courseList = Mapper<CourseListModel>().map(JSON: convertToDictionary(text: json!)!)
@@ -168,7 +151,7 @@ class StorageFunctions: NSObject {
     /// Get storage Avatar
     class func getAvatarPieces() -> MyAvatarPieces! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.avaterPieces) as! Data? else { return nil}
+        guard let data = storage.getParameterFromKey(key: IPIKeys.avatarPieces.rawValue) as! Data? else { return nil}
         guard let dic = MyAvatarPreferences.unarchive(data: data) else { return nil }
         let avatar = MyAvatarPreferences.initAvatar(fromDic: dic)
         return avatar
@@ -176,13 +159,13 @@ class StorageFunctions: NSObject {
 
     /// Save image as data
     class func saveAvatarImage(image: UIImage) {
-        let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
-        UserDefaults.standard.set(imageData, forKey: DicKeys.avatarImg)
+        let imageData: NSData = image.pngData()! as NSData
+        UserDefaults.standard.set(imageData, forKey: IPIKeys.avatarImg.rawValue)
     }
 
     /// Load data and return image
     class func loadAvatarImage() -> UIImage! {
-        if let data = UserDefaults.standard.object(forKey: DicKeys.avatarImg) as! NSData? {
+        if let data = UserDefaults.standard.object(forKey: IPIKeys.avatarImg.rawValue) as! NSData? {
             return UIImage(data: data as Data)
         }
         else {

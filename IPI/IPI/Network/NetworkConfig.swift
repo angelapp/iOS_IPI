@@ -32,8 +32,10 @@ class Network: NSObject {
 
         request.httpMethod = method.rawValue
         request.setValue(NetworkConfig.apiKey, forHTTPHeaderField: NetworkConfig.headerApikey)
+        request.setValue(NetworkConfig.apiSecret, forHTTPHeaderField: NetworkConfig.headerApiSecret)
         request.setValue(NetworkConfig.appJson, forHTTPHeaderField: NetworkConfig.headerAccept)
         request.setValue(NetworkConfig.appJson, forHTTPHeaderField: NetworkConfig.headerContentType)
+        
 
         for header in extraHeaders {
             request.setValue(header[NetworkConfig.headerValue], forHTTPHeaderField: header[NetworkConfig.headerName]!)
@@ -138,9 +140,6 @@ class Network: NSObject {
 
         if json[JSONKeys.detail] != nil {
             return json[JSONKeys.detail] as! String
-        }
-        else if json[JSONKeys.birthdate] != nil {
-            return NetworkErrorMessage.BirthdateFormatError
         }
         else {
             return NetworkErrorMessage.msnDefaultError

@@ -6,10 +6,11 @@
 //  Copyright © 2019 NRC. All rights reserved.
 //
 
+import AVKit
 import UIKit
 import ObjectMapper
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_signin: UIButton!
@@ -31,13 +32,16 @@ class WelcomeViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
-        if (states != nil && states.hasViewedOnboarding.rawValue) {
+        
+        // Check if the onboarding has viewed some time
+        if (states != nil && states.hasViewedOnboarding) {
             return
         }
 
+        // Show onboarding
         let storyboard = UIStoryboard(name: StoryboardID.OnBoarding.rawValue, bundle: nil)
         if let onboardingVC = storyboard.instantiateViewController(withIdentifier: ViewControllerID.OnBoardingVC.rawValue) as? OnBoardingViewController {
+            onboardingVC.welcomeDelegate = self
             present(onboardingVC, animated: true, completion: nil)
         }
     }
@@ -45,6 +49,16 @@ class WelcomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Welcome Delegate
+    
+    /// Update the state when user has viwed the onbording
+    func updateOnboardingState(withState state:Bool){
+        states.hasViewedOnboarding = true
+        StorageFunctions.saveStates(states: states)
+        
+        viewDidAppear(true)
     }
 
     // MARK: - private functions
@@ -58,10 +72,16 @@ class WelcomeViewController: UIViewController {
         // Activa una instancia para activar el sonido multimadia de la App cuando
         // El dispositivo está en mute
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            if #available(iOS 10.0, *) {
+                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
+            } else {
+                // Fallback on earlier versions
+                AVAudioSession.sharedInstance().perform(NSSelectorFromString("setCategory:error:"), with: AVAudioSession.Category.playback)
+            }
         }
         catch {
             // report for an error
+            print(error)
         }
     }
 
@@ -93,10 +113,10 @@ class WelcomeViewController: UIViewController {
 //            return
 //        }
 
-//        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
-//        AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
+        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
+        AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
 
-        self.presentConse(storyBoard: StoryboardsId.main)
+        //self.presentConse(storyBoard: StoryboardsId.main)
     }
 
     private func presentConse(storyBoard sbName: String, inScreen vc: String? = nil){
@@ -136,14 +156,14 @@ class WelcomeViewController: UIViewController {
                 break
 
             case .succeededObject(let objReceiver):
-            /*
+            
                 let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
 
                 AplicationRuntime.sharedManager.setAppConfig(config: config!)
                 StorageFunctions.saveAppConfigInLocal(config: config!)
 
                 self.startCose()
-            */
+            
                 break
 
             default:

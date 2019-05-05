@@ -62,8 +62,21 @@ class RecoveryTableViewCell: UITableViewCell, UITextFieldDelegate {
         switch  sender {
             
         case btn_send:
-            print("BTN_SEND Cliked")
-            recoveryDelegate?.recoveryRequest(email: tf_email.text)
+            
+            guard Validations.isValidData(fromField: tf_email) else {
+                recoveryDelegate?.sendMessage(withMessage: ErrorMessages.completeInformation)
+                return
+            }
+            
+            guard Validations.isValidEmail(email: tf_email.text!) else {
+                recoveryDelegate?.sendMessage(withMessage: ErrorMessages.invalidEmail)
+                return
+            }
+            
+            let username = RegisterUserProfileModel()
+            username.email = tf_email.text
+            
+            recoveryDelegate?.sendRecoveryPost(email: username)
             break
             
         default:

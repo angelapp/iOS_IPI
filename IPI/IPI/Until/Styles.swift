@@ -29,7 +29,7 @@ extension UITextField {
 func addBoldWord(forText text: String, toWord words: String..., fontSize size: CGFloat) -> NSAttributedString {
 
     let attributeText = NSMutableAttributedString(string: text)
-    let boldFontAttribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)]
+    let boldFontAttribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size)]
 //    let italicFontAttribute = [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: size)]
 
     for word in words {

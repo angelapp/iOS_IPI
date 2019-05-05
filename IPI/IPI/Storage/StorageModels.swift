@@ -160,58 +160,13 @@ class ProgressActivitiesPreferences: NSObject {
     }
 }
 
-/** Modelo de datos para tener en local los indices del avance de los cursos */
-class ProgressPreferences: NSObject {
-
-    var vbg_index: Int!
-    var plc_index: Int!
-
-    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
-    /// - Parameter indices: estados
-    convenience init(indices: CoursesProgress){
-        self.init()
-        self.vbg_index = indices.VBG_INDEX
-        self.plc_index = indices.PLC_INDEX
-    }
-
-    ///Codifica los datos del modelo y lo asocia a una clave
-    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
-    func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.vbg_index as Int, forKey: IPIKeys.vbgProgress)
-        aCoder.encode(self.plc_index as Int, forKey: IPIKeys.plcProgress)
-    }
-
-    /// Crea un diccionario con los datos del modelo
-    /// - Returns: EL diccionario de datos del modelo
-    func dictionary() -> [String:Any] {
-        var myDic = [String:Any]()
-
-        myDic[IPIKeys.vbgProgress] = self.vbg_index
-        myDic[IPIKeys.plcProgress] = self.plc_index
-
-        return myDic
-    }
-
-    /// Crea un modelo de datos a aprtir de un diccionario de datos
-    /// - Parameter dic: Diccionario de datos
-    /// - Returns: Modelo de datos
-    class func initProgress(fromDic dic: [String: Any]) -> CoursesProgress {
-        let progress = CoursesProgress()
-
-        progress.VBG_INDEX = dic[IPIKeys.vbgProgress] as? Int ?? 0
-        progress.PLC_INDEX = dic[IPIKeys.plcProgress] as? Int ?? 0
-
-        return progress
-    }
-}
-
 /** Modelo de datos para tener en local los identificadores de las caractaeriticas del Avatar */
 class MyAvatarPreferences: NSObject {
 
-    var skin: Int!
-    var hair: Int!
+    var head: Int!
     var eyes: Int!
-    var mounth: Int!
+    var nose: Int!
+    var hair: Int!
     var acc: Int!
     var gender: Int!
 
@@ -219,10 +174,10 @@ class MyAvatarPreferences: NSObject {
     /// - Parameter indices: estados
     convenience init(pieces: MyAvatarPieces){
         self.init()
-        self.skin = pieces.skinID
-        self.hair = pieces.hairID
+        self.head = pieces.headID
         self.eyes = pieces.eyesID
-        self.mounth = pieces.mouthID
+        self.nose = pieces.noseID
+        self.hair = pieces.hairID
         self.acc = pieces.accID
         self.gender = pieces.genderID
     }
@@ -230,12 +185,12 @@ class MyAvatarPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.skin as Int, forKey: IPIKeys.skin)
-        aCoder.encode(self.hair as Int, forKey: IPIKeys.hair)
-        aCoder.encode(self.eyes as Int, forKey: IPIKeys.eyes)
-        aCoder.encode(self.mounth as Int, forKey: IPIKeys.mounth)
-        aCoder.encode(self.acc as Int, forKey: IPIKeys.accesories)
-        aCoder.encode(self.gender as Int, forKey: IPIKeys.gender)
+        aCoder.encode(self.head as Int, forKey: IPIKeys.head.rawValue)
+        aCoder.encode(self.eyes as Int, forKey: IPIKeys.eyes.rawValue)
+        aCoder.encode(self.nose as Int, forKey: IPIKeys.nose.rawValue)
+        aCoder.encode(self.hair as Int, forKey: IPIKeys.hair.rawValue)
+        aCoder.encode(self.acc as Int, forKey: IPIKeys.accesories.rawValue)
+        aCoder.encode(self.gender as Int, forKey: IPIKeys.gender.rawValue)
     }
 
     /// Crea un diccionario con los datos del modelo
@@ -243,12 +198,12 @@ class MyAvatarPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
 
-        myDic[IPIKeys.skin] = self.skin
-        myDic[IPIKeys.hair] = self.hair
-        myDic[IPIKeys.eyes] = self.eyes
-        myDic[IPIKeys.mounth] = self.mounth
-        myDic[IPIKeys.accesories] = self.acc
-        myDic[IPIKeys.gender] = self.gender
+        myDic[IPIKeys.head.rawValue] = self.head
+        myDic[IPIKeys.eyes.rawValue] = self.eyes
+        myDic[IPIKeys.nose.rawValue] = self.nose
+        myDic[IPIKeys.hair.rawValue] = self.hair
+        myDic[IPIKeys.accesories.rawValue] = self.acc
+        myDic[IPIKeys.gender.rawValue] = self.gender
 
         return myDic
     }
@@ -259,12 +214,12 @@ class MyAvatarPreferences: NSObject {
     class func initAvatar(fromDic dic: [String: Any]) -> MyAvatarPieces {
         let avatarPieces = MyAvatarPieces()
 
-        avatarPieces.skinID = dic[IPIKeys.skin] as? Int ?? 0
-        avatarPieces.hairID = dic[IPIKeys.hair] as? Int ?? 0
-        avatarPieces.eyesID = dic[IPIKeys.eyes] as? Int ?? 0
-        avatarPieces.mouthID = dic[IPIKeys.mounth] as? Int ?? 0
-        avatarPieces.accID = dic[IPIKeys.accesories] as? Int ?? 0
-        avatarPieces.genderID = dic[IPIKeys.gender] as? Int ?? 0
+        avatarPieces.headID = dic[IPIKeys.head.rawValue] as? Int ?? 0
+        avatarPieces.eyesID = dic[IPIKeys.eyes.rawValue] as? Int ?? 0
+        avatarPieces.noseID = dic[IPIKeys.nose.rawValue] as? Int ?? 0
+        avatarPieces.hairID = dic[IPIKeys.hair.rawValue] as? Int ?? 0
+        avatarPieces.accID = dic[IPIKeys.accesories.rawValue] as? Int ?? 0
+        avatarPieces.genderID = dic[IPIKeys.gender.rawValue] as? Int ?? 0
 
         return avatarPieces
     }

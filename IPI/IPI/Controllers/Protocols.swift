@@ -27,6 +27,12 @@ protocol SigninViewControllerDelegate: class {
 
 // Protocol for manage recovery pass events
 protocol RecoveryViewControllerDelegate: class {
-    func recoveryRequest(email:String?)
+    func sendMessage(withMessage msn: String)
+    func sendRecoveryPost(email: RegisterUserProfileModel)
     func dismiss()
+}
+
+// Protocol for Welcome
+protocol WelcomeViewControllerDelegate: class {
+    func updateOnboardingState(withState state:Bool)
 }

@@ -44,8 +44,8 @@ struct NetworkConfig {
 
     //Header
     static let headerAccept = "Accept"
-    static let headerApikey = "Api-Key"
-    static let headerApiSecret = "API_SECRET"
+    static let headerApikey = "Api-Token"
+    static let headerApiSecret = "Api-Secret-Key"
     static let headerAuthorization = "Authorization"
     static let headerContentType = "Content-Type"
 

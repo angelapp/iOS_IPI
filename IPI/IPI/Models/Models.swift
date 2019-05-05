@@ -104,13 +104,13 @@ class RequestAvatar: Mappable {
     }
 }
 
-/* State: pending */
+/** Modelo para definir el avatar */
 class MyAvatarPieces {
 
-    var skinID: Int!
-    var hairID: Int!
+    var headID: Int!
     var eyesID: Int!
-    var mouthID: Int!
+    var noseID: Int!
+    var hairID: Int!
     var accID: Int!
     var genderID: Int!
 

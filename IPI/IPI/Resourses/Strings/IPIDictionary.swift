@@ -11,11 +11,24 @@ import Foundation
 /// Ipi key dictionary
 enum IPIKeys: String {
 
-    case appConfig, activitiesProgress
+    case accesories
+    case activitiesProgress
+    case appConfig
+    case avatarPieces
+    case avatarImg
     case description
+    case eyes
+    case gender
+    case hair
     case hasViewedOnboarding
-    case image, isLogin
-    case user, userJSON
+    case head
+    case image
+    case isLogin
+    case nose
+    case progress
+    case states
+    case user
+    case userJSON
     case title
 }
 
