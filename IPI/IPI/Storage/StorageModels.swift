@@ -49,12 +49,14 @@ class StatesPreferences: NSObject {
 
     var hasViewedOnboarding: Bool!
     var isLogin: Bool!
+    var isThereAnAvatar: Bool!
 
     /// Inicializa el modelo para almacenar en local apartir del modelo de datos
     /// - Parameter states: estados
     convenience init(states: StatesModel){
         self.init()
         self.isLogin = states.isLogin
+        self.isThereAnAvatar = states.isThereAnAvatar
         self.hasViewedOnboarding = states.hasViewedOnboarding
     }
 
@@ -62,6 +64,7 @@ class StatesPreferences: NSObject {
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
         aCoder.encode(self.isLogin as Bool, forKey: IPIKeys.isLogin.rawValue)
+        aCoder.encode(self.isThereAnAvatar as Bool, forKey: IPIKeys.isThereAnAvatar.rawValue)
         aCoder.encode(self.hasViewedOnboarding as Bool, forKey: IPIKeys.hasViewedOnboarding.rawValue)
     }
 
@@ -71,6 +74,7 @@ class StatesPreferences: NSObject {
         var myDic = [String:Any]()
 
         myDic[IPIKeys.isLogin.rawValue] = self.isLogin
+        myDic[IPIKeys.isThereAnAvatar.rawValue] = self.isThereAnAvatar
         myDic[IPIKeys.hasViewedOnboarding.rawValue] = self.hasViewedOnboarding
 
         return myDic
@@ -82,6 +86,7 @@ class StatesPreferences: NSObject {
     class func initState(fromDic dic: [String: Any]) -> StatesModel {
         let state = StatesModel()
         state.isLogin = dic[IPIKeys.isLogin.rawValue] as? Bool ?? false
+        state.isThereAnAvatar = dic[IPIKeys.isThereAnAvatar.rawValue] as? Bool ?? false
         state.hasViewedOnboarding = dic[IPIKeys.hasViewedOnboarding.rawValue] as? Bool ?? false
 
         return state

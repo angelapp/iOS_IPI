@@ -22,7 +22,8 @@ protocol SignupViewControllerDelegate: class {
 
 // Protocol for manage Sing In events
 protocol SigninViewControllerDelegate: class {
-    func signinRequest(email:String?, password:String?)
+    func sendMessage(withMessage msn: String)
+    func signinRequest(userToAuth: RegisterUserProfileModel)
 }
 
 // Protocol for manage recovery pass events

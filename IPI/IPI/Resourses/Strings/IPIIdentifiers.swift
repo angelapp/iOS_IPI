@@ -10,9 +10,10 @@ import Foundation
 
 // MARK: - Identificador de las vistas
 
-// Id for each storyboard
+/// Id for each storyboard
 enum StoryboardID: String {
-    case Main, LaunchScreen, OnBoarding
+    case LaunchScreen, OnBoarding, Authentication
+    case ConfigAvatar, Main, Popup
 }
 
 // Id for each scene into the storyboards

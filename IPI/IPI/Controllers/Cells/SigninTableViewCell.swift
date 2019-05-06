@@ -16,10 +16,10 @@ class SigninTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var btn_send: UIButton!
     @IBOutlet weak var btn_recovery: UIButton!
-    
+
     // MARK: - Properties
     weak var signinDelegate: SigninViewControllerDelegate?
-    
+
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,28 +31,28 @@ class SigninTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    
+
     // MARK: - Cell Functions
-    
+
     /// Add the labels to objects and set objects configuration
     func fillCell() {
-        
+
         //Set Values
         lbl_title.text = Labels.login_title
-        
+
         tf_email.placeholder = Labels.hint_email
         tf_email.delegate = self
         tf_email.tag = 0
-        
+
         tf_password.placeholder = Labels.hint_password
         tf_password.delegate = self
         tf_password.tag = 1
     }
-    
+
     //MARK: Métodos para el control de eventos del teclado
     //Action of the returnKey
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+
         // Try to find next responder
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
@@ -63,18 +63,40 @@ class SigninTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
         return false
     }
-    
+
     @IBAction func buttonAction(_ sender: UIButton) {
         switch  sender {
-            
+
         case btn_send:
-            signinDelegate?.signinRequest(email: tf_email.text!, password: tf_password.text!)
+
+            guard Validations.isValidData(fromField: tf_email), Validations.isValidData(fromField: tf_password) else {
+                signinDelegate?.sendMessage(withMessage: ErrorMessages.completeInformation)
+                return
+            }
+
+            guard Validations.isValidEmail(email: tf_email.text!) else {
+                signinDelegate?.sendMessage(withMessage: ErrorMessages.invalidEmail)
+                return
+            }
+
+            /*
+            if let usrlocal = AplicationRuntime.sharedManager.getUser() {
+                guard tf_email.text?.lowercased() == usrlocal?.email.lowercased() else {
+                    showErrorMessage(withMessage: ErrorStrings.invalidCredentials)
+                    return
+                }
+            }
+            */
+
+            let userRequest = RegisterUserProfileModel()
+            userRequest.email = tf_email.text
+            userRequest.password = tf_password.text
+
+            signinDelegate?.signinRequest(userToAuth: userRequest)
             break
-            
+
         default:
             break
         }
-        
     }
-
 }

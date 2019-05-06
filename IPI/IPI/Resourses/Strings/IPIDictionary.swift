@@ -24,6 +24,7 @@ enum IPIKeys: String {
     case head
     case image
     case isLogin
+    case isThereAnAvatar
     case nose
     case progress
     case states

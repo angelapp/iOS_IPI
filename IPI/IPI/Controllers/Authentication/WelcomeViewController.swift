@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
+
         // Check if the onboarding has viewed some time
         if (states != nil && states.hasViewedOnboarding) {
             return
@@ -50,21 +50,24 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Welcome Delegate
-    
+
     /// Update the state when user has viwed the onbording
     func updateOnboardingState(withState state:Bool){
         states.hasViewedOnboarding = true
         StorageFunctions.saveStates(states: states)
-        
+
         viewDidAppear(true)
     }
 
     // MARK: - private functions
     private func loadLocalData() {
-        //AplicationRuntime.sharedManager.setAppConfig(config: StorageFunctions.getAppConfig())
-        //AplicationRuntime.sharedManager.setUserData(user: StorageFunctions.getUser())
+
+        // Set data to runtime
+        AplicationRuntime.sharedManager.setAppConfig(config: StorageFunctions.getAppConfig())
+        AplicationRuntime.sharedManager.setUserData(user: StorageFunctions.getUser())
+
         states = StorageFunctions.getStates()
         avatarPieces = StorageFunctions.getAvatarPieces()
         avatar = StorageFunctions.loadAvatarImage()
@@ -87,38 +90,51 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
 
     private func startCose() {
 
+        // checks if App's configuration has already been loaded into runtime
         guard (AplicationRuntime.sharedManager.getAppConfig()) != nil else {
             return
         }
 
+
+        //checks if the user has been signed in at some time
         guard states != nil, states.isLogin  else {
             return
         }
 
         guard (AplicationRuntime.sharedManager.getUser()) != nil else {
+
+            // Update state from login state in local
             states.isLogin = false
             StorageFunctions.saveStates(states: states)
             return
         }
 
-//        guard self.contacts != nil && self.contacts.count > 0 else {
-//            self.presentConse(storyBoard: StoryboardsId.configAlert, inScreen: ViewControllersId.configAlert)
-//            return
-//        }
+        // checks if the user has created an Avatar.
+        guard self.avatarPieces != nil && self.avatarPieces.genderID != nil else {
 
-//        AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)
+            // Update state from avatar in local variables
+            states.isThereAnAvatar = false
+            StorageFunctions.saveStates(states: states)
 
-//        guard self.avatarPieces != nil && self.avatarPieces.skinID != nil else {
-//            self.presentConse(storyBoard: StoryboardsId.configAlert, inScreen: ViewControllersId.choiceAvatarGender)
-//            return
-//        }
+            // Start avatar maker
+            self.presentConse(storyBoard: StoryboardId.ConfigAvatar.rawValue)
+            return
+        }
 
+        // Set Avatar to runtime
         AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
         AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
 
-        //self.presentConse(storyBoard: StoryboardsId.main)
+        // Launch Home
+        self.presentConse(storyBoard: StoryboardId.Main.rawValue)
     }
 
+    /**
+    Config the Next view to launch
+
+    - Parameter storyBoard: Storyboard where the view is contained.
+    - Parameter inScreen: (Opcional) Name of the view
+    */
     private func presentConse(storyBoard sbName: String, inScreen vc: String? = nil){
         let sb = UIStoryboard(name: sbName, bundle: nil)
         if vc != nil {
@@ -131,15 +147,15 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
 
     private func getConfiguration() {
 
-        //let loader = LoadingOverlay(text: LoaderStrings.configApp)
+        let loader = LoadingOverlay(text: LoaderStrings.configApp)
         let headers: [[String:String]] = []
 
-        //loader.showOverlay(view: self.view)
+        loader.showOverlay(view: self.view)
         self.view.isUserInteractionEnabled = false
 
         Network.buildRequest(urlApi: NetworkGET.APP_CONFIGURATION, json: nullString, extraHeaders: headers, method: .methodGET, completion: {(response) in
 
-            //loader.hideOverlayView()
+            loader.hideOverlayView()
             self.view.isUserInteractionEnabled = true
 
             switch response {
@@ -156,14 +172,14 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
                 break
 
             case .succeededObject(let objReceiver):
-            
+
                 let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
 
+                // Save configuration data in Local and set to runtime
                 AplicationRuntime.sharedManager.setAppConfig(config: config!)
                 StorageFunctions.saveAppConfigInLocal(config: config!)
 
                 self.startCose()
-            
                 break
 
             default:
@@ -171,15 +187,4 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
             }
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

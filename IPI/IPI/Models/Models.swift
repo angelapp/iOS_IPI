@@ -130,9 +130,11 @@ class UserModel {
 class StatesModel {
     var hasViewedOnboarding: Bool!
     var isLogin: Bool!
+    var isThereAnAvatar: Bool!
 
     init() {
         self.isLogin = false
+        self.isThereAnAvatar = false
         self.hasViewedOnboarding = false
     }
 }
