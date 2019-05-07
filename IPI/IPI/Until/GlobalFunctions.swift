@@ -79,6 +79,21 @@ func convertToDictionary(text: String) -> [String: Any]? {
     return nil
 }
 
+/// Change font color and add underline
+/// - Parameter text: Text to apply style
+func addLinkStyle(forText text: String) -> NSAttributedString {
+    
+    let range = (text as NSString).range(of: text)
+    let textAttributed = NSMutableAttributedString(string: text)
+    let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+    let colorAttribute = [NSAttributedString.Key.foregroundColor: Colors().getColor(from: ConseColors.salmon.rawValue)]
+    
+    textAttributed.addAttributes(underlineAttribute, range: range)
+    textAttributed.addAttributes(colorAttribute, range: range)
+    
+    return textAttributed
+}
+
 class Validations {
     
     // Valida que los campos de texto no esten vacios

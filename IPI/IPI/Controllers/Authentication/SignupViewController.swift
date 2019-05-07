@@ -102,7 +102,63 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - SignupViewControllerDelegate
-    func signupRequest(email:String, password:String, confrimPass: String) {
+    func sendMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
+    }
+    
+    func signupRequest(userToRegister: RegisterUserProfileModel) {
+        
+        let loader = LoadingOverlay(text: LoaderStrings.login)
+        let json = Mapper().toJSONString(userToRegister, prettyPrint: true)
+        let headers:[[String:String]] = []
+        
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
+        Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let user = Mapper<RegisterUserResponse>().map(JSON: objReceiver as! [String: Any])
+                let stateModel = StorageFunctions.getStates()
+                stateModel.isLogin = true
+                
+                StorageFunctions.saveDataInLocal(user: user)
+                StorageFunctions.saveStates(states: stateModel)
+                
+                AplicationRuntime.sharedManager.setUserData(user: user)
+                
+                //Se limpian los datos almacenados en el local
+                let storage = StorageConfig.share
+                storage.clearParameterFromKey(key: IPIKeys.progress.rawValue)
+                storage.clearParameterFromKey(key: IPIKeys.activitiesProgress.rawValue)
+                
+                // Actualiza valores en runtime
+//                AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
+                
+                self.launchNextView()
+                break
+                
+                default:
+                break
+            }
+        })
         
     }
     
@@ -141,7 +197,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: - Functions
-    //Solicita los datos del usuario Facebook para enviarlos al servidor
+    // Solicita los datos del usuario Facebook para enviarlos al servidor
     func getFBData(fbloginresult : FBSDKLoginManagerLoginResult){
         FBSDKGraphRequest(graphPath: FBKeys.me, parameters: [FBKeys.fields: FBKeys.profileParams]).start(completionHandler: { (connection, resultData, error) -> Void in
             
@@ -173,5 +229,11 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //            nextVC.modalTransitionStyle = .crossDissolve
 //            self.present(nextVC, animated: true, completion: nil)
         })
+    }
+    
+    private func launchNextView() {
+        let sb = UIStoryboard(name: StoryboardID.ConfigAvatar.rawValue, bundle: nil)
+        printDebugMessage(tag: "next vc \(StoryboardID.ConfigAvatar.rawValue)")
+//        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
 }

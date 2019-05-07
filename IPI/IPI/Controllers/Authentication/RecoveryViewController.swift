@@ -143,7 +143,7 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
             case .succeededObject(let objReceiver):
 
                 let resp = objReceiver as! [String: Any]
-                self.showErrorMessage(withMessage: message, closeVC: true)
+                self.showErrorMessage(withMessage: resp[JSONKeys.detail] as! String, closeVC: true)
                 //self.view.makeToast(message: resp[JSONKeys.detail] as! String, duration: ToastDefaultDuration, position: HRToastPositionDefault as AnyObject)
 
                 break

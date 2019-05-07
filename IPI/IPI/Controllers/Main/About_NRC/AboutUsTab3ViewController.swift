@@ -42,7 +42,7 @@ class AboutUsTab3ViewController: UIViewController, UITableViewDelegate, UITableV
 
     // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 
     // Tamaño estimado de las celdas
@@ -53,7 +53,7 @@ class AboutUsTab3ViewController: UIViewController, UITableViewDelegate, UITableV
     // pintado de la tabla
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.aboutTab03, for: indexPath) as! AboutNRC3TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.aboutTab03Cell.rawValue, for: indexPath) as! AboutNRC3TableViewCell
 
         cell.fillCell()
 

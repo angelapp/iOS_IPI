@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ObjectMapperimport ObjectMapper
+import ObjectMapper
 
 class SigninViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SigninViewControllerDelegate {
 
@@ -101,6 +101,13 @@ class SigninViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         return cell
     }
+    
+    // MARK: - Prive Functions
+    private func startNextVC(name: String){
+//        let sb = UIStoryboard(name: name, bundle: nil)
+        printDebugMessage(tag: "Next view its: \(name)")
+//        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
 
     // MARK: - Singin Dalegate
     func sendMessage(withMessage msn: String) {
@@ -148,7 +155,7 @@ class SigninViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 StorageFunctions.saveStates(states: states)
 
                 // Check if exist Avatar
-                self.states.isThereAnAvatar ? self.startNextVC(name: StoryboardId.Main.rawValue) : self.startNextVC(name: StoryboardsId.ConfigAvatar.rawValue)
+                states.isThereAnAvatar ? self.startNextVC(name: StoryboardID.Main.rawValue) : self.startNextVC(name: StoryboardID.ConfigAvatar.rawValue)
 
                 break
 

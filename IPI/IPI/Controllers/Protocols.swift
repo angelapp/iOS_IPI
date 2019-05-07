@@ -17,7 +17,8 @@ protocol OnBoardingPageViewControllerDelegate: class {
 protocol SignupViewControllerDelegate: class {
     func facebookSignup()
     func googleSignup()
-    func signupRequest(email:String, password:String, confrimPass: String)
+    func sendMessage(withMessage msn: String)
+    func signupRequest(userToRegister: RegisterUserProfileModel)
 }
 
 // Protocol for manage Sing In events
@@ -36,4 +37,9 @@ protocol RecoveryViewControllerDelegate: class {
 // Protocol for Welcome
 protocol WelcomeViewControllerDelegate: class {
     func updateOnboardingState(withState state:Bool)
+}
+
+// Protocolo para Sobre NRC
+protocol AboutNRCTabProtocol: class {
+    func changeTabSelected(toPosition: Int)
 }

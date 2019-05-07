@@ -79,6 +79,27 @@ class SignupTableViewCell: UITableViewCell, UITextFieldDelegate {
             break
             
         default:
+            guard Validations.isValidData(fromField: tf_email), Validations.isValidData(fromField: tf_password1), Validations.isValidData(fromField: tf_password2) else {
+                signupDelegate?.sendMessage(withMessage: ErrorMessages.completeInformation)
+                return
+            }
+            
+            guard Validations.isValidEmail(email: tf_email.text!) else {
+                signupDelegate?.sendMessage(withMessage: ErrorMessages.invalidEmail)
+                return
+            }
+            
+            // Se validan las contraseñas
+            guard  tf_password1.text! == tf_password2.text else {
+                signupDelegate?.sendMessage(withMessage: ErrorMessages.pswNotMatch)
+                return
+            }
+            
+            let userRequest = RegisterUserProfileModel()
+            userRequest.email = tf_email.text
+            userRequest.password = tf_password1.text
+            
+            signupDelegate?.signupRequest(userToRegister: userRequest)
             break
         }
         

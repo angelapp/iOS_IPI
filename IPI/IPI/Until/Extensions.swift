@@ -45,7 +45,7 @@ extension UIViewController {
             alert.dismiss(animated: false, completion: nil)
 
             // Closed parent viewController
-            if closeVC {
+            if closeVC ?? false {
                 self.dismiss(animated: true, completion: nil)
             }
         }

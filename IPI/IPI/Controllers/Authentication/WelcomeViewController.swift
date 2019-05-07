@@ -117,7 +117,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
             StorageFunctions.saveStates(states: states)
 
             // Start avatar maker
-            self.presentConse(storyBoard: StoryboardId.ConfigAvatar.rawValue)
+            self.presentConse(storyBoard: StoryboardID.ConfigAvatar.rawValue)
             return
         }
 
@@ -126,7 +126,7 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
         AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
 
         // Launch Home
-        self.presentConse(storyBoard: StoryboardId.Main.rawValue)
+        self.presentConse(storyBoard: StoryboardID.Main.rawValue)
     }
 
     /**
@@ -136,13 +136,14 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
     - Parameter inScreen: (Opcional) Name of the view
     */
     private func presentConse(storyBoard sbName: String, inScreen vc: String? = nil){
-        let sb = UIStoryboard(name: sbName, bundle: nil)
-        if vc != nil {
-            self.present(sb.instantiateViewController(withIdentifier: vc!), animated: true, completion: nil)
-        }
-        else{
-            self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
-        }
+//        let sb = UIStoryboard(name: sbName, bundle: nil)
+        printDebugMessage(tag: "NextVC \(sbName)")
+//        if vc != nil {
+//            self.present(sb.instantiateViewController(withIdentifier: vc!), animated: true, completion: nil)
+//        }
+//        else{
+//            self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+//        }
     }
 
     private func getConfiguration() {

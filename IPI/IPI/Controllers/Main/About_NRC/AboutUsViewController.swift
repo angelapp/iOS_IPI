@@ -51,22 +51,22 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
 
     // MARK: - Private Functions
     private func instanciateTabs() {
-        tab1 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab1) as! AboutUsTab1ViewController
-        tab2 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab2) as! AboutUsTab2ViewController
-        tab3 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab3) as! AboutUsTab3ViewController
+        tab1 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.aboutUs_tab1.rawValue) as? AboutUsTab1ViewController
+        tab2 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.aboutUs_tab2.rawValue) as? AboutUsTab2ViewController
+        tab3 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.aboutUs_tab3.rawValue) as? AboutUsTab3ViewController
     }
 
     private func showTab(tab: UIViewController) {
 
         if container.subviews.count > 0 {
-            let vc = self.childViewControllers.last
-            vc?.willMove(toParentViewController: nil)
+            let vc = self.children.last
+            vc?.willMove(toParent: nil)
             vc?.view.removeFromSuperview()
-            vc?.removeFromParentViewController()
+            vc?.removeFromParent()
         }
 
         //Agrega el nuevo controlador como hijo
-        addChildViewController(tab)
+        addChild(tab)
         //Se ajusta el tamaño de nuevo vc al tamaño del contenedor
         tab.view.frame = CGRect(x: 0, y: 0, width: container.frame.width, height: container.frame.height)
         //Se agrega la vista al contenedor
@@ -74,14 +74,14 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
         //recarga el controlador
         tab.viewDidLoad()
         //Se notifica
-        tab.didMove(toParentViewController: self)
+        tab.didMove(toParent: self)
     }
 
     // MARK: - Actions
     func changeTab() {
 
         let indexPath = IndexPath(row: currentTab, section: 0)
-        button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
+        button_collection.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.right, animated: true)
 
         switch currentTab {
 
@@ -119,7 +119,7 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     //fill collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.aboutNRCTabs, for: indexPath) as! TabButtonsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.aboutTabButtonsCell.rawValue, for: indexPath) as! TabButtonsCollectionViewCell
 
         cell.aboutNRCTabDelegate = self
         cell.titleButton = tabs[indexPath.row]

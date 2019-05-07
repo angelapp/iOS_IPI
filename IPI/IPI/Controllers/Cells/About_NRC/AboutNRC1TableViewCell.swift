@@ -57,7 +57,7 @@ class AboutNRC1TableViewCell: UITableViewCell {
             break
         }
 
-        let webURL = stringURL.contains(Strings.hasHTTPProtocol) ? stringURL : Strings.httpProtocol + stringURL
+        let webURL = stringURL.contains(WebsiteURL.hasHTTPProtocol) ? stringURL : WebsiteURL.httpProtocol + stringURL
 
         if let url = URL(string: webURL), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
@@ -91,7 +91,7 @@ class AboutNRC1TableViewCell: UITableViewCell {
         lbl_twitter.tag =  AboutNRC.LinkID.twitter.rawValue
 
         lbl_webPage.attributedText = addLinkStyle(forText: AboutNRC.Social.copy_webpage)
-        lbl_webPage.tag =  AboutNRC.LinkID.webpage.rawValue
+        lbl_webPage.tag =  AboutNRC.LinkID.conseWebpage.rawValue
 
         // Gesture for link
         let tapLinkFB = UITapGestureRecognizer(target: self, action: #selector(self.tapLink))

@@ -108,6 +108,9 @@ struct WebsiteURL {
     static let twitter = "https://twitter.com/NRC_LAC"
     static let nrc = "http://www.nrc.org.co/"
     static let ipi = "https://ipi.conse.co/"
+    
+    static let hasHTTPProtocol = "http"
+    static let httpProtocol = "http://"
 }
 
 /// Id's de los videos en Youtube!
