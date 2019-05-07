@@ -33,8 +33,6 @@ let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 struct AvatarStrings {
     static let avatarTitle = "Arma tu Conse"
     static let avatarMessage = "El Consejero o Consejera es una persona que te acompañará mientras estés usando la aplicación. Inicia seleccionando si quieres que sea hombre o mujer y luego define sus rasgos físicos y accesorios."
-    static let btn_avatarMale = "Conse Hombre"
-    static let btn_avatarFemale = "Conse Mujer"
     static let uploadSuccess = "Avatar guardado satisfactoriamente!"
 }
 
@@ -43,7 +41,9 @@ struct ConfigStrings {
     static let letStartTitle = "¡Iniciemos!"
 }
 
-// MARK: - Buttons
+
+static let btn_arMale = "Conse Hombre"
+    static let btn_avatarFemale = "Conse Mujer"    // MARK: - Buttons
 struct Buttons {
     static let accept = "Aceptar"
     static let end = "FINALIZAR"
@@ -67,6 +67,13 @@ struct Labels {
     static let hint_password = "Contraseña"
     static let hint_new_password = "Escribe una contraseña"
     static let hint_confirm_pwssd = "Confirma la contraseña"
+    static let hint_contact_message = "Escribe aquí tu mensaje"
+    static let hint_kindofMessage = "Seleccione..."
+
+    static let contact_kindOfMessage = "Tipo de mensaje"
+    static let contact_messageTitle = "Tu mensaje"
+    static let contact_telephone = "Tú Teléfono"
+    static let contact_title = "DÉJANOS TU MENSAJE"
 }
 
 // MARK: - Error Messages
@@ -108,7 +115,7 @@ struct WebsiteURL {
     static let twitter = "https://twitter.com/NRC_LAC"
     static let nrc = "http://www.nrc.org.co/"
     static let ipi = "https://ipi.conse.co/"
-    
+
     static let hasHTTPProtocol = "http"
     static let httpProtocol = "http://"
 }

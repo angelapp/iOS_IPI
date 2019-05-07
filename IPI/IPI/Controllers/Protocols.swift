@@ -43,3 +43,7 @@ protocol WelcomeViewControllerDelegate: class {
 protocol AboutNRCTabProtocol: class {
     func changeTabSelected(toPosition: Int)
 }
+
+protocol ContactUsViewControllerDelegate: class {
+    func sendMessage(withMessage msn: String)
+}

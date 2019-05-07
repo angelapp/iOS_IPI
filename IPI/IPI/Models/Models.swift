@@ -119,11 +119,17 @@ class MyAvatarPieces {
 }
 
 /* State: pending */
-class UserModel {
+//class UserModel {
+//    var email: String!
+//    var username: String!
+//    var token: String!
+//    var id: Int!
+//}
+
+/// Model used for send request by socialnetwork
+class SocialNetworkRegister {
     var email: String!
-    var username: String!
-    var token: String!
-    var id: Int!
+    var access_token: String!
 }
 
 /// Model Used for keep the Authentication states
