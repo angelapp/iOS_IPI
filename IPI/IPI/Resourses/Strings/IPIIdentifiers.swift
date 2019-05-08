@@ -25,22 +25,24 @@ enum StoryboardID: String, CaseIterable{
 // Id for each scene into the storyboards
 enum ViewControllerID: String, CaseIterable {
 
-    // Onboarding tags
+    // Onboarding
     case OnBoardingVC, OnBoardingContentVC, OnBoardingPageVC
 
-    // Authentication tags
+    // Authentication
     case welcomeVC, signinVC, signupVC, recoveryVC
 
-    // About us tags
+    // About us
     case aboutUs, aboutUs_tab1, aboutUs_tab2, aboutUs_tab3
 
-    // Avatar tags
+    // Avatar
     case choiceAvatarGender, makeAvatar, letStart
 
-    // Menu tags
-    case leftMenu, swMenu
-
-    case contactUsVC
+    // Menu
+    case leftMenu
+    case swMenu
+    case contactUs
+    case beforeYourTripVC, planYourTripVC, savedTripVC
+    case basicConceptsVC
 
     static var asArray: [ViewControllerID] {return self.allCases}
 
