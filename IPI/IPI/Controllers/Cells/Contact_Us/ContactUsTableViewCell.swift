@@ -82,11 +82,39 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
             tv_message.textColor = .black
         }
 
+        // Add tap gesture to message type View
+        let tapSpinner = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageType))
+        cnt_messageType.addGestureRecognizer(tapSpinner)
+
         addDoneButtonOnKeyboard()
     }
 
-     private func showHiddenPicker() {
+    private func showHiddenPicker() {
         cnt_picker.isHidden = !cnt_picker.isHidden
+    }
+
+    private func prepareRequest() {
+        // Check if there is information to send
+        guard messageTypeID != nil, !message.isEmpty, message != nullString,
+              tf_telephone.text != nil, tf_telephone.text != nullString else {
+                  contactDelegate?.sendMessage(withMessage: ErrorMessages.completeInformation)
+                  return
+        }
+
+        //Add form information in message with the next format
+        //Email: str, Teléfono: str; Mensaje: str.
+        let user: UserSerializer = AplicationRuntime.sharedManager.getUser()
+        message = String(format: Formats.contactMessage, user.email, tf_telephone.text!, message)
+
+        //Create Model for send
+        let form = ContactForm()
+
+        form.detail = message
+        form.message_type = messageTypeID
+        form.user = AplicationRuntime.sharedManager.getUserID()
+
+        // send request
+        contactDelegate?.sendRequest(contactForm: form)
     }
 
     //MARK: Métodos para el control de eventos del teclado
@@ -96,7 +124,7 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
         doneToolbar.barStyle = UIBarStyle.default
         doneToolbar.items = [
             UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: Strings.button_accept, style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
+            UIBarButtonItem(title: Buttons.accept, style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
         ]
 
         doneToolbar.sizeToFit()
@@ -197,29 +225,22 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
         showHiddenPicker()
     }
 
+    // MARK: Buttons Actions
     @IBAction func buttonAction(_ sender: UIButton) {
         switch  sender {
 
-        case btn_send:
+        case btn_cancel:
+            showHiddenPicker()
+            break
 
-            guard Validations.isValidData(fromField: tf_email) else {
-                recoveryDelegate?.sendMessage(withMessage: ErrorMessages.completeInformation)
-                return
-            }
-
-            guard Validations.isValidEmail(email: tf_email.text!) else {
-                recoveryDelegate?.sendMessage(withMessage: ErrorMessages.invalidEmail)
-                return
-            }
-
-            let username = RegisterUserProfileModel()
-            username.email = tf_email.text
-
-            recoveryDelegate?.sendRecoveryPost(email: username)
+        case btn_confrim:
+            lbl_promtMesaggeType.text = messageTypeList[0].name
+            messageTypeID = messageTypeList[0].id
+            showHiddenPicker()
             break
 
         default:
-            recoveryDelegate?.dismiss()
+            prepareRequest()
             break
         }
 

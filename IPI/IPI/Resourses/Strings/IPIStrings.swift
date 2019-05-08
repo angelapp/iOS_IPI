@@ -31,21 +31,18 @@ let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 
 // MARK: - AVATAR, CONFIG
 struct AvatarStrings {
-    static let avatarTitle = "Arma tu Conse"
-    static let avatarMessage = "El Consejero o Consejera es una persona que te acompañará mientras estés usando la aplicación. Inicia seleccionando si quieres que sea hombre o mujer y luego define sus rasgos físicos y accesorios."
+    static let title = "Arma tu Conse"
+    static let message = "El Consejero o Consejera es una persona que te acompañará mientras estés usando la aplicación. Inicia seleccionando si quieres que sea hombre o mujer y luego define sus rasgos físicos y accesorios."
     static let uploadSuccess = "Avatar guardado satisfactoriamente!"
-}
-
-struct ConfigStrings {
     static let letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
     static let letStartTitle = "¡Iniciemos!"
 }
 
-
-static let btn_arMale = "Conse Hombre"
-    static let btn_avatarFemale = "Conse Mujer"    // MARK: - Buttons
+// MARK: - Buttons
 struct Buttons {
     static let accept = "Aceptar"
+    static let avatar_Male = "Conse Hombre"
+    static let avata_Female = "Conse Mujer"
     static let end = "FINALIZAR"
     static let forgot = "¿Olvidaste la contraseña?"
     static let login = "O inicia sesión"
@@ -144,5 +141,6 @@ struct DateTimeFormat {
 struct Formats {
     static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let matchesFormat = "SELF MATCHES %@"
+    static let contactMessage = "Email: %@ \n\n Teléfono: %@ \n\n Mensaje: %@"
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }

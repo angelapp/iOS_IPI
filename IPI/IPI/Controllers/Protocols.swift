@@ -44,6 +44,8 @@ protocol AboutNRCTabProtocol: class {
     func changeTabSelected(toPosition: Int)
 }
 
+// Protocol for Contact Form
 protocol ContactUsViewControllerDelegate: class {
     func sendMessage(withMessage msn: String)
+    func sendRequest(contactForm: ContactForm)
 }

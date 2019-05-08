@@ -18,7 +18,6 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
     weak var mainDelegate: MainProtocol?
 
     var messageTypeList: Array<ContactFormType> = []
-    var messageTypeID: Int!
     var message: String = nullString
 
     // MARK: - Lifecycle
@@ -26,8 +25,8 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         // Get picker and mainDelegate form options from runtime
-        //messageTypeList = AplicationRuntime.sharedManager.getContactFormTypeList()
-        //mainDelegate = AplicationRuntime.sharedManager.mainDelegate
+        messageTypeList = AplicationRuntime.sharedManager.getContactFormTypeList()
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
 
         //It's added observable to scroll view when the keyboard is shown / hidden
         NotificationCenter.default.removeObserver(Any.self)
@@ -56,43 +55,50 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         singin_tableView.isScrollEnabled = false
     }
 
-    /* Update until here */
-    // MARK: - Private Functions
-    private func addStyles() {
-
-        // Add tap gesture to message type View
-        let tapSpinner = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageType))
-        cnt_messageType.addGestureRecognizer(tapSpinner)
+    // MARK: - TableView delegate and datasource
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
-    // MARK: - Request
-    private func prepareRequest() {
-
-        guard messageTypeID != nil, !message.isEmpty else {
-            self.showErrorMessage(withMessage: ErrorStrings.requiredData)
-            return
-        }
-
-        guard tf_telephone.text != nil else {
-            self.showErrorMessage(withMessage: ErrorStrings.requiredData)
-            return
-        }
-
-        //Se agregan datos adiciones al mesage con el formato siguiente
-        // Teléfono: #; Mensaje: str; Nombres: str;  Email: str.
-        let user: UserSerializer = AplicationRuntime.sharedManager.getUser()
-        let name = String(format: Strings.fullname_format, user.first_name, user.last_name)
-        message = String(format: Formats.contactMessage, tf_telephone.text!, message, name, user.email)
-
-        let form = ContactForm()
-        form.detail = message
-        form.message_type = messageTypeID
-        form.user = AplicationRuntime.sharedManager.getUserID()
-
-        sendRequest(contactForm: form)
+    // Número de filas
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 
-    private func sendRequest(contactForm: ContactForm) {
+    // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView.bounds.height < 640 {
+            return UITableView.automaticDimension
+        }
+        else {
+            return tableView.bounds.height
+        }
+    }
+
+    // Tamaño estimado de las celdas
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.bounds.height
+    }
+
+    // pintado de la tabla
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.contactUsCell.rawValue, for: indexPath) as! ContactUsTableViewCell
+
+        cell.contactDelegate = self
+        cell.messageTypeList = self.messageTypeList
+        cell.fillCell()
+
+        return cell
+    }
+
+    // MARK: - Singin Dalegate
+    func sendMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
+    }
+
+    func sendRequest(contactForm: ContactForm) {
 
         let json = Mapper().toJSONString(contactForm, prettyPrint: true)
         let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
@@ -120,12 +126,8 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
 
                 _ = Mapper<ContactForm>().map(JSON: objReceiver as! [String: Any])
 
-                self.lbl_promtMesaggeType.text = Strings.texfiled_placeholder
-                self.tf_telephone.text = nil
-                self.tv_message.text = Strings.contact_messagePlaceholder
-                self.tv_message.textColor = .lightGray
-
-                self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_contact)
+                self.contact_tableView.reload()
+                self.mainDelegate?.showMessageInMain(withMessage: Labels.message_ok_contact)
 
                 break
 
@@ -135,27 +137,4 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         })
 
     }
-
-
-    // MARK: - Actions
-    @IBAction func actionButtons(_ sender: UIButton) {
-
-        switch sender {
-
-        case btn_cancel:
-            showHiddenPicker()
-            break
-
-        case btn_confrim:
-            lbl_promtMesaggeType.text = messageTypeList[0].name
-            messageTypeID = messageTypeList[0].id
-            showHiddenPicker()
-            break
-
-        default:
-            prepareRequest()
-            break
-        }
-    }
-
 }

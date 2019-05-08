@@ -29,8 +29,8 @@ class ChoiceAvatarGenderViewController: UIViewController {
         //setAspectFitToButton(buttons: btn_man, btn_woman)
 
         // Fill labels
-        lbl_title.text = AvatarStrings.avatarTitle
-        lbl_message.text = AvatarStrings.avatarMessage
+        lbl_title.text = AvatarStrings.title
+        lbl_message.text = AvatarStrings.message
 
         // Muestra u oculta el botón de volver
         //btn_dismiss.isHidden = !isEdit
