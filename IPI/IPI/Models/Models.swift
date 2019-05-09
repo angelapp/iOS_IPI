@@ -127,9 +127,21 @@ class MyAvatarPieces {
 //}
 
 /// Model used for send request by socialnetwork
-class SocialNetworkRegister {
+class SocialNetworkRegister : Mappable {
     var email: String!
     var access_token: String!
+    
+    //inicializador vacio
+    init() {
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        email <- map[JSONKeys.email]
+        access_token <- map[JSONKeys.access_token]
+    }
 }
 
 /// Model Used for keep the Authentication states

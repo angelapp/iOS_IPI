@@ -49,3 +49,8 @@ protocol ContactUsViewControllerDelegate: class {
     func sendMessage(withMessage msn: String)
     func sendRequest(contactForm: ContactForm)
 }
+
+// Protocolos del controllador principal
+protocol MainProtocol: class {
+    
+}

@@ -11,21 +11,15 @@ import FBSDKCoreKit
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         //Facebook properties
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // End Facebook
-
-        // [Start Google properties]
-        GIDSignIn.sharedInstance().clientID = "YOUR_CLIENT_ID"
-        GIDSignIn.sharedInstance().delegate = self
-        // [End Google]
 
         return true
     }
@@ -68,39 +62,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    // [START signin_handler GOOGLE ]
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-
-         if let error = error {
-             print("\(error.localizedDescription)")
-
-             // [START_EXCLUDE silent]
-             NotificationCenter.default.post(name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-             // [END_EXCLUDE]
-         }
-         else {
-             // Perform any operations on signed in user here.
-             let userId = user.userID                  // For client-side use only!
-             let idToken = user.authentication.idToken // Safe to send to the server
-             let email = user.profile.email
-
-              // [START_EXCLUDE]
-              NotificationCenter.default.post(name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: ["statusText": "Signed in user:\n\(fullName)"])
-              // [END_EXCLUDE]
-        }
-    }
-
-    // [END signin_handler]
-
-    // [START disconnect_handler]
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-
-        // Perform any operations when the user disconnects from app here.
-        // [START_EXCLUDE]
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: ["statusText": "User has disconnected."])
-        // [END_EXCLUDE]
-    }
-    // [END disconnect_handler]
 }
-

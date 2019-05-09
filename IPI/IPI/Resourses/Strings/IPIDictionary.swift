@@ -54,6 +54,7 @@ struct JSONKeys {
     //MARK: - A
     //static let about_noruegan_council = "about_noruegan_council"
     static let abreviature = "abreviature"
+    static let access_token = "access_token"
     //static let actual_city = "actual_city"
     static let address = "address"
     static let avatar_piece = "avatar_piece"

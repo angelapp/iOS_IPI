@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import GoogleSignIn
 import FBSDKLoginKit
 import FacebookCore
 import ObjectMapper
 
-class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SignupViewControllerDelegate {
+class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SignupViewControllerDelegate, GIDSignInDelegate, GIDSignInUIDelegate  {
 
     // MARK: - Outlets
     @IBOutlet var singup_tableView : UITableView!
@@ -19,6 +20,12 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance().clientID = "773365250219-f2l0oelfvnsh3ansn3h6o8ur2r3ugh4h.apps.googleusercontent.com"
+        
+        //adding the delegates
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
 
         //It's added observable to scroll view when the keyboard is shown / hidden
         NotificationCenter.default.removeObserver(Any.self)
@@ -207,7 +214,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 storage.clearParameterFromKey(key: IPIKeys.activitiesProgress.rawValue)
 
                 // Actualiza valores en runtime
-                AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
+                //AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
 
                 self.launchNextView()
                 break
@@ -249,8 +256,21 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func googleSignup() {
-
-        //signupRequest(userToRegister: user, urlApi: NetworkPOST.GOOGLE_LOGGIN)
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    // MARK: Google Delegate
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        //if any error stop and print the error
+        if error != nil{
+            print(error.localizedDescription)
+            return
+        }
+        
+        //if success display the email on label
+        printDebugMessage(tag: user.profile.email)
+        printDebugMessage(tag: user.authentication.idToken)
     }
 
     // MARK: - Functions
@@ -276,7 +296,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let fbToken = fbloginresult.token.tokenString
             user.access_token = fbToken
 
-            signupRequest(userToRegister: user, urlApi: NetworkPOST.FACEBOOK_LOGGIN)
+            self.signupRequest(userToRegister: user, urlApi: NetworkPOST.FACEBOOK_LOGGIN)
         })
     }
 
