@@ -118,8 +118,8 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_intro:
-            let sb = UIStoryboard(name: StoryboardID.OnBoarding, bundle: nil)
-            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.OnBoardingVC) as! OnBoardingViewController
+            let sb = UIStoryboard(name: StoryboardID.OnBoarding.rawValue, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.OnBoardingVC.rawValue) as! OnBoardingViewController
 
             nextVC.modalPresentationStyle = .overCurrentContext
             nextVC.modalTransitionStyle = .crossDissolve
@@ -129,8 +129,8 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_edit_Profile:
-            let sb = UIStoryboard(name: StoryboardID.OnBoarding, bundle: nil)
-            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.choiceAvatarGender) as! ChoiceAvatarGenderViewController
+            let sb = UIStoryboard(name: StoryboardID.OnBoarding.rawValue, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.choiceAvatarGender.rawValue) as! ChoiceAvatarGenderViewController
 
             nextVC.modalPresentationStyle = .overCurrentContext
             nextVC.modalTransitionStyle = .crossDissolve
@@ -155,7 +155,7 @@ class LeftMenuViewController: UIViewController {
             StorageFunctions.saveStates(states: states)
 
             // Launch Auth Screen
-            let sb = UIStoryboard(name: StoryboardsId.auth, bundle: nil)
+            let sb = UIStoryboard(name: StoryboardID.Authentication.rawValue, bundle: nil)
             self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
 
             // Close menu

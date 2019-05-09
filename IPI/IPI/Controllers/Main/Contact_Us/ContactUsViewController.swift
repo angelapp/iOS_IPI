@@ -47,12 +47,12 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Action for Gestures
     //Observer for increment contentSize in the tableView
     @objc func keyboardWillShow(notification: NSNotification) {
-        self.singin_tableView.isScrollEnabled = true
+        self.contact_tableView.isScrollEnabled = true
     }
 
     //Obeserver for move frame to origin when keyboard is hiden
     @objc func keyboardWillHide(notification: NSNotification) {
-        singin_tableView.isScrollEnabled = false
+        contact_tableView.isScrollEnabled = false
     }
 
     // MARK: - TableView delegate and datasource
@@ -126,8 +126,8 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
 
                 _ = Mapper<ContactForm>().map(JSON: objReceiver as! [String: Any])
 
-                self.contact_tableView.reload()
-                self.mainDelegate?.showMessageInMain(withMessage: Labels.message_ok_contact)
+                self.contact_tableView.reloadData()
+//                self.mainDelegate?.showMessageInMain(withMessage: Labels.message_ok_contact)
 
                 break
 

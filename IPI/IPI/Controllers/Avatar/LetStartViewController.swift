@@ -32,8 +32,8 @@ class LetStartViewController: UIViewController {
         img_avatar.image = StorageFunctions.loadAvatarImage()
 
         // fill lables
-        lbl_title.text = ConfigStrings.letStartTitle
-        lbl_mesasage.text = ConfigStrings.letStartMessage
+        lbl_title.text = AvatarStrings.letStartTitle
+        lbl_mesasage.text = AvatarStrings.letStartMessage
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class LetStartViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton){
-        let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
+        let sb = UIStoryboard(name: StoryboardID.Main.rawValue, bundle: nil)
         self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
 }

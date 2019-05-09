@@ -32,7 +32,7 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
     @IBOutlet weak var tv_message: UITextView!
 
     // MARK: - Properties
-    weak var contactDelegate: ContactUsViewControllerDelegate
+    weak var contactDelegate: ContactUsViewControllerDelegate?
 
     var messageTypeList: Array<ContactFormType> = []
     var messageTypeID: Int!
@@ -65,7 +65,7 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
         lbl_messageType.text = Labels.contact_kindOfMessage
         lbl_promtMesaggeType.text = Labels.hint_kindofMessage
         lbl_telephone.text = Labels.contact_telephone
-        lbl_title.text = Strings.contact_title
+        lbl_title.text = Labels.contact_title
 
         tf_telephone.placeholder = Labels.contact_telephone
 
@@ -119,6 +119,7 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
 
     //MARK: Métodos para el control de eventos del teclado
     /// Se agrega boton de retorno o confirmacion al teclado numerico
+    /** REVISAR **/
     func addDoneButtonOnKeyboard() {
         let doneToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 50))
         doneToolbar.barStyle = UIBarStyle.default
