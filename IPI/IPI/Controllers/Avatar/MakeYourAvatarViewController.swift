@@ -146,7 +146,6 @@ class MakeYourAvatarViewController: UIViewController {
             col = 0
             for subView in view.subviews {
                 if let img = subView as? UIImageView {
-                    /** REVISAR **/
                     downloadImage(imgView: img, urlImage: piecesGrid[row][col].icon)
                     col += 1
                 }
@@ -169,35 +168,30 @@ class MakeYourAvatarViewController: UIViewController {
         switch listPart {
 
         case HEAD_GRID:
-            /** REVISAR **/
             downloadImage(imgView: img_avatarHead, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupHead, buttonId: sender.tag)
             myAvatar?.headID = piecesGrid[listPart][posInList].id
             break
 
         case EYES_GRID:
-            /** REVISAR **/
             downloadImage(imgView: img_avatarEyes, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupEyes, buttonId: sender.tag)
             myAvatar?.eyesID = piecesGrid[listPart][posInList].id
             break
 
         case NOSE_GRID:
-            /** REVISAR **/
             downloadImage(imgView: img_avatarNose, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupNose, buttonId: sender.tag)
             myAvatar?.noseID = piecesGrid[listPart][posInList].id
             break
 
         case HAIR_GRID:
-            /** REVISAR **/
             downloadImage(imgView: img_avatarHair, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupHair, buttonId: sender.tag)
             myAvatar?.hairID = piecesGrid[listPart][posInList].id
             break
 
         case ACCESSORIES_GRID:
-            /** REVISAR **/
             downloadImage(imgView: img_avatarAcc, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupAcc, buttonId: sender.tag)
             myAvatar?.accID = piecesGrid[listPart][posInList].id
@@ -217,9 +211,8 @@ class MakeYourAvatarViewController: UIViewController {
         // Verifica que se hayan seleccionado todas las partes del avatar
         guard myAvatar?.headID != nil, myAvatar?.hairID != nil, myAvatar?.eyesID != nil,
             myAvatar?.noseID != nil, myAvatar?.accID != nil else {
-                /** REVISAR **/
-            self.showErrorMessage(withMessage: ErrorMessages.avatarIncomplete)
-            return
+                self.showErrorMessage(withMessage: ErrorMessages.missingAvatarSelection)
+                return
         }
 
         // Verifica que se hallan podido descargar las imagenes del servidor
@@ -229,7 +222,6 @@ class MakeYourAvatarViewController: UIViewController {
         }
 
         // Crea una imagen combinado todas las partes y la guarda en el dispositivo y en el runtime
-        /** REVISAR **/
         let avatar = UIImage.combine(images: img_avatarHead.image!, img_avatarEyes.image!, img_avatarNose.image!, img_avatarHair.image!, img_avatarAcc.image!)
 
         AplicationRuntime.sharedManager.setAvatarImage(img: avatar)

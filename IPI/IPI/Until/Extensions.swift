@@ -54,3 +54,72 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
+
+// Link action as tapGesture
+// REVISAR
+extension UITapGestureRecognizer {
+
+    // http://samwize.com/2016/03/04/how-to-create-multiple-tappable-links-in-a-uilabel/
+    func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
+
+        // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
+        let layoutManager = NSLayoutManager()
+        let textContainer = NSTextContainer(size: CGSize.zero)
+        let textStorage = NSTextStorage(attributedString: label.attributedText!)
+
+        // Configure layoutManager and textStorage
+        layoutManager.addTextContainer(textContainer)
+        textStorage.addLayoutManager(layoutManager)
+
+        // Configure textContainer
+        textContainer.lineFragmentPadding = 0.0
+        textContainer.lineBreakMode = label.lineBreakMode
+        textContainer.maximumNumberOfLines = label.numberOfLines
+        let labelSize = label.bounds.size
+        textContainer.size = labelSize
+
+        // Find the tapped character location and compare it to the specified range
+        let locationOfTouchInLabel = self.location(in: label)
+        let textBoundingBox = layoutManager.usedRect(for: textContainer)
+
+        let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
+                                          y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y)
+
+        let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x,
+                                                     y: locationOfTouchInLabel.y - textContainerOffset.y)
+
+        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer,
+                                                            in: textContainer,
+                                                            fractionOfDistanceBetweenInsertionPoints: nil)
+
+        return NSLocationInRange(indexOfCharacter, targetRange)
+    }
+}
+
+extension UIImage {
+
+    // Combiana las imagenes de entrada para generar una única imagen
+    class func combine(images: UIImage...) -> UIImage {
+        var contextSize = CGSize.zero
+
+        for image in images {
+            contextSize.width = max(contextSize.width, image.size.width)
+            contextSize.height = max(contextSize.height, image.size.height)
+        }
+
+        UIGraphicsBeginImageContextWithOptions(contextSize, false, UIScreen.main.scale)
+
+        for image in images {
+            let originX = (contextSize.width - image.size.width) / 2
+            let originY = (contextSize.height - image.size.height) / 2
+
+            image.draw(in: CGRect(x: originX, y: originY, width: image.size.width, height: image.size.height))
+        }
+
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return combinedImage!
+    }
+}

@@ -39,3 +39,25 @@ func addBoldWord(forText text: String, toWord words: String..., fontSize size: C
 
     return attributeText
 }
+
+/// Escala la imagen dentro del botón con AspectFit
+func setAspectFitToButton(buttons: UIButton...){
+    for button in buttons {
+        button.imageView?.contentMode = .scaleAspectFit
+    }
+}
+
+/// Change font color and add underline
+/// - Parameter text: Text to apply style REVISAR
+func addLinkStyle(forText text: String) -> NSAttributedString {
+
+    let range = (text as NSString).range(of: text)
+    let textAttributed = NSMutableAttributedString(string: text)
+    let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+    let colorAttribute = [NSAttributedString.Key.foregroundColor: Colors().getColor(from: ConseColors.salmon.rawValue)]
+
+    textAttributed.addAttributes(underlineAttribute, range: range)
+    textAttributed.addAttributes(colorAttribute, range: range)
+
+    return textAttributed
+}
