@@ -13,7 +13,6 @@ class ChoiceAvatarGenderViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var btn_man: UIButton!
     @IBOutlet weak var btn_woman: UIButton!
-    @IBOutlet weak var btn_dismiss: UIButton!
 
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_message: UILabel!
@@ -26,7 +25,8 @@ class ChoiceAvatarGenderViewController: UIViewController {
         super.viewDidLoad()
 
         // Add buttons style
-        //setAspectFitToButton(buttons: btn_man, btn_woman)
+        setButtonTitle(button: btn_man, title: Buttons.avatar_Male)
+        setButtonTitle(button: btn_woman, title: Buttons.avata_Female)
 
         // Fill labels
         lbl_title.text = AvatarStrings.title
@@ -67,4 +67,12 @@ class ChoiceAvatarGenderViewController: UIViewController {
         AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: avatar)
         performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
     }
+    
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is MakeYourAvatarViewController {
+            let vc = segue.destination as? MakeYourAvatarViewController
+            vc?.isEditMode = true
+        }
+    }*/
 }

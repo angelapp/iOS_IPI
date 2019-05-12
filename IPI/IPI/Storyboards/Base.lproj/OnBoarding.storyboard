@@ -119,10 +119,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-tD-rP6">
-                                <rect key="frame" x="8" y="16" width="293" height="185.5"/>
+                                <rect key="frame" x="8" y="16" width="293" height="274"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-zu-vIP">
-                                <rect key="frame" x="8" y="209.5" width="293" height="185.5"/>
+                                <rect key="frame" x="8" y="298" width="293" height="97"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08l-YF-8M9">
                                         <rect key="frame" x="0.0" y="24" width="293" height="20.5"/>
@@ -143,7 +143,7 @@
                                     <constraint firstItem="DcK-SB-iNV" firstAttribute="top" secondItem="08l-YF-8M9" secondAttribute="bottom" constant="24" id="BoF-9m-hXY"/>
                                     <constraint firstItem="08l-YF-8M9" firstAttribute="leading" secondItem="mKM-zu-vIP" secondAttribute="leading" id="Dtr-sG-TOl"/>
                                     <constraint firstItem="08l-YF-8M9" firstAttribute="top" secondItem="mKM-zu-vIP" secondAttribute="top" constant="24" id="SRi-DD-CeH"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DcK-SB-iNV" secondAttribute="bottom" constant="8" id="TmO-NK-1iW"/>
+                                    <constraint firstAttribute="bottom" secondItem="DcK-SB-iNV" secondAttribute="bottom" constant="8" id="TmO-NK-1iW"/>
                                     <constraint firstItem="DcK-SB-iNV" firstAttribute="leading" secondItem="mKM-zu-vIP" secondAttribute="leading" id="dVX-7z-Xje"/>
                                     <constraint firstAttribute="trailing" secondItem="DcK-SB-iNV" secondAttribute="trailing" id="k4s-Ox-tpI"/>
                                 </constraints>
@@ -153,7 +153,6 @@
                         <constraints>
                             <constraint firstItem="1hR-tD-rP6" firstAttribute="leading" secondItem="eRn-Gw-nb7" secondAttribute="leading" constant="8" id="47n-WI-vCi"/>
                             <constraint firstItem="eRn-Gw-nb7" firstAttribute="trailing" secondItem="mKM-zu-vIP" secondAttribute="trailing" constant="8" id="Crz-2z-NSF"/>
-                            <constraint firstItem="mKM-zu-vIP" firstAttribute="height" secondItem="1hR-tD-rP6" secondAttribute="height" id="KAX-Nf-u5p"/>
                             <constraint firstItem="mKM-zu-vIP" firstAttribute="top" secondItem="1hR-tD-rP6" secondAttribute="bottom" constant="8" id="L8e-XC-S8l"/>
                             <constraint firstItem="1hR-tD-rP6" firstAttribute="top" secondItem="eRn-Gw-nb7" secondAttribute="top" constant="16" id="QGN-j8-AFO"/>
                             <constraint firstItem="mKM-zu-vIP" firstAttribute="leading" secondItem="eRn-Gw-nb7" secondAttribute="leading" constant="8" id="d3N-eV-ZNc"/>

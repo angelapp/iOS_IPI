@@ -54,14 +54,6 @@ class SignupTableViewCell: UITableViewCell, UITextFieldDelegate {
         tf_password2.tag = 2
     }
     
-    func googleConfig() {
-        
-//        //getting the signin button and adding it to view
-//        let googleSignInButton = GIDSignInButton()
-//        googleSignInButton.center = cnt_google.center
-//        cnt_google.addSubview(googleSignInButton)
-    }
-    
     //MARK: Métodos para el control de eventos del teclado
     //Action of the returnKey
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {

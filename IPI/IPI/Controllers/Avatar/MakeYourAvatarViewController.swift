@@ -32,7 +32,6 @@ class MakeYourAvatarViewController: UIViewController {
 
     @IBOutlet weak var cnt_avatar: UIView!
     @IBOutlet weak var cnt_avatarPieces: UIView!
-    @IBOutlet weak var cnt_buttons: UIView!
 
     @IBOutlet weak var img_avatarHead: UIImageView!
     @IBOutlet weak var img_avatarEyes: UIImageView!
@@ -72,6 +71,7 @@ class MakeYourAvatarViewController: UIViewController {
     var piecesGrid: [Array<AvatarPiece>] = []
 
     var myAvatar = AplicationRuntime.sharedManager.getAvatarPieces()
+    var isEditMode: Bool = false
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -81,11 +81,24 @@ class MakeYourAvatarViewController: UIViewController {
         addStyles()
         fillRadioGroups()
         fillGrid()
+        
+        // Add gesture for go back
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+        
+        view.addGestureRecognizer(edgePan)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Acction for go back with a gesture
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .ended {
+            actionBack(btn_next)
+        }
     }
 
     // MARK: - Private Functions
@@ -159,6 +172,17 @@ class MakeYourAvatarViewController: UIViewController {
             button.isSelected = button.tag == tag ? true : false
         }
     }
+    
+    // If access from menu "Edit Profile", Send to Main
+    private func nextVC() {
+        if isEditMode {
+            let sb = UIStoryboard(name: StoryboardID.Main.rawValue, bundle: nil)
+            self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+        }
+        else {
+            self.performSegue(withIdentifier: segueID.showAvatar, sender: self)
+        }
+    }
 
     // MARK: - Actions buttons
     @IBAction func updateSelected(_ sender: UIButton) {
@@ -221,15 +245,6 @@ class MakeYourAvatarViewController: UIViewController {
                 return
         }
 
-        // Crea una imagen combinado todas las partes y la guarda en el dispositivo y en el runtime
-        let avatar = UIImage.combine(images: img_avatarHead.image!, img_avatarEyes.image!, img_avatarNose.image!, img_avatarHair.image!, img_avatarAcc.image!)
-
-        AplicationRuntime.sharedManager.setAvatarImage(img: avatar)
-        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: myAvatar!)
-
-        StorageFunctions.saveAvatarImage(image: avatar)
-        StorageFunctions.saveAvatarInLocal(avatarPieces: myAvatar!)
-
         // Crea el arreglo para guardar el avatar en el servidor
         var avatarPiece: Array<RequestAvatar> = [];
         avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.headID)!))
@@ -239,7 +254,6 @@ class MakeYourAvatarViewController: UIViewController {
         avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.accID)!))
 
         sendRequest(formModel: avatarPiece)
-//        performSegue(withIdentifier: segueID.showAvatar, sender: self)
     }
 
     /// Envia al servidor los datos de la actividad completada
@@ -277,8 +291,22 @@ class MakeYourAvatarViewController: UIViewController {
                 break
 
             case .succeededObject(_):
+                
+                // Actualiza estado del avatar
+                let states = StorageFunctions.getStates()
+                states.isThereAnAvatar = true
+                StorageFunctions.saveStates(states: states)
+                
+                // Crea una imagen combinado todas las partes y la guarda en el dispositivo y en el runtime
+                let avatar = UIImage.combine(images: self.img_avatarHead.image!, self.img_avatarEyes.image!, self.img_avatarNose.image!, self.img_avatarHair.image!, self.img_avatarAcc.image!)
+                
+                AplicationRuntime.sharedManager.setAvatarImage(img: avatar)
+                AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.myAvatar!)
+                
+                StorageFunctions.saveAvatarImage(image: avatar)
+                StorageFunctions.saveAvatarInLocal(avatarPieces: self.myAvatar!)
 
-                self.performSegue(withIdentifier: segueID.showAvatar, sender: self)
+                self.nextVC()
                 break
 
             default:

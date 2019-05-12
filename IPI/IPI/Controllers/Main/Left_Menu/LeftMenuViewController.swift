@@ -56,13 +56,18 @@ class LeftMenuViewController: UIViewController {
         }
 
         scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
-
         scrollHeightConstraint.constant = cnt_buttons.frame.size.height < minAllowHeightContent ? (cnt_buttons.frame.size.height - 8) : maxHeightScroll
     }
 
     // MARK: - Private Functions
     private func addStyles() {
 
+        setAspectFitToButton(buttons: btn_before_your_trip, btn_plan_your_trip,
+                                      btn_saved_trip, btn_basic_concepts,
+                                      btn_about_NRC, btn_contact_Us,
+                                      btn_edit_Profile, btn_intro, btn_logout)
+
+        
         //Ajusta el ancho del menú
         let screenSize = UIScreen.main.bounds
         self.revealViewController().rearViewRevealWidth = screenSize.width * 0.85
@@ -129,7 +134,7 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_edit_Profile:
-            let sb = UIStoryboard(name: StoryboardID.OnBoarding.rawValue, bundle: nil)
+            let sb = UIStoryboard(name: StoryboardID.ConfigAvatar.rawValue, bundle: nil)
             let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.choiceAvatarGender.rawValue) as! ChoiceAvatarGenderViewController
 
             nextVC.modalPresentationStyle = .overCurrentContext

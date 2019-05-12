@@ -104,9 +104,8 @@ class SigninViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - Prive Functions
     private func startNextVC(name: String){
-//        let sb = UIStoryboard(name: name, bundle: nil)
-        printDebugMessage(tag: "Next view its: \(name)")
-//        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+        let sb = UIStoryboard(name: name, bundle: nil)
+        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
 
     // MARK: - Singin Dalegate

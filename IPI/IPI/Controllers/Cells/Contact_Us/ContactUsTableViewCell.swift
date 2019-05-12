@@ -121,11 +121,11 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
     /// Se agrega boton de retorno o confirmacion al teclado numerico
     /** REVISAR **/
     func addDoneButtonOnKeyboard() {
-        let doneToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 50))
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.bounds.size.width, height: 50))
         doneToolbar.barStyle = UIBarStyle.default
         doneToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: Buttons.accept, style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: Buttons.accept, style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonAction))
         ]
 
         doneToolbar.sizeToFit()

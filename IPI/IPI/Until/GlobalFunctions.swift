@@ -171,12 +171,6 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
 // REVISAR
 func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
 
-    let imageComplet = [ProgressStrings.image_begginer, ProgressStrings.image_expert, ProgressStrings.image_advanced, ProgressStrings.image_star]
-    let imageIncomplet = [ProgressStrings.image_begginer_off, ProgressStrings.image_expert_off, ProgressStrings.image_advanced_off, ProgressStrings.image_star_off]
-
-    // Carga los titulos de acuerdo al genero del usuario
-    let titles = [getInsignia(forModule: .MOD_01), getInsignia(forModule: .MOD_02), getInsignia(forModule: .MOD_03), getInsignia(forModule: .MOD_04)]
-
     let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
     var progress: Array<ModuleProgressItem> = []
 
@@ -199,8 +193,8 @@ func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
                     }
 
                     let progressValue: Float = activitiesCompleted / Float(topic.topic_activity_list.count)
-                    let imgTrophy = (progressValue == 1) ? imageComplet[topicPos] : imageIncomplet[topicPos]
-                    progress.append(ModuleProgressItem(image: imgTrophy, title: titles[topicPos], progress: progressValue))
+                    let imgTrophy = topic.icon
+                    progress.append(ModuleProgressItem(image: imgTrophy ?? nullString, title: topic.description, progress: progressValue))
                     topicPos += 1
                 }
             }

@@ -24,9 +24,7 @@ let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
 let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
 let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 
-/*
- let ID_cliente_Google = "773365250219-f2l0oelfvnsh3ansn3h6o8ur2r3ugh4h.apps.googleusercontent.com"
-*/
+let ID_cliente_Google = "773365250219-f2l0oelfvnsh3ansn3h6o8ur2r3ugh4h.apps.googleusercontent.com"
 
 
 // MARK: - AVATAR, CONFIG
@@ -52,6 +50,7 @@ struct Buttons {
     static let signin = "Ingresar"
     static let signup = "Regístrate"
     static let skip = "SALTAR"
+    static let start = "¡Iniciemos!"
 }
 
 // MARK: - Lables
@@ -92,6 +91,7 @@ struct ErrorMessages {
     static let tryAgain = "Inténtalo de nuevo más tarde"
 }
 
+// MARK: - String for loader
 struct LoaderStrings {
     static let avatarUpload = "Guardando avatar..."
     static let configApp = "Obteniendo configuración de la aplicación"
@@ -101,9 +101,10 @@ struct LoaderStrings {
     static let recording = "Guardando..."
     static let recovery = "Recuperando contraseña..."
     static let sendEmail = "Enviando email ..."
+    static let signup = "Registrando usuario..."
 }
 
-// MARK: Website
+// MARK: - Website
 struct WebsiteURL {
     static let office = "http://www.nrc.org.co/directorio-oficinas-nrc/"
     static let facebook = "https://www.facebook.com/consejonoruegopararefugiados/"
@@ -122,7 +123,6 @@ struct VideosID {
 }
 
 // MARK: - Formats
-
 /// Formatos de fecha
 struct DateTimeFormat {
     static let formatByZone = "yyyy-MM-dd'T'HH:mm:ssXXX"

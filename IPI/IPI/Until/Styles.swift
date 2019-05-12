@@ -47,6 +47,12 @@ func setAspectFitToButton(buttons: UIButton...){
     }
 }
 
+func setButtonTitle(button: UIButton, title: String){
+    button.setTitle(title, for: .normal)
+    button.setTitle(title, for: .highlighted)
+    button.setTitle(title, for: .selected)
+}
+
 /// Change font color and add underline
 /// - Parameter text: Text to apply style REVISAR
 func addLinkStyle(forText text: String) -> NSAttributedString {

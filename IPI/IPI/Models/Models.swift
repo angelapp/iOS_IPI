@@ -90,7 +90,7 @@ class RequestAvatar: Mappable {
     var piece: Int!
 
     init(pieceID: Int) {
-        //self.user = AplicationRuntime.sharedManager.getUser().id
+        self.user = AplicationRuntime.sharedManager.getUser().id
         self.piece = pieceID
     }
 

@@ -21,7 +21,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().clientID = "773365250219-f2l0oelfvnsh3ansn3h6o8ur2r3ugh4h.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = ID_cliente_Google
         
         //adding the delegates
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -122,7 +122,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loader.showOverlay(view: self.view)
         self.view.isUserInteractionEnabled = false
 
-        Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+        Network.buildRequest(urlApi: NetworkPOST.CREATE_USER, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
 
             loader.hideOverlayView()
             self.view.isUserInteractionEnabled = true
@@ -172,7 +172,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Sing up by SocialNetwork
     func signupRequest(userToRegister: SocialNetworkRegister, urlApi: String) {
 
-        let loader = LoadingOverlay(text: LoaderStrings.login)
+        let loader = LoadingOverlay(text: LoaderStrings.signup)
         let json = Mapper().toJSONString(userToRegister, prettyPrint: true)
         let headers:[[String:String]] = []
 
@@ -302,7 +302,6 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     private func launchNextView() {
         let sb = UIStoryboard(name: StoryboardID.ConfigAvatar.rawValue, bundle: nil)
-        printDebugMessage(tag: "next vc \(StoryboardID.ConfigAvatar.rawValue)")
-//        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
 }

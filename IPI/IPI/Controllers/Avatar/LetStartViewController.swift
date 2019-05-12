@@ -14,7 +14,6 @@ class LetStartViewController: UIViewController {
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var lbl_mesasage: UILabel!
-    @IBOutlet weak var lbl_title: UILabel!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,16 +22,15 @@ class LetStartViewController: UIViewController {
         // Show upload avatar message
         self.view.makeToast(message: AvatarStrings.uploadSuccess,
                             duration: HRToastDefaultDuration,
-                            position: HRToastPositionCenter as AnyObject)
+                            position: HRToastPositionTop as AnyObject)
 
-        // set scale to button image
-        btn_next.imageView?.contentMode = .scaleAspectFit
+        // set Tittle
+        setButtonTitle(button: btn_next, title: Buttons.start)
 
         // load avatar
         img_avatar.image = StorageFunctions.loadAvatarImage()
 
         // fill lables
-        lbl_title.text = AvatarStrings.letStartTitle
         lbl_mesasage.text = AvatarStrings.letStartMessage
     }
 

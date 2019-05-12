@@ -35,7 +35,7 @@ enum ViewControllerID: String, CaseIterable {
     case aboutUs, aboutUs_tab1, aboutUs_tab2, aboutUs_tab3
 
     // Avatar
-    case choiceAvatarGender, makeAvatar, letStart
+    case choiceAvatarGender, makeAvatar, letsStart
 
     // Menu
     case leftMenu
@@ -43,6 +43,10 @@ enum ViewControllerID: String, CaseIterable {
     case contactUs
     case beforeYourTripVC, planYourTripVC, savedTripVC
     case basicConceptsVC
+    
+    // Main
+    case main
+    
 
     static var asArray: [ViewControllerID] {return self.allCases}
 
@@ -56,6 +60,7 @@ enum CellID: String {
     case signupCell, signinCell, recoveryPassCell
     case aboutTabButtonsCell, aboutTab01Cell, aboutTab02Cell, aboutTab03Cell
     case contactUsCell
+    case beforeHeader, beforeBody, beforeFooter
 }
 
 /// Observer name's
