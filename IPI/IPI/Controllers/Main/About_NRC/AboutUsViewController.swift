@@ -15,7 +15,8 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var button_collection: UICollectionView!
 
     @IBOutlet weak var lbl_title: UILabel!
-
+    @IBOutlet weak var img_logo: UIImageView!
+    
     // MARK: - Properties
     private let tabs = getTabs(forViewID: .aboutUs)
     private let tab1Index: Int = 0

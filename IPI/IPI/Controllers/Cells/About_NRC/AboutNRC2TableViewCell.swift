@@ -20,6 +20,7 @@ class AboutNRC2TableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_facebook: UILabel!
     @IBOutlet weak var lbl_twitter: UILabel!
     @IBOutlet weak var lbl_webPage: UILabel!
+    @IBOutlet weak var lbl_webIPI: UILabel!
 
     @IBOutlet weak var img_assistance: UIImageView!
     @IBOutlet weak var img_education: UIImageView!
@@ -51,6 +52,10 @@ class AboutNRC2TableViewCell: UITableViewCell {
 
         case AboutNRC.LinkID.twitter.rawValue:
             stringURL = AboutNRC.Social.href_twitter
+            break
+            
+        case AboutNRC.LinkID.ipiWebpage.rawValue:
+            stringURL = AboutNRC.Social.href_ipiwebpage
             break
 
         default:
@@ -93,6 +98,9 @@ class AboutNRC2TableViewCell: UITableViewCell {
 
         lbl_webPage.attributedText = addLinkStyle(forText: AboutNRC.Social.copy_webpage)
         lbl_webPage.tag =  AboutNRC.LinkID.conseWebpage.rawValue
+        
+        lbl_webIPI.attributedText = addLinkStyle(forText: AboutNRC.Social.copy_ipiwebpage)
+        lbl_webIPI.tag =  AboutNRC.LinkID.ipiWebpage.rawValue
 
         // Gesture for link
         let tapLinkFB = UITapGestureRecognizer(target: self, action: #selector(self.tapLink))
@@ -106,5 +114,9 @@ class AboutNRC2TableViewCell: UITableViewCell {
         let tapWeb = UITapGestureRecognizer(target: self, action: #selector(self.tapLink))
         lbl_webPage.isUserInteractionEnabled = true
         lbl_webPage.addGestureRecognizer(tapWeb)
+        
+        let tapIPIWeb = UITapGestureRecognizer(target: self, action: #selector(self.tapLink))
+        lbl_webIPI.isUserInteractionEnabled = true
+        lbl_webIPI.addGestureRecognizer(tapIPIWeb)
     }
 }

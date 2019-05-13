@@ -43,7 +43,7 @@ class AboutUsTab1ViewController: UIViewController, UITableViewDelegate, UITableV
 
     // Tamaño estimado de las celdas
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 392
+        return 478
     }
 
     // pintado de la tabla

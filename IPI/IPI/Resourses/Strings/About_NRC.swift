@@ -39,7 +39,7 @@ struct AboutNRC {
 
         static let text_1 = "En Colombia, estamos presentes en 11 departamentos: Arauca, Caquetá, Cauca, Chocó, Guajira, Magdalena, Meta, Nariño, Norte de Santander, Cesar y Guaviare. Nuestra Unidad de Respuesta Rápida tiene el potencial de brindar asistencia en cualquier parte del territorio donde la situación humanitaria lo requiera.\(doubleJump)Brindamos respuesta humanitaria a través de 12 oficinas en Colombia y 9 oficinas en América Latina: Panamá, Venezuela, Ecuador y Honduras."
         static let text_2 = "Conoce nuestras oficinas"
-        static let href_2 = "http://www.nrc.org.co/directorio-oficinas-nrc/"
+        static let href_2 = Social.href_office
     }
 
     struct Social {
@@ -47,10 +47,13 @@ struct AboutNRC {
         static let copy_facebook = "Consejo Noruego para Refugiados"
         static let copy_twitter = "@NRC_LAC"
         static let copy_webpage = "Más información en nuestro sitio web"
+        static let copy_ipiwebpage = "Ingresa a la página web de IPI"
 
+        static let href_office = "http://www.nrc.org.co/directorio-oficinas-nrc/"
         static let href_facebook = "https://www.facebook.com/consejonoruegopararefugiados/"
-        static let href_twitter = "https://twitter.com/nrc_lac?lang=es"
-        static let href_webpage = "http://www.nrc.org.co"
+        static let href_twitter = "https://twitter.com/NRC_LAC"
+        static let href_webpage = "http://www.nrc.org.co/"
+        static let href_ipiwebpage = "http://ipi.conse.co/"
     }
 
     enum LinkID: Int {
