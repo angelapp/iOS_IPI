@@ -20,9 +20,9 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         GIDSignIn.sharedInstance().clientID = ID_cliente_Google
-        
+
         //adding the delegates
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
@@ -157,7 +157,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 storage.clearParameterFromKey(key: IPIKeys.activitiesProgress.rawValue)
 
                 // Actualiza valores en runtime
-//                AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
+                AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
 
                 self.launchNextView()
                 break
@@ -214,7 +214,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 storage.clearParameterFromKey(key: IPIKeys.activitiesProgress.rawValue)
 
                 // Actualiza valores en runtime
-                //AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
+                AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
 
                 self.launchNextView()
                 break
@@ -258,16 +258,16 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func googleSignup() {
         GIDSignIn.sharedInstance().signIn()
     }
-    
+
     // MARK: Google Delegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
+
         //if any error stop and print the error
         if error != nil{
             print(error.localizedDescription)
             return
         }
-        
+
         //if success display the email on label
         printDebugMessage(tag: user.profile.email)
         printDebugMessage(tag: user.authentication.idToken)

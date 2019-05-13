@@ -43,10 +43,10 @@ enum ViewControllerID: String, CaseIterable {
     case contactUs
     case beforeYourTripVC, planYourTripVC, savedTripVC
     case basicConceptsVC
-    
+
     // Main
-    case main
-    
+    case main, home, selectActivies
+
 
     static var asArray: [ViewControllerID] {return self.allCases}
 

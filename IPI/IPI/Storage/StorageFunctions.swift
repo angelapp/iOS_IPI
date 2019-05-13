@@ -55,19 +55,6 @@ class StorageFunctions: NSObject {
         }
     }
 
-    /* // Guarda la lista de contactos
-    class func saveContactList(list: ContactListModel) {
-
-        let json = Mapper().toJSONString(list, prettyPrint: true)
-
-        let storage = StorageConfig.share
-        let saveDate = ContactPreferences(jsonContacts: json!)
-        let strRepresentation = saveDate.dictionary()
-        if let data = ContactPreferences.archive(list: strRepresentation) {
-            storage.saveParameterFromKey(key: IPIKeys.contactList, value: data as AnyObject)
-        }
-    }*/
-
     /** Guarda los el progreso de actividades de los cursos */
     class func saveActivitiesProgress(courses: CourseListModel!) {
 
@@ -108,6 +95,13 @@ class StorageFunctions: NSObject {
     }
 
     /// Get storage progress
+    class func getProgress() -> CoursesProgress {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: IPIKeys.progress.rawValue) as! Data? else { return CoursesProgress() }
+        guard let dic = ProgressPreferences.unarchive(data: data) else { return CoursesProgress() }
+        let progress = ProgressPreferences.initProgress(fromDic: dic)
+        return progress
+    }
 
     /// Get storage states
     class func getStates() -> StatesModel {

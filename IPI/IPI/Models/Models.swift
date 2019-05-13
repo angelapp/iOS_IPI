@@ -130,14 +130,14 @@ class MyAvatarPieces {
 class SocialNetworkRegister : Mappable {
     var email: String!
     var access_token: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         email <- map[JSONKeys.email]
         access_token <- map[JSONKeys.access_token]
@@ -205,14 +205,11 @@ class ModuleProgressItem {
 }
 
 /** Modelo para mantener el indice de la pág actual de los cursos */
-/* State: pending */
 class CoursesProgress {
 
-    var VBG_INDEX: Int! // Indice de pág para el curso Violencia Basada en Genero
-    var PLC_INDEX: Int! // Indice de pág para el curso Protección Lideres Comunitarios
+    var COURSE_INDEX: Int! // Indice de pág para el curso Conceptos básicos
 
     init() {
-        self.VBG_INDEX = 0
-        self.PLC_INDEX = 0
+        self.COURSE_INDEX = 0
     }
 }
