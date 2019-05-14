@@ -23,7 +23,6 @@ class MainViewController: UIViewController, MainProtocol {
     var aboutNRCVC: AboutUsViewController!
     var contactFormVC: ContactUsViewController!
 
-    var homeVC: HomeViewController!
     var selectActivitiesVC: SelectActivitiesViewController
 
     // MARK: - Lifecycle
@@ -66,7 +65,6 @@ class MainViewController: UIViewController, MainProtocol {
     private func initChildView() {
         aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersID.aboutUs) as! AboutUsViewController
         contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersID.contactUs) as! ContactUsViewController
-        homeVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.home) as! HomeViewController
         selectActivitiesVC = self.storyboard?.instantiateViewController)withIdentifier: ViewControllerID.selectActivies) as! SelectActivitiesViewController
 
         addToContainer(viewControllerID: .home)
@@ -78,18 +76,29 @@ class MainViewController: UIViewController, MainProtocol {
         switch id {
 
         case .aboutUs:
+            self.updateViewBackground(newColor: .groupTableViewBackgroundColor)
             return aboutNRCVC
-
-        case .selectActivitiesVC:
-            return selectActivitiesVC
 
 //        case .videoPlayer:
 //            videoPlayerVC.videoSTR = AplicationRuntime.sharedManager.getvideoID()
 //            return videoPlayerVC
 
         default:
-            return homeVC
+            self.updateViewBackground()
+            return selectActivitiesVC
         }
+    }
+
+    /** Cambia el color de fondo de la vista principal
+        newColor: Nuevo Color **/
+    private func updateViewBackground(newColor: UIColor? = nil){
+        // Set default color
+        guard newColor != nil else {
+             self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+             return
+        }
+        // Set new color
+        self.view.backgroundColor = newColor
     }
 
     // MARK: - Main Delegate

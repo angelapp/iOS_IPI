@@ -52,5 +52,7 @@ protocol ContactUsViewControllerDelegate: class {
 
 // Protocolos del controllador principal
 protocol MainProtocol: class {
-    
+    func addToContainer(viewControllerID id: ViewControllerID)
+    func removeOfContainer()
+    func showMessageInMain(withMessage msn: String)
 }
