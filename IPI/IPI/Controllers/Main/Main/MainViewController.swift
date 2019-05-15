@@ -22,8 +22,7 @@ class MainViewController: UIViewController, MainProtocol {
     // Controllers that are managed by this controller
     var aboutNRCVC: AboutUsViewController!
     var contactFormVC: ContactUsViewController!
-
-    var selectActivitiesVC: SelectActivitiesViewController
+    var selectActivitiesVC: SelectActivitiesViewController!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,7 +36,7 @@ class MainViewController: UIViewController, MainProtocol {
 
         //Add Geture for open/close menu
         if self.revealViewController() != nil {
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
 
@@ -63,11 +62,11 @@ class MainViewController: UIViewController, MainProtocol {
     // MARK: - Private Functions
     /** init child viewControllers */
     private func initChildView() {
-        aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersID.aboutUs) as! AboutUsViewController
-        contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersID.contactUs) as! ContactUsViewController
-        selectActivitiesVC = self.storyboard?.instantiateViewController)withIdentifier: ViewControllerID.selectActivies) as! SelectActivitiesViewController
+        aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.aboutUs.rawValue) as? AboutUsViewController
+        contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.contactUs.rawValue) as? ContactUsViewController
+        selectActivitiesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectActivies.rawValue) as? SelectActivitiesViewController
 
-        addToContainer(viewControllerID: .home)
+        addToContainer(viewControllerID: .selectActivies)
     }
 
     /** Return: viewController, add delegates and properties as appropriate */
@@ -76,15 +75,22 @@ class MainViewController: UIViewController, MainProtocol {
         switch id {
 
         case .aboutUs:
-            self.updateViewBackground(newColor: .groupTableViewBackgroundColor)
+            self.updateViewBackground(newColor: .groupTableViewBackground)
+            btn_progress.isHidden = true
             return aboutNRCVC
+            
+        case .contactUs:
+            self.updateViewBackground()
+            btn_progress.isHidden = true
+            return contactFormVC
 
 //        case .videoPlayer:
-//            videoPlayerVC.videoSTR = AplicationRuntime.sharedManager.getvideoID()
+//            btn_progress.isHidden = false
 //            return videoPlayerVC
 
         default:
             self.updateViewBackground()
+            btn_progress.isHidden = true
             return selectActivitiesVC
         }
     }
@@ -139,7 +145,7 @@ class MainViewController: UIViewController, MainProtocol {
 
         // Delete child from parent
         let vc = self.children.last
-        vc?.willMove(toParentViewController: nil)
+        vc?.willMove(toParent: nil)
         vc?.view.removeFromSuperview()
         vc?.removeFromParent()
 

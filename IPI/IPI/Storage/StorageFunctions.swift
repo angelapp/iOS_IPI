@@ -54,6 +54,16 @@ class StorageFunctions: NSObject {
             storage.saveParameterFromKey(key: IPIKeys.states.rawValue, value: data as AnyObject)
         }
     }
+    
+    /// Guarda en local, los indices del progreso del curso
+    class func saveProgress(progress: CoursesProgress) {
+        let storage = StorageConfig.share
+        let saveDate = ProgressPreferences(indices: progress)
+        let strRepresentation = saveDate.dictionary()
+        if let data = ProgressPreferences.archive(progress: strRepresentation) {
+            storage.saveParameterFromKey(key: IPIKeys.courseProgress.rawValue, value: data as AnyObject)
+        }
+    }
 
     /** Guarda los el progreso de actividades de los cursos */
     class func saveActivitiesProgress(courses: CourseListModel!) {

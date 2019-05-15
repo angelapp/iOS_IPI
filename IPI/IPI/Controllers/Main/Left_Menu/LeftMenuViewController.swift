@@ -113,12 +113,12 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_contact_Us:
-            //mainDelegate?.addToContainer(viewControllerID: .contactUs)
+            mainDelegate?.addToContainer(viewControllerID: .contactUs)
             self.revealViewController().revealToggle(animated: true)
             break
 
         case btn_about_NRC:
-            //mainDelegate?.addToContainer(viewControllerID: .aboutUs)
+            mainDelegate?.addToContainer(viewControllerID: .aboutUs)
             self.revealViewController().revealToggle(animated: true)
             break
 

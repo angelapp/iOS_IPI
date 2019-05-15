@@ -59,6 +59,8 @@ class ContactUsTableViewCell: UITableViewCell, UITextViewDelegate, UITextFieldDe
         picker.dataSource = self
         tv_message.delegate = self
         tf_telephone.delegate = self
+        
+        setButtonTitle(button: btn_send, title: Buttons.send)
 
         //Set Values
         lbl_message.text = Labels.contact_messageTitle

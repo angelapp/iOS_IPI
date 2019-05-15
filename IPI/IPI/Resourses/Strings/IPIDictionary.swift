@@ -16,6 +16,7 @@ enum IPIKeys: String {
     case appConfig
     case avatarPieces
     case avatarImg
+    case courseProgress
     case description
     case eyes
     case gender

@@ -41,16 +41,23 @@ struct Buttons {
     static let accept = "Aceptar"
     static let avatar_Male = "Conse Hombre"
     static let avata_Female = "Conse Mujer"
+    static let basic_Concepts = "Conceptos básicos de\(jumpLine)protección internacional"
     static let end = "FINALIZAR"
     static let forgot = "¿Olvidaste la contraseña?"
     static let login = "O inicia sesión"
     static let next = "SIGUIENTE"
+    static let plan_your_trip = "Prepara tu viaje"
     static let ready = "Listo"
     static let send = "Enviar"
     static let signin = "Ingresar"
     static let signup = "Regístrate"
     static let skip = "SALTAR"
     static let start = "¡Iniciemos!"
+}
+
+// MARK: - Buttons
+struct IPI_IMAGES {
+    static let selectActivitiesImage = "ilustracion"
 }
 
 // MARK: - Lables

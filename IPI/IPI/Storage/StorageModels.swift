@@ -165,6 +165,46 @@ class ProgressActivitiesPreferences: NSObject {
     }
 }
 
+/** Modelo de datos para tener en local los indices del avance de los cursos */
+class ProgressPreferences: NSObject {
+    
+    var course_index: Int!
+    
+    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
+    /// - Parameter indices: estados
+    convenience init(indices: CoursesProgress){
+        self.init()
+        self.course_index = indices.COURSE_INDEX
+    }
+    
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.course_index as Int, forKey: IPIKeys.courseProgress.rawValue)
+    }
+    
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+        
+        myDic[IPIKeys.courseProgress.rawValue] = self.course_index
+        
+        return myDic
+    }
+    
+    /// Crea un modelo de datos a aprtir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initProgress(fromDic dic: [String: Any]) -> CoursesProgress {
+        let progress = CoursesProgress()
+        
+        progress.COURSE_INDEX = dic[IPIKeys.courseProgress.rawValue] as? Int ?? 0
+        
+        return progress
+    }
+}
+
 /** Modelo de datos para tener en local los identificadores de las caractaeriticas del Avatar */
 class MyAvatarPreferences: NSObject {
 

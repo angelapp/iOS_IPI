@@ -37,22 +37,39 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.contact_tableView.delegate = self
         self.contact_tableView.dataSource = self
         self.contact_tableView.isScrollEnabled = false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // Add gesture for go back
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+        
+        view.addGestureRecognizer(edgePan)
     }
 
     // MARK: - Action for Gestures
     //Observer for increment contentSize in the tableView
     @objc func keyboardWillShow(notification: NSNotification) {
-        self.contact_tableView.isScrollEnabled = true
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardFrame:CGRect = self.view.convert(keyboardSize, from: nil)
+        
+            var contentInset:UIEdgeInsets = self.contact_tableView.contentInset
+                contentInset.bottom = keyboardFrame.size.height
+            self.contact_tableView.contentInset = contentInset
+            self.contact_tableView.isScrollEnabled = true
+        }
     }
 
     //Obeserver for move frame to origin when keyboard is hiden
     @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        contact_tableView.contentInset = contentInset
         contact_tableView.isScrollEnabled = false
+    }
+    
+    // Acction for go back with a gesture
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .ended {
+            self.mainDelegate?.addToContainer(viewControllerID: .selectActivies)
+        }
     }
 
     // MARK: - TableView delegate and datasource

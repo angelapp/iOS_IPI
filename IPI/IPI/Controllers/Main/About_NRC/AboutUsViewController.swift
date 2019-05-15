@@ -27,6 +27,8 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     var tab1: AboutUsTab1ViewController!
     var tab2: AboutUsTab2ViewController!
     var tab3: AboutUsTab3ViewController!
+    
+    weak var mainDelegate = AplicationRuntime.sharedManager.mainDelegate
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,13 +43,22 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
         button_collection.dataSource = self
 
         if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 150, height: 40)
+            flowLayout.estimatedItemSize = CGSize(width: 151, height: 40)
         }
+        
+        // Add gesture for go back
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+        
+        self.view.addGestureRecognizer(edgePan)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Action for Gestures
+    // Acction for go back with a gesture
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .ended {
+            self.mainDelegate?.addToContainer(viewControllerID: .selectActivies)
+        }
     }
 
     // MARK: - Private Functions
@@ -82,7 +93,7 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     func changeTab() {
 
         let indexPath = IndexPath(row: currentTab, section: 0)
-        button_collection.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.right, animated: true)
+        button_collection.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.right, animated: false)
 
         switch currentTab {
 

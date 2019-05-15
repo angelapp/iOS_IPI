@@ -45,7 +45,7 @@ enum ViewControllerID: String, CaseIterable {
     case basicConceptsVC
 
     // Main
-    case main, home, selectActivies
+    case main, selectActivies
 
 
     static var asArray: [ViewControllerID] {return self.allCases}

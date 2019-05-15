@@ -92,6 +92,22 @@ extension StatesPreferences {
 }
 
 // Extensión de ProgressPreferences para agregar los metodos de Archivar o Desarchivar
+extension ProgressPreferences {
+    
+    /// Archiva el progreso en los cursos
+    class func archive(progress: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: progress)
+    }
+    
+    /// Desarchiva la lista
+    /// - Returns: diccionario con los indices de los cursos
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let progress = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else {return nil}
+        return progress
+    }
+}
+
+// Extensión de ProgressActivitiesPreferences para agregar los metodos de Archivar o Desarchivar
 extension ProgressActivitiesPreferences {
 
     /// Archiva los cursos
