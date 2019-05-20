@@ -15,6 +15,9 @@ let NOSE_GRID = 2
 let HAIR_GRID = 3
 let ACCESSORIES_GRID = 4
 
+let TABLE_COURSE = 100
+let TABLE_SAMPLES = 90
+
 // MARK: - Índices usados para crear el avatar
 enum AvatarGenderIDs: Int {
     case male = 1

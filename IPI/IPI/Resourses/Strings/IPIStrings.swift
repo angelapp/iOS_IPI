@@ -42,6 +42,7 @@ struct Buttons {
     static let avatar_Male = "Conse Hombre"
     static let avata_Female = "Conse Mujer"
     static let basic_Concepts = "Conceptos básicos de\(jumpLine)protección internacional"
+    static let carry_on = "¡Adelante!"
     static let end = "FINALIZAR"
     static let forgot = "¿Olvidaste la contraseña?"
     static let login = "O inicia sesión"
@@ -53,11 +54,21 @@ struct Buttons {
     static let signup = "Regístrate"
     static let skip = "SALTAR"
     static let start = "¡Iniciemos!"
+    static let try_again = "Vuelve a intentarlo"
 }
 
-// MARK: - Buttons
+// MARK: - Images
 struct IPI_IMAGES {
     static let selectActivitiesImage = "ilustracion"
+    
+    static let admiration = "admiracion"
+    static let corner_BLUE = "esquina_azul"
+    static let corner_PINK = "esquina_rosada"
+    static let corner_YELLOW = "bocadillo"
+    static let fail = "error"
+    static let success = "chulo_azul"
+    static let speaker_orange = "btn_bocina"
+    static let speaker_orange_hover = "btn_bocina_hover"
 }
 
 // MARK: - Lables
@@ -77,10 +88,14 @@ struct Labels {
     static let contact_messageTitle = "Tu mensaje"
     static let contact_telephone = "Tú Teléfono"
     static let contact_title = "DÉJANOS TU MENSAJE"
+    
+    static let listenAudio = "Escucha el audio"
 }
 
 // MARK: - Error Messages
 struct ErrorMessages {
+    static let audioNotFound = "No se encuentra el archivo"
+    static let audioDontLoad = "No se pudo cargar el Audio"
     static let blankFields = "Por favor completa todos los campos para continuar"
     static let completeInformation = "Debe completar información"
     static let email = "Por favor revisa tu correo he inténtalo de nuevo"

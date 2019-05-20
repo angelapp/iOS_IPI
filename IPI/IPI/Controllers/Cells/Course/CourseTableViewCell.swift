@@ -16,6 +16,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var btn_Aud4: UIButton!
 
     @IBOutlet weak var btn_back: UIButton!
+    @IBOutlet weak var btn_next: UIButton!
 
     @IBOutlet weak var btn_help1: UIButton!
     @IBOutlet weak var btn_help2: UIButton!
@@ -37,6 +38,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var img_route: UIImageView!
     @IBOutlet weak var img_avatar: UIImageView!
+    @IBOutlet weak var img_auxiliar: UIImageView!
     @IBOutlet weak var img_corner1: UIImageView!
     @IBOutlet weak var img_corner2: UIImageView!
     @IBOutlet weak var img_insignia: UIImageView!
@@ -68,6 +70,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var lbl_review: UILabel!
     @IBOutlet weak var lbl_subtitle: UILabel!
     
+    @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_text1: UILabel!
     @IBOutlet weak var lbl_text2: UILabel!
     @IBOutlet weak var lbl_text3: UILabel!
@@ -77,9 +80,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var lbl_text7: UILabel!
     @IBOutlet weak var lbl_text8: UILabel!
     @IBOutlet weak var lbl_text9: UILabel!
-    @IBOutlet weak var lbl_title: UILabel!
     
     @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var tbl_examples: UITableView!
     
     // Name of textField cell for Crossword
     //(M1CW)Module 1 Crossword
@@ -144,7 +147,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     var answersButtons: Array<UIButton> = []
     var audioButtons: Array<UIButton> = []
     
-    weak var vbgDelegate: VBGProtocol?
+    weak var courseDelegate: CourseViewControllerDelegate?
     weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
 
     // MARK: - cell
@@ -165,7 +168,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text1.text = IPI_COURSE.PAGE_01.text1
         lbl_text2.text = IPI_COURSE.PAGE_01.text2
         lbl_text3.text = IPI_COURSE.PAGE_01.text3
-//        setButtonTitle(btn_next, Buttons.nex.rawValue)
+        setButtonTitle(button: btn_next, title: Buttons.carry_on)
     }
     
     func fill_CELL_02() {
@@ -175,13 +178,18 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text3.text = IPI_COURSE.PAGE_02.text3
         lbl_text4.text = IPI_COURSE.PAGE_02.text4
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
     }
     
     func fill_CELL_03() {
         lbl_title.text = IPI_COURSE.PAGE_03.title
         lbl_text1.text = IPI_COURSE.PAGE_03.text1
         lbl_text2.text = IPI_COURSE.PAGE_03.text2
+        
+        setButtonTitle(button: btn_next, title: Buttons.next)
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_BLUE)
     }
     
     func fill_CELL_04() {
@@ -190,7 +198,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text2.text = IPI_COURSE.PAGE_04.text2
         lbl_text3.text = IPI_COURSE.PAGE_04.text3
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
     }
     
     func fill_CELL_05() {
@@ -201,6 +212,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_Aud1.tag = AUDIO_ID.CURSO_PTN_01.rawValue
         btn_Aud2.tag = AUDIO_ID.CURSO_PTN_02.rawValue
         
+        btn_Aud1.setImage(UIImage(named: IPI_IMAGES.speaker_orange) , for: UIControl.State.normal)
+        btn_Aud2.setImage(UIImage(named: IPI_IMAGES.speaker_orange) , for: UIControl.State.normal)
+        
+        btn_Aud1.setImage(UIImage(named: IPI_IMAGES.speaker_orange_hover) , for: UIControl.State.selected)
+        btn_Aud2.setImage(UIImage(named: IPI_IMAGES.speaker_orange_hover) , for: UIControl.State.selected)
+        
         audioButtons = [btn_Aud1, btn_Aud2]
         
         // Fill texts
@@ -209,9 +226,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text2.text = IPI_COURSE.PAGE_05.text2
         lbl_text3.text = IPI_COURSE.PAGE_05.text3
         lbl_text4.text = IPI_COURSE.PAGE_05.text4
-        /*  Agregar label */
+        
         lbl_Aud1.text = Labels.listenAudio
         lbl_Aud2.text = Labels.listenAudio
+        
+        setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_06() {
@@ -229,15 +248,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_BLUE)
         img_corner2.image = UIImage(named: IPI_IMAGES.corner_PINK)
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
     }
     
     func fill_CELL_07() {
-        content_tilte?.topline()
         lbl_title.text = IPI_COURSE.PAGE_07.title
         lbl_text1.text = IPI_COURSE.PAGE_07.text1
-        lbl_item1.text = IPI_COURSE.PAGE_07.ITEM_1
+        tbl_examples.tag = TABLE_SAMPLES
     }
     
+    /*
     func fill_CELL_08() {
         content_tilte?.topline()
         btn_Aud1.isSelected = false
@@ -1191,22 +1211,23 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             return
         }
         
-        vbgDelegate?.sendRequest(formModel: requestModel)
-    }
+        courseDelegate?.sendRequest(formModel: requestModel)
+    } */
     
     // MARK: - Acciones de navegación
     @IBAction func previousPage(_ sender: UIButton) {
-        vbgDelegate?.previusPage()
+        courseDelegate?.previusPage()
     }
     
     @IBAction func nextPage(_ sender: UIButton?) {
-        vbgDelegate?.nextPage()
+        courseDelegate?.nextPage()
     }
     
-    @IBAction func endCourse(_ sender: UIButton) {
-        mainDelegate?.setImageBackground(withName: nullString)
-        mainDelegate?.addToContainer(viewControllerID: .myCourses)
-    }
+//    @IBAction func endCourse(_ sender: UIButton) {
+//        mainDelegate?.setImageBackground(withName: nullString)
+//        mainDelegate?.addToContainer(viewControllerID: .myCourses)
+//    }
+    
     // MARK: - update buttons states
     // change state for checkBox
     @IBAction func changeButtonState(_ sender: UIButton){
@@ -1242,7 +1263,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     // MARK: - Audio Functions
     @IBAction func playAudio(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        vbgDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
+        courseDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
         updateButtonsState(sender: sender)
     }
     
@@ -1262,10 +1283,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
-//    // Limpia la cailla cuando se empieza a editar
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        textField.text = nil
-//    }
+    // Limpia la cailla cuando se empieza a editar
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = nil
+    }
     
     /**
      Determina cual es la celda siguiente a la que se debe cambiar el foco
@@ -1305,33 +1326,34 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         return nil
     }
     
-    // MARK: - Ayudas
+    /*
+     // MARK: - Ayudas
     @IBAction func showHelp(_ sender: UIButton) {
         
         switch sender {
             
         case btn_help1:
-            vbgDelegate?.showPopupHelp(title: (btn_help1.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_1)
+            courseDelegate?.showPopupHelp(title: (btn_help1.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_1)
             break
             
         case btn_help2:
-            vbgDelegate?.showPopupHelp(title: (btn_help2.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_2)
+            courseDelegate?.showPopupHelp(title: (btn_help2.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_2)
             break
             
         case btn_help3:
-            vbgDelegate?.showPopupHelp(title: (btn_help3.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_3)
+            courseDelegate?.showPopupHelp(title: (btn_help3.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_3)
             break
             
         case btn_help4:
-            vbgDelegate?.showPopupHelp(title: (btn_help4.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_4)
+            courseDelegate?.showPopupHelp(title: (btn_help4.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_4)
             break
             
         case btn_help5:
-            vbgDelegate?.showPopupHelp(title: (btn_help5.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_5)
+            courseDelegate?.showPopupHelp(title: (btn_help5.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_5)
             break
             
         default:
-            vbgDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_6)
+            courseDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_6)
             break
         }
     }
@@ -1342,16 +1364,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         switch sender {
             
         case btn_downloadMV:
-            vbgDelegate?.downloadMV(title: VideosTitles.vbg_video, urlStr: VideosURL.vbg_url)
+            courseDelegate?.downloadMV(title: VideosTitles.vbg_video, urlStr: VideosURL.vbg_url)
             break
             
         default:
-            vbgDelegate?.playMV(urlStr: VideosURL.vbg_url)
+            courseDelegate?.playMV(urlStr: VideosURL.vbg_url)
             break
         }
         
     }
-    
+     
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
     private func checkingQuestionary() -> Bool {
@@ -1378,7 +1400,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             validateCrossword(word: crossword_word5, correctAnswer: IPI_COURSE.PAGE_11.clue_5),
             validateCrossword(word: crossword_word6, correctAnswer: IPI_COURSE.PAGE_11.clue_6)
             else {
-                vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
+                courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
                 return
         }
         
@@ -1392,47 +1414,47 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             nextPage(nil)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_15.ERROR, inbold: IPI_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_15.ERROR, inbold: IPI_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
         }
     }
     
     @IBAction func checking_page_31(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_3_Q1.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
         }
     }
     
     @IBAction func checking_page_32(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_3_Q2.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
         }
     }
     
     @IBAction func checking_page_33(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_3_Q3.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
         }
     }
     
     @IBAction func checking_page_34(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_3_Q4.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
         }
     }
     @IBAction func checking_page_47(_ sender: UIButton) {
@@ -1441,35 +1463,44 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             nextPage(nil)
         }
         else {
-            vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
         }
     }
     
     @IBAction func checking_page_48(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_48.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_48.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_49(_ sender: UIButton) {
-        textField1.text?.trimmingCharacters(in: .whitespaces) == EmergencyStrings.line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
+        textField1.text?.trimmingCharacters(in: .whitespaces) == EmergencyStrings.line_155 ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_50(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_50.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_50.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_51(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_51.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_51.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_52(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_52.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_52.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_53(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_53.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_53.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_54(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
+    }*/
+}
+
+extension CourseTableViewCell {
+    func setTableViewDataSourceDelegate <D: UITableViewDelegate & UITableViewDataSource> (_ dataSourceDelegate: D, forRow row: Int) {
+        tbl_examples.delegate = dataSourceDelegate
+        tbl_examples.dataSource = dataSourceDelegate
+        
+        tbl_examples.reloadData()
     }
 }

@@ -64,7 +64,7 @@ enum AUDIO_MALE: String {
  - Parameter forAudio: ID del audio
  - Returns: Nombre del audio guardado.
  */
-func get_VBGAudioName(forAudio id: Int) -> String {
+func get_AudioName(forAudio id: Int) -> String {
     
     let avatar_gender = AplicationRuntime.sharedManager.getAvatarGenderID()
 

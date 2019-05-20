@@ -23,6 +23,7 @@ class SelectActivitiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
         self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
         
         setButtonTitle(button: btn_planYourTrip, title: Buttons.plan_your_trip)
@@ -35,6 +36,15 @@ class SelectActivitiesViewController: UIViewController {
     // MARK: Actions
     @IBAction func buttonActions (_ sender: UIButton) {
         
+        switch sender {
+            
+        case btn_basicConcepts:
+            mainDelegate?.addToContainer(viewControllerID: .course)
+            break
+            
+        default:
+            break
+        }
     }
 
 }

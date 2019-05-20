@@ -46,6 +46,7 @@ enum ViewControllerID: String, CaseIterable {
 
     // Main
     case main, selectActivies
+    case course, courseMessage
 
 
     static var asArray: [ViewControllerID] {return self.allCases}
@@ -61,6 +62,22 @@ enum CellID: String {
     case aboutTabButtonsCell, aboutTab01Cell, aboutTab02Cell, aboutTab03Cell
     case contactUsCell
     case beforeHeader, beforeBody, beforeFooter
+    
+    // CELLS FOR Course
+    case COURSE01, COURSE02, COURSE03, COURSE04, COURSE05, COURSE06, COURSE07, COURSE08, COURSE09, COURSE10
+    case COURSE11, COURSE12, COURSE13, COURSE14, COURSE15, COURSE16, COURSE17, COURSE18, COURSE19, COURSE20
+    case COURSE21, COURSE22, COURSE23, COURSE24, COURSE25, COURSE26, COURSE27, COURSE28, COURSE29, COURSE30
+    case COURSE31, COURSE32, COURSE33, COURSE34, COURSE35, COURSE36, COURSE37, COURSE38, COURSE39, COURSE40
+    case COURSE41, COURSE42
+    
+    // CELL FOR Expandable table view
+    case header, boby
+}
+
+/// Tag for popup message
+enum PopupMessage: Int {
+    case failed
+    case success
 }
 
 /// Observer name's

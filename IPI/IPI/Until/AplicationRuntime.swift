@@ -54,14 +54,12 @@ class AplicationRuntime {
     }
 
     /// Guarda el indice del curso
-//    public func setProgress(forCourse id: CourseIDs, progress: Int) {
-//        if self.progress == nil { self.progress = CoursesProgress() }
-//
-//        if id == .VBG { self.progress.VBG_INDEX = progress }
-//        else { self.progress.PLC_INDEX = progress }
-//
-//        StorageFunctions.saveProgress(progress: self.progress)
-//    }
+    public func setProgress(progress: Int) {
+        if self.progress == nil { self.progress = CoursesProgress() }
+        self.progress.COURSE_INDEX = progress
+
+        StorageFunctions.saveProgress(progress: self.progress)
+    }
 
     // MARK: - GETTERS
     public func getAppConfig() -> ApplicationConfiguration! {
@@ -153,5 +151,10 @@ class AplicationRuntime {
     public func getUserToken() -> String {
         guard let token = userData?.token else { return nullString }
         return token
+    }
+    
+    public func getIndex() -> Int {
+        guard progress != nil else { return 0 }
+        return progress.COURSE_INDEX != nil ? progress.COURSE_INDEX : 0
     }
 }

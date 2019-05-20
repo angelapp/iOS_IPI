@@ -213,3 +213,24 @@ class CoursesProgress {
         self.COURSE_INDEX = 0
     }
 }
+
+class ExampleData {
+    var header : String!
+    var body : [String]!
+    
+    init() {
+        
+    }
+    
+    init(header: String, body: [String]) {
+        self.header = header
+        self.body = body
+    }
+    
+    func getSampleData() -> [ExampleData] {
+        return [ExampleData(header: IPI_COURSE.PAGE_07.header1, body: [IPI_COURSE.PAGE_07.boby1]),
+                ExampleData(header: IPI_COURSE.PAGE_07.header2, body: [IPI_COURSE.PAGE_07.boby2]),
+                ExampleData(header: IPI_COURSE.PAGE_07.header3, body: [IPI_COURSE.PAGE_07.boby3]),
+                ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4]),]
+    }
+}

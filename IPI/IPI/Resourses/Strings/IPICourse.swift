@@ -63,4 +63,21 @@ struct IPI_COURSE {
 		static let text8 = "¿De qué depende? de la definición que las leyes de cada país tengan sobre la condición de persona refugiada."
 		static let text9 = "Te invitamos a la sección Prepara tu viaje - Refugio para que conozcas la ruta que te mostrará cómo aplicar al estatus de refugiado en los distintos países."
 	}
+    
+    struct PAGE_07 {
+        static let title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
+        static let text1 = "Veamos el siguiente ejemplo sobre la definición de Refugiado en tres distintos países:"
+        
+        static let header1 = "En Ecuador"
+        static let boby1 = "En Ecuador, la Ley Orgánica de Movilidad Humana, artículo 98, establece que “Será reconocida como refugiada en el Ecuador toda persona que: Debido a temores fundamentados de ser perseguida por motivos de raza, religión, nacionalidad, pertenencia a determinado grupo social u opiniones políticas, que se encuentre fuera de su país de nacionalidad, y no pueda o quiera, a causa de dichos temores, acogerse a la protección de su país, o que, careciendo de nacionalidad y hallándose fuera del país donde antes tuviera su residencia habitual, no pueda o no quiera regresar a él."
+        
+        static let header2 = "En Perú"
+        static let boby2 = "En Perú la Ley Nº 27891, Artículo 3º, define como refugiado a todos aquellos que cumplan con los requisitos de la Convención sobre el Estatuto de los Refugiados de 1951, “a la persona que se ha visto obligada a huir de su país de nacionalidad o de residencia habitual por causa de la violación masiva de los derechos humanos, agresión extranjera, conflicto interno, ocupación o dominación extranjera; o en razón de acontecimientos que perturben gravemente el orden público."
+        
+        static let header3 = "En Colombia"
+        static let boby3 = "En Colombia, el Decreto 1067 de 2015, artículo 2.2.3.1.1.1. establece que el término refugiado se aplicará a toda persona que tenga “fundados temores de ser perseguida por motivos de raza, religión, nacionalidad, pertenencia a determinado grupo social u opiniones políticas, se encuentre fuera del país de su nacionalidad y no pueda o, a causa de dichos temores, no quiera acogerse a la protección de tal país; o que, careciendo de nacionalidad y hallándose, a consecuencia de tales acontecimientos, fuera del país donde antes tuviera su residencia habitual, no pueda o, a causa de dichos temores, no quiera regresar a él”. \(doubleJump)Que se hubiera visto obligada a salir de su país porque su vida, seguridad o libertad han sido amenazadas por violencia generalizada, agresión extranjera, conflictos internos, violación masiva de los Derechos Humanos u otras circunstancias que hayan perturbado gravemente al orden público; y que haya razones fundadas para creer que estaría en peligro de ser sometida a tortura u otros tratos o penas crueles, inhumanos o degradantes en caso de que se procediera a la expulsión, devolución o extradición al país de su nacionalidad o, en el caso que carezca de nacionalidad, al país de residencia habitual."
+        
+        static let header4 = "En Panamá"
+        static let boby4 = "En Panamá el Decreto Ley 5 de 2018 establece que las personas pueden solicitar el refugio cuando “cumpla con los requisitos establecidos en el artículo 1ª de la Convención de 1951 y el Protocolo de 1967 sobre el Estatuto de los Refugiados…”"
+    }
 }

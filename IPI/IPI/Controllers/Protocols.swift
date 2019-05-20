@@ -56,3 +56,13 @@ protocol MainProtocol: class {
     func removeOfContainer()
     func showMessageInMain(withMessage msn: String)
 }
+
+// Protocol for Course Manager
+protocol CourseViewControllerDelegate : class {
+    func nextPage()
+    func previusPage()
+    func playMV(urlStr: String)
+    func audioManager(audioID id: Int, play: Bool)
+    func sendRequest(formModel: Array<RequestCompleted>)
+    func showMessagePopup(message: String, inbold: String?, type: PopupMessage)
+}
