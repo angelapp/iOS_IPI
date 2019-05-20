@@ -45,6 +45,7 @@ struct Buttons {
     static let carry_on = "¡Adelante!"
     static let end = "FINALIZAR"
     static let forgot = "¿Olvidaste la contraseña?"
+    static let go_activity = "Ir a la actividad"
     static let login = "O inicia sesión"
     static let next = "SIGUIENTE"
     static let plan_your_trip = "Prepara tu viaje"
@@ -60,7 +61,7 @@ struct Buttons {
 // MARK: - Images
 struct IPI_IMAGES {
     static let selectActivitiesImage = "ilustracion"
-    
+
     static let admiration = "admiracion"
     static let corner_BLUE = "esquina_azul"
     static let corner_PINK = "esquina_rosada"
@@ -69,6 +70,8 @@ struct IPI_IMAGES {
     static let success = "chulo_azul"
     static let speaker_orange = "btn_bocina"
     static let speaker_orange_hover = "btn_bocina_hover"
+	/** NEW **/
+	static let infografia_M1_07 = "infografia_completa"
 }
 
 // MARK: - Lables
@@ -88,7 +91,7 @@ struct Labels {
     static let contact_messageTitle = "Tu mensaje"
     static let contact_telephone = "Tú Teléfono"
     static let contact_title = "DÉJANOS TU MENSAJE"
-    
+
     static let listenAudio = "Escucha el audio"
 }
 
