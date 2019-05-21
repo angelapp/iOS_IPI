@@ -257,7 +257,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         setButtonTitle(button: btn_next, title: Buttons.next)
     }
-    /** NEW **/
+    
     func fill_CELL_07() {
         lbl_title.text = IPI_COURSE.PAGE_07.title
         lbl_text1.text = IPI_COURSE.PAGE_07.text1
@@ -295,7 +295,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text1.text = IPI_COURSE.PAGE_10.text1
         lbl_text2.text = IPI_COURSE.PAGE_10.text2
 
-        saveActivity(activity: ActivitiesAbreviature.MOD_1_R.rawValue, forModule: TopicsIDs.mod_01.rawValue)
+//        saveActivity(activity: ActivitiesAbreviature.MOD_1_R.rawValue, forModule: TopicsIDs.mod_01.rawValue)
         setButtonTitle(button: btn_next, title: Buttons.go_activity)
     }
 
@@ -311,16 +311,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_opt2.isSelected = false
         btn_opt3.isSelected = false
 
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = WRONG_OPTION
+        btn_opt1.tag = TAG_OPTION_CORRECT
+        btn_opt2.tag = TAG_OPTION_WRONG
+        btn_opt3.tag = TAG_OPTION_WRONG
 
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
 
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        lbl_option3.tag = TAG_OPTION_03
 
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -1263,21 +1263,21 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         updateButtonsState(sender: sender)
     }
 
-    // MARK: - TextField Delegate
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        // Cambia el foco a la siguente celda, cuando hay un caracter
-        if textField.text!.count == MAX_LENGTH_CELL {
-            if let nextField = getNextTextField(forTextField: textField.tag) {
-                nextField.becomeFirstResponder()
-            }
-            else {
-                textField.resignFirstResponder()
-            }
-        }
-
-        return true
-    }
+//    // MARK: - TextField Delegate
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        // Cambia el foco a la siguente celda, cuando hay un caracter
+//        if textField.text!.count == MAX_LENGTH_CELL {
+//            if let nextField = getNextTextField(forTextField: textField.tag) {
+//                nextField.becomeFirstResponder()
+//            }
+//            else {
+//                textField.resignFirstResponder()
+//            }
+//        }
+//
+//        return true
+//    }
 
     // Limpia la cailla cuando se empieza a editar
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -1289,7 +1289,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
      de acuerdo a la celda actual, si no existe celda siguinete, retorna NIL
 
      - Parameter forTexfield: Id del textField actual
-     */
+     *//*
     private func getNextTextField(forTextField tag: Int) -> UITextField! {
 
         // Cambia los ID de las celdas que comparten "LETRAS" de acuerdo a su predecesos
@@ -1320,7 +1320,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         // retorna nulo si no se encuentra la celda siguinete
         return nil
-    }
+    }*/
 
     /*
      // MARK: - Ayudas

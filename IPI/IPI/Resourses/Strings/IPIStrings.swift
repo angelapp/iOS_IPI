@@ -67,10 +67,12 @@ struct IPI_IMAGES {
     static let corner_PINK = "esquina_rosada"
     static let corner_YELLOW = "bocadillo"
     static let fail = "error"
+    static let icon_1 = ""
+    static let icon_2 = ""
+    static let icon_3 = ""
     static let success = "chulo_azul"
     static let speaker_orange = "btn_bocina"
     static let speaker_orange_hover = "btn_bocina_hover"
-	/** NEW **/
 	static let infografia_M1_07 = "infografia_completa"
 }
 

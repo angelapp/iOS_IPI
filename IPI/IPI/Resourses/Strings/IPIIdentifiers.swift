@@ -71,7 +71,7 @@ enum CellID: String {
     case COURSE41, COURSE42
     
     // CELL FOR Expandable table view
-    case header, boby
+    case header, boby, courseHeader
 }
 
 /// Tag for popup message

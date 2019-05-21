@@ -14,6 +14,12 @@ class CourseHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var btn_openClose: UIButton!
     
+    @IBOutlet weak var cnt_header: UIView!
+    @IBOutlet weak var top_line: UIView!
+    @IBOutlet weak var top_botton: UIView!
+    
+    var headerTitle: String = nullString
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +29,15 @@ class CourseHeaderTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func fill_header(forTable id: Int) {
+        
+        if id == TABLE_SAMPLES {
+            
+        }
+        
+        
     }
 
 }
