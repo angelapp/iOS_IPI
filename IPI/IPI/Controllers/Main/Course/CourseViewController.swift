@@ -230,7 +230,6 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     }
     
     // MARK: - TableView delegate and datasource
-    
     // Número de secciones de la tabla
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.tag == TABLE_COURSE { return 1 }
@@ -248,19 +247,55 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     
     // Encabezado de las secciones
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        guard tableView.tag == TABLE_SAMPLES else {
-            return nil
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as! CourseHeaderTableViewCell
-        
-        cell.lbl_title.text = samplesList[section].header
-        cell.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
-        cell.btn_openClose.tag = section
-        cell.btn_openClose.isSelected = expandedSections.contains(section)
+           
+		let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as! CourseHeaderTableViewCell
+		
+		let tableID = tableView.tag 
+		var title = nullString
+		
+        if tableID == TABLE_COURSE {
+			switch currentIndex {
+				
+				case 1..15:
+					title = IPI_COURSE.MODULE_01
+					break
+					
+				case 17..22:
+					title = IPI_COURSE.MODULE_02
+					break
+					
+				case 22..42: 
+					IPI_COURSE.MODULE_03
+					break
+				
+				default:
+					break
+			}
+		
+			cell.headerTitle = title
+			cell.fill_header(forTable id: tableID)
+		}
+		else {
+			title = samplesList[section].header
+			cell.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+			cell.btn_openClose.tag = section
+			cell.btn_openClose.isSelected = expandedSections.contains(section)
+		}
+		
+        cell.headerTitle = title
+		cell.fill_header(forTable id: tableID)
         
         return cell
+    }
+	
+	// Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 66
     }
     
     // Se agrega la propiedad para ajustar el tamaño de la celda al contenido

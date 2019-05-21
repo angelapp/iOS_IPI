@@ -36,7 +36,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var content_tilte: UIView!
 
-	/** NEW **/
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_auxiliar: UIImageView!
     @IBOutlet weak var img_corner1: UIImageView!
@@ -167,7 +166,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     // MARK: - Llenado de las celdas
-    func fill_CELL_01() {
+	func fill_CELL_01() {
         lbl_title.text = IPI_COURSE.PAGE_01.title
         lbl_text1.text = IPI_COURSE.PAGE_01.text1
         lbl_text2.text = IPI_COURSE.PAGE_01.text2
@@ -175,6 +174,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         setButtonTitle(button: btn_next, title: Buttons.carry_on)
     }
 
+    /** START MODULE 1 **/
     func fill_CELL_02() {
         lbl_title.text = IPI_COURSE.PAGE_02.title
         lbl_text1.text = IPI_COURSE.PAGE_02.text1
@@ -316,6 +316,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_opt3.tag = TAG_OPTION_WRONG
 
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+		setButtonTitle(button: btn_next, title: Buttons.next)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_01
@@ -335,33 +336,57 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_option3.addGestureRecognizer(tapOption03)
     }
 
-    /*func fill_CELL_12(){
-        content_tilte?.topline()
-        lbl_review.text = Strings.review_content
-        lbl_title.text = IPI_COURSE.PAGE_12.title
+    func fill_CELL_12() {
         lbl_text1.text = IPI_COURSE.PAGE_12.text1
-        lbl_text2.text = String(format: IPI_COURSE.PAGE_12.text2, getInsignia(forModule: .MOD_01))
 
-        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_01)
-        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_01)
+        lbl_option1.text = IPI_COURSE.PAGE_12.option1
+        lbl_option2.text = IPI_COURSE.PAGE_12.option2
+        lbl_option3.text = IPI_COURSE.PAGE_12.option3
+
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+
+        btn_opt1.tag = TAG_OPTION_WRONG
+        btn_opt2.tag = TAG_OPTION_WRONG
+        btn_opt3.tag = TAG_OPTION_CORRECT
+
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+		setButtonTitle(button: btn_next, title: Buttons.next)
+
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        lbl_option3.tag = TAG_OPTION_03
+
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
     }
-
-    // MARK: MODULE 2
+	
     func fill_CELL_13() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_10.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_13.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_13.SUBTITLE
+	
         lbl_text1.text = IPI_COURSE.PAGE_13.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_13.AUDIO_1
+        lbl_text2.text = IPI_COURSE.PAGE_13.text2
+		
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
+		img_insignia.image = UIImage(named: IPI_IMAGES.icon_1)
+			
+		setButtonTitle(button: btn_next, title: Buttons.end_course)
+		setButtonTitle(button: btn_back, title: Buttons.come_back)
     }
-
+	/** END MODULE 1 **/
+	/*
+    // MARK: MODULE 2
     func fill_CELL_14() {
         content_tilte?.topline()
         lbl_title.text = IPI_COURSE.PAGE_14.title
@@ -1368,7 +1393,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             break
         }
 
-    }
+    }*/
 
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
@@ -1385,25 +1410,28 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
 
-    // Verifica por palabra, si corresponde a la respuesta esperada
     @IBAction func checking_page_11 (_ sender: UIButton) {
 
-        guard
-            validateCrossword(word: crossword_word1, correctAnswer: IPI_COURSE.PAGE_11.clue_1),
-            validateCrossword(word: crossword_word2, correctAnswer: IPI_COURSE.PAGE_11.clue_2),
-            validateCrossword(word: crossword_word3, correctAnswer: IPI_COURSE.PAGE_11.clue_3),
-            validateCrossword(word: crossword_word4, correctAnswer: IPI_COURSE.PAGE_11.clue_4),
-            validateCrossword(word: crossword_word5, correctAnswer: IPI_COURSE.PAGE_11.clue_5),
-            validateCrossword(word: crossword_word6, correctAnswer: IPI_COURSE.PAGE_11.clue_6)
-            else {
-                courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
-                return
+		if checkingQuestionary() {
+            //saveActivity(activity: activity, forModule: TopicsIDs.mod_02.rawValue)
+            //nextPage(nil)
         }
-
-        saveActivity(activity: ActivitiesAbreviature.MOD_1_CW1.rawValue, forModule: TopicsIDs.mod_01.rawValue)
-        nextPage(nil)
+        else {
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
+        }
     }
 
+    @IBAction func checking_page_12 (_ sender: UIButton) {
+
+		if checkingQuestionary() {
+            //saveActivity(activity: activity, forModule: TopicsIDs.mod_02.rawValue)
+            //nextPage(nil)
+        }
+        else {
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)
+        }
+    }
+/*
     @IBAction func checking_page_15(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_1_Q1.rawValue, forModule: TopicsIDs.mod_02.rawValue)

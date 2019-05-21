@@ -84,7 +84,7 @@ struct IPI_COURSE {
         static let header4 = "En Panamá"
         static let boby4 = "En Panamá el Decreto Ley 5 de 2018 establece que las personas pueden solicitar el refugio cuando “cumpla con los requisitos establecidos en el artículo 1ª de la Convención de 1951 y el Protocolo de 1967 sobre el Estatuto de los Refugiados…”"
     }
-    /** NEW **/
+	
     struct PAGE_08 {
         static let title = IPI_COURSE.MODULE_01
         static let text1 = "¿Qué derechos tienen las Personas en Necesidad de Protección Internacional (PNPI)?"
@@ -111,7 +111,7 @@ struct IPI_COURSE {
         static let option2 = "Una persona inmigrante."
         static let option3 = "Una persona que puede salir y regresar a su país en cualquier momento."
 
-        static let errorMSN = "Recuerda que una persona se convierte en Persona en Necesidad de Protección Internacional cuando abandona su país de origen a causa de conflictos internos o internacionales, graves perturbaciones al orden público, violaciones masivas a los derechos humanos, violencia generalizada, o porque se siente perseguida por motivos de raza, religión, nacionalidad, pertenencia a un determinado grupo social o por sus opiniones políticas. Además porque su Estado no puede o no quiere brindarle protección ni garantizar sus derechos."
+        static let ERROR = "Recuerda que una persona se convierte en Persona en Necesidad de Protección Internacional cuando abandona su país de origen a causa de conflictos internos o internacionales, graves perturbaciones al orden público, violaciones masivas a los derechos humanos, violencia generalizada, o porque se siente perseguida por motivos de raza, religión, nacionalidad, pertenencia a un determinado grupo social o por sus opiniones políticas. Además porque su Estado no puede o no quiere brindarle protección ni garantizar sus derechos."
     }
 
     struct PAGE_12 {
@@ -120,13 +120,12 @@ struct IPI_COURSE {
         static let option2 = "Una persona inmigrante en condiciones ilegales."
         static let option3 = "Una persona apátrida que debe recibir Protección Internacional de inmediato."
 
-        static let errorMSN = "Revisa el concepto de Apatridia, visto durante el Módulo 1."
+        static let ERROR = "Revisa el concepto de Apatridia, visto durante el Módulo 1."
     }
 
     struct PAGE_13 {
         static let text1 = "¡Felicitaciones! Ya tienes claros los conceptos básicos de la Protección Internacional y has obtenido tu primeria insignia."
-        static let text2 = "Finalizar"
-        static let text3 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
+        static let text2 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     }
     /** END MODULE 1 **/
 

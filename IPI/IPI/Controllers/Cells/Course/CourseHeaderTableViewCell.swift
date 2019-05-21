@@ -34,10 +34,17 @@ class CourseHeaderTableViewCell: UITableViewCell {
     func fill_header(forTable id: Int) {
         
         if id == TABLE_SAMPLES {
-            
+			cnt_header.backgroundColor = Color().getColor(from: ConseColors.background_gray.rawValue)
+            top_line.isHidden = true
+            botton_line.isHidden = true
         }
-        
-        
+		else {
+			cnt_header.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+            top_line.isHidden = false
+            botton_line.isHidden = false
+		}
+		
+		lbl_title = headerTitle
+		btn_openClose.isHidden = !top_line.isHidden
     }
-
 }
