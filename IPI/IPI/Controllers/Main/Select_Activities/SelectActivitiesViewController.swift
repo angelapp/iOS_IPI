@@ -27,6 +27,10 @@ class SelectActivitiesViewController: UIViewController {
         self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
         
         setButtonTitle(button: btn_planYourTrip, title: Buttons.plan_your_trip)
+        btn_planYourTrip.isHidden = true
+        
+        btn_basicConcepts.titleLabel?.lineBreakMode = .byWordWrapping
+        btn_basicConcepts.titleLabel?.textAlignment = .center
         setButtonTitle(button: btn_basicConcepts, title: Buttons.basic_Concepts)
         
         img_ilustracion.image = UIImage(named: IPI_IMAGES.selectActivitiesImage)

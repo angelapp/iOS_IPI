@@ -176,7 +176,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     /** START MODULE 1 **/
     func fill_CELL_02() {
-        lbl_title.text = IPI_COURSE.PAGE_02.title
         lbl_text1.text = IPI_COURSE.PAGE_02.text1
         lbl_text2.text = IPI_COURSE.PAGE_02.text2
         lbl_text3.text = IPI_COURSE.PAGE_02.text3
@@ -188,7 +187,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_CELL_03() {
-        lbl_title.text = IPI_COURSE.PAGE_03.title
         lbl_text1.text = IPI_COURSE.PAGE_03.text1
         lbl_text2.text = IPI_COURSE.PAGE_03.text2
 
@@ -197,7 +195,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_CELL_04() {
-        lbl_title.text = IPI_COURSE.PAGE_04.title
         lbl_text1.text = IPI_COURSE.PAGE_04.text1
         lbl_text2.text = IPI_COURSE.PAGE_04.text2
         lbl_text3.text = IPI_COURSE.PAGE_04.text3
@@ -225,7 +222,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         audioButtons = [btn_Aud1, btn_Aud2]
 
         // Fill texts
-        lbl_title.text = IPI_COURSE.PAGE_05.title
         lbl_text1.text = IPI_COURSE.PAGE_05.text1
         lbl_text2.text = IPI_COURSE.PAGE_05.text2
         lbl_text3.text = IPI_COURSE.PAGE_05.text3
@@ -234,11 +230,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_Aud1.text = Labels.listenAudio
         lbl_Aud2.text = Labels.listenAudio
 
+        //btn_next.isHidden = true
         setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_06() {
-        lbl_title.text = IPI_COURSE.PAGE_06.title
         lbl_text1.text = IPI_COURSE.PAGE_06.text1
         lbl_text2.text = IPI_COURSE.PAGE_06.text2
         lbl_text3.text = IPI_COURSE.PAGE_06.text3
@@ -259,7 +255,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func fill_CELL_07() {
-        lbl_title.text = IPI_COURSE.PAGE_07.title
         lbl_text1.text = IPI_COURSE.PAGE_07.text1
         tbl_examples.tag = TABLE_SAMPLES
 
@@ -267,7 +262,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_CELL_08() {
-        lbl_title.text = IPI_COURSE.PAGE_08.title
         lbl_text1.text = IPI_COURSE.PAGE_08.text1
         lbl_text2.text = IPI_COURSE.PAGE_08.text2
         /** 19:100 **/
@@ -1400,7 +1394,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     private func checkingQuestionary() -> Bool {
 
         for option in answersButtons {
-            if option.tag == CORRECT_OPTION {
+            if option.tag == TAG_OPTION_CORRECT {
                 guard option.isSelected else { return false }
             }
             else {

@@ -13,8 +13,8 @@ import Foundation
 
 struct IPI_COURSE {
 
-    static let MODULE_01 = "Módulo 1. Conceptos Básicos de Protección Internacional"
-    static let MODULE_02 = "Módulo 2. La labor de los estados para brindar mejores condiciones de vida a las PNPI"
+    static let MODULE_01 = "Conceptos Básicos de Protección Internacional"
+    static let MODULE_02 = "La labor de los estados para brindar mejores condiciones de vida a las PNPI"
     static let MODULE_03 = "Conceptos Básicos de Protección Internacional"
     static let text1 = "¡Muy bien, respuesta correcta!"
 
@@ -27,7 +27,6 @@ struct IPI_COURSE {
 
     /** START MODULE 1 **/
     struct PAGE_02 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "¿Qué es la Protección Internacional?"
         static let text2 = "Para iniciar es importante que primero aclaremos el siguiente concepto. "
         static let text3 = "¿Qué es un refugiado? "
@@ -35,20 +34,17 @@ struct IPI_COURSE {
     }
 
     struct PAGE_03 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "Los Estados tienen la responsabilidad de proteger, es decir resguardar y amparar a sus ciudadanos en su vida, su honra, sus bienes y sus derechos fundamentales. Cuando el gobierno de un Estado no quiere o no puede brindar esta protección, las personas se ven forzadas a huir y buscar protección en otro Estado que pueda acogerlos, y es allí cuando se convierten en refugiados."
         static let text2 = "Así las cosas, la Protección Internacional se otorga cuando a las personas les es reconocido el estatus de refugiado; un reconocimiento que debe efectuarse ante las entidades migratorias del Estado que los acoge."
     }
 
     struct PAGE_04 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "La Protección Internacional deben ofrecerla los Estados adheridos a la Convención sobre el Estatuto de los Refugiados de las Naciones Unidas y al Protocolo de 1967. Sin embargo, la Oficina del Alto Comisionado de las Naciones Unidas para los Refugiados (ACNUR), tiene la misión de promover e incentivar la aplicación de los mecanismos de  Protección Internacional en todos los Estados, sean o no parte de la Convención y/o el Protocolo."
         static let text2 = "Para el caso de Latinoamérica existe además, un instrumento regional como la Declaración de Cartagena de 1984, en la cual los Estados adoptaron medidas para facilitar la aplicación de la Convención de 1951 y el Protocolo de 1967 en la región."
         static let text3 = "Encuentra los documentos mencionados en la opción \"Documentos\" de la sección Planea tu Viaje"
     }
 
     struct PAGE_05 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "¿Qué es una persona en necesidad de protección internacional (PNPI)?"
         static let text2 = "Te preguntarás entonces ¿qué personas necesitan Protección Internacional?"
         static let text3 = "Para obtener la respuesta, escucha el siguiente audio."
@@ -56,7 +52,6 @@ struct IPI_COURSE {
     }
 
     struct PAGE_06 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "Detengámonos un momento para responder a las siguientes preguntas:"
         static let text2 = "a) ¿De las causas que acabas de escuchar por las cuales una persona necesitaría Protección Internacional, una o varias se presentan actualmente en tu país de origen?"
         static let text3 = "b) Si es así, te has sentido desprotegido y has visto afectado tu bienestar y derechos fundamentales porque tu país no ha respondido de manera efectiva ante aquellos riesgos?"
@@ -69,7 +64,6 @@ struct IPI_COURSE {
     }
 
     struct PAGE_07 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "Veamos el siguiente ejemplo sobre la definición de Refugiado en tres distintos países:"
 
         static let header1 = "En Ecuador"
@@ -86,7 +80,6 @@ struct IPI_COURSE {
     }
 	
     struct PAGE_08 {
-        static let title = IPI_COURSE.MODULE_01
         static let text1 = "¿Qué derechos tienen las Personas en Necesidad de Protección Internacional (PNPI)?"
         static let text2 = "Bien, hasta el momento hemos visto el concepto de refugiado, qué es un PNPI o Persona en Necesidad de Protección Internacional, las causas por las cuales una persona necesitaría Protección Internacional y algunos ejemplos del marco jurídico que regula esta condición en Latinoamérica. Conozcamos ahora qué derechos tiene un PNPI según la Convención sobre el Estatuto de los Refugiados de 1951."
     }
@@ -176,6 +169,5 @@ struct IPI_COURSE {
     }
 
     struct PAGE_29 {
-    }
     }
 }

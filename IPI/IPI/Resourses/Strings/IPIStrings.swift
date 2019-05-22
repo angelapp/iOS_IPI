@@ -41,7 +41,7 @@ struct Buttons {
     static let accept = "Aceptar"
     static let avatar_Male = "Conse Hombre"
     static let avata_Female = "Conse Mujer"
-    static let basic_Concepts = "Conceptos básicos de\(jumpLine)protección internacional"
+    static let basic_Concepts = "Conceptos básicos de protección internacional"
     static let carry_on = "¡Adelante!"
 	static let come_back = "VOLVER"
     static let end = "FINALIZAR"

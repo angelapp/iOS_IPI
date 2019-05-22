@@ -232,14 +232,20 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     // MARK: - TableView delegate and datasource
     // Número de secciones de la tabla
     func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.tag == TABLE_COURSE { return 1 }
-        else { return samplesList.count }
+        if tableView.tag == TABLE_COURSE {
+            return 1
+        }
+        else {
+            return samplesList.count
+        }
     }
     
     // Número de filas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if tableView.tag == TABLE_COURSE { return 1 }
+        if tableView.tag == TABLE_COURSE {
+            return 1
+        }
         else {
             return expandedSections.contains(section) ? 1 : 0
         }
@@ -247,45 +253,48 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     
     // Encabezado de las secciones
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-           
-		let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as! CourseHeaderTableViewCell
 		
 		let tableID = tableView.tag 
 		var title = nullString
 		
         if tableID == TABLE_COURSE {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.courseHeader.rawValue) as? CourseHeaderTableViewCell
+            
 			switch currentIndex {
 				
-				case 1..15:
-					title = IPI_COURSE.MODULE_01
+				case 1...15:
+					title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
 					break
 					
-				case 17..22:
-					title = IPI_COURSE.MODULE_02
+				case 17...22:
+					title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
 					break
 					
-				case 22..42: 
-					IPI_COURSE.MODULE_03
+				case 22...42: 
+					title = "Módulo 3. \(IPI_COURSE.MODULE_03)"
 					break
 				
 				default:
 					break
 			}
 		
-			cell.headerTitle = title
-			cell.fill_header(forTable id: tableID)
+			cell?.headerTitle = title
+            cell?.fill_header(forTable: tableID)
+            
+            return cell
 		}
 		else {
-			title = samplesList[section].header
-			cell.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
-			cell.btn_openClose.tag = section
-			cell.btn_openClose.isSelected = expandedSections.contains(section)
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+            
+			cell?.headerTitle = samplesList[section].header
+			cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+			cell?.btn_openClose.tag = section
+			cell?.btn_openClose.isSelected = expandedSections.contains(section)
+            cell?.fill_header(forTable: tableID)
+            
+            return cell
 		}
-		
-        cell.headerTitle = title
-		cell.fill_header(forTable id: tableID)
-        
-        return cell
     }
 	
 	// Se agrega la propiedad para ajustar el tamaño del encabezado al contenido

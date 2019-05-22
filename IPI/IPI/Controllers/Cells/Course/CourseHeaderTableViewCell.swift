@@ -16,7 +16,7 @@ class CourseHeaderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cnt_header: UIView!
     @IBOutlet weak var top_line: UIView!
-    @IBOutlet weak var top_botton: UIView!
+    @IBOutlet weak var botton_line: UIView!
     
     var headerTitle: String = nullString
     
@@ -34,7 +34,7 @@ class CourseHeaderTableViewCell: UITableViewCell {
     func fill_header(forTable id: Int) {
         
         if id == TABLE_SAMPLES {
-			cnt_header.backgroundColor = Color().getColor(from: ConseColors.background_gray.rawValue)
+			cnt_header.backgroundColor = Colors().getColor(from: ConseColors.background_gray.rawValue)
             top_line.isHidden = true
             botton_line.isHidden = true
         }
@@ -44,7 +44,6 @@ class CourseHeaderTableViewCell: UITableViewCell {
             botton_line.isHidden = false
 		}
 		
-		lbl_title = headerTitle
-		btn_openClose.isHidden = !top_line.isHidden
+		lbl_title.text = headerTitle
     }
 }
