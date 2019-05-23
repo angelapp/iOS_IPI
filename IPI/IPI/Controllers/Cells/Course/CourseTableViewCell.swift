@@ -418,14 +418,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 		
 		setButtonTitle(button: btn_next, title: Buttons.next)
     }
-/*
+
     func fill_CELL_16() {
         lbl_text1.text = IPI_COURSE.PAGE_16.text1
         lbl_text2.text = IPI_COURSE.PAGE_16.text2
 		
 		setButtonTitle(button: btn_next, title: Buttons.next)
     }
-
+/*
     // MARK: MODULE 3
     func fill_CELL_17() {
         mainDelegate?.setImageBackground(withName: nullString)

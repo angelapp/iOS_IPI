@@ -47,4 +47,11 @@ class CourseHeaderTableViewCell: UITableViewCell {
 		
 		lbl_title.text = headerTitle
     }
+	
+	private func config_button() {
+		btn_openClose.setImage(UIImage(named: ""), for: .normal)
+		btn_openClose.setImage(UIImage(named: ""), for: .selected)
+		
+		setAspectFitToButton(buttons: btn_openClose)
+	}
 }
