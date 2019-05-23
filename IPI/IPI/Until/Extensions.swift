@@ -11,6 +11,14 @@ import AVKit
 import Foundation
 import UIKit
 
+
+/// Se establece orientación del video
+class LandscapeAVPlayerController: AVPlayerViewController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
+}
+
 // MARK: - Extensions
 extension UIViewController {
 
@@ -61,11 +69,11 @@ extension UIViewController {
 		let videoURL = NSURL(string: videoSTR)
 		let player = AVPlayer(url: videoURL! as URL)
 		
-		let playerController = LandscapeAVPlayerController()
-		playerController.player = player
+        let playerController = LandscapeAVPlayerController()
+        playerController.player = player
 		
 		self.present(playerController, animated: true){
-			player.play
+			player.play()
 		}
 	}
 }

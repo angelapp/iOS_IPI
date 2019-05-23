@@ -367,20 +367,19 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell.fill_CELL_04()
             return cell
         }
-        else /*if currentIndex == CURSO_PTN.PAGE_05.rawValue */{
+        else if currentIndex == CURSO_PTN.PAGE_05.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE05.rawValue, for: indexPath) as! CourseTableViewCell
             
             cell.courseDelegate = self
             cell.fill_CELL_05()
             return cell
         }
-//        else {
-//            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE06.rawValue, for: indexPath) as! CourseTableViewCell
-//
-//            cell.courseDelegate = self
-//            cell.fill_CELL_06()
-//
-//            return cell
-//        }
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE06.rawValue, for: indexPath) as! CourseTableViewCell
+
+            cell.courseDelegate = self
+            cell.fill_CELL_06()
+            return cell
+        }
     }
 }

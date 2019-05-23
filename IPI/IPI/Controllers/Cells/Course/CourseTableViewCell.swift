@@ -1346,7 +1346,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     // MARK: - Video Manager
     @IBAction func videoActionManage (_ sender: UIButton) {
-		courseDelegate?.playMV(urlStr: VideosID.PROTECTION_VIDEO)
+		courseDelegate?.playMV(urlStr: String(format: Formats.youtubeEmbedFormat, VideosID.PROTECTION_VIDEO))
     }
 
     // MARK: - Validaciones

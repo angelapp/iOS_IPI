@@ -124,27 +124,27 @@ struct IPI_COURSE {
 
     /** START MODULE 2 **/
     struct PAGE_14 {
-        <string name="curso1_2_0_1">Antes de comenzar</string>
-		<string name="curso1_2_0_2">Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados.</string>
+        static let title = "Antes de comenzar"
+		static let text1 = "Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados."
     }
 
     struct PAGE_15 {
-		<string name="curso1_2_1_1">Antes de comenzar ...</string>
-		<string name="curso1_2_1_2">Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados.</string>
+		static let text1 = "Antes de comenzar ..."
+		static let text2 = "Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados."
 
-		<string name="curso1_2_2_1">Principio de la no discriminación</string>
-		<string name="curso1_2_2_2">"Garantía de igualdad de trato entre los individuos sean o no de una misma comunidad, país o región". En este sentido, la Protección Internacional es un derecho en sí mismo."</string>
+		static let slide0_title = "Principio de la no discriminación"
+		static let slide0_text  = "\"Garantía de igualdad de trato entre los individuos sean o no de una misma comunidad, país o región\". En este sentido, la Protección Internacional es un derecho en sí mismo."
 
-		<string name="curso1_2_3_1">Principio de no devolución</string>
-		<string name="curso1_2_3_2">"Ningún estado podrá, por expulsión o devolución, poner a un refugiado en las fronteras de los  territorios donde su vida o libertad peligre por causa de su raza, religión, nacionalidad, pertenencia a un grupo social u opiniones políticas."</string>
+		static let slide1_title = "Principio de no devolución"
+		static let slide1_text  = "\"Ningún estado podrá, por expulsión o devolución, poner a un refugiado en las fronteras de los  territorios donde su vida o libertad peligre por causa de su raza, religión, nacionalidad, pertenencia a un grupo social u opiniones políticas.\""
 
-		<string name="curso1_2_4_1">Estancia irregular en un Estado</string>
-		<string name="curso1_2_4_2">"No se impondrá sanción alguna al solicitante de refugio que ingrese o se encuentre ilegalmente al país, toda vez que provenga de un territorio donde su vida esté amenazada."</string>
+		static let slide2_title = "Estancia irregular en un Estado"
+		static let slide2_text  = "\"No se impondrá sanción alguna al solicitante de refugio que ingrese o se encuentre ilegalmente al país, toda vez que provenga de un territorio donde su vida esté amenazada.\""
     }
 
     struct PAGE_16 {
-		<string name="curso1_2_5_1">Ahora si, es momento de conocer cuál es la labor que llevan a cabo los Estados para brindar mejores condiciones de vida a las Personas en Necesidad de Protección Internacional. Veamos, lo que específicamente se hace en la región de América Latina y el Caribe.</string>
-		<string name="curso1_2_5_2">Presta mucha atención al siguiente video.</string>
+		static let text5_1 = "Ahora si, es momento de conocer cuál es la labor que llevan a cabo los Estados para brindar mejores condiciones de vida a las Personas en Necesidad de Protección Internacional. Veamos, lo que específicamente se hace en la región de América Latina y el Caribe."
+		static let text5_2 = "Presta mucha atención al siguiente video."
     }
 
     struct PAGE_17 {
