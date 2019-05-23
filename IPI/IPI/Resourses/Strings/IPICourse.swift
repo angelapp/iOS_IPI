@@ -18,6 +18,7 @@ struct IPI_COURSE {
     static let MODULE_03 = "Conceptos Básicos de Protección Internacional"
     static let text1 = "¡Muy bien, respuesta correcta!"
 
+    /** START MODULE 1 **/
     struct PAGE_01 {
         static let title = IPI_COURSE.MODULE_01
         static let text1 = "Te damos la bienvenida al Curso de Protección Internacional. Un curso que te ayudará a despejar inquietudes y aprender nuevos conceptos."
@@ -25,7 +26,6 @@ struct IPI_COURSE {
         static let text3 = "Inicia con ánimo este recorrido de aprendizaje."
     }
 
-    /** START MODULE 1 **/
     struct PAGE_02 {
         static let text1 = "¿Qué es la Protección Internacional?"
         static let text2 = "Para iniciar es importante que primero aclaremos el siguiente concepto. "
@@ -124,12 +124,27 @@ struct IPI_COURSE {
 
     /** START MODULE 2 **/
     struct PAGE_14 {
+        <string name="curso1_2_0_1">Antes de comenzar</string>
+		<string name="curso1_2_0_2">Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados.</string>
     }
 
     struct PAGE_15 {
+		<string name="curso1_2_1_1">Antes de comenzar ...</string>
+		<string name="curso1_2_1_2">Ya conociste los conceptos básicos de la Protección Internacional. Para iniciar el Módulo No. 2 veamos tres pilares del sistema de las Naciones Unidas, contemplados dentro de la Convención sobre el Estatuto de los Refugiados, que deben tener en cuenta los Estados cuando acogen a las PNPI/Refugiados.</string>
+
+		<string name="curso1_2_2_1">Principio de la no discriminación</string>
+		<string name="curso1_2_2_2">"Garantía de igualdad de trato entre los individuos sean o no de una misma comunidad, país o región". En este sentido, la Protección Internacional es un derecho en sí mismo."</string>
+
+		<string name="curso1_2_3_1">Principio de no devolución</string>
+		<string name="curso1_2_3_2">"Ningún estado podrá, por expulsión o devolución, poner a un refugiado en las fronteras de los  territorios donde su vida o libertad peligre por causa de su raza, religión, nacionalidad, pertenencia a un grupo social u opiniones políticas."</string>
+
+		<string name="curso1_2_4_1">Estancia irregular en un Estado</string>
+		<string name="curso1_2_4_2">"No se impondrá sanción alguna al solicitante de refugio que ingrese o se encuentre ilegalmente al país, toda vez que provenga de un territorio donde su vida esté amenazada."</string>
     }
 
     struct PAGE_16 {
+		<string name="curso1_2_5_1">Ahora si, es momento de conocer cuál es la labor que llevan a cabo los Estados para brindar mejores condiciones de vida a las Personas en Necesidad de Protección Internacional. Veamos, lo que específicamente se hace en la región de América Latina y el Caribe.</string>
+		<string name="curso1_2_5_2">Presta mucha atención al siguiente video.</string>
     }
 
     struct PAGE_17 {

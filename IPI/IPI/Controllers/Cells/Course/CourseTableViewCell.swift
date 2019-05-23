@@ -34,7 +34,8 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var btn_playMV: UIButton!
     @IBOutlet weak var btn_downloadMV: UIButton!
 
-    @IBOutlet weak var content_tilte: UIView!
+    @IBOutlet weak var content_slide: UIView!
+	@IBOutlet weak var pageControl: UIPageControl!
 
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_auxiliar: UIImageView!
@@ -133,6 +134,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     // MARK: - Properties
     let MAX_LENGTH_CELL = 1
+	// Slides for Module 2 Page 15
+	let SLIDE_0 = 0
+	let SLIDE_1 = 1
+	let SLIDE_2 = 2
+	// Tag for identify the options 
     let TAG_OPTION_CORRECT: Int = 1
     let TAG_OPTION_WRONG:   Int = 0
     let TAG_OPTION_01 = 0
@@ -230,7 +236,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_Aud1.text = Labels.listenAudio
         lbl_Aud2.text = Labels.listenAudio
 
-        //btn_next.isHidden = true
         setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
@@ -379,80 +384,46 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 		setButtonTitle(button: btn_back, title: Buttons.come_back)
     }
 	/** END MODULE 1 **/
-	/*
-    // MARK: MODULE 2
+	
+	/** STAR MODULE 2 **/
     func fill_CELL_14() {
-        content_tilte?.topline()
         lbl_title.text = IPI_COURSE.PAGE_14.title
         lbl_text1.text = IPI_COURSE.PAGE_14.text1
-
-        saveActivity(activity: ActivitiesAbreviature.MOD_2_R.rawValue, forModule: TopicsIDs.mod_02.rawValue)
+        
+        setButtonTitle(button: btn_next, title: Buttons.carry_on)
     }
 
     func fill_CELL_15() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_15.title
         lbl_text1.text = IPI_COURSE.PAGE_15.text1
         lbl_text2.text = IPI_COURSE.PAGE_15.text2
-
-        lbl_option1.text = IPI_COURSE.PAGE_15.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_15.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_15.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_15.OPT4
-        lbl_option5.text = IPI_COURSE.PAGE_15.OPT5
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-        btn_opt5.isSelected = false
-
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = CORRECT_OPTION
-        btn_opt5.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-        lbl_option5.tag = OPTION_05_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
-
-        let tapOption05 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option5.isUserInteractionEnabled = true
-        lbl_option5.addGestureRecognizer(tapOption05)
+		
+		//Implementar pageviewController y función para retornar los textos
+		// swift id {
+			
+			// case SLIDE_0:
+			// text3 = IPI_COURSE.PAGE_15.slide0_text3
+			// text4 = IPI_COURSE.PAGE_15.slide0_text4
+			// break
+		
+			// case SLIDE_1:
+			// text3 = IPI_COURSE.PAGE_15.slide1_text3
+			// text4 = IPI_COURSE.PAGE_15.slide1_text4
+			// break
+			
+			// default:
+			// text3 = IPI_COURSE.PAGE_15.slide2_text3
+			// text4 = IPI_COURSE.PAGE_15.slide2_text4
+			// break
+		// }
+		
+		setButtonTitle(button: btn_next, title: Buttons.next)
     }
-
+/*
     func fill_CELL_16() {
-        content_tilte?.topline()
-        lbl_review.text = Strings.review_content
-        lbl_title.text = IPI_COURSE.PAGE_16.title
         lbl_text1.text = IPI_COURSE.PAGE_16.text1
-        lbl_text2.text = String(format: IPI_COURSE.PAGE_16.text2, getInsignia(forModule: .MOD_02))
-
-        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_02)
-        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_02)
+        lbl_text2.text = IPI_COURSE.PAGE_16.text2
+		
+		setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     // MARK: MODULE 3
@@ -1371,23 +1342,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
             courseDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_6)
             break
         }
-    }
+    }*/
 
     // MARK: - Video Manager
     @IBAction func videoActionManage (_ sender: UIButton) {
-
-        switch sender {
-
-        case btn_downloadMV:
-            courseDelegate?.downloadMV(title: VideosTitles.vbg_video, urlStr: VideosURL.vbg_url)
-            break
-
-        default:
-            courseDelegate?.playMV(urlStr: VideosURL.vbg_url)
-            break
-        }
-
-    }*/
+		courseDelegate?.playMV(urlStr: VideosID.PROTECTION_VIDEO)
+    }
 
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario

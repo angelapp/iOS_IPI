@@ -6,6 +6,8 @@
 //  Copyright © 2019 NRC. All rights reserved.
 //
 
+import AVFoundation
+import AVKit
 import Foundation
 import UIKit
 
@@ -53,6 +55,19 @@ extension UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
+	
+	/// Show video in AVPlayer
+	func playVideo(videoSTR: String) {
+		let videoURL = NSURL(string: videoSTR)
+		let player = AVPlayer(url: videoURL! as URL)
+		
+		let playerController = LandscapeAVPlayerController()
+		playerController.player = player
+		
+		self.present(playerController, animated: true){
+			player.play
+		}
+	}
 }
 
 // Link action as tapGesture

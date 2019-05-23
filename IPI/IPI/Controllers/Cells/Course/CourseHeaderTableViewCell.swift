@@ -31,17 +31,17 @@ class CourseHeaderTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func fill_header(forTable id: Int) {
+    func fill_header(forTable id: Int, withCutoff?: bool = false) {
         
         if id == TABLE_SAMPLES {
 			cnt_header.backgroundColor = Colors().getColor(from: ConseColors.background_gray.rawValue)
-            top_line.isHidden = true
-            botton_line.isHidden = true
+            top_line.isHidden = withCutoff
+            botton_line.isHidden = withCutoff
         }
 		else {
 			cnt_header.backgroundColor = UIColor.white.withAlphaComponent(0.0)
-            top_line.isHidden = false
-            botton_line.isHidden = false
+            top_line.isHidden = withCutoff
+            botton_line.isHidden = withCutoff
 		}
 		
 		lbl_title.text = headerTitle

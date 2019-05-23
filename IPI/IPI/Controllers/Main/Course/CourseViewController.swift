@@ -157,8 +157,9 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         }
         
         guard currentIndex > 0 else { return }
-        currentIndex -= 1
-        AplicationRuntime.sharedManager.setProgress(progress: currentIndex)
+		
+		currentIndex -= 1
+		AplicationRuntime.sharedManager.setProgress(progress: currentIndex)
         
         reloadTable()
     }
@@ -169,14 +170,15 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         }
         
         guard currentIndex < maxPageIndex else { return }
-        currentIndex += 1
+		
+		currentIndex += 1
         AplicationRuntime.sharedManager.setProgress(progress: currentIndex)
         
         reloadTable()
     }
     
     func playMV(urlStr: String){
-        //self.playVideo(videoSTR: urlStr)
+        self.playVideo(videoSTR: urlStr)
     }
     
     func audioManager(audioID id: Int, play: Bool) {
@@ -260,14 +262,15 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         if tableID == TABLE_COURSE {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.courseHeader.rawValue) as? CourseHeaderTableViewCell
-            
+            var cutoff = true
+			
 			switch currentIndex {
 				
-				case 1...15:
+				case 1...12:
 					title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
 					break
 					
-				case 17...22:
+				case 14...22:
 					title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
 					break
 					
@@ -276,11 +279,12 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
 					break
 				
 				default:
+					cutoff = false
 					break
 			}
 		
 			cell?.headerTitle = title
-            cell?.fill_header(forTable: tableID)
+            cell?.fill_header(forTable: tableID, withCutoff: cutoff)
             
             return cell
 		}
