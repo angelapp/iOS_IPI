@@ -143,8 +143,8 @@ struct IPI_COURSE {
     }
 
     struct PAGE_16 {
-		static let text5_1 = "Ahora si, es momento de conocer cuál es la labor que llevan a cabo los Estados para brindar mejores condiciones de vida a las Personas en Necesidad de Protección Internacional. Veamos, lo que específicamente se hace en la región de América Latina y el Caribe."
-		static let text5_2 = "Presta mucha atención al siguiente video."
+		static let text1 = "Ahora si, es momento de conocer cuál es la labor que llevan a cabo los Estados para brindar mejores condiciones de vida a las Personas en Necesidad de Protección Internacional. Veamos, lo que específicamente se hace en la región de América Latina y el Caribe."
+		static let text2 = "Presta mucha atención al siguiente video."
     }
 
     struct PAGE_17 {

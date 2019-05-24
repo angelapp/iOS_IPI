@@ -374,11 +374,18 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell.fill_CELL_05()
             return cell
         }
-        else {
+        else if currentIndex == CURSO_PTN.PAGE_06.rawValue{
             cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE06.rawValue, for: indexPath) as! CourseTableViewCell
 
             cell.courseDelegate = self
             cell.fill_CELL_06()
+            return cell
+        }
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE07.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_07()
             return cell
         }
     }
