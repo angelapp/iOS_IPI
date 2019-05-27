@@ -15,7 +15,6 @@ class BeforeBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_body: UILabel!
     
     weak var beforeDelegate: BeforeTravelViewControllerDelegate?
-    var item : [String:String] = [:]
     
     override func awakeFromNib() {
         super.awakeFromNib()

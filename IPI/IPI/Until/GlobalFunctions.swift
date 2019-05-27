@@ -13,14 +13,6 @@ import Foundation
 import UIKit
 import ObjectMapper
 
-
-func getBeforeTravel() -> [[String:String]] {
-    return [[IPIKeys.title.rawValue: Labels.before_travel_text1, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_08.rawValue)],
-            [IPIKeys.title.rawValue: Labels.before_travel_text2, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue)],
-            [IPIKeys.title.rawValue: Labels.before_travel_text3, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue)],
-            [IPIKeys.title.rawValue: Labels.before_travel_text4, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue)]]
-}
-
 // MARK: - Funciones para obtener el contenido del tutorial
 /**
  Retorna una lista [llave: Valor] con el contenido de cada una de los pasos del tutorial.
@@ -160,22 +152,10 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
                                 
                                 return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id, activity: act.id, date: activity.dateCompleted)]
                             }
-                            else {
-                                return nil
-                            }
-                        }
-                        else {
-                            return nil
                         }
                     }
                 }
-                else {
-                    return nil
-                }
             }
-        }
-        else {
-            return nil
         }
     }
 

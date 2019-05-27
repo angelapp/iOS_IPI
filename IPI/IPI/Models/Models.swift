@@ -55,7 +55,6 @@ class CourseListModel: Mappable {
 }
 
 // Modelo con los datos basicos para guardar una actividad completada
-/* State: pending */
 class ActityCompleted {
     var courseID: Int!
     var topicID: Int!
@@ -84,7 +83,6 @@ class RequestCompleted: Mappable {
     }
 }
 
-/* State: pending */
 class RequestAvatar: Mappable {
     var user: Int!
     var piece: Int!
@@ -191,7 +189,7 @@ class MyCommunityItem {
     }
 }
 
-/* State: pending */
+/** Modelo para obtener la imagen, título y progreso de determinado curso **/
 class ModuleProgressItem {
     var image: String!
     var title: String!
@@ -214,23 +212,53 @@ class CoursesProgress {
     }
 }
 
+/** Módelo para pasar la información de la lista **Antes de Viajar** */
+class BeforeTravelItem {
+    var title: String!
+    var audioID: Int!
+
+    // Inicializador vacio
+    init() {
+    }
+
+    // Inicializador completo del modelo
+    init(title: String, audioID: Int) {
+        self.title = title
+        self.audioID = audioID
+    }
+
+    /** Crea y retorna la lista **Antes de Viajar**
+    - Returns: lista de --BeforeTravelItem--
+    */
+    func getBeforeTravelItemList() -> [BeforeTravelItem] {
+
+        return [BeforeTravelItem(title: Labels.before_travel_text1, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_08.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text2, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text3, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text4, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue)]
+    }
+}
+
+/** Módelo para pasar los datos de la lista desplegable al controlador correspondiente **/
 class ExampleData {
     var header : String!
     var body : [String]!
     
     init() {
-        
     }
-    
+
     init(header: String, body: [String]) {
         self.header = header
         self.body = body
     }
-    
+
+    /** Arma la lista ejemplos del curso 
+    - Returns: Arreglo la información por secciones
+    **/
     func getSampleData() -> [ExampleData] {
         return [ExampleData(header: IPI_COURSE.PAGE_07.header1, body: [IPI_COURSE.PAGE_07.boby1]),
                 ExampleData(header: IPI_COURSE.PAGE_07.header2, body: [IPI_COURSE.PAGE_07.boby2]),
                 ExampleData(header: IPI_COURSE.PAGE_07.header3, body: [IPI_COURSE.PAGE_07.boby3]),
-                ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4]),]
+                ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4])]
     }
 }

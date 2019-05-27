@@ -9,27 +9,31 @@
 import UIKit
 import AVFoundation
 
-class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate {
+class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Outlet
     @IBOutlet weak var tbl_before_travel: UITableView!
     
     // MARK: - Properties
+    let NOT_AUDIO_ID = -1
+
     var ncrAudio: AVAudioPlayer?
     var mainDelegate: MainProtocol?
+
+    var before_list: [BeforeTravelItem]!
+
+    var currentAudioID = NOT_AUDIO_ID
     var isPlaying = nullString
-    var before_list : [[String : String]]!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
-        before_list = getBeforeTravel()
+        before_list = BeforeTravelItem().getBeforeTravelItemList()
     }
-    
+
     // MARK: - Private Functions
     private func playAudio(audio name: String) {
-        
         if isPlaying != nullString {
             stopAudio(audio: name)
         }
@@ -50,7 +54,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate {
             mainDelegate?.showMessageInMain(withMessage: ErrorMessages.audioNotFound)
         }
     }
-    
+
     private func stopAudio(audio name: String) {
         if let path = Bundle.main.path(forResource: name, ofType:"mp3") {
             let url = URL(fileURLWithPath: path)
@@ -69,8 +73,19 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+
+    // MARK: - Before Travel Delegate
+    func audioManager(audioID id: Int, play: Bool) {
+        let audioName = get_AudioName(forAudio: id)
+        play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
+
+        //currentAudioID = id
+        //tbl_before_travel.reloadData()
+    }
+
     // MARK: - AVAudioPlayer Delegate
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        currentAudioID = NOT_AUDIO_ID
         tbl_before_travel.reloadData()
     }
     
@@ -140,8 +155,9 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.beforeBody.rawValue, for: indexPath) as! BeforeBodyTableViewCell
         
-        let item: [String: String] = before_list![indexPath.row]
-        cell.lbl_body.text = item[IPIKeys.title.rawValue]
+        cell.lbl_body.text = before_list[indexPath.raw].title
+        cell.btn_audio.tag = before_list[indexPath.raw].audioID
+        //cell.btn_audio.isSelected = btn_audio.tag == currentAudioID ? true : false
         
         return cell
     }

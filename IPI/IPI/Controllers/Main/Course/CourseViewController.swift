@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import ObjectMapper
 
-class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource {
+class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource, BeforeTravelViewControllerDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var tbl_course: UITableView!
