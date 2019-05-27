@@ -146,6 +146,8 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     let TAG_OPTION_03 = 2
     let TAG_OPTION_04 = 3
     let TAG_OPTION_05 = 4
+    
+    private let courseID: Int = 1
 
     var crossword_word1: Array<UITextField> = []
     var crossword_word2: Array<UITextField> = []
@@ -187,7 +189,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text3.text = IPI_COURSE.PAGE_02.text3
         lbl_text4.text = IPI_COURSE.PAGE_02.text4
 
-        setButtonTitle(button: btn_next, title: Buttons.next)
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
     }
@@ -196,7 +197,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text1.text = IPI_COURSE.PAGE_03.text1
         lbl_text2.text = IPI_COURSE.PAGE_03.text2
 
-        setButtonTitle(button: btn_next, title: Buttons.next)
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_BLUE)
     }
 
@@ -205,7 +205,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text2.text = IPI_COURSE.PAGE_04.text2
         lbl_text3.text = IPI_COURSE.PAGE_04.text3
 
-        setButtonTitle(button: btn_next, title: Buttons.next)
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
         img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
@@ -235,8 +234,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         lbl_Aud1.text = Labels.listenAudio
         lbl_Aud2.text = Labels.listenAudio
-
-        setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_06() {
@@ -255,15 +252,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         img_corner2.image = UIImage(named: IPI_IMAGES.corner_PINK)
         img_corner3.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
         img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
-
-        setButtonTitle(button: btn_next, title: Buttons.next)
     }
     
     func fill_CELL_07() {
         lbl_text1.text = IPI_COURSE.PAGE_07.text1
         tbl_examples.tag = TABLE_SAMPLES
-
-        setButtonTitle(button: btn_next, title: Buttons.next)
+        
+        let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+        let course = courseList?[0].course_topics?[0]
+        
+        saveActivity(activity: (course?.topic_activity_list?[0].abreviature)!, forModule: (course?.id)!)
     }
 
     func fill_CELL_08() {
@@ -271,8 +269,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         lbl_text2.text = IPI_COURSE.PAGE_08.text2
         /** 19:100 **/
         img_auxiliar.image = UIImage(named: IPI_IMAGES.infografia_M1_07)
-
-        setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_09() {
@@ -286,8 +282,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
         img_icon2.image = UIImage(named: IPI_IMAGES.icon_1)
         img_icon3.image = UIImage(named: IPI_IMAGES.icon_1)
-
-        setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_10() {
@@ -1311,6 +1305,29 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         // retorna nulo si no se encuentra la celda siguinete
         return nil
     }*/
+    
+    // MARK: - Save Activities completed
+    private func saveActivity(activity name: String, forModule id: Int) {
+        
+        //Obtiene la fecha actual
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateTimeFormat.formatInMillis
+        
+        // save Activity complete
+        let actCompleted:ActityCompleted = ActityCompleted()
+        actCompleted.courseID = courseID
+        actCompleted.topicID = id
+        actCompleted.activity = name
+        actCompleted.dateCompleted = formatter.string(from: date)
+        
+        // se envia post a servidor Si la respuesta es VERDADERA
+        guard let requestModel = saveProgress(forActivity: actCompleted) else {
+            return
+        }
+        
+        courseDelegate?.sendRequest(formModel: requestModel)
+    }
 
     /*
      // MARK: - Ayudas

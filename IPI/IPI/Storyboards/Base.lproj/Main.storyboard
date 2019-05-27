@@ -57,6 +57,9 @@
                                             <constraint firstAttribute="width" constant="45" id="aP5-VB-EJD"/>
                                         </constraints>
                                         <state key="normal" image="btn_avance"/>
+                                        <connections>
+                                            <action selector="showProgress:" destination="CP5-e0-Scv" eventType="touchUpInside" id="IZX-Mf-5O9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -372,10 +375,10 @@
             </objects>
             <point key="canvasLocation" x="2588" y="390"/>
         </scene>
-        <!--View Controller-->
+        <!--Before Travel View Controller-->
         <scene sceneID="sud-eR-3YL">
             <objects>
-                <viewController id="jLV-73-KYV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="beforeYourTripVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jLV-73-KYV" customClass="BeforeTravelViewController" customModule="IPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ElU-Rn-x1F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,7 +387,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeHeader" rowHeight="59" id="oVI-3N-LbX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeHeader" rowHeight="59" id="oVI-3N-LbX" customClass="BeforeHeaderTableViewCell" customModule="IPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oVI-3N-LbX" id="PEl-ZF-iGU">
@@ -406,8 +409,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lbl_title" destination="vE4-dn-rdt" id="e88-Ap-zgg"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeBody" rowHeight="68" id="j4J-2U-3Lf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeBody" rowHeight="68" id="j4J-2U-3Lf" customClass="BeforeBodyTableViewCell" customModule="IPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="87" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j4J-2U-3Lf" id="NV6-Qh-yKe">
@@ -476,8 +482,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btn_audio" destination="Wid-uZ-wua" id="adt-hL-vW6"/>
+                                            <outlet property="lbl_body" destination="ySb-wz-IAF" id="Vzf-j8-zxF"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeFooter" rowHeight="66" id="RTl-zI-RRK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="beforeFooter" rowHeight="66" id="RTl-zI-RRK" customClass="BeforeFooterTableViewCell" customModule="IPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="155" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RTl-zI-RRK" id="5sJ-72-ZNV">
@@ -500,6 +510,9 @@
                                                             <integer key="value" value="15"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="action_buttons:" destination="RTl-zI-RRK" eventType="touchUpInside" id="XBD-1e-P9W"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -510,6 +523,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btn_your_trip" destination="udP-fo-uoG" id="fIN-6c-6T5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -523,6 +539,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SMU-iv-juN"/>
                     </view>
+                    <connections>
+                        <outlet property="tbl_before_travel" destination="mFX-1S-Y4L" id="uLe-5i-VKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMp-1v-b8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -994,8 +1013,61 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="top_line" destination="uRb-0a-sOc" id="FJ3-Yf-p6k"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="courseFooter" rowHeight="46" id="vfD-eU-efj" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="91.5" width="375" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vfD-eU-efj" id="QZg-NC-cGw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFL-l8-xa6" userLabel="Footer">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="46"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQB-Rq-96o">
+                                                            <rect key="frame" x="223" y="0.0" width="120" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="53t-22-ggM"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="RrL-Oz-K0m"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                                            <state key="normal" title="Button" image="btn_siguiente">
+                                                                <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="nextPage:" destination="vfD-eU-efj" eventType="touchUpInside" id="rCv-0v-jcI"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="yQB-Rq-96o" secondAttribute="trailing" constant="16" id="OId-3S-d6F"/>
+                                                        <constraint firstItem="yQB-Rq-96o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FFL-l8-xa6" secondAttribute="leading" constant="20" symbolic="YES" id="QZA-BW-cen"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yQB-Rq-96o" secondAttribute="bottom" constant="16" id="faH-9U-2FF"/>
+                                                        <constraint firstItem="yQB-Rq-96o" firstAttribute="top" secondItem="FFL-l8-xa6" secondAttribute="top" id="gfQ-5N-Vkf"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="FFL-l8-xa6" secondAttribute="trailing" constant="8" id="1QN-7c-ekU"/>
+                                                <constraint firstItem="FFL-l8-xa6" firstAttribute="leading" secondItem="QZg-NC-cGw" secondAttribute="leading" constant="8" id="22g-Pr-pm9"/>
+                                                <constraint firstAttribute="bottom" secondItem="FFL-l8-xa6" secondAttribute="bottom" id="VjS-mA-4Uv"/>
+                                                <constraint firstItem="FFL-l8-xa6" firstAttribute="top" secondItem="QZg-NC-cGw" secondAttribute="top" id="oI9-j4-MqN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="btn_next" destination="yQB-Rq-96o" id="YNL-vi-kFr"/>
+                                            <outlet property="cnt_footer" destination="FFL-l8-xa6" id="XBx-IB-Se8"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE01" rowHeight="273" id="cse-Ki-U3Z" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="91.5" width="375" height="273"/>
+                                        <rect key="frame" x="0.0" y="137.5" width="375" height="273"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cse-Ki-U3Z" id="Hma-X5-gGw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="273"/>
@@ -1084,15 +1156,15 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_title" destination="w5R-Ac-XYa" id="PyQ-Ok-e4w"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE02" rowHeight="364" id="SeZ-0W-3o7" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="364.5" width="375" height="364"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE02" rowHeight="342" id="SeZ-0W-3o7" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="410.5" width="375" height="342"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SeZ-0W-3o7" id="hq8-hg-rAa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAZ-jr-4Yp">
-                                                    <rect key="frame" x="15" y="8" width="345" height="348"/>
+                                                    <rect key="frame" x="15" y="8" width="345" height="332"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pi-04-ecn">
                                                             <rect key="frame" x="0.0" y="16" width="345" height="20.5"/>
@@ -1152,54 +1224,34 @@ NORUEGO PARA REFUGIADOS</string>
                                                                 <constraint firstAttribute="height" constant="150" id="rZu-he-vmM"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9u-mL-Qz7">
-                                                            <rect key="frame" x="225" y="302" width="120" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="JVa-70-s4g"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Nkl-WF-vEI"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                                            <state key="normal" title="Button" image="btn_siguiente">
-                                                                <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="nextPage:" destination="SeZ-0W-3o7" eventType="touchUpInside" id="eew-Bj-YS8"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="nFF-Ac-6pt" firstAttribute="leading" secondItem="RAZ-jr-4Yp" secondAttribute="leading" id="0yN-cw-jda"/>
                                                         <constraint firstAttribute="trailing" secondItem="6pi-04-ecn" secondAttribute="trailing" id="69q-MC-Vpr"/>
                                                         <constraint firstItem="uuL-g5-i0k" firstAttribute="top" secondItem="nFF-Ac-6pt" secondAttribute="bottom" constant="-1" id="6Id-Xz-98H"/>
                                                         <constraint firstAttribute="trailing" secondItem="nFF-Ac-6pt" secondAttribute="trailing" id="6eY-aw-Yft"/>
-                                                        <constraint firstAttribute="trailing" secondItem="y9u-mL-Qz7" secondAttribute="trailing" id="A10-Yh-0gk"/>
                                                         <constraint firstItem="QQ2-U1-UUh" firstAttribute="leading" secondItem="RAZ-jr-4Yp" secondAttribute="leading" constant="8" id="Lgd-sp-VrP"/>
                                                         <constraint firstItem="6pi-04-ecn" firstAttribute="leading" secondItem="RAZ-jr-4Yp" secondAttribute="leading" id="NUH-n9-tx2"/>
                                                         <constraint firstItem="QQ2-U1-UUh" firstAttribute="top" secondItem="nFF-Ac-6pt" secondAttribute="bottom" constant="8" id="OGK-WZ-j92"/>
-                                                        <constraint firstItem="y9u-mL-Qz7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QQ2-U1-UUh" secondAttribute="trailing" constant="8" symbolic="YES" id="WQz-C8-U6Q"/>
                                                         <constraint firstItem="uiN-7L-CRg" firstAttribute="leading" secondItem="RAZ-jr-4Yp" secondAttribute="leading" id="XmH-Pq-hQU"/>
                                                         <constraint firstAttribute="trailing" secondItem="uiN-7L-CRg" secondAttribute="trailing" id="Z17-vd-uWA"/>
                                                         <constraint firstItem="uiN-7L-CRg" firstAttribute="top" secondItem="6pi-04-ecn" secondAttribute="bottom" constant="16" id="ZJW-iK-TgZ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="QQ2-U1-UUh" secondAttribute="bottom" constant="16" id="byz-mA-TpS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QQ2-U1-UUh" secondAttribute="bottom" id="byz-mA-TpS"/>
                                                         <constraint firstItem="6pi-04-ecn" firstAttribute="top" secondItem="RAZ-jr-4Yp" secondAttribute="top" constant="16" id="gxQ-NZ-8og"/>
                                                         <constraint firstItem="nFF-Ac-6pt" firstAttribute="top" secondItem="uiN-7L-CRg" secondAttribute="bottom" constant="16" id="iDl-mE-EYR"/>
                                                         <constraint firstItem="uuL-g5-i0k" firstAttribute="leading" secondItem="QQ2-U1-UUh" secondAttribute="trailing" id="nAL-Wc-YMm"/>
-                                                        <constraint firstAttribute="bottom" secondItem="y9u-mL-Qz7" secondAttribute="bottom" constant="16" id="qpX-up-JFs"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RAZ-jr-4Yp" firstAttribute="trailing" secondItem="hq8-hg-rAa" secondAttribute="trailingMargin" id="1sU-tw-26a"/>
                                                 <constraint firstItem="RAZ-jr-4Yp" firstAttribute="top" secondItem="hq8-hg-rAa" secondAttribute="top" constant="8" id="RTd-IA-PSd"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RAZ-jr-4Yp" secondAttribute="bottom" constant="8" id="YFY-du-s0w"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RAZ-jr-4Yp" secondAttribute="bottom" constant="1" id="YFY-du-s0w"/>
                                                 <constraint firstItem="RAZ-jr-4Yp" firstAttribute="leading" secondItem="hq8-hg-rAa" secondAttribute="leadingMargin" id="r1r-g9-rLl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="btn_next" destination="y9u-mL-Qz7" id="0wR-Ah-EMl"/>
                                             <outlet property="img_avatar" destination="QQ2-U1-UUh" id="rXu-P5-Ycy"/>
                                             <outlet property="img_corner1" destination="uuL-g5-i0k" id="ri8-Cz-Ak7"/>
                                             <outlet property="lbl_text1" destination="6pi-04-ecn" id="0w9-QU-gam"/>
@@ -1208,11 +1260,11 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_text4" destination="5aR-DN-oNd" id="VJm-kj-O1y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE03" rowHeight="208" id="TTo-f0-6Ws" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="728.5" width="375" height="208"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE03" rowHeight="160" id="TTo-f0-6Ws" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="752.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTo-f0-6Ws" id="hvb-rB-WFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-y7-pjd">
@@ -1248,53 +1300,33 @@ NORUEGO PARA REFUGIADOS</string>
                                                         <constraint firstItem="CAH-fE-mpW" firstAttribute="top" secondItem="Rjy-eO-7ee" secondAttribute="top" constant="16" id="jx2-lR-mxE"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bH5-8O-vbK">
-                                                    <rect key="frame" x="239" y="151" width="120" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="ERL-qg-hlH"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Kqd-HF-DrI"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                                    <state key="normal" title="Button" image="btn_siguiente">
-                                                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="nextPage:" destination="TTo-f0-6Ws" eventType="touchUpInside" id="HGi-Rq-a3V"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Rjy-eO-7ee" secondAttribute="bottom" constant="16" id="17q-tH-Pi9"/>
                                                 <constraint firstItem="Rjy-eO-7ee" firstAttribute="top" secondItem="Tpp-y7-pjd" secondAttribute="bottom" constant="16" id="6Oi-KE-J6K"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="bH5-8O-vbK" secondAttribute="trailing" constant="8" id="9KN-jj-pGb"/>
                                                 <constraint firstItem="Tpp-y7-pjd" firstAttribute="leading" secondItem="hvb-rB-WFz" secondAttribute="leadingMargin" constant="8" id="AqE-l0-qYL"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="bH5-8O-vbK" secondAttribute="bottom" constant="16" id="DMj-Ik-qoX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Tpp-y7-pjd" secondAttribute="trailing" constant="8" id="Niv-Gn-27v"/>
-                                                <constraint firstItem="bH5-8O-vbK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hvb-rB-WFz" secondAttribute="leading" constant="20" symbolic="YES" id="RUc-BS-K28"/>
                                                 <constraint firstItem="Tpp-y7-pjd" firstAttribute="top" secondItem="hvb-rB-WFz" secondAttribute="topMargin" constant="8" id="aEK-vN-ZsA"/>
                                                 <constraint firstItem="Rjy-eO-7ee" firstAttribute="leading" secondItem="hvb-rB-WFz" secondAttribute="leadingMargin" constant="8" id="jgB-nw-o7f"/>
-                                                <constraint firstItem="bH5-8O-vbK" firstAttribute="top" secondItem="Rjy-eO-7ee" secondAttribute="bottom" constant="16" id="qTL-rx-TP1"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rjy-eO-7ee" secondAttribute="trailing" constant="8" id="uTN-h6-6fD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="btn_next" destination="bH5-8O-vbK" id="1R1-1S-lDU"/>
                                             <outlet property="img_corner1" destination="cvt-L4-TfA" id="NTF-Vb-U5n"/>
                                             <outlet property="lbl_text1" destination="Tpp-y7-pjd" id="hNv-mZ-emG"/>
                                             <outlet property="lbl_text2" destination="CAH-fE-mpW" id="pqD-PN-JNR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE04" rowHeight="360" id="Pji-Cc-tYM" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="936.5" width="375" height="360"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE04" rowHeight="341" id="Pji-Cc-tYM" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="912.5" width="375" height="341"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pji-Cc-tYM" id="utf-eh-vBf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="359.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="341"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FT-3l-d09">
-                                                    <rect key="frame" x="16" y="16" width="343" height="319.5"/>
+                                                    <rect key="frame" x="16" y="16" width="343" height="303.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o6-VP-g5d">
                                                             <rect key="frame" x="0.0" y="16" width="343" height="20.5"/>
@@ -1355,54 +1387,34 @@ NORUEGO PARA REFUGIADOS</string>
                                                                 <constraint firstAttribute="width" constant="150" id="hZO-2M-XVa"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmi-zq-Gjl">
-                                                            <rect key="frame" x="223" y="273.5" width="120" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="S7q-cH-okV"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="aRY-cX-6Lm"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                                            <state key="normal" title="Button" image="btn_siguiente">
-                                                                <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="nextPage:" destination="Pji-Cc-tYM" eventType="touchUpInside" id="Olr-ae-1c6"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="XnZ-60-XpA" firstAttribute="top" secondItem="JBl-PF-v8I" secondAttribute="bottom" constant="16" id="0g8-kq-KMT"/>
                                                         <constraint firstItem="M0x-Gk-uF0" firstAttribute="top" secondItem="XnZ-60-XpA" secondAttribute="bottom" constant="-1" id="1Cc-0K-41o"/>
-                                                        <constraint firstAttribute="trailing" secondItem="rmi-zq-Gjl" secondAttribute="trailing" id="6fo-nC-uYF"/>
                                                         <constraint firstItem="M0x-Gk-uF0" firstAttribute="leading" secondItem="LnM-Rj-IWI" secondAttribute="trailing" id="Gh6-VM-Ghb"/>
                                                         <constraint firstItem="LnM-Rj-IWI" firstAttribute="top" secondItem="XnZ-60-XpA" secondAttribute="bottom" constant="8" id="JE7-Pi-xfn"/>
                                                         <constraint firstAttribute="trailing" secondItem="JBl-PF-v8I" secondAttribute="trailing" id="KLJ-vA-LN1"/>
                                                         <constraint firstItem="XnZ-60-XpA" firstAttribute="leading" secondItem="0FT-3l-d09" secondAttribute="leading" id="Lfa-H3-ZgG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LnM-Rj-IWI" secondAttribute="bottom" id="TZ0-Fo-T35"/>
                                                         <constraint firstItem="JBl-PF-v8I" firstAttribute="top" secondItem="8o6-VP-g5d" secondAttribute="bottom" constant="16" id="X9e-e6-nPU"/>
                                                         <constraint firstAttribute="trailing" secondItem="8o6-VP-g5d" secondAttribute="trailing" id="cnu-s7-QTD"/>
                                                         <constraint firstItem="LnM-Rj-IWI" firstAttribute="leading" secondItem="0FT-3l-d09" secondAttribute="leading" constant="8" id="fCX-mb-vLF"/>
                                                         <constraint firstItem="8o6-VP-g5d" firstAttribute="leading" secondItem="0FT-3l-d09" secondAttribute="leading" id="hOd-mL-xnh"/>
                                                         <constraint firstAttribute="trailing" secondItem="XnZ-60-XpA" secondAttribute="trailing" id="mMJ-5H-1jl"/>
                                                         <constraint firstItem="JBl-PF-v8I" firstAttribute="leading" secondItem="0FT-3l-d09" secondAttribute="leading" id="qzz-vC-Noe"/>
-                                                        <constraint firstAttribute="bottom" secondItem="LnM-Rj-IWI" secondAttribute="bottom" constant="16" id="tLb-iF-ZDw"/>
                                                         <constraint firstItem="8o6-VP-g5d" firstAttribute="top" secondItem="0FT-3l-d09" secondAttribute="top" constant="16" id="tgl-lz-dxy"/>
-                                                        <constraint firstItem="rmi-zq-Gjl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LnM-Rj-IWI" secondAttribute="trailing" constant="8" symbolic="YES" id="vA4-Zm-Cin"/>
-                                                        <constraint firstAttribute="bottom" secondItem="rmi-zq-Gjl" secondAttribute="bottom" constant="16" id="wTe-vG-jco"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0FT-3l-d09" firstAttribute="top" secondItem="utf-eh-vBf" secondAttribute="topMargin" constant="8" id="19C-Dv-RLc"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="0FT-3l-d09" secondAttribute="bottom" constant="16" id="G2n-y3-wIJ"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="0FT-3l-d09" secondAttribute="bottom" constant="1" id="G2n-y3-wIJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0FT-3l-d09" secondAttribute="trailing" constant="8" id="GTN-oP-hJG"/>
                                                 <constraint firstItem="0FT-3l-d09" firstAttribute="leading" secondItem="utf-eh-vBf" secondAttribute="leadingMargin" constant="8" id="VsB-FP-KAo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="btn_next" destination="rmi-zq-Gjl" id="jfb-VO-jk7"/>
                                             <outlet property="img_auxiliar" destination="XYT-PY-EmN" id="pW5-Gm-DGd"/>
                                             <outlet property="img_avatar" destination="LnM-Rj-IWI" id="JWk-Xd-Ohs"/>
                                             <outlet property="img_corner1" destination="M0x-Gk-uF0" id="BNC-pC-B7j"/>
@@ -1411,11 +1423,11 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_text3" destination="q4v-pQ-yav" id="95o-NX-6Ee"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE05" rowHeight="370" id="pCq-Cd-pel" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1296.5" width="375" height="370"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE05" rowHeight="322" id="pCq-Cd-pel" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1253.5" width="375" height="322"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pCq-Cd-pel" id="0PY-cI-qGC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="369.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="321.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jv-Y6-3Ql">
@@ -1548,22 +1560,6 @@ NORUEGO PARA REFUGIADOS</string>
                                                         <constraint firstItem="pje-z5-L7y" firstAttribute="centerY" secondItem="01v-ro-2wT" secondAttribute="centerY" id="pGi-Xq-cie"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mry-4L-Za4">
-                                                    <rect key="frame" x="239" y="314" width="120" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="q2g-mo-98V"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="t0N-XZ-eLK"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                                    <state key="normal" title="Button" image="btn_siguiente">
-                                                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="nextPage:" destination="pCq-Cd-pel" eventType="touchUpInside" id="pOd-j2-JU2"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Zb9-ev-mV0" firstAttribute="top" secondItem="83J-IE-CYw" secondAttribute="bottom" constant="8" id="2qA-1o-vDc"/>
@@ -1571,20 +1567,17 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qCG-Va-De0" secondAttribute="trailing" constant="8" id="7Bv-Id-ldV"/>
                                                 <constraint firstItem="qCG-Va-De0" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="8ph-XU-wYY"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="01v-ro-2wT" secondAttribute="trailing" constant="8" id="AWJ-U7-sty"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="01v-ro-2wT" secondAttribute="bottom" constant="16" id="EAi-Ol-lDz"/>
                                                 <constraint firstItem="qCG-Va-De0" firstAttribute="top" secondItem="WlJ-Nx-FHo" secondAttribute="bottom" constant="16" id="F6o-AE-qGm"/>
                                                 <constraint firstItem="Zb9-ev-mV0" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="FpO-J9-lk4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="83J-IE-CYw" secondAttribute="trailing" constant="8" id="P10-O2-EHJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9Jv-Y6-3Ql" secondAttribute="trailing" constant="8" id="RAO-V3-Y8c"/>
-                                                <constraint firstItem="mry-4L-Za4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0PY-cI-qGC" secondAttribute="leading" constant="20" symbolic="YES" id="RZK-nZ-qCG"/>
                                                 <constraint firstItem="WlJ-Nx-FHo" firstAttribute="top" secondItem="Zb9-ev-mV0" secondAttribute="bottom" constant="16" id="SSX-Q6-MFI"/>
                                                 <constraint firstItem="WlJ-Nx-FHo" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="TKW-65-BRV"/>
                                                 <constraint firstItem="9Jv-Y6-3Ql" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="Uvi-eX-XiP"/>
                                                 <constraint firstItem="01v-ro-2wT" firstAttribute="top" secondItem="qCG-Va-De0" secondAttribute="bottom" constant="16" id="Xh2-XR-Lv0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="mry-4L-Za4" secondAttribute="trailing" constant="8" id="dmi-On-1C1"/>
                                                 <constraint firstItem="83J-IE-CYw" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="fG6-Xj-Wct"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="mry-4L-Za4" secondAttribute="bottom" constant="16" id="fRp-n6-KqV"/>
                                                 <constraint firstItem="9Jv-Y6-3Ql" firstAttribute="top" secondItem="0PY-cI-qGC" secondAttribute="topMargin" constant="8" id="fZC-rj-sJN"/>
-                                                <constraint firstItem="mry-4L-Za4" firstAttribute="top" secondItem="01v-ro-2wT" secondAttribute="bottom" constant="16" id="jP0-Dv-ltS"/>
                                                 <constraint firstItem="01v-ro-2wT" firstAttribute="leading" secondItem="0PY-cI-qGC" secondAttribute="leadingMargin" constant="8" id="lIN-c3-4LS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Zb9-ev-mV0" secondAttribute="trailing" constant="8" id="mwg-V1-DAD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WlJ-Nx-FHo" secondAttribute="trailing" constant="8" id="q46-5G-Pl0"/>
@@ -1594,7 +1587,6 @@ NORUEGO PARA REFUGIADOS</string>
                                         <connections>
                                             <outlet property="btn_Aud1" destination="oqU-OW-Oxd" id="rzb-PS-T7X"/>
                                             <outlet property="btn_Aud2" destination="pje-z5-L7y" id="Wfm-7s-et1"/>
-                                            <outlet property="btn_next" destination="mry-4L-Za4" id="B5S-T2-ix6"/>
                                             <outlet property="lbl_Aud1" destination="W1p-mH-q3H" id="FAf-k0-Pae"/>
                                             <outlet property="lbl_Aud2" destination="IL5-nS-Af1" id="rCB-43-37I"/>
                                             <outlet property="lbl_text1" destination="9Jv-Y6-3Ql" id="dmR-Uy-ggf"/>
@@ -1603,11 +1595,11 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_text4" destination="qCG-Va-De0" id="hnD-kL-wtF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE06" rowHeight="640" id="2Oz-3m-w9o" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1666.5" width="375" height="640"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE06" rowHeight="628" id="2Oz-3m-w9o" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1575.5" width="375" height="628"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Oz-3m-w9o" id="soR-Ek-rXG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="640"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="627.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz7-lA-BAP">
@@ -1732,7 +1724,6 @@ NORUEGO PARA REFUGIADOS</string>
                                                         <constraint firstItem="DTp-bP-PJ3" firstAttribute="top" secondItem="wS9-or-4ay" secondAttribute="top" constant="20" id="ac0-Ue-dRB"/>
                                                         <constraint firstItem="DTp-bP-PJ3" firstAttribute="leading" secondItem="MTu-1O-qM9" secondAttribute="trailing" constant="16" id="crn-L6-v7S"/>
                                                         <constraint firstItem="MTu-1O-qM9" firstAttribute="top" secondItem="wS9-or-4ay" secondAttribute="top" constant="16" id="mL3-1u-dVw"/>
-                                                        <constraint firstItem="DTp-bP-PJ3" firstAttribute="leading" secondItem="wS9-or-4ay" secondAttribute="leading" constant="62" id="uw0-3I-xgv"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1747,26 +1738,9 @@ NORUEGO PARA REFUGIADOS</string>
                                                         <constraint firstAttribute="height" constant="150" id="Ivb-Qu-nCO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y1-Gt-7J4">
-                                                    <rect key="frame" x="239" y="584.5" width="120" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="1ZO-99-4Od"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="amf-Sj-CWY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
-                                                    <state key="normal" title="Button" image="btn_siguiente">
-                                                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="nextPage:" destination="2Oz-3m-w9o" eventType="touchUpInside" id="Ioe-tk-sM4"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0Zr-N5-EhJ" secondAttribute="trailing" constant="8" id="085-Wl-QZc"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1y1-Gt-7J4" secondAttribute="trailing" constant="8" id="0Tq-yT-yU9"/>
                                                 <constraint firstItem="F6p-6B-QH9" firstAttribute="top" secondItem="P4v-9V-paH" secondAttribute="bottom" constant="16" id="1KU-zs-lhr"/>
                                                 <constraint firstItem="qBf-io-UC6" firstAttribute="top" secondItem="ZCo-Fe-xBK" secondAttribute="bottom" constant="8" id="2TG-Mb-igx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="qBf-io-UC6" secondAttribute="trailing" constant="8" id="31v-Yt-cL6"/>
@@ -1780,7 +1754,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="UkR-kb-3GC" firstAttribute="top" secondItem="wS9-or-4ay" secondAttribute="bottom" constant="8" id="Jzg-go-WOu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="F6p-6B-QH9" secondAttribute="trailing" constant="8" id="MBk-BP-Ubx"/>
                                                 <constraint firstItem="P4v-9V-paH" firstAttribute="top" secondItem="hgO-xa-ESO" secondAttribute="bottom" constant="8" id="N1c-VI-K5v"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UkR-kb-3GC" secondAttribute="bottom" constant="16" id="PBc-la-r1h"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UkR-kb-3GC" secondAttribute="bottom" constant="1" id="PBc-la-r1h"/>
                                                 <constraint firstItem="wS9-or-4ay" firstAttribute="top" secondItem="xFU-m7-l86" secondAttribute="bottom" constant="16" id="Wpt-IL-NlX"/>
                                                 <constraint firstItem="0Zr-N5-EhJ" firstAttribute="leading" secondItem="soR-Ek-rXG" secondAttribute="leadingMargin" constant="8" id="X69-gk-w7v"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xFU-m7-l86" secondAttribute="trailing" constant="8" id="YGs-6z-tqp"/>
@@ -1789,7 +1763,6 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="0Zr-N5-EhJ" firstAttribute="top" secondItem="F6p-6B-QH9" secondAttribute="bottom" constant="16" id="cAt-3b-bPa"/>
                                                 <constraint firstItem="qo6-xu-11t" firstAttribute="top" secondItem="wS9-or-4ay" secondAttribute="bottom" constant="-1" id="euf-iF-hEm"/>
                                                 <constraint firstItem="qo6-xu-11t" firstAttribute="leading" secondItem="UkR-kb-3GC" secondAttribute="trailing" id="gYq-Ed-TTQ"/>
-                                                <constraint firstItem="1y1-Gt-7J4" firstAttribute="bottom" secondItem="UkR-kb-3GC" secondAttribute="bottom" id="iSR-Qn-ZGR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P4v-9V-paH" secondAttribute="trailing" constant="8" id="j0U-uz-1PV"/>
                                                 <constraint firstItem="ZCo-Fe-xBK" firstAttribute="leading" secondItem="soR-Ek-rXG" secondAttribute="leadingMargin" constant="8" id="kya-qY-grB"/>
                                                 <constraint firstItem="P4v-9V-paH" firstAttribute="leading" secondItem="soR-Ek-rXG" secondAttribute="leadingMargin" constant="8" id="oJQ-2G-qVr"/>
@@ -1798,13 +1771,11 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="qBf-io-UC6" firstAttribute="leading" secondItem="soR-Ek-rXG" secondAttribute="leadingMargin" constant="8" id="uSx-zL-zjx"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Jz7-lA-BAP" secondAttribute="trailing" constant="8" id="vFL-zV-gby"/>
                                                 <constraint firstItem="hgO-xa-ESO" firstAttribute="leading" secondItem="soR-Ek-rXG" secondAttribute="leadingMargin" constant="8" id="wbw-A9-5kq"/>
-                                                <constraint firstItem="1y1-Gt-7J4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UkR-kb-3GC" secondAttribute="trailing" constant="8" symbolic="YES" id="wpP-Zi-Fow"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wS9-or-4ay" secondAttribute="trailing" constant="8" id="yig-pv-2cm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="btn_next" destination="1y1-Gt-7J4" id="bES-Ue-Ccr"/>
                                             <outlet property="img_auxiliar" destination="MTu-1O-qM9" id="Vjb-ja-kLC"/>
                                             <outlet property="img_avatar" destination="UkR-kb-3GC" id="Dac-gW-koV"/>
                                             <outlet property="img_corner1" destination="n3R-FS-j7b" id="B4u-HH-GeY"/>
@@ -1821,44 +1792,44 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_text9" destination="DTp-bP-PJ3" id="xcu-mL-y8X"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE07" rowHeight="380" id="Rc8-Ok-V93" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2306.5" width="375" height="380"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE07" rowHeight="360" id="Rc8-Ok-V93" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2203.5" width="375" height="360"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rc8-Ok-V93" id="mAe-2M-0oh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="359.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUC-ve-rEa">
-                                                    <rect key="frame" x="16" y="16" width="343" height="20.5"/>
+                                                    <rect key="frame" x="16" y="16" width="343" height="13.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Cu-TKL">
-                                                    <rect key="frame" x="16" y="44.5" width="343" height="270"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="62" sectionFooterHeight="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z8U-Cu-TKL">
+                                                    <rect key="frame" x="16" y="45.5" width="343" height="290"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="270" id="ZFI-8n-a7o"/>
+                                                        <constraint firstAttribute="height" constant="290" id="ZFI-8n-a7o"/>
                                                     </constraints>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="64" id="t3I-n7-J0a">
-                                                            <rect key="frame" x="0.0" y="28" width="343" height="64"/>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="62" id="t3I-n7-J0a" customClass="CourseHeaderTableViewCell" customModule="IPI" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="62" width="343" height="62"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t3I-n7-J0a" id="2Rd-uk-tzT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="61.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-fY-PY6">
-                                                                        <rect key="frame" x="8" y="0.0" width="327" height="63.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="62.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcS-li-My8">
-                                                                                <rect key="frame" x="8" y="8" width="261" height="51.5"/>
+                                                                                <rect key="frame" x="8" y="8.5" width="277" height="46"/>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-ww-JLg">
-                                                                                <rect key="frame" x="277" y="15" width="34" height="34"/>
+                                                                                <rect key="frame" x="293" y="14.5" width="34" height="34"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="34" id="uJh-Cf-nyb"/>
                                                                                     <constraint firstAttribute="height" constant="34" id="xZG-5W-UqH"/>
@@ -1869,43 +1840,44 @@ NORUEGO PARA REFUGIADOS</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </button>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3f-fg-bMC" userLabel="UnderLine">
-                                                                                <rect key="frame" x="8" y="62.5" width="311" height="1"/>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="1" id="9eI-6Z-JXT"/>
-                                                                                </constraints>
-                                                                            </view>
                                                                         </subviews>
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="03P-ww-JLg" secondAttribute="trailing" constant="16" id="7tq-ZS-Zrv"/>
-                                                                            <constraint firstItem="G3f-fg-bMC" firstAttribute="leading" secondItem="2f9-fY-PY6" secondAttribute="leading" constant="8" id="Dgo-Xg-Le1"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="G3f-fg-bMC" secondAttribute="bottom" id="Go2-l8-ocV"/>
                                                                             <constraint firstItem="03P-ww-JLg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2f9-fY-PY6" secondAttribute="top" constant="14" id="OYt-OO-hrc"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="G3f-fg-bMC" secondAttribute="trailing" constant="8" id="Tsf-Pj-ftc"/>
                                                                             <constraint firstItem="WcS-li-My8" firstAttribute="top" secondItem="2f9-fY-PY6" secondAttribute="top" constant="8" id="bIg-tE-phG"/>
                                                                             <constraint firstItem="WcS-li-My8" firstAttribute="leading" secondItem="2f9-fY-PY6" secondAttribute="leading" constant="8" id="bZb-9m-2nf"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="WcS-li-My8" secondAttribute="bottom" constant="4" id="gmd-yV-zye"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="WcS-li-My8" secondAttribute="bottom" constant="8" id="gmd-yV-zye"/>
                                                                             <constraint firstItem="03P-ww-JLg" firstAttribute="centerY" secondItem="2f9-fY-PY6" secondAttribute="centerY" id="ikw-fi-dPZ"/>
                                                                             <constraint firstItem="03P-ww-JLg" firstAttribute="leading" secondItem="WcS-li-My8" secondAttribute="trailing" constant="8" id="kW6-uK-7yh"/>
                                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="03P-ww-JLg" secondAttribute="bottom" constant="14" id="lce-Tr-jYe"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <color key="backgroundColor" red="0.89795345067977905" green="0.89816820621490479" blue="0.89384859800338745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="2f9-fY-PY6" secondAttribute="trailing" constant="8" id="1Mg-Nu-7OK"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="2f9-fY-PY6" secondAttribute="trailing" id="1Mg-Nu-7OK"/>
                                                                     <constraint firstItem="2f9-fY-PY6" firstAttribute="top" secondItem="2Rd-uk-tzT" secondAttribute="top" id="ZAk-2A-hjE"/>
-                                                                    <constraint firstItem="2f9-fY-PY6" firstAttribute="leading" secondItem="2Rd-uk-tzT" secondAttribute="leading" constant="8" id="ooB-mb-YKI"/>
+                                                                    <constraint firstItem="2f9-fY-PY6" firstAttribute="leading" secondItem="2Rd-uk-tzT" secondAttribute="leading" id="ooB-mb-YKI"/>
                                                                     <constraint firstAttribute="bottom" secondItem="2f9-fY-PY6" secondAttribute="bottom" id="wN1-Qp-Adp"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <outlet property="btn_openClose" destination="03P-ww-JLg" id="jbt-D3-L4N"/>
+                                                                <outlet property="cnt_header" destination="2f9-fY-PY6" id="BK8-I5-iVA"/>
+                                                                <outlet property="lbl_title" destination="WcS-li-My8" id="DQp-qY-Gtx"/>
+                                                            </connections>
                                                         </tableViewCell>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="37" id="X24-7f-pNr">
-                                                            <rect key="frame" x="0.0" y="92" width="343" height="37"/>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="37" id="X24-7f-pNr" customClass="CourseBodyTableViewCell" customModule="IPI" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="124" width="343" height="37"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X24-7f-pNr" id="Idg-Xn-CJr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="37"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-qa-9aR">
@@ -1933,9 +1905,42 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     <constraint firstItem="Uac-qa-9aR" firstAttribute="leading" secondItem="Idg-Xn-CJr" secondAttribute="leading" constant="8" id="x9i-4H-Gyf"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
+                                                            <color key="backgroundColor" red="0.9018746018409729" green="0.90209001302719116" blue="0.89776968955993652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <connections>
+                                                                <outlet property="lbl_text" destination="Awr-Wg-uDZ" id="BOd-3e-GWk"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="8" id="36B-Q9-Aoi" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="161" width="343" height="8"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36B-Q9-Aoi" id="uaR-go-lEM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9L-eE-LFg">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="8.5"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="8" id="zuA-6Z-XbP"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="n9L-eE-LFg" firstAttribute="top" secondItem="uaR-go-lEM" secondAttribute="top" id="HAF-6x-UEv"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="n9L-eE-LFg" secondAttribute="bottom" id="ZnP-iW-ku1"/>
+                                                                    <constraint firstItem="n9L-eE-LFg" firstAttribute="leading" secondItem="uaR-go-lEM" secondAttribute="leading" id="dcr-8a-AB5"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="n9L-eE-LFg" secondAttribute="trailing" id="egz-8E-dL5"/>
+                                                                </constraints>
+                                                            </tableViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <connections>
+                                                                <outlet property="cnt_footer" destination="n9L-eE-LFg" id="Ljx-d4-z86"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="oJy-Is-kqL" id="egN-7Z-mhb"/>
+                                                        <outlet property="delegate" destination="oJy-Is-kqL" id="9bV-wV-4NX"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <constraints>
@@ -1944,10 +1949,15 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Z8U-Cu-TKL" secondAttribute="trailing" constant="8" id="V5X-ok-V5A"/>
                                                 <constraint firstItem="CUC-ve-rEa" firstAttribute="leading" secondItem="mAe-2M-0oh" secondAttribute="leadingMargin" constant="8" id="hvq-di-qqm"/>
                                                 <constraint firstItem="Z8U-Cu-TKL" firstAttribute="leading" secondItem="mAe-2M-0oh" secondAttribute="leadingMargin" constant="8" id="tJ7-EQ-szJ"/>
-                                                <constraint firstItem="Z8U-Cu-TKL" firstAttribute="top" secondItem="CUC-ve-rEa" secondAttribute="bottom" constant="8" id="vIl-hM-hV0"/>
+                                                <constraint firstItem="Z8U-Cu-TKL" firstAttribute="top" secondItem="CUC-ve-rEa" secondAttribute="bottom" constant="16" id="vIl-hM-hV0"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Z8U-Cu-TKL" secondAttribute="bottom" constant="16" id="vtR-Wy-9IR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lbl_text1" destination="CUC-ve-rEa" id="a86-yD-pXC"/>
+                                            <outlet property="tbl_examples" destination="Z8U-Cu-TKL" id="acs-wu-lg4"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

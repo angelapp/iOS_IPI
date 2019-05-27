@@ -10,7 +10,7 @@ import Foundation
 
 /// Ipi key dictionary
 enum IPIKeys: String {
-
+    case audio
     case accesories
     case activitiesProgress
     case appConfig

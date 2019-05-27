@@ -14,6 +14,13 @@ import UIKit
 import ObjectMapper
 
 
+func getBeforeTravel() -> [[String:String]] {
+    return [[IPIKeys.title.rawValue: Labels.before_travel_text1, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_08.rawValue)],
+            [IPIKeys.title.rawValue: Labels.before_travel_text2, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue)],
+            [IPIKeys.title.rawValue: Labels.before_travel_text3, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue)],
+            [IPIKeys.title.rawValue: Labels.before_travel_text4, IPIKeys.audio.rawValue: get_AudioName(forAudio: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue)]]
+}
+
 // MARK: - Funciones para obtener el contenido del tutorial
 /**
  Retorna una lista [llave: Valor] con el contenido de cada una de los pasos del tutorial.
@@ -128,39 +135,47 @@ class Validations {
     }
 }
 
-// REVISAR
 /// Guarda en local la fecha de finalización de una actividad.
 /// - Parameter activity: Modelo con los datos de la actividad a guardar (id_curso, id_modulo, abreviatura, fecha)
 /// - Returns: Verdadero, si puede guardar la fecha, False si ya se ha completado o no se puede realizar la acción
 func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestCompleted>! {
-
+    
     let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
 
     // Busca el curso al que pertenece la actividad
     for course in courses! {
         if course.id == activity.courseID {
 
-            // Obtiene la lista de actividades, para un determinado modulo
-            if let activies = course.course_topics[activity.topicID].topic_activity_list {
-
-                // Busca la actividad que se desa guardar el progreso
-                for act in activies {
-
-                    if act.abreviature == activity.activity {
-
-                        // Guarda la fecha de finalización de a actividad si esta no existe
-                        if act.dateCompleted == nil || act.dateCompleted == nullString {
-                            act.dateCompleted = activity.dateCompleted
-                            StorageFunctions.saveActivitiesProgress(courses: CourseListModel(courseList: courses!))
-
-                            return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id, activity: act.id, date: activity.dateCompleted)]
+            for mod in course.course_topics {
+                if mod.course == activity.topicID {
+                    
+                     //Busca la actividad que se desea guardar el progreso
+                    for act in  mod.topic_activity_list {
+                        if act.abreviature == activity.activity {
+                            
+                            // Guarda la fecha de finalización de a actividad si esta no existe
+                            if act.dateCompleted == nil || act.dateCompleted == nullString {
+                                act.dateCompleted = activity.dateCompleted
+                                StorageFunctions.saveActivitiesProgress(courses: CourseListModel(courseList: courses!))
+                                
+                                return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id, activity: act.id, date: activity.dateCompleted)]
+                            }
+                            else {
+                                return nil
+                            }
                         }
                         else {
                             return nil
                         }
                     }
                 }
+                else {
+                    return nil
+                }
             }
+        }
+        else {
+            return nil
         }
     }
 
@@ -168,10 +183,14 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
     return nil
 }
 
-// REVISAR
+///Obtine el progreso de acuerdo a las actividades que se han completado
+/// - Parameter forCourse: ID del curso
+/// - Returns: Arreglo con el progreso por módulo
 func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
 
     let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+    let images = [IPI_IMAGES.progress_connoisseur, IPI_IMAGES.progress_advanced, IPI_IMAGES.progress_expert]
+    
     var progress: Array<ModuleProgressItem> = []
 
     // Busca el curso al que pertenece la actividad
@@ -193,8 +212,7 @@ func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
                     }
 
                     let progressValue: Float = activitiesCompleted / Float(topic.topic_activity_list.count)
-                    let imgTrophy = topic.icon
-                    progress.append(ModuleProgressItem(image: imgTrophy ?? nullString, title: topic.description, progress: progressValue))
+                    progress.append(ModuleProgressItem(image: images[topicPos], title: topic.description, progress: progressValue))
                     topicPos += 1
                 }
             }

@@ -31,7 +31,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentIndex = AplicationRuntime.sharedManager.getIndex()
+        currentIndex =  AplicationRuntime.sharedManager.getIndex()
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
         samplesList = ExampleData().getSampleData()
         
@@ -65,15 +65,20 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     // MARK: - Expandable tableview functions
     //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
     @objc func sectionTapped(_ sender: UIButton) {
+        printDebugMessage(tag: "btn was tapped")
         let section = sender.tag
+        printDebugMessage(tag: "in section: \(section)")
         let shouldExpand = !expandedSections.contains(section)
         if (shouldExpand) {
+            printDebugMessage(tag: "add section")
             expandedSections.removeAllObjects()
             expandedSections.add(section)
-
+            
         } else {
+            printDebugMessage(tag: "remove all section")
             expandedSections.removeAllObjects()
         }
+//        self.tbl_course.tag = TABLE_SAMPLES
         self.tbl_course.reloadData()
         viewDidLayoutSubviews()
     }
@@ -144,7 +149,6 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         
         nextVC.message = message
         nextVC.inBold = inbold
-        //nextVC.courseDelegate = self
         nextVC.poupMessage = type
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
@@ -232,6 +236,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     }
     
     // MARK: - TableView delegate and datasource
+    
     // Número de secciones de la tabla
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.tag == TABLE_COURSE {
@@ -244,13 +249,65 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     
     // Número de filas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if tableView.tag == TABLE_COURSE {
             return 1
         }
         else {
             return expandedSections.contains(section) ? 1 : 0
         }
+    }
+    
+    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del pie de página
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 58
+    }
+    
+    // Footer of the sections
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        if tableView.tag == TABLE_COURSE {
+            
+            var isBtnNext : Bool
+            
+            switch currentIndex {
+                
+            case 0, 13, 18:
+                isBtnNext = false
+                break
+                
+            default:
+                isBtnNext = true
+                break
+            }
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.courseFooter.rawValue) as! CourseFooterTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_footer()
+            cell.btn_next.isHidden = !isBtnNext
+            
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+            
+            return cell
+        }
+    }
+    
+    // Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 62
     }
     
     // Encabezado de las secciones
@@ -292,23 +349,13 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
             
 			cell?.headerTitle = samplesList[section].header
+            cell?.fill_header(forTable: tableID)
 			cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
 			cell?.btn_openClose.tag = section
 			cell?.btn_openClose.isSelected = expandedSections.contains(section)
-            cell?.fill_header(forTable: tableID)
             
             return cell
 		}
-    }
-	
-	// Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    // Tamaño estimado del encabezado
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 66
     }
     
     // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
@@ -324,68 +371,65 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     // pintado de la tabla
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Samples inside of a course
-        guard tableView.tag != TABLE_SAMPLES else {
+        // Course
+        if tableView.tag == TABLE_COURSE {
+            var cell: CourseTableViewCell
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.boby.rawValue) as! CourseBodyTableViewCell
+            if currentIndex == CURSO_PTN.PAGE_01.rawValue {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE01.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_01()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_02.rawValue {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE02.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_02()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_03.rawValue {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE03.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_03()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_04.rawValue {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE04.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_04()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_05.rawValue {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE05.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_05()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_06.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE06.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_06()
+                return cell
+            }
+            else {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE07.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_07()
+                return cell
+            }
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
             
             cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
             
-            return cell
-        }
-        
-        // Course
-        var cell: CourseTableViewCell
-        
-        printDebugMessage(tag: " tv: \(indexPath.row) index\(currentIndex)")
-        
-        if currentIndex == CURSO_PTN.PAGE_01.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE01.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_01()
-            return cell
-        }
-        else if currentIndex == CURSO_PTN.PAGE_02.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE02.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_02()
-            return cell
-        }
-        else if currentIndex == CURSO_PTN.PAGE_03.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE03.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_03()
-            return cell
-        }
-        else if currentIndex == CURSO_PTN.PAGE_04.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE04.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_04()
-            return cell
-        }
-        else if currentIndex == CURSO_PTN.PAGE_05.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE05.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_05()
-            return cell
-        }
-        else if currentIndex == CURSO_PTN.PAGE_06.rawValue{
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE06.rawValue, for: indexPath) as! CourseTableViewCell
-
-            cell.courseDelegate = self
-            cell.fill_CELL_06()
-            return cell
-        }
-        else {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE07.rawValue, for: indexPath) as! CourseTableViewCell
-            
-            cell.courseDelegate = self
-            cell.fill_CELL_07()
             return cell
         }
     }

@@ -19,6 +19,7 @@ class AplicationRuntime {
 
     var avatarImage: UIImage!
     weak var mainDelegate: MainProtocol?
+    weak var courseDelegate: CourseViewControllerDelegate?
 
     // MARK: - Singleton instance
     class var sharedManager: AplicationRuntime {

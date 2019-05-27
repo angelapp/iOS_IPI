@@ -51,14 +51,14 @@ class MainViewController: UIViewController, MainProtocol {
         self.revealViewController().revealToggle(self)
     }
 
-//    @IBAction func showProgress(_ sender: UIButton) {
-//        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-//        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.progress) as! ProgressViewController
-//
-//        nextVC.modalPresentationStyle = .overCurrentContext
-//       nextVC.modalTransitionStyle = .crossDissolve
-//        present(nextVC, animated: true, completion: nil)
-//    }
+    @IBAction func showProgress(_ sender: UIButton) {
+        let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.progress.rawValue) as! ProgressViewController
+
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
+    }
 
     // MARK: - Private Functions
     /** init child viewControllers */

@@ -35,9 +35,7 @@ class CourseHeaderTableViewCell: UITableViewCell {
         let isCutoff = !(withCutoff ?? false)
         
         if id == TABLE_SAMPLES {
-			cnt_header.backgroundColor = Colors().getColor(from: ConseColors.background_gray.rawValue)
-            top_line.isHidden = isCutoff
-            botton_line.isHidden = isCutoff
+            config_button()
         }
 		else {
 			cnt_header.backgroundColor = UIColor.white.withAlphaComponent(0.0)
@@ -49,8 +47,8 @@ class CourseHeaderTableViewCell: UITableViewCell {
     }
 	
 	private func config_button() {
-		btn_openClose.setImage(UIImage(named: ""), for: .normal)
-		btn_openClose.setImage(UIImage(named: ""), for: .selected)
+		btn_openClose.setImage(UIImage(named: IPI_IMAGES.btn_acordeon_open), for: .normal)
+		btn_openClose.setImage(UIImage(named: IPI_IMAGES.btn_acordeon_close), for: .selected)
 		
 		setAspectFitToButton(buttons: btn_openClose)
 	}

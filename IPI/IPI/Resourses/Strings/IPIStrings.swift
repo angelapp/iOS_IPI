@@ -42,6 +42,7 @@ struct Buttons {
     static let avatar_Male = "Conse Hombre"
     static let avata_Female = "Conse Mujer"
     static let basic_Concepts = "Conceptos básicos de\(jumpLine)protección internacional"
+    static let begin = "Iniciar"
     static let carry_on = "¡Adelante!"
 	static let come_back = "VOLVER"
     static let end = "FINALIZAR"
@@ -74,8 +75,14 @@ struct IPI_IMAGES {
     static let icon_3 = "numero_tres"
 	static let icon_4 = "numero_cuatro"
 	static let icon_5 = "numero_cinco"
-	static let orange_open = "acordeon_cerrado"
-	static let orange_close = "acordeon_abierto"
+	static let btn_acordeon_open = "btn_acordeon_abrir"
+	static let btn_acordeon_close = "btn_acordeon_cerrar"
+    static let btn_back_yellow = "btn_back_yellow"
+    static let btn_back_red = "btn_back_red"
+    static let progress_logo = "insignia"
+    static let progress_advanced = "avanzado"
+    static let progress_expert = "experto"
+    static let progress_connoisseur = "conocedor"
     static let success = "chulo_azul"
     static let speaker_orange = "btn_bocina"
     static let speaker_orange_hover = "btn_bocina_hover"
@@ -87,6 +94,12 @@ struct Labels {
     static let create_account = "Crea tu cuenta"
     static let login_title = "Ingresa tus datos"
     static let welcome = "Te damos la bienvenida a:"
+    
+    static let before_travel_title = "Antes de tu viaje, ten encuenta la siguiente información"
+    static let before_travel_text1 = "¿Qué es la condición migratiora?"
+    static let before_travel_text2 = "¿Qué es el estatus de refugiado?"
+    static let before_travel_text3 = "¿Te quedarás temporalmente o estás en tránsito?"
+    static let before_travel_text4 = "¿Quieres permanecer de forma permanente en el país de destino?"
 
     static let hint_email = "Correo electrónico"
     static let hint_password = "Contraseña"
@@ -101,6 +114,10 @@ struct Labels {
     static let contact_title = "DÉJANOS TU MENSAJE"
 
     static let listenAudio = "Escucha el audio"
+    
+    static let progress_message = "Pulsa sobre cada ícono para volver al inicio de cada módulo"
+    static let progress_title = "MI PROGRESO"
+    static let progress_toast_message = "Para poder ver el módulo seleccionado primero debes haber completado los módulos anteriores"
 }
 
 // MARK: - Error Messages
