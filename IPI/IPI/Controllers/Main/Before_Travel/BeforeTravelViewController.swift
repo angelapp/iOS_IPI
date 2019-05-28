@@ -9,25 +9,27 @@
 import UIKit
 import AVFoundation
 
-class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource {
+class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource, BeforeTravelViewControllerDelegate {
     
     // MARK: - Outlet
     @IBOutlet weak var tbl_before_travel: UITableView!
     
     // MARK: - Properties
-    let NOT_AUDIO_ID = -1
+    let NOT_AUDIO_ID: Int = -1
 
     var ncrAudio: AVAudioPlayer?
     var mainDelegate: MainProtocol?
 
     var before_list: [BeforeTravelItem]!
 
-    var currentAudioID = NOT_AUDIO_ID
+    var currentAudioID: Int!
     var isPlaying = nullString
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        currentAudioID = NOT_AUDIO_ID
+        
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
         before_list = BeforeTravelItem().getBeforeTravelItemList()
     }
@@ -76,11 +78,13 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
 
     // MARK: - Before Travel Delegate
     func audioManager(audioID id: Int, play: Bool) {
+        // update ui button states
+        currentAudioID = play ? id : NOT_AUDIO_ID
+        tbl_before_travel.reloadData()
+        
+        // start or stop audio
         let audioName = get_AudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
-
-        //currentAudioID = id
-        //tbl_before_travel.reloadData()
     }
 
     // MARK: - AVAudioPlayer Delegate
@@ -107,7 +111,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
     
     // Tamaño estimado del pie de página
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 66
+        return 82
     }
     
     // Footer of the sections
@@ -127,7 +131,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
     
     // Tamaño estimado del encabezado
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 59
+        return 80
     }
     
     // Encabezado de las secciones
@@ -155,9 +159,16 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.beforeBody.rawValue, for: indexPath) as! BeforeBodyTableViewCell
         
-        cell.lbl_body.text = before_list[indexPath.raw].title
-        cell.btn_audio.tag = before_list[indexPath.raw].audioID
-        //cell.btn_audio.isSelected = btn_audio.tag == currentAudioID ? true : false
+        cell.lbl_body.text = before_list?[indexPath.row].title
+        cell.btn_audio.tag = (before_list?[indexPath.row].audioID)!
+        
+        setAspectFitToButton(buttons: cell.btn_audio)
+        cell.btn_audio.isSelected = cell.btn_audio.tag == currentAudioID ? true : false
+        
+        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue), for: .normal)
+        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue_hover), for: .selected)
+        
+        cell.beforeDelegate = self
         
         return cell
     }

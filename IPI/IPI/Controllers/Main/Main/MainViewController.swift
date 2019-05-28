@@ -21,6 +21,7 @@ class MainViewController: UIViewController, MainProtocol {
 
     // Controllers that are managed by this controller
     var aboutNRCVC: AboutUsViewController!
+    var beforeVC: BeforeTravelViewController!
     var courseVC: CourseViewController!
     var contactFormVC: ContactUsViewController!
     var selectActivitiesVC: SelectActivitiesViewController!
@@ -64,6 +65,7 @@ class MainViewController: UIViewController, MainProtocol {
     /** init child viewControllers */
     private func initChildView() {
         aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.aboutUs.rawValue) as? AboutUsViewController
+        beforeVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.beforeYourTripVC.rawValue) as? BeforeTravelViewController
         courseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.course.rawValue) as? CourseViewController
         contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.contactUs.rawValue) as? ContactUsViewController
         selectActivitiesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectActivies.rawValue) as? SelectActivitiesViewController
@@ -80,6 +82,11 @@ class MainViewController: UIViewController, MainProtocol {
             self.updateViewBackground(newColor: .groupTableViewBackground)
             btn_progress.isHidden = true
             return aboutNRCVC
+            
+        case .beforeYourTripVC:
+            self.updateViewBackground()
+            btn_progress.isHidden = true
+            return beforeVC
             
         case .course:
             self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))

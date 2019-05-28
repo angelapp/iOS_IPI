@@ -67,7 +67,7 @@ protocol CourseViewControllerDelegate : class {
     func showMessagePopup(message: String, inbold: String?, type: PopupMessage)
 }
 
-// Protocol for before travel 
+// Protocol for before travel
 protocol BeforeTravelViewControllerDelegate : class {
     func audioManager(audioID id: Int, play: Bool)
 }

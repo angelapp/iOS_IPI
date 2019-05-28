@@ -92,7 +92,7 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_before_your_trip:
-            //mainDelegate?.addToContainer(viewControllerID: .beforeYourTrip)
+            mainDelegate?.addToContainer(viewControllerID: .beforeYourTripVC)
             self.revealViewController().revealToggle(animated: true)
             break
 
@@ -108,7 +108,7 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_basic_concepts:
-            //mainDelegate?.addToContainer(viewControllerID: .basicConceptsVC)
+            mainDelegate?.addToContainer(viewControllerID: .course)
             self.revealViewController().revealToggle(animated: true)
             break
 

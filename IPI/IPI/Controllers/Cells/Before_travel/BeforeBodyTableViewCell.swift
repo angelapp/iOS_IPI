@@ -30,6 +30,5 @@ class BeforeBodyTableViewCell: UITableViewCell {
     @IBAction func playAudio (_ sender : UIButton) {
         sender.isSelected = !sender.isSelected
         beforeDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
-        //updateButtonsState(sender: sender)
     }
 }

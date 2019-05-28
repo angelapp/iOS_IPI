@@ -42,7 +42,6 @@ enum ViewControllerID: String, CaseIterable {
     case swMenu
     case contactUs
     case beforeYourTripVC, planYourTripVC, savedTripVC
-    case basicConceptsVC
 
     // Main
     case main, selectActivies

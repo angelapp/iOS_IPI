@@ -31,5 +31,4 @@ class BeforeFooterTableViewCell: UITableViewCell {
     @IBAction func action_buttons(_ sender: UIButton) {
         mainDelegate?.addToContainer(viewControllerID: .planYourTripVC)
     }
-    
 }

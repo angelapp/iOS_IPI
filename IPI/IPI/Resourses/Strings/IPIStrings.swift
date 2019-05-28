@@ -84,6 +84,8 @@ struct IPI_IMAGES {
     static let progress_expert = "experto"
     static let progress_connoisseur = "conocedor"
     static let success = "chulo_azul"
+    static let speaker_blue = "btn_audio"
+    static let speaker_blue_hover = "btn_audio_hover"
     static let speaker_orange = "btn_bocina"
     static let speaker_orange_hover = "btn_bocina_hover"
 	static let infografia_M1_07 = "infografia_completa"
