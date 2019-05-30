@@ -276,7 +276,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             
             switch currentIndex {
                 
-            case 0, 13, 18:
+            case 0, 9, 13, 18:
                 isBtnNext = false
                 break
                 

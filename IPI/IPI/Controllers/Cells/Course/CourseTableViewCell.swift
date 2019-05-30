@@ -267,7 +267,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     func fill_CELL_08() {
         lbl_text1.text = IPI_COURSE.PAGE_08.text1
         lbl_text2.text = IPI_COURSE.PAGE_08.text2
-        /** 19:100 **/
+        
         img_auxiliar.image = UIImage(named: IPI_IMAGES.infografia_M1_07)
     }
 
@@ -280,15 +280,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
-        img_icon2.image = UIImage(named: IPI_IMAGES.icon_1)
-        img_icon3.image = UIImage(named: IPI_IMAGES.icon_1)
+        img_icon2.image = UIImage(named: IPI_IMAGES.icon_2)
+        img_icon3.image = UIImage(named: IPI_IMAGES.icon_3)
     }
 
     func fill_CELL_10() {
         lbl_text1.text = IPI_COURSE.PAGE_10.text1
         lbl_text2.text = IPI_COURSE.PAGE_10.text2
 
-//        saveActivity(activity: ActivitiesAbreviature.MOD_1_R.rawValue, forModule: TopicsIDs.mod_01.rawValue)
         setButtonTitle(button: btn_next, title: Buttons.go_activity)
     }
 
