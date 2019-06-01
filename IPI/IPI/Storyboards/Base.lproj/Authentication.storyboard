@@ -92,6 +92,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xD9-4c-qcF"/>
                     </view>
+                    <connections>
+                        <outlet property="btn_signin" destination="TTw-ZS-4LL" id="2yb-V6-Rzl"/>
+                        <outlet property="btn_signup" destination="fnn-kz-RZB" id="ra0-cJ-rhZ"/>
+                        <outlet property="lbl_title" destination="4gb-mH-5tW" id="C9g-Ky-Vga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eR-Fi-eBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,13 +279,13 @@
                                                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJf-8t-gLi">
-                                                            <rect key="frame" x="89" y="219" width="220" height="50"/>
+                                                            <rect key="frame" x="64" y="219" width="270" height="50"/>
                                                             <color key="backgroundColor" red="0.035294117649999998" green="0.52941176469999995" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="6es-XE-F8l"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="DYb-cX-ySb"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="DYb-cX-ySb"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <state key="normal" title="Listo">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
@@ -293,17 +298,20 @@
                                                                 <action selector="buttonAction:" destination="46j-A6-PKB" eventType="touchUpInside" id="ehu-zf-1KJ"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxY-wO-qmp">
-                                                            <rect key="frame" x="89" y="332" width="220" height="50"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.27058823529411763" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxY-wO-qmp">
+                                                            <rect key="frame" x="64" y="332" width="270" height="50"/>
+                                                            <color key="backgroundColor" red="0.22352941179999999" green="0.4431372549" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="MFF-Fp-Aox"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="MFF-Fp-Aox"/>
                                                                 <constraint firstAttribute="height" constant="50" id="caq-j0-Nnd"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                            <state key="normal" title="Continuar con Facebook">
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                            <state key="normal" title="Continuar con Facebook" image="btn_facebook">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <state key="selected" image="btn_facebook"/>
+                                                            <state key="highlighted" image="btn_facebook"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
                                                                     <integer key="value" value="10"/>
@@ -313,16 +321,23 @@
                                                                 <action selector="buttonAction:" destination="46j-A6-PKB" eventType="touchUpInside" id="ayY-qV-EXK"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emG-MM-YKc">
-                                                            <rect key="frame" x="89" y="398" width="220" height="50"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emG-MM-YKc">
+                                                            <rect key="frame" x="64" y="398" width="270" height="50"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="Yc0-ax-APr"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="Yc0-ax-APr"/>
                                                                 <constraint firstAttribute="height" constant="50" id="kW9-cu-PpA"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                            <state key="normal" title="Google">
-                                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="47" maxY="0.0"/>
+                                                            <state key="normal" title="Acceder con Google" image="btn_google">
+                                                                <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                            </state>
+                                                            <state key="selected" image="btn_google">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <state key="highlighted" image="btn_google">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
@@ -533,6 +548,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_facebook" width="35" height="35"/>
+        <image name="btn_google" width="35" height="35"/>
         <image name="cutoffRule_O" width="153" height="13"/>
         <image name="logo" width="170" height="170"/>
     </resources>

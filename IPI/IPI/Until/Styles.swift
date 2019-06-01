@@ -53,6 +53,12 @@ func setButtonTitle(button: UIButton, title: String){
     button.setTitle(title, for: .selected)
 }
 
+func setButtonImages(button: UIButton, normal: String, hover: String){
+    button.setBackgroundImage(UIImage(named: normal), for: .normal)
+    button.setBackgroundImage(UIImage(named: hover), for: .highlighted)
+    button.setBackgroundImage(UIImage(named: hover), for: .selected)
+}
+
 /// Change font color and add underline
 /// - Parameter text: Text to apply style REVISAR
 func addLinkStyle(forText text: String) -> NSAttributedString {

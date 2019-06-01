@@ -16,7 +16,7 @@ struct IPI_COURSE {
     static let MODULE_01 = "Conceptos Básicos de Protección Internacional"
     static let MODULE_02 = "La labor de los estados para brindar mejores condiciones de vida a las PNPI"
     static let MODULE_03 = "Conceptos Básicos de Protección Internacional"
-    static let text1 = "¡Muy bien, respuesta correcta!"
+    static let SUCCED_ANSWER = "¡Muy bien, respuesta correcta!"
 
     /** START MODULE 1 **/
     struct PAGE_01 {

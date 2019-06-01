@@ -150,6 +150,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         nextVC.message = message
         nextVC.inBold = inbold
         nextVC.poupMessage = type
+        nextVC.courseDelegate = self
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true, completion: nil)
@@ -275,8 +276,11 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             var isBtnNext : Bool
             
             switch currentIndex {
-                
-            case 0, 9, 13, 18:
+            
+            // Case without footer
+            case CURSO_PTN.PAGE_01.rawValue,
+                 CURSO_PTN.PAGE_10.rawValue,
+                 CURSO_PTN.PAGE_11.rawValue, 13, 18:
                 isBtnNext = false
                 break
                 
@@ -323,11 +327,11 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
 			
 			switch currentIndex {
 				
-				case 1...12:
+				case CURSO_PTN.PAGE_02.rawValue...CURSO_PTN.PAGE_13.rawValue:
 					title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
 					break
 					
-				case 14...22:
+				case CURSO_PTN.PAGE_15.rawValue...22:
 					title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
 					break
 					
@@ -417,11 +421,39 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 cell.fill_CELL_06()
                 return cell
             }
-            else {
+            else if currentIndex == CURSO_PTN.PAGE_07.rawValue{
                 cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE07.rawValue, for: indexPath) as! CourseTableViewCell
                 
                 cell.courseDelegate = self
                 cell.fill_CELL_07()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_08.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE08.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_08()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_09.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE09.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_09()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_10.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE10.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_10()
+                return cell
+            }
+            else {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE11.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_11()
                 return cell
             }
         }

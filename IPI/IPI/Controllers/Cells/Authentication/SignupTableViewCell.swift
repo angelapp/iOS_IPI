@@ -52,6 +52,16 @@ class SignupTableViewCell: UITableViewCell, UITextFieldDelegate {
         tf_password2.placeholder = Labels.hint_confirm_pwssd
         tf_password2.delegate = self
         tf_password2.tag = 2
+        
+        // Config buttons
+        setButtonTitle(button: btn_accept, title: Buttons.ready)
+        setButtonTitle(button: btn_facebook, title: Buttons.facebook)
+        setButtonTitle(button: btn_google, title: Buttons.google)
+        
+        btn_facebook.setBackgroundColor(color: Colors().getColor(from: ConseColors.button_facebook.rawValue), forState: .normal)
+        btn_facebook.setBackgroundColor(color: Colors().getColor(from: ConseColors.button_facebook_hover.rawValue), forState: .highlighted)
+        
+        btn_google.setBackgroundColor(color: Colors().getColor(from: ConseColors.button_google_hover.rawValue), forState: .highlighted)
     }
     
     //MARK: Métodos para el control de eventos del teclado

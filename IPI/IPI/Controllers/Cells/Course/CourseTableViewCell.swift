@@ -155,8 +155,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     var crossword_word4: Array<UITextField> = []
     var crossword_word5: Array<UITextField> = []
     var crossword_word6: Array<UITextField> = []
-    var answersButtons: Array<UIButton> = []
-    var audioButtons: Array<UIButton> = []
+    var radioGroup: Array<UIButton> = []
 
     weak var courseDelegate: CourseViewControllerDelegate?
     weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
@@ -224,7 +223,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_Aud1.setImage(UIImage(named: IPI_IMAGES.speaker_orange_hover) , for: UIControl.State.selected)
         btn_Aud2.setImage(UIImage(named: IPI_IMAGES.speaker_orange_hover) , for: UIControl.State.selected)
 
-        audioButtons = [btn_Aud1, btn_Aud2]
+        radioGroup = [btn_Aud1, btn_Aud2]
 
         // Fill texts
         lbl_text1.text = IPI_COURSE.PAGE_05.text1
@@ -306,9 +305,15 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_opt1.tag = TAG_OPTION_CORRECT
         btn_opt2.tag = TAG_OPTION_WRONG
         btn_opt3.tag = TAG_OPTION_WRONG
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt3, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
 
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
-		setButtonTitle(button: btn_next, title: Buttons.next)
+        radioGroup = [btn_opt1, btn_opt2, btn_opt3]
+        setButtonTitle(button: btn_next, title: Buttons.next)
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_01
@@ -343,7 +348,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_opt2.tag = TAG_OPTION_WRONG
         btn_opt3.tag = TAG_OPTION_CORRECT
 
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+        radioGroup = [btn_opt1, btn_opt2, btn_opt3]
 		setButtonTitle(button: btn_next, title: Buttons.next)
 
         // SET TAP ACTION TO LABEL OPTION
@@ -1208,30 +1213,26 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 //    }
 
     // MARK: - update buttons states
-    // change state for checkBox
-    @IBAction func changeButtonState(_ sender: UIButton){
-        sender.isSelected = !sender.isSelected
-    }
-
     @objc func tapLabel(sender: UITapGestureRecognizer) {
 
         let labelTapped = sender.view!
         let labelTag = labelTapped.tag
+        let buttonToChange = radioGroup[labelTag]
+        buttonToChange.isSelected = !buttonToChange.isSelected
 
-        changeButtonState(answersButtons[labelTag])
+        updateButtonsState(sender: buttonToChange)
     }
 
     // Update selected option in radioGroup
-    @IBAction func updateRadioGroup(sender: UIButton) {
-        for button in answersButtons {
-            button.isSelected = (button == sender)
-        }
+    @IBAction func updateRadioGroup(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        updateButtonsState(sender: sender)
     }
 
     // Cambia el estado del boton que este reproduciendo el audio y actualiza los demás
     private func updateButtonsState(sender: UIButton) {
         if sender.isSelected {
-            for button in audioButtons {
+            for button in radioGroup {
                 if button != sender {
                     button.isSelected = false
                 }
@@ -1246,7 +1247,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         updateButtonsState(sender: sender)
     }
 
-//    // MARK: - TextField Delegate
+    // MARK: - TextField Delegate
 //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //
 //        // Cambia el foco a la siguente celda, cuando hay un caracter
@@ -1369,7 +1370,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
     private func checkingQuestionary() -> Bool {
 
-        for option in answersButtons {
+        for option in radioGroup {
             if option.tag == TAG_OPTION_CORRECT {
                 guard option.isSelected else { return false }
             }
@@ -1383,8 +1384,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBAction func checking_page_11 (_ sender: UIButton) {
 
 		if checkingQuestionary() {
-            //saveActivity(activity: activity, forModule: TopicsIDs.mod_02.rawValue)
-            //nextPage(nil)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCED_ANSWER, inbold: nil, type: .success)
         }
         else {
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
@@ -1489,6 +1489,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
     }*/
 }
+
 
 extension CourseTableViewCell {
     func setTableViewDataSourceDelegate <D: UITableViewDelegate & UITableViewDataSource> (_ dataSourceDelegate: D, forRow row: Int) {

@@ -16,7 +16,7 @@ class CourseMessagesViewController: UIViewController {
     @IBOutlet weak var lbl_message: UILabel!
     
     // MARK: - Properties
-    //weak var courseDelegate: CourseProtocol?
+    weak var courseDelegate: CourseViewControllerDelegate?
     
     var poupMessage: PopupMessage = .failed
     var message: String = nullString
@@ -25,7 +25,7 @@ class CourseMessagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        fillView()
     }
     
     // MARK: - Private Function
@@ -54,7 +54,7 @@ class CourseMessagesViewController: UIViewController {
     @IBAction func dissmisMessage(_ sender: UIButton) {
         
         if poupMessage == .success {
-            //courseDelegate?.nextPage()
+            courseDelegate?.nextPage()
         }
         
         self.dismiss(animated: true, completion: nil)

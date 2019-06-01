@@ -26,6 +26,8 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbl_title.text = Labels.welcome
 
         loadLocalData()
         getConfiguration()

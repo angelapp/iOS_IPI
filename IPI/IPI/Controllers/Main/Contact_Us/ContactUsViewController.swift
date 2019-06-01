@@ -105,6 +105,7 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
 
         cell.contactDelegate = self
         cell.messageTypeList = self.messageTypeList
+        cell.message = nullString
         cell.fillCell()
 
         return cell
@@ -144,7 +145,8 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
                 _ = Mapper<ContactForm>().map(JSON: objReceiver as! [String: Any])
 
                 self.contact_tableView.reloadData()
-//                self.mainDelegate?.showMessageInMain(withMessage: Labels.message_ok_contact)
+                self.mainDelegate?.addToContainer(viewControllerID: .selectActivies)
+                self.mainDelegate?.showMessageInMain(withMessage: Labels.contact_send_message)
 
                 break
 
