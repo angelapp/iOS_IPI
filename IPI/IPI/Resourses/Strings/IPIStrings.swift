@@ -83,6 +83,7 @@ struct IPI_IMAGES {
 	static let btn_acordeon_close = "btn_acordeon_cerrar"
     static let btn_back_yellow = "btn_back_yellow"
     static let btn_back_red = "btn_back_red"
+    static let achievement_module_1 = "insignia_1"
     static let progress_logo = "insignia"
     static let progress_advanced = "avanzado"
     static let progress_expert = "experto"

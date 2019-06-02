@@ -24,8 +24,8 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     var currentIndex: Int = 0
     
     // Propertites for inner table
-    var samplesList: Array<ExampleData> = []
-    var expandedSections : NSMutableSet = []
+//    var samplesList: Array<ExampleData> = []
+//    var expandedSections : NSMutableSet = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
 
         currentIndex =  AplicationRuntime.sharedManager.getIndex()
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
-        samplesList = ExampleData().getSampleData()
+//        samplesList = ExampleData().getSampleData()
         
         tbl_course.delegate = self
         tbl_course.dataSource = self
@@ -62,26 +62,26 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         tbl_course.contentInset = UIEdgeInsets.zero
     }
     
-    // MARK: - Expandable tableview functions
-    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
-    @objc func sectionTapped(_ sender: UIButton) {
-        printDebugMessage(tag: "btn was tapped")
-        let section = sender.tag
-        printDebugMessage(tag: "in section: \(section)")
-        let shouldExpand = !expandedSections.contains(section)
-        if (shouldExpand) {
-            printDebugMessage(tag: "add section")
-            expandedSections.removeAllObjects()
-            expandedSections.add(section)
-            
-        } else {
-            printDebugMessage(tag: "remove all section")
-            expandedSections.removeAllObjects()
-        }
-//        self.tbl_course.tag = TABLE_SAMPLES
-        self.tbl_course.reloadData()
-        viewDidLayoutSubviews()
-    }
+//    // MARK: - Expandable tableview functions
+//    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+//    @objc func sectionTapped(_ sender: UIButton) {
+//        printDebugMessage(tag: "btn was tapped")
+//        let section = sender.tag
+//        printDebugMessage(tag: "in section: \(section)")
+//        let shouldExpand = !expandedSections.contains(section)
+//        if (shouldExpand) {
+//            printDebugMessage(tag: "add section")
+//            expandedSections.removeAllObjects()
+//            expandedSections.add(section)
+//
+//        } else {
+//            printDebugMessage(tag: "remove all section")
+//            expandedSections.removeAllObjects()
+//        }
+////        self.tbl_course.tag = TABLE_SAMPLES
+//        self.tbl_course.reloadData()
+//        viewDidLayoutSubviews()
+//    }
     
     // MARK: - Buttons Action
     @IBAction func actionButtons(_ sender: UIButton) {
@@ -240,22 +240,22 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     
     // Número de secciones de la tabla
     func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.tag == TABLE_COURSE {
+//        if tableView.tag == TABLE_COURSE {
             return 1
-        }
-        else {
-            return samplesList.count
-        }
+//        }
+//        else {
+//            return samplesList.count
+//        }
     }
     
     // Número de filas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.tag == TABLE_COURSE {
+//        if tableView.tag == TABLE_COURSE {
             return 1
-        }
-        else {
-            return expandedSections.contains(section) ? 1 : 0
-        }
+//        }
+//        else {
+//            return expandedSections.contains(section) ? 1 : 0
+//        }
     }
     
     // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
@@ -271,37 +271,40 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     // Footer of the sections
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        if tableView.tag == TABLE_COURSE {
-            
+//        if tableView.tag == TABLE_COURSE {
+//
             var isBtnNext : Bool
-            
+
             switch currentIndex {
-            
+
             // Case without footer
             case CURSO_PTN.PAGE_01.rawValue,
                  CURSO_PTN.PAGE_10.rawValue,
-                 CURSO_PTN.PAGE_11.rawValue, 13, 18:
+                 CURSO_PTN.PAGE_11.rawValue,
+                 CURSO_PTN.PAGE_12.rawValue,
+                 CURSO_PTN.PAGE_13.rawValue,
+                 CURSO_PTN.PAGE_14.rawValue, 18:
                 isBtnNext = false
                 break
-                
+
             default:
                 isBtnNext = true
                 break
             }
-            
+
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.courseFooter.rawValue) as! CourseFooterTableViewCell
-            
+
             cell.courseDelegate = self
             cell.fill_footer()
             cell.btn_next.isHidden = !isBtnNext
-            
+
             return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
-            
-            return cell
-        }
+//        }
+//        else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+//
+//            return cell
+//        }
     }
     
     // Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
@@ -317,11 +320,11 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     // Encabezado de las secciones
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		
-		let tableID = tableView.tag 
-		var title = nullString
-		
-        if tableID == TABLE_COURSE {
-            
+        let tableID = tableView.tag
+        var title = nullString
+//
+//        if tableID == TABLE_COURSE {
+        
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.courseHeader.rawValue) as? CourseHeaderTableViewCell
             var cutoff = true
 			
@@ -348,18 +351,18 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell?.fill_header(forTable: tableID, withCutoff: cutoff)
             
             return cell
-		}
-		else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
-            
-			cell?.headerTitle = samplesList[section].header
-            cell?.fill_header(forTable: tableID)
-			cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
-			cell?.btn_openClose.tag = section
-			cell?.btn_openClose.isSelected = expandedSections.contains(section)
-            
-            return cell
-		}
+//        }
+//        else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+//
+//            cell?.headerTitle = samplesList[section].header
+//            cell?.fill_header(forTable: tableID)
+//            cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+//            cell?.btn_openClose.tag = section
+//            cell?.btn_openClose.isSelected = expandedSections.contains(section)
+//
+//            return cell
+//        }
     }
     
     // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
@@ -376,7 +379,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Course
-        if tableView.tag == TABLE_COURSE {
+//        if tableView.tag == TABLE_COURSE {
             var cell: CourseTableViewCell
             
             if currentIndex == CURSO_PTN.PAGE_01.rawValue {
@@ -426,6 +429,10 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 
                 cell.courseDelegate = self
                 cell.fill_CELL_07()
+                
+//                cell.tbl_examples.delegate = self
+//                cell.tbl_examples.dataSource = self
+                
                 return cell
             }
             else if currentIndex == CURSO_PTN.PAGE_08.rawValue{
@@ -449,20 +456,48 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 cell.fill_CELL_10()
                 return cell
             }
-            else {
+            else if currentIndex == CURSO_PTN.PAGE_11.rawValue{
                 cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE11.rawValue, for: indexPath) as! CourseTableViewCell
                 
                 cell.courseDelegate = self
                 cell.fill_CELL_11()
                 return cell
             }
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
-            
-            cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
-            
-            return cell
-        }
+            else if currentIndex == CURSO_PTN.PAGE_12.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE12.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_12()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_13.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE13.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_13()
+                return cell
+            }
+            else if currentIndex == CURSO_PTN.PAGE_14.rawValue{
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE14.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_14()
+                return cell
+            }else
+            {
+                cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE15.rawValue, for: indexPath) as! CourseTableViewCell
+                
+                cell.courseDelegate = self
+                cell.fill_CELL_15()
+                return cell
+            }
+//        }
+//        else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
+//
+//            cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
+//
+//            return cell
+//        }
     }
 }

@@ -7,7 +7,88 @@
 //
 import UIKit
 
-class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
+class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    var samplesList: Array<ExampleData> = []
+    var expandedSections : NSMutableSet = []
+    
+    // MARK: - Expandable tableview functions
+    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func sectionTapped(_ sender: UIButton) {
+        printDebugMessage(tag: "btn was tapped")
+        let section = sender.tag
+        printDebugMessage(tag: "in section: \(section)")
+        let shouldExpand = !expandedSections.contains(section)
+        if (shouldExpand) {
+            printDebugMessage(tag: "add section")
+            expandedSections.removeAllObjects()
+            expandedSections.add(section)
+            
+        } else {
+            printDebugMessage(tag: "remove all section")
+            expandedSections.removeAllObjects()
+        }
+        tbl_examples.reloadData()
+    }
+    
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return samplesList.count
+    }
+    
+    // Número de filas
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expandedSections.contains(section) ? 1 : 0
+    }
+    
+    // Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 62
+    }
+    
+    // Encabezado de las secciones
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+
+        cell?.headerTitle = samplesList[section].header
+        cell?.fill_header(forTable: tableView.tag)
+        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        cell?.btn_openClose.tag = section
+        cell?.btn_openClose.isSelected = expandedSections.contains(section)
+
+        return cell
+    }
+    
+    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del pie de página
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 58
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
+
+        cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
+
+        return cell
+    }
+
 
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
@@ -255,7 +336,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func fill_CELL_07() {
         lbl_text1.text = IPI_COURSE.PAGE_07.text1
+        samplesList = ExampleData().getSampleData()
+        
         tbl_examples.tag = TABLE_SAMPLES
+        tbl_examples.dataSource = self
+        tbl_examples.delegate = self
         
         let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
         let course = courseList?[0].course_topics?[0]
@@ -347,9 +432,15 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
         btn_opt1.tag = TAG_OPTION_WRONG
         btn_opt2.tag = TAG_OPTION_WRONG
         btn_opt3.tag = TAG_OPTION_CORRECT
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt3, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
 
         radioGroup = [btn_opt1, btn_opt2, btn_opt3]
 		setButtonTitle(button: btn_next, title: Buttons.next)
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_01
@@ -371,13 +462,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 	
     func fill_CELL_13() {
 	
+        //Set labels
         lbl_text1.text = IPI_COURSE.PAGE_13.text1
         lbl_text2.text = IPI_COURSE.PAGE_13.text2
 		
+        //Set Images
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
-		img_insignia.image = UIImage(named: IPI_IMAGES.icon_1)
-			
+		img_insignia.image = UIImage(named: IPI_IMAGES.achievement_module_1)
+		
+        //Set buttons
 		setButtonTitle(button: btn_next, title: Buttons.end_course)
 		setButtonTitle(button: btn_back, title: Buttons.come_back)
     }
@@ -1384,6 +1478,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBAction func checking_page_11 (_ sender: UIButton) {
 
 		if checkingQuestionary() {
+            //save activiy completed -- Answered question 1 correctly
+            let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+            let course = courseList?[0].course_topics?[0]
+            
+            saveActivity(activity: (course?.topic_activity_list?[1].abreviature)!, forModule: (course?.id)!)
+            
+            // Show success message
             courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCED_ANSWER, inbold: nil, type: .success)
         }
         else {
@@ -1394,8 +1495,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBAction func checking_page_12 (_ sender: UIButton) {
 
 		if checkingQuestionary() {
-            //saveActivity(activity: activity, forModule: TopicsIDs.mod_02.rawValue)
-            //nextPage(nil)
+            //save activiy completed -- Answered question 2 correctly
+            let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+            let course = courseList?[0].course_topics?[0]
+            
+            saveActivity(activity: (course?.topic_activity_list?[2].abreviature)!, forModule: (course?.id)!)
+            
+            // Show success message
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCED_ANSWER, inbold: nil, type: .success)
         }
         else {
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)
@@ -1491,11 +1598,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate {
 }
 
 
-extension CourseTableViewCell {
-    func setTableViewDataSourceDelegate <D: UITableViewDelegate & UITableViewDataSource> (_ dataSourceDelegate: D, forRow row: Int) {
-        tbl_examples.delegate = dataSourceDelegate
-        tbl_examples.dataSource = dataSourceDelegate
-
-        tbl_examples.reloadData()
-    }
-}
+//extension CourseTableViewCell {
+//    func setTableViewDataSourceDelegate <D: UITableViewDelegate & UITableViewDataSource> (_ dataSourceDelegate: D, forRow row: Int) {
+//        tbl_examples.delegate = dataSourceDelegate
+//        tbl_examples.dataSource = dataSourceDelegate
+//
+//        tbl_examples.reloadData()
+//    }
+//}
