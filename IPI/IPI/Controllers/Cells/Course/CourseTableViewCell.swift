@@ -7,89 +7,8 @@
 //
 import UIKit
 
-class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var samplesList: Array<ExampleData> = []
-    var expandedSections : NSMutableSet = []
-    
-    // MARK: - Expandable tableview functions
-    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
-    @objc func sectionTapped(_ sender: UIButton) {
-        printDebugMessage(tag: "btn was tapped")
-        let section = sender.tag
-        printDebugMessage(tag: "in section: \(section)")
-        let shouldExpand = !expandedSections.contains(section)
-        if (shouldExpand) {
-            printDebugMessage(tag: "add section")
-            expandedSections.removeAllObjects()
-            expandedSections.add(section)
-            
-        } else {
-            printDebugMessage(tag: "remove all section")
-            expandedSections.removeAllObjects()
-        }
-        tbl_examples.reloadData()
-    }
-    
-    // Número de secciones de la tabla
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return samplesList.count
-    }
-    
-    // Número de filas
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expandedSections.contains(section) ? 1 : 0
-    }
-    
-    // Se agrega la propiedad para ajustar el tamaño del encabezado al contenido
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    // Tamaño estimado del encabezado
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 62
-    }
-    
-    // Encabezado de las secciones
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
-
-        cell?.headerTitle = samplesList[section].header
-        cell?.fill_header(forTable: tableView.tag)
-        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
-        cell?.btn_openClose.tag = section
-        cell?.btn_openClose.isSelected = expandedSections.contains(section)
-
-        return cell
-    }
-    
-    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    // Tamaño estimado del pie de página
-    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 58
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
-
-        cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
-
-        return cell
-    }
-
-
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
     @IBOutlet weak var btn_Aud2: UIButton!
@@ -115,7 +34,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var btn_playMV: UIButton!
     @IBOutlet weak var btn_downloadMV: UIButton!
 
-    @IBOutlet weak var content_slide: UIView!
+    @IBOutlet weak var collection_slide: UICollectionView!
 	@IBOutlet weak var pageControl: UIPageControl!
 
     @IBOutlet weak var img_avatar: UIImageView!
@@ -168,6 +87,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var tbl_examples: UITableView!
+    @IBOutlet weak var tbl_constraint_height: NSLayoutConstraint!
 
     /* Name of textField cell for Crossword
     //(M1CW)Module 1 Crossword
@@ -215,10 +135,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // MARK: - Properties
     let MAX_LENGTH_CELL = 1
-	// Slides for Module 2 Page 15
-	let SLIDE_0 = 0
-	let SLIDE_1 = 1
-	let SLIDE_2 = 2
+    
 	// Tag for identify the options 
     let TAG_OPTION_CORRECT: Int = 1
     let TAG_OPTION_WRONG:   Int = 0
@@ -237,6 +154,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     var crossword_word5: Array<UITextField> = []
     var crossword_word6: Array<UITextField> = []
     var radioGroup: Array<UIButton> = []
+
+    var itemList: Array<SliderData> = []
+    var samplesList: Array<ExampleData> = []
+    var expandedSections : NSMutableSet = []
 
     weak var courseDelegate: CourseViewControllerDelegate?
     weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
@@ -342,6 +263,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tbl_examples.dataSource = self
         tbl_examples.delegate = self
         
+        // Save Activity progress
         let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
         let course = courseList?[0].course_topics?[0]
         
@@ -488,7 +410,17 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     func fill_CELL_15() {
         lbl_text1.text = IPI_COURSE.PAGE_15.text1
         lbl_text2.text = IPI_COURSE.PAGE_15.text2
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.slider_logo)
+        
+        itemList = SliderData().getSliderData()
 		
+        collection_slide.delegate = self
+        collection_slide.dataSource = self
+        
+//        if let flowLayout = collection_slide.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = CGSize(width: 323, height: 128)
+//        }
 		//Implementar pageviewController y función para retornar los textos
 		// swift id {
 			
@@ -507,8 +439,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 			// text4 = IPI_COURSE.PAGE_15.slide2_text4
 			// break
 		// }
-		
-		setButtonTitle(button: btn_next, title: Buttons.next)
     }
 
     func fill_CELL_16() {
@@ -1291,8 +1221,118 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         courseDelegate?.sendRequest(formModel: requestModel)
     } */
+    // MARK: - User Interface
+    /// Update child and parent UI
+    private func updateUI() {
+        tbl_examples.reloadData()
+        courseDelegate?.reloadTable()
+    }
+    
+    // MARK: - Expandable tableview functions
+    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func sectionTapped(_ sender: UIButton) {
+        
+        let section = sender.tag
+        let shouldExpand = !expandedSections.contains(section)
+        
+        if (shouldExpand) {
+            expandedSections.removeAllObjects()
+            expandedSections.add(section)
+        } else {
+            expandedSections.removeAllObjects()
+        }
+        
+        updateUI()
+    }
+    
+    // MARK: - Table view Delegate and Datasource
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return samplesList.count
+    }
+    
+    // Número de filas por sección
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expandedSections.contains(section) ? 1 : 0
+    }
+    
+    // MARK: Header properties
+    // Propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 62
+    }
+    
+    // Encabezado de las secciones
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+        
+        cell?.headerTitle = samplesList[section].header
+        cell?.fill_header(forTable: tableView.tag)
+        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        cell?.btn_openClose.tag = section
+        cell?.btn_openClose.isSelected = expandedSections.contains(section)
+        
+        return cell
+    }
+    
+    // MARK: Footer properties
+    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del pie de página
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 58
+    }
+    
+    // Draw Footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+        return cell
+    }
+    
+    // Draw body
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
+        
+        cell.lbl_text.text = samplesList[indexPath.section].body[indexPath.row]
+        
+        return cell
+    }
+    
+    // MARK: - Collection view DataSource and FlowLayout Dategate
+    // Set number of section in the colection
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    //number of the items in the section
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return itemList.count
+    }
+    
+    //fill collection
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        self.pageControl.currentPage = indexPath.row
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.courseSlider.rawValue, for: indexPath) as! CourseSliderCollectionViewCell
+        
+        cell.lbl_title.text = itemList[indexPath.row].title
+        cell.lbl_message.text = itemList[indexPath.row].message
+        
+        return cell
+    }
 
-    // MARK: - Acciones de navegación
+    // MARK: - Navigation actions
     @IBAction func previousPage(_ sender: UIButton) {
         courseDelegate?.previusPage()
     }
@@ -1596,13 +1636,3 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
     }*/
 }
-
-
-//extension CourseTableViewCell {
-//    func setTableViewDataSourceDelegate <D: UITableViewDelegate & UITableViewDataSource> (_ dataSourceDelegate: D, forRow row: Int) {
-//        tbl_examples.delegate = dataSourceDelegate
-//        tbl_examples.dataSource = dataSourceDelegate
-//
-//        tbl_examples.reloadData()
-//    }
-//}

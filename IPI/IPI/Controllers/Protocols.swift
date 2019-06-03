@@ -61,6 +61,7 @@ protocol MainProtocol: class {
 protocol CourseViewControllerDelegate : class {
     func nextPage()
     func previusPage()
+    func reloadTable()
     func playMV(urlStr: String)
     func audioManager(audioID id: Int, play: Bool)
     func sendRequest(formModel: Array<RequestCompleted>)

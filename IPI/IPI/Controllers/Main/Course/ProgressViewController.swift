@@ -60,7 +60,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
         switch imgTag {
             
             case mod_2:
-                index = CURSO_PTN.PAGE_04.rawValue
+                index = CURSO_PTN.PAGE_14.rawValue
                 break
             
             case mod_3:

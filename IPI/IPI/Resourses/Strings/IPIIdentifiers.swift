@@ -76,7 +76,7 @@ enum CellID: String {
     case COURSE31, COURSE32, COURSE33, COURSE34, COURSE35, COURSE36, COURSE37, COURSE38, COURSE39, COURSE40
     case COURSE41, COURSE42
     
-    case header, body, footer, courseHeader, courseFooter, courseMessage
+    case header, body, footer, courseHeader, courseFooter, courseMessage, courseSlider
     
     // Cells for progress
     case progress

@@ -262,3 +262,26 @@ class ExampleData {
                 ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4])]
     }
 }
+
+/** Módelo para pasar los datos del slider del curso al controlador correspondiente **/
+class SliderData {
+    var title : String!
+    var message : String!
+    
+    init() {
+    }
+    
+    init(title: String, message: String) {
+        self.title = title
+        self.message = message
+    }
+    
+    /** Arma la lista para el slider
+     - Returns: Arreglo la información por secciones
+     */
+    func getSliderData() -> [SliderData] {
+        return [SliderData(title: IPI_COURSE.PAGE_15.slide0_title, message: IPI_COURSE.PAGE_15.slide0_text),
+                SliderData(title: IPI_COURSE.PAGE_15.slide1_title, message: IPI_COURSE.PAGE_15.slide1_text),
+                SliderData(title: IPI_COURSE.PAGE_15.slide2_title, message: IPI_COURSE.PAGE_15.slide2_text)]
+    }
+}

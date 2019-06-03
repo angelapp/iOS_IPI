@@ -67,7 +67,12 @@ struct Buttons {
 struct IPI_IMAGES {
     static let selectActivitiesImage = "ilustracion"
 
+    static let achievement_module_1 = "insignia_1"
     static let admiration = "admiracion"
+    static let btn_acordeon_open = "btn_acordeon_abrir"
+    static let btn_acordeon_close = "btn_acordeon_cerrar"
+    static let btn_back_yellow = "btn_back_yellow"
+    static let btn_back_red = "btn_back_red"
     static let corner_BLUE = "esquina_azul"
     static let corner_PINK = "esquina_rosada"
     static let corner_YELLOW = "bocadillo"
@@ -79,22 +84,18 @@ struct IPI_IMAGES {
     static let icon_3 = "3"
 	static let icon_4 = "4"
 	static let icon_5 = "5"
-	static let btn_acordeon_open = "btn_acordeon_abrir"
-	static let btn_acordeon_close = "btn_acordeon_cerrar"
-    static let btn_back_yellow = "btn_back_yellow"
-    static let btn_back_red = "btn_back_red"
-    static let achievement_module_1 = "insignia_1"
+    static let infografia_M1_07 = "infografia_completa"
     static let progress_logo = "insignia"
     static let progress_advanced = "avanzado"
     static let progress_expert = "experto"
     static let progress_connoisseur = "conocedor"
     static let sheet_top = "bolitas"
-    static let success = "chulo_azul"
+    static let slider_logo = "principios"
     static let speaker_blue = "btn_audio"
     static let speaker_blue_hover = "btn_audio_hover"
     static let speaker_orange = "btn_bocina"
     static let speaker_orange_hover = "btn_bocina_hover"
-	static let infografia_M1_07 = "infografia_completa"
+    static let success = "chulo_azul"
 }
 
 // MARK: - Lables
