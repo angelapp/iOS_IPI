@@ -17,6 +17,10 @@ class LandscapeAVPlayerController: AVPlayerViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
+    
+    open override var shouldAutorotate: Bool {
+        return false
+    }
 }
 
 // MARK: - Extensions
@@ -66,8 +70,11 @@ extension UIViewController {
 	
 	/// Show video in AVPlayer
 	func playVideo(videoSTR: String) {
-		let videoURL = NSURL(string: videoSTR)
+        printDebugMessage(tag: videoSTR)
+		let videoURL = NSURL(string: "http://nrc.org.co/conse/Lideres_Lideresas.mp4")
+        printDebugMessage(tag: "\(videoURL)")
 		let player = AVPlayer(url: videoURL! as URL)
+        
 		
         let playerController = LandscapeAVPlayerController()
         playerController.player = player

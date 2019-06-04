@@ -16,7 +16,8 @@ struct IPI_COURSE {
     static let MODULE_01 = "Conceptos Básicos de Protección Internacional"
     static let MODULE_02 = "La labor de los estados para brindar mejores condiciones de vida a las PNPI"
     static let MODULE_03 = "Conceptos Básicos de Protección Internacional"
-    static let SUCCED_ANSWER = "¡Muy bien, respuesta correcta!"
+    static let SUCCEED_ANSWER = "¡Muy bien, respuesta correcta!"
+    static let SUCCEED_FILL_WORD = "¡Lo has logrado!"
 
     /** START MODULE 1 **/
     struct PAGE_01 {
@@ -148,27 +149,64 @@ struct IPI_COURSE {
     }
 
     struct PAGE_17 {
+        static let text1 = "En resumen:"
+        static let text2 = "Los Estados latinoamericanos por medio de la Declaración de Cartagena de 1984 y los Planes de acción para su implementación han buscado: "
+        static let text3 = "Mejorar la Protección Internacional de las personas refugiadas y solicitantes de asilo en América Latina y el Caribe. "
+        static let text4 = "Crear soluciones integrales, complementarias y sostenibles de acuerdo con la Convención sobre el Estatuto de los Refugiados de 1951 y su Protocolo."
+        static let text5 = "Concertar programas como el Asilo de Calidad, Fronteras Seguras, Repatriación Voluntaria, Reasentamiento y Movilidad Laboral para responder a nuevas realidades que se enfrentan en la región."
     }
 
     struct PAGE_18 {
+        static let text1 = "¡Felicitaciones! Has completado los contenidos del Módulo 2. Pon a prueba tus conocimientos con el siguiente juego de letras."
+        static let text2 = "Completa el nombre de seis de los programas propuestos por el Plan de Acción Brasil mencionados en el video. Lee las preguntas e ingresa las letras que hacen falta para completar las palabras."
     }
 
     struct PAGE_19 {
+        static let text1 = "Pregunta 1"
+        static let text2 = "Programa que busca fortalecer la capacidad de los Estados para acoger a los PNPI y mejorar los procedimientos para acceder a la condición de Refugiado."
+        
+        static let ANSWER = "ASILIO DE CALIDAD"
+        static let ERROR = "Mira nuevamente el video del Módulo 2 y así recordarás la propuesta del Plan de Acción Brasil para apoyar los procedimientos de asilo para refugiados."
     }
 
     struct PAGE_20 {
+        static let text1 = "Pregunta 2"
+        static let text2 = "Programa que promueve la cooperación entre Estados para garantizar a un PNPI/Refugiado que pueda regresar a su país de origen."
+        
+        static let ANSWER = "REPARACION VOLUNTARIA"
+        static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar la propuesta del Plan de Acción Brasil con la cual fortalecen la repatriación de refugiados."
     }
 
     struct PAGE_21 {
+        static let text1 = "Pregunta 3"
+        static let text2 = "Programa que refuerza la presencia de entidades en las áreas fronterizas y capacita a sus funcionarios."
+        
+        static let ANSWER = "FRONTERAS SOLIDARIAS"
+        static let ERROR = "Revisa nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que fortalece el movimiento de refugiados en las fronteras."
     }
 
     struct PAGE_22 {
+        static let text1 = "Pregunta 4"
+        static let text2 = "Programa que apoya a los PNPI/Refugiados cuando deber ser reubicados en un tercer país que les brindará mejores condiciones, e incluso la residencia permanente."
+        
+        static let ANSWER = "REASENTAMIENTO SOLIDARIO"
+        static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que apoya el reasentamiento de refugiados en países alternos."
     }
 
     struct PAGE_23 {
+        static let text1 = "Pregunta 5"
+        static let text2 = "Programa que facilita la integración de los refugiados en la sociedad del país que los acoge: económica, social y legalmente."
+        
+        static let ANSWER = "INTEGRACION LOCAL"
+        static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que ayuda a los refugiados a integrarse a nivel local."
     }
 
     struct PAGE_24 {
+        static let text1 = "Pregunta 6"
+        static let text2 = "Programa que busca identificar los perfiles profesionales de los refugiados y las necesidades laborales en el país de destino."
+        
+        static let ANSWER = "MOVILIDAD LABORAL"
+        static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que ayuda a los refugiados a ubicarse laboralmente."
     }
 
     struct PAGE_25 {

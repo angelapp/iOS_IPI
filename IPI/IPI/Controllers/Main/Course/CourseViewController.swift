@@ -157,7 +157,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
         reloadTable()
     }
     
-    func playMV(urlStr: String){
+    func playMV(urlStr: String) {
         self.playVideo(videoSTR: urlStr)
     }
     
@@ -242,11 +242,9 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
 
                 // Case without footer
                 case CURSO_PTN.PAGE_01.rawValue,
-                     CURSO_PTN.PAGE_10.rawValue,
-                     CURSO_PTN.PAGE_11.rawValue,
-                     CURSO_PTN.PAGE_12.rawValue,
-                     CURSO_PTN.PAGE_13.rawValue,
-                     CURSO_PTN.PAGE_14.rawValue, 18:
+                     CURSO_PTN.PAGE_10.rawValue...CURSO_PTN.PAGE_14.rawValue,
+                     CURSO_PTN.PAGE_17.rawValue, //TEMPORAL SOLO PARA VERSION
+                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_24.rawValue:
                     isBtnNext = false
                     break
 
@@ -289,7 +287,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
                 break
             
-            case CURSO_PTN.PAGE_15.rawValue...22:
+            case CURSO_PTN.PAGE_15.rawValue...CURSO_PTN.PAGE_17.rawValue:
                 title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
                 break
             
@@ -421,11 +419,32 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell.fill_CELL_14()
             return cell
         }
-        else{
+        else if currentIndex == CURSO_PTN.PAGE_15.rawValue{
             cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE15.rawValue, for: indexPath) as! CourseTableViewCell
             
             cell.courseDelegate = self
             cell.fill_CELL_15()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_16.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE16.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_16()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_17.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE17.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_17()
+            return cell
+        }
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE18.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_18()
             return cell
         }
     }

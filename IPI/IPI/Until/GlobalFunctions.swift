@@ -137,9 +137,9 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
     // Busca el curso al que pertenece la actividad
     for course in courses! {
         if course.id == activity.courseID {
-
+            
             for mod in course.course_topics {
-                if mod.course == activity.topicID {
+                if mod.id == activity.topicID {
                     
                      //Busca la actividad que se desea guardar el progreso
                     for act in  mod.topic_activity_list {

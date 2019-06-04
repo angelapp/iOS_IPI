@@ -52,27 +52,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var lbl_Aud3: UILabel!
     @IBOutlet weak var lbl_Aud4: UILabel!
 
-    @IBOutlet weak var lbl_item1: UILabel!
-    @IBOutlet weak var lbl_item2: UILabel!
-    @IBOutlet weak var lbl_item3: UILabel!
-    @IBOutlet weak var lbl_item4: UILabel!
-    @IBOutlet weak var lbl_item5: UILabel!
-    @IBOutlet weak var lbl_item6: UILabel!
-    @IBOutlet weak var lbl_item7: UILabel!
-    @IBOutlet weak var lbl_item8: UILabel!
-    @IBOutlet weak var lbl_item9: UILabel!
-    @IBOutlet weak var lbl_item10: UILabel!
-    @IBOutlet weak var lbl_item11: UILabel!
-
     @IBOutlet weak var lbl_option1: UILabel!
     @IBOutlet weak var lbl_option2: UILabel!
     @IBOutlet weak var lbl_option3: UILabel!
     @IBOutlet weak var lbl_option4: UILabel!
     @IBOutlet weak var lbl_option5: UILabel!
-
-    @IBOutlet weak var lbl_question: UILabel!
-    @IBOutlet weak var lbl_review: UILabel!
-    @IBOutlet weak var lbl_subtitle: UILabel!
 
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_text1: UILabel!
@@ -85,53 +69,58 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var lbl_text8: UILabel!
     @IBOutlet weak var lbl_text9: UILabel!
 
-    @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var tf_line1_00: UITextField!
+    @IBOutlet weak var tf_line1_01: UITextField!
+    @IBOutlet weak var tf_line1_02: UITextField!
+    @IBOutlet weak var tf_line1_03: UITextField!
+    @IBOutlet weak var tf_line1_04: UITextField!
+    @IBOutlet weak var tf_line1_05: UITextField!
+    @IBOutlet weak var tf_line1_06: UITextField!
+    @IBOutlet weak var tf_line1_07: UITextField!
+    @IBOutlet weak var tf_line1_08: UITextField!
+    @IBOutlet weak var tf_line1_09: UITextField!
+    @IBOutlet weak var tf_line1_10: UITextField!
+    @IBOutlet weak var tf_line1_11: UITextField!
+    @IBOutlet weak var tf_line1_12: UITextField!
+    @IBOutlet weak var tf_line1_13: UITextField!
+    @IBOutlet weak var tf_line2_00: UITextField!
+    @IBOutlet weak var tf_line2_01: UITextField!
+    @IBOutlet weak var tf_line2_02: UITextField!
+    @IBOutlet weak var tf_line2_03: UITextField!
+    @IBOutlet weak var tf_line2_04: UITextField!
+    @IBOutlet weak var tf_line2_05: UITextField!
+    @IBOutlet weak var tf_line2_06: UITextField!
+    @IBOutlet weak var tf_line2_07: UITextField!
+    @IBOutlet weak var tf_line2_08: UITextField!
+    @IBOutlet weak var tf_line2_09: UITextField!
+    
+    @IBOutlet weak var view_line1_00: UIView!
+    @IBOutlet weak var view_line1_01: UIView!
+    @IBOutlet weak var view_line1_02: UIView!
+    @IBOutlet weak var view_line1_03: UIView!
+    @IBOutlet weak var view_line1_04: UIView!
+    @IBOutlet weak var view_line1_05: UIView!
+    @IBOutlet weak var view_line1_06: UIView!
+    @IBOutlet weak var view_line1_07: UIView!
+    @IBOutlet weak var view_line1_08: UIView!
+    @IBOutlet weak var view_line1_09: UIView!
+    @IBOutlet weak var view_line1_10: UIView!
+    @IBOutlet weak var view_line1_11: UIView!
+    @IBOutlet weak var view_line1_12: UIView!
+    @IBOutlet weak var view_line1_13: UIView!
+    @IBOutlet weak var view_line2_00: UIView!
+    @IBOutlet weak var view_line2_01: UIView!
+    @IBOutlet weak var view_line2_02: UIView!
+    @IBOutlet weak var view_line2_03: UIView!
+    @IBOutlet weak var view_line2_04: UIView!
+    @IBOutlet weak var view_line2_05: UIView!
+    @IBOutlet weak var view_line2_06: UIView!
+    @IBOutlet weak var view_line2_07: UIView!
+    @IBOutlet weak var view_line2_08: UIView!
+    @IBOutlet weak var view_line2_09: UIView!
+    
     @IBOutlet weak var tbl_examples: UITableView!
     @IBOutlet weak var tbl_constraint_height: NSLayoutConstraint!
-
-    /* Name of textField cell for Crossword
-    //(M1CW)Module 1 Crossword
-    //(C_RC) Cell_RowCol ... (C0209 = Cell in Row 02, Col 09)
-    @IBOutlet weak var M1CW_C_0209: UITextField!
-    @IBOutlet weak var M1CW_C_0307: UITextField!
-    @IBOutlet weak var M1CW_C_0308: UITextField!
-    @IBOutlet weak var M1CW_C_0309: UITextField!
-    @IBOutlet weak var M1CW_C_0310: UITextField!
-    @IBOutlet weak var M1CW_C_0311: UITextField!
-    @IBOutlet weak var M1CW_C_0312: UITextField!
-    @IBOutlet weak var M1CW_C_0402: UITextField!
-    @IBOutlet weak var M1CW_C_0409: UITextField!
-    @IBOutlet weak var M1CW_C_0502: UITextField!
-    @IBOutlet weak var M1CW_C_0503: UITextField!
-    @IBOutlet weak var M1CW_C_0504: UITextField!
-    @IBOutlet weak var M1CW_C_0505: UITextField!
-    @IBOutlet weak var M1CW_C_0506: UITextField!
-    @IBOutlet weak var M1CW_C_0507: UITextField!
-    @IBOutlet weak var M1CW_C_0508: UITextField!
-    @IBOutlet weak var M1CW_C_0509: UITextField!
-    @IBOutlet weak var M1CW_C_0510: UITextField!
-    @IBOutlet weak var M1CW_C_0602: UITextField!
-    @IBOutlet weak var M1CW_C_0609: UITextField!
-    @IBOutlet weak var M1CW_C_0702: UITextField!
-    @IBOutlet weak var M1CW_C_0709: UITextField!
-    @IBOutlet weak var M1CW_C_0802: UITextField!
-    @IBOutlet weak var M1CW_C_0809: UITextField!
-    @IBOutlet weak var M1CW_C_0902: UITextField!
-    @IBOutlet weak var M1CW_C_0909: UITextField!
-    @IBOutlet weak var M1CW_C_1006: UITextField!
-    @IBOutlet weak var M1CW_C_1007: UITextField!
-    @IBOutlet weak var M1CW_C_1008: UITextField!
-    @IBOutlet weak var M1CW_C_1009: UITextField!
-    @IBOutlet weak var M1CW_C_1010: UITextField!
-    @IBOutlet weak var M1CW_C_1011: UITextField!
-    @IBOutlet weak var M1CW_C_1012: UITextField!
-    @IBOutlet weak var M1CW_C_1109: UITextField!
-    @IBOutlet weak var M1CW_C_1206: UITextField!
-    @IBOutlet weak var M1CW_C_1207: UITextField!
-    @IBOutlet weak var M1CW_C_1208: UITextField!
-    @IBOutlet weak var M1CW_C_1209: UITextField!
-    @IBOutlet weak var M1CW_C_1210: UITextField!
-    @IBOutlet weak var M1CW_C_1211: UITextField! */
 
     // MARK: - Properties
     let MAX_LENGTH_CELL = 1
@@ -139,6 +128,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 	// Tag for identify the options 
     let TAG_OPTION_CORRECT: Int = 1
     let TAG_OPTION_WRONG:   Int = 0
+    
     let TAG_OPTION_01 = 0
     let TAG_OPTION_02 = 1
     let TAG_OPTION_03 = 2
@@ -147,12 +137,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     
     private let courseID: Int = 1
 
-    var crossword_word1: Array<UITextField> = []
-    var crossword_word2: Array<UITextField> = []
-    var crossword_word3: Array<UITextField> = []
-    var crossword_word4: Array<UITextField> = []
-    var crossword_word5: Array<UITextField> = []
-    var crossword_word6: Array<UITextField> = []
+    var fill_word_line_01: Array<UITextField> = []
+    var fill_word_line_02: Array<UITextField> = []
+    var view_list_line_01: Array<UIView> = []
+    var view_list_line_02: Array<UIView> = []
+    
     var radioGroup: Array<UIButton> = []
 
     var itemList: Array<SliderData> = []
@@ -417,126 +406,118 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 		
         collection_slide.delegate = self
         collection_slide.dataSource = self
-        
-//        if let flowLayout = collection_slide.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = CGSize(width: 323, height: 128)
-//        }
-		//Implementar pageviewController y función para retornar los textos
-		// swift id {
-			
-			// case SLIDE_0:
-			// text3 = IPI_COURSE.PAGE_15.slide0_text3
-			// text4 = IPI_COURSE.PAGE_15.slide0_text4
-			// break
-		
-			// case SLIDE_1:
-			// text3 = IPI_COURSE.PAGE_15.slide1_text3
-			// text4 = IPI_COURSE.PAGE_15.slide1_text4
-			// break
-			
-			// default:
-			// text3 = IPI_COURSE.PAGE_15.slide2_text3
-			// text4 = IPI_COURSE.PAGE_15.slide2_text4
-			// break
-		// }
     }
 
     func fill_CELL_16() {
         lbl_text1.text = IPI_COURSE.PAGE_16.text1
         lbl_text2.text = IPI_COURSE.PAGE_16.text2
-		
-		setButtonTitle(button: btn_next, title: Buttons.next)
+        
+        setButtonImages(button: btn_playMV, normal: IPI_IMAGES.btn_play, hover: IPI_IMAGES.btn_play_hover)
+        
+        // Save Activity progress
+        let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+        let course = courseList?[0].course_topics?[1]
+        
+        saveActivity(activity: (course?.topic_activity_list?[0].abreviature)!, forModule: (course?.id)!)
+    }
+    
+    func fill_CELL_17() {
+        lbl_text1.text = IPI_COURSE.PAGE_17.text1
+        lbl_text2.text = IPI_COURSE.PAGE_17.text2
+        lbl_text3.text = IPI_COURSE.PAGE_17.text3
+        lbl_text4.text = IPI_COURSE.PAGE_17.text4
+        lbl_text5.text = IPI_COURSE.PAGE_17.text5
+        
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
+        img_icon2.image = UIImage(named: IPI_IMAGES.icon_2)
+        img_icon3.image = UIImage(named: IPI_IMAGES.icon_3)
+    }
+    
+    func fill_CELL_18() {
+        lbl_text1.text = IPI_COURSE.PAGE_10.text1
+        lbl_text2.text = IPI_COURSE.PAGE_10.text2
+        
+        setButtonTitle(button: btn_next, title: Buttons.go_activity)
+        
+        // Save Activity progress
+        let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+        let course = courseList?[0].course_topics?[1]
+        
+        saveActivity(activity: (course?.topic_activity_list?[1].abreviature)!, forModule: (course?.id)!)
+    }
+    
+    func fill_CELL_19() {
+        lbl_text1.text = IPI_COURSE.PAGE_19.text1
+        lbl_text2.text = IPI_COURSE.PAGE_19.text2
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        
+        tf_line2_00.tag = 8; view_line2_00.tag = 8
+        tf_line2_01.tag = 9; view_line2_01.tag = 9
+        tf_line2_02.tag = 10; view_line2_02.tag = 10
+        tf_line2_03.tag = 11; view_line2_03.tag = 11
+        tf_line2_04.tag = 12; view_line2_04.tag = 12
+        tf_line2_05.tag = 13; view_line2_05.tag = 13
+        tf_line2_06.tag = 14; view_line2_06.tag = 14
+        
+        //Set clues
+        tf_line1_00.text = "A"; tf_line1_00.isEnabled = false
+        tf_line1_03.text = "L"; tf_line1_03.isEnabled = false
+        tf_line1_04.text = "O"; tf_line1_04.isEnabled = false
+        tf_line1_05.text = ""; tf_line1_05.isEnabled = false
+        tf_line1_06.text = "D"; tf_line1_06.isEnabled = false
+        tf_line2_01.text = "A"; tf_line2_01.isEnabled = false
+        tf_line2_02.text = "L"; tf_line2_02.isEnabled = false
+        tf_line2_04.text = "D"; tf_line2_04.isEnabled = false
+        tf_line2_06.text = "D"; tf_line2_06.isEnabled = false
+        
+        //TextField Arrays
+        fill_word_line_01 = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03,
+                             tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07]
+        fill_word_line_02 = [tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03,
+                             tf_line2_04, tf_line2_05, tf_line2_06]
+        
+        //view Arrays
+        view_list_line_01 = [view_line1_00, view_line1_01, view_line1_02, view_line1_03,
+                             view_line1_04, view_line1_05, view_line1_06, view_line1_07]
+        view_list_line_02 = [view_line2_00, view_line2_01, view_line2_02, view_line2_03,
+                             view_line2_04, view_line2_05, view_line2_06]
+    }
+    
+    func fill_CELL_20() {
+        lbl_text1.text = IPI_COURSE.PAGE_20.text1
+        lbl_text2.text = IPI_COURSE.PAGE_20.text2
+    }
+    
+    func fill_CELL_21() {
+        lbl_text1.text = IPI_COURSE.PAGE_21.text1
+        lbl_text2.text = IPI_COURSE.PAGE_21.text2
+    }
+    
+    func fill_CELL_22() {
+        lbl_text1.text = IPI_COURSE.PAGE_22.text1
+        lbl_text2.text = IPI_COURSE.PAGE_22.text2
+    }
+    
+    func fill_CELL_23() {
+        lbl_text1.text = IPI_COURSE.PAGE_23.text1
+        lbl_text2.text = IPI_COURSE.PAGE_24.text2
+    }
+    
+    func fill_CELL_24() {
+        lbl_text1.text = IPI_COURSE.PAGE_24.text1
+        lbl_text2.text = IPI_COURSE.PAGE_24.text2
     }
 /*
     // MARK: MODULE 3
-    func fill_CELL_17() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_17.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_17.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_17.text1
-        lbl_text2.text = IPI_COURSE.PAGE_17.text2
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_18() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_11.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_18.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_18.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_18.text1
-        lbl_item1.text = IPI_COURSE.PAGE_18.ITEM_1
-        lbl_item2.text = IPI_COURSE.PAGE_18.ITEM_2
-        lbl_item3.text = IPI_COURSE.PAGE_18.ITEM_3
-        lbl_Aud1.text = IPI_COURSE.PAGE_18.AUDIO_1
-    }
-
-    func fill_CELL_19() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_19.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_19)
-    }
-
-    func fill_CELL_20() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_12.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_20.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_20.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_20.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_20.AUDIO_1
-
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_21() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_21.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_21)
-    }
-
-    func fill_CELL_22() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_13.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_22.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_22.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_22.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_22.AUDIO_1
-
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_23() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_23.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_23)
-    }
-
-    func fill_CELL_24() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_24.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_24.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_24.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_24.AUDIO_1
-
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
 
     func fill_CELL_25() {
         content_tilte?.topline()
@@ -1382,20 +1363,29 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     // MARK: - TextField Delegate
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//        // Cambia el foco a la siguente celda, cuando hay un caracter
-//        if textField.text!.count == MAX_LENGTH_CELL {
-//            if let nextField = getNextTextField(forTextField: textField.tag) {
-//                nextField.becomeFirstResponder()
-//            }
-//            else {
-//                textField.resignFirstResponder()
-//            }
-//        }
-//
-//        return true
-//    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        // Cambia el foco a la siguente celda, cuando hay un caracter
+        if textField.text!.count == MAX_LENGTH_CELL {
+            if let nextField = getNextTextField(forTextField: textField.tag) {
+                nextField.becomeFirstResponder()
+            }
+            else {
+                textField.resignFirstResponder()
+            }
+        }
+
+        return true
+    }
+    
+    // Método para realizar desde el botón 'Return' del keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType.rawValue == 7 {
+            printDebugMessage(tag: "Verificar respuestas")
+        }
+        textField.resignFirstResponder()
+        return false
+    }
 
     // Limpia la cailla cuando se empieza a editar
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -1407,38 +1397,23 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
      de acuerdo a la celda actual, si no existe celda siguinete, retorna NIL
 
      - Parameter forTexfield: Id del textField actual
-     *//*
+     */
     private func getNextTextField(forTextField tag: Int) -> UITextField! {
-
-        // Cambia los ID de las celdas que comparten "LETRAS" de acuerdo a su predecesos
-        M1CW_C_0309.tag = M1CW_C_0308.tag == tag ? 23 : 2
-        M1CW_C_0502.tag = M1CW_C_0402.tag == tag ? 32 : 41
-        M1CW_C_0509.tag = M1CW_C_0508.tag == tag ? 48 : 4
-        M1CW_C_1009.tag = M1CW_C_1008.tag == tag ? 54 : 9
-        M1CW_C_1209.tag = M1CW_C_1208.tag == tag ? 64 : 11
-
-        // Listado de los TextField del crugigrama
-        let cw_cells = [M1CW_C_0209, M1CW_C_0307, M1CW_C_0308, M1CW_C_0309,
-                        M1CW_C_0310, M1CW_C_0311, M1CW_C_0312, M1CW_C_0402,
-                        M1CW_C_0409, M1CW_C_0502, M1CW_C_0503, M1CW_C_0504,
-                        M1CW_C_0505, M1CW_C_0506, M1CW_C_0507, M1CW_C_0508,
-                        M1CW_C_0509, M1CW_C_0510, M1CW_C_0602, M1CW_C_0609,
-                        M1CW_C_0702, M1CW_C_0709, M1CW_C_0802, M1CW_C_0809,
-                        M1CW_C_0902, M1CW_C_0909, M1CW_C_1006, M1CW_C_1007,
-                        M1CW_C_1008, M1CW_C_1009, M1CW_C_1010, M1CW_C_1011,
-                        M1CW_C_1012, M1CW_C_1109, M1CW_C_1206, M1CW_C_1207,
-                        M1CW_C_1208, M1CW_C_1209, M1CW_C_1210, M1CW_C_1211]
-
-        // Busca en las lista de textFields la celda siguiente y la retorna
-        for cell in cw_cells {
-            if cell?.tag == (tag + 1) {
-                return cell
+        
+        var tag_aux = tag
+        let tf_List = fill_word_line_01 + fill_word_line_02
+        
+        // Busca en las lista de textFields y retorna el siguiente
+        for texField in tf_List {
+            if texField.tag == (tag_aux + 1) {
+                if texField.isEnabled { return texField }
+                else {tag_aux = texField.tag }
             }
         }
 
-        // retorna nulo si no se encuentra la celda siguinete
+        // retorna nulo si no se encuentra la celda siguiente
         return nil
-    }*/
+    }
     
     // MARK: - Save Activities completed
     private func saveActivity(activity name: String, forModule id: Int) {
@@ -1525,7 +1500,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             saveActivity(activity: (course?.topic_activity_list?[1].abreviature)!, forModule: (course?.id)!)
             
             // Show success message
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCED_ANSWER, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
         }
         else {
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
@@ -1542,7 +1517,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             saveActivity(activity: (course?.topic_activity_list?[2].abreviature)!, forModule: (course?.id)!)
             
             // Show success message
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCED_ANSWER, inbold: nil, type: .success)
+            courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
         }
         else {
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)

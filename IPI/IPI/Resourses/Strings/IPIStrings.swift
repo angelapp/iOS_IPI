@@ -73,6 +73,8 @@ struct IPI_IMAGES {
     static let btn_acordeon_close = "btn_acordeon_cerrar"
     static let btn_back_yellow = "btn_back_yellow"
     static let btn_back_red = "btn_back_red"
+    static let btn_play = "btn_reproducir"
+    static let btn_play_hover = "btn_reproducir_hover"
     static let corner_BLUE = "esquina_azul"
     static let corner_PINK = "esquina_rosada"
     static let corner_YELLOW = "bocadillo"

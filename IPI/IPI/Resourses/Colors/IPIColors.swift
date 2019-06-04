@@ -15,6 +15,9 @@ enum ConseColors: String{
     case background_gray = "F7F7F7"
     case background_acordeon = "E6E6E5"
     
+    case background_fill_word = "DCD8D2"
+    case background_wrong_letter = "F6CCCC"
+    
     /// General Color for Button's Background
     case button = "098790"
     case button_blue = "008690"
