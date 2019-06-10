@@ -18,24 +18,15 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
 
-    @IBOutlet weak var btn_help1: UIButton!
-    @IBOutlet weak var btn_help2: UIButton!
-    @IBOutlet weak var btn_help3: UIButton!
-    @IBOutlet weak var btn_help4: UIButton!
-    @IBOutlet weak var btn_help5: UIButton!
-    @IBOutlet weak var btn_help6: UIButton!
-
     @IBOutlet weak var btn_opt1: UIButton!
     @IBOutlet weak var btn_opt2: UIButton!
     @IBOutlet weak var btn_opt3: UIButton!
-    @IBOutlet weak var btn_opt4: UIButton!
-    @IBOutlet weak var btn_opt5: UIButton!
 
     @IBOutlet weak var btn_playMV: UIButton!
-    @IBOutlet weak var btn_downloadMV: UIButton!
 
     @IBOutlet weak var collection_slide: UICollectionView!
 	@IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var progressBar: UIProgressView!
 
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_auxiliar: UIImageView!
@@ -55,8 +46,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var lbl_option1: UILabel!
     @IBOutlet weak var lbl_option2: UILabel!
     @IBOutlet weak var lbl_option3: UILabel!
-    @IBOutlet weak var lbl_option4: UILabel!
-    @IBOutlet weak var lbl_option5: UILabel!
 
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_text1: UILabel!
@@ -132,22 +121,22 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     let TAG_OPTION_01 = 0
     let TAG_OPTION_02 = 1
     let TAG_OPTION_03 = 2
-    let TAG_OPTION_04 = 3
-    let TAG_OPTION_05 = 4
     
     private let courseID: Int = 1
 
-    var fill_word_line_01: Array<UITextField> = []
-    var fill_word_line_02: Array<UITextField> = []
-    var view_list_line_01: Array<UIView> = []
-    var view_list_line_02: Array<UIView> = []
-    
+    var view_list: Array<UIView> = []
     var radioGroup: Array<UIButton> = []
-
+    var radioGroup2: Array<UIButton> = []
+    var textField_list: Array<UITextField> = []
+    var textFieldToFill: Array<UITextField> = []
+    
     var itemList: Array<SliderData> = []
     var samplesList: Array<ExampleData> = []
     var expandedSections : NSMutableSet = []
 
+    var fill_word_answer: String = nullString
+    var error_message: String = nullString
+    
     weak var courseDelegate: CourseViewControllerDelegate?
     weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
 
@@ -173,6 +162,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     /** START MODULE 1 **/
+    // MARK: - MODULE 1
     func fill_CELL_02() {
         lbl_text1.text = IPI_COURSE.PAGE_02.text1
         lbl_text2.text = IPI_COURSE.PAGE_02.text2
@@ -389,6 +379,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 	/** END MODULE 1 **/
 	
 	/** STAR MODULE 2 **/
+    // MARK: - MODULE 2
     func fill_CELL_14() {
         lbl_title.text = IPI_COURSE.PAGE_14.title
         lbl_text1.text = IPI_COURSE.PAGE_14.text1
@@ -447,8 +438,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
     
     func fill_CELL_19() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_19.text1
         lbl_text2.text = IPI_COURSE.PAGE_19.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_19.ANSWER
+        error_message = IPI_COURSE.PAGE_19.ERROR
         
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
@@ -472,736 +468,525 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_00.text = "A"; tf_line1_00.isEnabled = false
         tf_line1_03.text = "L"; tf_line1_03.isEnabled = false
         tf_line1_04.text = "O"; tf_line1_04.isEnabled = false
-        tf_line1_05.text = ""; tf_line1_05.isEnabled = false
+        tf_line1_05.text = " "; tf_line1_05.isEnabled = false
         tf_line1_06.text = "D"; tf_line1_06.isEnabled = false
         tf_line2_01.text = "A"; tf_line2_01.isEnabled = false
         tf_line2_02.text = "L"; tf_line2_02.isEnabled = false
         tf_line2_04.text = "D"; tf_line2_04.isEnabled = false
         tf_line2_06.text = "D"; tf_line2_06.isEnabled = false
         
+        //Set Delegate
+        tf_line1_00.delegate = self; tf_line2_00.delegate = self
+        tf_line1_01.delegate = self; tf_line2_01.delegate = self
+        tf_line1_02.delegate = self; tf_line2_02.delegate = self
+        tf_line1_03.delegate = self; tf_line2_03.delegate = self
+        tf_line1_04.delegate = self; tf_line2_04.delegate = self
+        tf_line1_05.delegate = self; tf_line2_05.delegate = self
+        tf_line1_06.delegate = self; tf_line2_06.delegate = self
+        tf_line1_07.delegate = self;
+        
         //TextField Arrays
-        fill_word_line_01 = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03,
-                             tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07]
-        fill_word_line_02 = [tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03,
-                             tf_line2_04, tf_line2_05, tf_line2_06]
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06]
+        
+        textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_07, tf_line2_00, tf_line2_03, tf_line2_05]
         
         //view Arrays
-        view_list_line_01 = [view_line1_00, view_line1_01, view_line1_02, view_line1_03,
-                             view_line1_04, view_line1_05, view_line1_06, view_line1_07]
-        view_list_line_02 = [view_line2_00, view_line2_01, view_line2_02, view_line2_03,
-                             view_line2_04, view_line2_05, view_line2_06]
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06]
     }
     
     func fill_CELL_20() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_20.text1
         lbl_text2.text = IPI_COURSE.PAGE_20.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_20.ANSWER
+        error_message = IPI_COURSE.PAGE_20.ERROR
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        tf_line1_08.tag = 8; view_line1_07.tag = 8
+        tf_line1_09.tag = 9; view_line1_07.tag = 9
+        tf_line1_10.tag = 10; view_line1_07.tag = 10
+        tf_line1_11.tag = 11; view_line1_07.tag = 11
+        
+        tf_line2_00.tag = 12; view_line2_00.tag = 12
+        tf_line2_01.tag = 13; view_line2_01.tag = 13
+        tf_line2_02.tag = 14; view_line2_02.tag = 14
+        tf_line2_03.tag = 15; view_line2_03.tag = 15
+        tf_line2_04.tag = 16; view_line2_04.tag = 16
+        tf_line2_05.tag = 17; view_line2_05.tag = 17
+        tf_line2_06.tag = 18; view_line2_06.tag = 18
+        tf_line2_07.tag = 19; view_line2_07.tag = 19
+        tf_line2_08.tag = 20; view_line2_08.tag = 20
+        tf_line2_09.tag = 21; view_line2_09.tag = 21
+        
+        //Set clues
+        tf_line1_00.text = "R"; tf_line1_00.isEnabled = false
+        tf_line1_01.text = "E"; tf_line1_01.isEnabled = false
+        tf_line1_03.text = "A"; tf_line1_03.isEnabled = false
+        tf_line1_04.text = "T"; tf_line1_04.isEnabled = false
+        tf_line1_05.text = "R"; tf_line1_05.isEnabled = false
+        tf_line1_07.text = "A"; tf_line1_07.isEnabled = false
+        tf_line1_08.text = "C"; tf_line1_08.isEnabled = false
+        tf_line1_10.text = "O"; tf_line1_10.isEnabled = false
+        
+        tf_line2_01.text = "O"; tf_line2_01.isEnabled = false
+        tf_line2_02.text = "L"; tf_line2_02.isEnabled = false
+        tf_line2_03.text = "U"; tf_line2_03.isEnabled = false
+        tf_line2_05.text = "T"; tf_line2_05.isEnabled = false
+        tf_line2_06.text = "A"; tf_line2_06.isEnabled = false
+        tf_line2_07.text = "R"; tf_line2_07.isEnabled = false
+        tf_line2_09.text = "A"; tf_line2_09.isEnabled = false
+        
+        //Set Delegate
+        tf_line1_02.delegate = self; tf_line2_00.delegate = self
+        tf_line1_06.delegate = self; tf_line2_04.delegate = self
+        tf_line1_09.delegate = self; tf_line2_08.delegate = self
+        tf_line1_11.delegate = self
+        
+        //TextField Arrays
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10, tf_line1_11,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08, tf_line2_09]
+        
+        textFieldToFill = [tf_line1_02, tf_line1_06, tf_line1_09, tf_line1_11, tf_line2_00, tf_line2_04, tf_line2_08]
+        
+        //view Arrays
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10, view_line1_11,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08, view_line2_09]
     }
     
     func fill_CELL_21() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_21.text1
         lbl_text2.text = IPI_COURSE.PAGE_21.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_21.ANSWER
+        error_message = IPI_COURSE.PAGE_21.ERROR
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        tf_line1_08.tag = 8; view_line1_07.tag = 8
+        
+        tf_line2_00.tag = 9; view_line2_00.tag = 9
+        tf_line2_01.tag = 10; view_line2_01.tag = 10
+        tf_line2_02.tag = 11; view_line2_02.tag = 11
+        tf_line2_03.tag = 12; view_line2_03.tag = 12
+        tf_line2_04.tag = 13; view_line2_04.tag = 13
+        tf_line2_05.tag = 14; view_line2_05.tag = 14
+        tf_line2_06.tag = 15; view_line2_06.tag = 15
+        tf_line2_07.tag = 16; view_line2_07.tag = 16
+        tf_line2_08.tag = 17; view_line2_08.tag = 17
+        tf_line2_09.tag = 18; view_line2_09.tag = 18
+        
+        //Set clues
+        tf_line1_00.text = "F"; tf_line1_00.isEnabled = false
+        tf_line1_03.text = "N"; tf_line1_03.isEnabled = false
+        tf_line1_04.text = "T"; tf_line1_04.isEnabled = false
+        tf_line1_07.text = "A"; tf_line1_07.isEnabled = false
+        tf_line1_08.text = "S"; tf_line1_08.isEnabled = false
+        
+        tf_line2_00.text = "S"; tf_line2_00.isEnabled = false
+        tf_line2_03.text = "I"; tf_line2_03.isEnabled = false
+        tf_line2_05.text = "A"; tf_line2_05.isEnabled = false
+        tf_line2_07.text = "I"; tf_line2_07.isEnabled = false
+        tf_line2_08.text = "A"; tf_line2_08.isEnabled = false
+        tf_line2_09.text = "S"; tf_line2_09.isEnabled = false
+        
+        //Set Delegate
+        tf_line1_01.delegate = self; tf_line2_01.delegate = self
+        tf_line1_02.delegate = self; tf_line2_02.delegate = self
+        tf_line1_05.delegate = self; tf_line2_04.delegate = self
+        tf_line1_06.delegate = self; tf_line2_06.delegate = self
+        
+        //TextField Arrays
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08, tf_line2_09]
+        
+        textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_05, tf_line1_06,
+                           tf_line2_01, tf_line2_02, tf_line2_04, tf_line2_06]
+        
+        //view Arrays
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08, view_line2_09]
     }
     
     func fill_CELL_22() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_22.text1
         lbl_text2.text = IPI_COURSE.PAGE_22.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_22.ANSWER
+        error_message = IPI_COURSE.PAGE_22.ERROR
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        tf_line1_08.tag = 8; view_line1_08.tag = 8
+        tf_line1_09.tag = 9; view_line1_09.tag = 9
+        tf_line1_10.tag = 10; view_line1_10.tag = 10
+        tf_line1_11.tag = 11; view_line1_11.tag = 11
+        tf_line1_12.tag = 12; view_line1_12.tag = 12
+        tf_line1_13.tag = 13; view_line1_13.tag = 13
+        
+        tf_line2_00.tag = 14; view_line2_00.tag = 14
+        tf_line2_01.tag = 15; view_line2_01.tag = 15
+        tf_line2_02.tag = 16; view_line2_02.tag = 16
+        tf_line2_03.tag = 17; view_line2_03.tag = 17
+        tf_line2_04.tag = 18; view_line2_04.tag = 18
+        tf_line2_05.tag = 19; view_line2_05.tag = 19
+        tf_line2_06.tag = 20; view_line2_06.tag = 20
+        tf_line2_07.tag = 21; view_line2_07.tag = 21
+        tf_line2_08.tag = 22; view_line2_08.tag = 22
+        
+        //Set clues
+        tf_line1_00.text = "R"; tf_line1_00.isEnabled = false
+        tf_line1_01.text = "E"; tf_line1_01.isEnabled = false
+        tf_line1_03.text = "S"; tf_line1_03.isEnabled = false
+        tf_line1_04.text = "E"; tf_line1_04.isEnabled = false
+        tf_line1_08.text = "M"; tf_line1_08.isEnabled = false
+        tf_line1_10.text = "E"; tf_line1_10.isEnabled = false
+        tf_line1_11.text = "N"; tf_line1_11.isEnabled = false
+        
+        tf_line2_00.text = "S"; tf_line2_00.isEnabled = false
+        tf_line2_02.text = "L"; tf_line2_02.isEnabled = false
+        tf_line2_04.text = "D"; tf_line2_04.isEnabled = false
+        tf_line2_06.text = "R"; tf_line2_06.isEnabled = false
+        
+        //Set Delegate
+        tf_line1_02.delegate = self; tf_line2_01.delegate = self
+        tf_line1_05.delegate = self; tf_line2_03.delegate = self
+        tf_line1_06.delegate = self; tf_line2_05.delegate = self
+        tf_line1_07.delegate = self; tf_line2_07.delegate = self
+        tf_line1_09.delegate = self; tf_line2_08.delegate = self
+        tf_line1_12.delegate = self
+        tf_line1_13.delegate = self
+        
+        //TextField Arrays
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10, tf_line1_11, tf_line1_12, tf_line1_13,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08]
+        
+        textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_05, tf_line1_06,
+                           tf_line2_01, tf_line2_02, tf_line2_04, tf_line1_06]
+        
+        //view Arrays
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10, view_line1_11, view_line1_12, view_line1_13,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08]
     }
     
     func fill_CELL_23() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_23.text1
-        lbl_text2.text = IPI_COURSE.PAGE_24.text2
+        lbl_text2.text = IPI_COURSE.PAGE_23.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_23.ANSWER
+        error_message = IPI_COURSE.PAGE_23.ERROR
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        tf_line1_08.tag = 8; view_line1_08.tag = 8
+        tf_line1_09.tag = 9; view_line1_09.tag = 9
+        tf_line1_10.tag = 10; view_line1_10.tag = 10
+        
+        tf_line2_00.tag = 11; view_line2_00.tag = 11
+        tf_line2_01.tag = 12; view_line2_01.tag = 12
+        tf_line2_02.tag = 13; view_line2_02.tag = 13
+        tf_line2_03.tag = 14; view_line2_03.tag = 14
+        tf_line2_04.tag = 15; view_line2_04.tag = 15
+        
+        //Set clues
+        tf_line1_01.text = "N"; tf_line1_01.isEnabled = false
+        tf_line1_02.text = "T"; tf_line1_02.isEnabled = false
+        tf_line1_03.text = "E"; tf_line1_03.isEnabled = false
+        tf_line1_05.text = "R"; tf_line1_05.isEnabled = false
+        tf_line1_09.text = "O"; tf_line1_09.isEnabled = false
+        tf_line1_10.text = "N"; tf_line1_10.isEnabled = false
+        
+        tf_line2_00.text = "L"; tf_line2_00.isEnabled = false
+        tf_line2_01.text = "O"; tf_line2_01.isEnabled = false
+        tf_line2_04.text = "L"; tf_line2_04.isEnabled = false
+        
+        //Set Delegate
+        tf_line1_00.delegate = self; tf_line2_02.delegate = self
+        tf_line1_04.delegate = self; tf_line2_03.delegate = self
+        tf_line1_06.delegate = self;
+        tf_line1_07.delegate = self;
+        tf_line1_08.delegate = self;
+        
+        //TextField Arrays
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04]
+        
+        textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_07, tf_line1_08,
+                           tf_line2_02, tf_line2_03]
+        
+        //view Arrays
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04]
     }
     
     func fill_CELL_24() {
+        //Load Lables
         lbl_text1.text = IPI_COURSE.PAGE_24.text1
         lbl_text2.text = IPI_COURSE.PAGE_24.text2
+        
+        //Load Answer
+        fill_word_answer = IPI_COURSE.PAGE_24.ANSWER
+        error_message = IPI_COURSE.PAGE_24.ERROR
+        
+        //Config TextField - View Backgrounds
+        tf_line1_00.tag = 0; view_line1_00.tag = 0
+        tf_line1_01.tag = 1; view_line1_01.tag = 1
+        tf_line1_02.tag = 2; view_line1_02.tag = 2
+        tf_line1_03.tag = 3; view_line1_03.tag = 3
+        tf_line1_04.tag = 4; view_line1_04.tag = 4
+        tf_line1_05.tag = 5; view_line1_05.tag = 5
+        tf_line1_06.tag = 6; view_line1_06.tag = 6
+        tf_line1_07.tag = 7; view_line1_07.tag = 7
+        tf_line1_08.tag = 8; view_line1_08.tag = 8
+        
+        tf_line2_00.tag = 9; view_line2_00.tag = 9
+        tf_line2_01.tag = 10; view_line2_01.tag = 10
+        tf_line2_02.tag = 11; view_line2_02.tag = 11
+        tf_line2_03.tag = 12; view_line2_03.tag = 12
+        tf_line2_04.tag = 13; view_line2_04.tag = 13
+        tf_line2_05.tag = 14; view_line2_05.tag = 14
+        tf_line2_06.tag = 15; view_line2_06.tag = 15
+        
+        //Set clues
+        tf_line1_01.text = "O"; tf_line1_01.isEnabled = false
+        tf_line1_02.text = "V"; tf_line1_02.isEnabled = false
+        tf_line1_03.text = "I"; tf_line1_03.isEnabled = false
+        tf_line1_05.text = "I"; tf_line1_05.isEnabled = false
+        tf_line1_07.text = "A"; tf_line1_07.isEnabled = false
+        
+        tf_line2_01.text = "A"; tf_line2_01.isEnabled = false
+        tf_line2_03.text = "O"; tf_line2_03.isEnabled = false
+        tf_line2_04.text = "R"; tf_line2_04.isEnabled = false
+        tf_line2_05.text = "A"; tf_line2_05.isEnabled = false
+        
+        //Set Delegate
+        tf_line1_00.delegate = self; tf_line2_00.delegate = self
+        tf_line1_04.delegate = self; tf_line2_02.delegate = self
+        tf_line1_06.delegate = self; tf_line2_06.delegate = self
+        tf_line1_08.delegate = self;
+        
+        //TextField Arrays
+        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08,
+                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06]
+        
+        textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_08,
+                           tf_line2_00, tf_line2_02, tf_line2_06]
+        
+        //view Arrays
+        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08,
+                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line1_06]
     }
-/*
-    // MARK: MODULE 3
-
+    
     func fill_CELL_25() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_25.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_25)
+        
+        //Set labels
+        lbl_text1.text = IPI_COURSE.PAGE_25.text1
+        lbl_text2.text = IPI_COURSE.PAGE_25.text2
+        
+        //Set Images
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
+        img_insignia.image = UIImage(named: IPI_IMAGES.achievement_module_1)
+        
+        //Set buttons
+        setButtonTitle(button: btn_next, title: Buttons.end_course)
+        btn_next.isEnabled = false
+        setButtonTitle(button: btn_back, title: Buttons.come_back)
+        
+        // Save Activity progress
+        let courseList = AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+        let course = courseList?[0].course_topics?[1]
+        
+        saveActivity(activity: (course?.topic_activity_list?[2].abreviature)!, forModule: (course?.id)!)
     }
+    /** END MODULE 1 **/
 
+    // MARK: MODULE 3
     func fill_CELL_26() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_26.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_26)
+        lbl_text1.text = IPI_COURSE.PAGE_26.text1
+        lbl_text2.text = IPI_COURSE.PAGE_26.text2
+        
+        setButtonTitle(button: btn_next, title: Buttons.carry_on)
     }
 
     func fill_CELL_27() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_27.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_27)
+        lbl_text1.text = IPI_COURSE.PAGE_27.text1
+        lbl_text2.text = IPI_COURSE.PAGE_27.text2
+        
+        lbl_option1.text = IPI_COURSE.OPTION_YES
+        lbl_option2.text = IPI_COURSE.OPTION_NOT
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        
+        radioGroup = [btn_opt1, btn_opt2]
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
+        
+        progressBar.heightAnchor.constraint(equalToConstant: 30)
+        progressBar.setProgress(0.0, animated: false)
+        
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
     }
-
+    
     func fill_CELL_28() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_28.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_28.SUBTITLE
         lbl_text1.text = IPI_COURSE.PAGE_28.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_28.AUDIO_1
+        lbl_text2.text = IPI_COURSE.PAGE_28.text2
+        lbl_text3.text = IPI_COURSE.PAGE_28.text3
+        lbl_text4.text = IPI_COURSE.PAGE_28.text4
+        lbl_text5.text = IPI_COURSE.PAGE_28.text5
 
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_29() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_29.title
-        img_route.image = UIImage(named: RoutesImages.route_VBG_29)
-    }
-
-    func fill_CELL_30() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_30.title
-        lbl_text1.text = IPI_COURSE.PAGE_30.text1
-
-        saveActivity(activity: ActivitiesAbreviature.MOD_3_R.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-    }
-
-    func fill_CELL_31() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_31.title
-        lbl_text1.text = IPI_COURSE.PAGE_31.text1
-
-        lbl_question.text = IPI_COURSE.PAGE_31.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_31.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_31.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_31.OPT3
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-
+        // Config Check
+        lbl_option1.text = IPI_COURSE.OPTION_YES
+        lbl_option2.text = IPI_COURSE.OPTION_NOT
+        
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
-
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        
+        radioGroup = [btn_opt1, btn_opt2]
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
+        
+        progressBar.heightAnchor.constraint(equalToConstant: 30)
+        progressBar.setProgress(0.0, animated: false)
+        
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
         lbl_option1.addGestureRecognizer(tapOption01)
-
+        
         let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option2.isUserInteractionEnabled = true
         lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-    }
-
-    func fill_CELL_32() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_32.title
-
-        lbl_question.text = IPI_COURSE.PAGE_32.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_32.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_32.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_32.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_32.OPT4
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
-    }
-
-    func fill_CELL_33() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_33.title
-
-        lbl_question.text = IPI_COURSE.PAGE_33.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_33.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_33.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_33.OPT3
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-
-        btn_opt1.tag = WRONG_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-    }
-
-    func fill_CELL_34() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_34.title
-
-        lbl_question.text = IPI_COURSE.PAGE_34.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_34.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_34.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_34.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_34.OPT4
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
-    }
-
-    func fill_CELL_35() {
-        content_tilte?.topline()
-        lbl_review.text = Strings.review_content
-        lbl_title.text = IPI_COURSE.PAGE_35.title
-        lbl_text1.text = IPI_COURSE.PAGE_35.text1
-        lbl_text2.text = String(format: IPI_COURSE.PAGE_35.text2, getInsignia(forModule: .MOD_03))
-
-        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_03)
-        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_03)
-    }
-
-    // MARK: Modulo 4
-    func fill_CELL_36() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_36.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_36.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_36.text1
-    }
-
-    func fill_CELL_37() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_37.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_37.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_37.text1
-
-        img_route.image = UIImage(named: RoutesImages.route_VBG_37)
-    }
-
-    func fill_CELL_38() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_16.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_38.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_38.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_38.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_38.AUDIO_1
-
-        img_route.image = UIImage(named: RoutesImages.route_VBG_38)
-    }
-
-    func fill_CELL_39() {
-        content_tilte?.topline()
+        
+        // Set Audio config to audio buttons
         btn_Aud1.isSelected = false
         btn_Aud2.isSelected = false
         btn_Aud3.isSelected = false
-
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_17.rawValue
-        btn_Aud2.tag = VBG_AUDIO_ID.AUD_18.rawValue
-        btn_Aud3.tag = VBG_AUDIO_ID.AUD_19.rawValue
-
-        audioButtons = [btn_Aud1, btn_Aud2, btn_Aud3]
-
-        lbl_title.text = IPI_COURSE.PAGE_39.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_39.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_39.text1
-
-        lbl_Aud1.text = IPI_COURSE.PAGE_39.AUDIO_1
-        lbl_Aud2.text = IPI_COURSE.PAGE_39.AUDIO_2
-        lbl_Aud3.text = IPI_COURSE.PAGE_39.AUDIO_3
+        
+        btn_Aud1.tag = AUDIO_ID.CURSO_PTN_03.rawValue
+        btn_Aud2.tag = AUDIO_ID.CURSO_PTN_04.rawValue
+        btn_Aud3.tag = AUDIO_ID.CURSO_PTN_05.rawValue
+        
+        setButtonImages(button: btn_Aud1, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        setButtonImages(button: btn_Aud2, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        setButtonImages(button: btn_Aud3, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        
+        radioGroup2 = [btn_Aud1, btn_Aud2, btn_Aud3]
     }
 
-    func fill_CELL_40() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_20.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_40.title
-        lbl_text1.text = IPI_COURSE.PAGE_40.text1
-        lbl_Aud1.text = IPI_COURSE.PAGE_40.AUDIO_1
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_41() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_41.title
-        lbl_text1.text = IPI_COURSE.PAGE_41.text1
-        lbl_text2.text = IPI_COURSE.PAGE_41.text2
-        lbl_text3.text = IPI_COURSE.PAGE_41.text3
-        lbl_item1.text = IPI_COURSE.PAGE_41.ITEM_1
-        lbl_item2.text = IPI_COURSE.PAGE_41.ITEM_2
-        lbl_item3.text = IPI_COURSE.PAGE_41.ITEM_3
-        lbl_item4.text = IPI_COURSE.PAGE_41.ITEM_4
-        lbl_item5.text = IPI_COURSE.PAGE_41.ITEM_5
-        lbl_item6.text = IPI_COURSE.PAGE_41.ITEM_6
-    }
-
-    func fill_CELL_42() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_42.title
-        lbl_text1.text = IPI_COURSE.PAGE_42.text1
-        lbl_text2.text = IPI_COURSE.PAGE_42.text2
-        lbl_item1.text = IPI_COURSE.PAGE_42.ITEM_1
-        lbl_item2.text = IPI_COURSE.PAGE_42.ITEM_2
-    }
-
-    func fill_CELL_43() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_43.title
-        lbl_text1.attributedText = addBoldWord(forText: IPI_COURSE.PAGE_43.text1, toWord: IPI_COURSE.PAGE_43.T1_inBOLD, fontSize: lbl_text1.font.pointSize)
-        lbl_text2.attributedText = addBoldWord(forText: IPI_COURSE.PAGE_43.text2, toWord: IPI_COURSE.PAGE_43.T2_inBOLD, fontSize: lbl_text2.font.pointSize)
-        lbl_item1.attributedText = addBoldWord(forText: IPI_COURSE.PAGE_43.ITEM_1, toWord: IPI_COURSE.PAGE_43.ITEM_1_inBOLD, fontSize: lbl_item1.font.pointSize)
-        lbl_item2.attributedText = addBoldWord(forText: IPI_COURSE.PAGE_43.ITEM_2, toWord: IPI_COURSE.PAGE_43.ITEM_2_inBOLD, fontSize: lbl_item2.font.pointSize)
-    }
-
-    func fill_CELL_44() {
-        content_tilte?.topline()
-        btn_Aud1.isSelected = false
-        btn_Aud1.tag = VBG_AUDIO_ID.AUD_21.rawValue
-
-        audioButtons = [btn_Aud1]
-
-        lbl_title.text = IPI_COURSE.PAGE_44.title
-        lbl_subtitle.text = IPI_COURSE.PAGE_44.SUBTITLE
-        lbl_text1.text = IPI_COURSE.PAGE_44.text1
-        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-    }
-
-    func fill_CELL_45() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_45.title
-        lbl_text1.text = IPI_COURSE.PAGE_45.text1
-
-        saveActivity(activity: ActivitiesAbreviature.MOD_4_R.rawValue, forModule: TopicsIDs.mod_04.rawValue)
-    }
-
-    func fill_CELL_46() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_46.title
-    }
-
-    func fill_CELL_47() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_47.title
-        lbl_text1.text = IPI_COURSE.PAGE_47.text1
-
-        lbl_question.text = IPI_COURSE.PAGE_47.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_47.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_47.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_47.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_47.OPT4
-
+    func fill_CELL_29() {
+        lbl_text1.text = IPI_COURSE.PAGE_29.text1
+        lbl_text2.text = IPI_COURSE.PAGE_29.text2
+        lbl_text3.text = IPI_COURSE.PAGE_28.text3
+        lbl_text4.text = IPI_COURSE.PAGE_28.text4
+        lbl_text5.text = IPI_COURSE.PAGE_28.text5
+        
+        // Config Check
+        lbl_option1.text = IPI_COURSE.OPTION_YES
+        lbl_option2.text = IPI_COURSE.OPTION_NOT
+        
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = WRONG_OPTION
-        btn_opt4.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        
+        radioGroup = [btn_opt1, btn_opt2]
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
+        
+        progressBar.heightAnchor.constraint(equalToConstant: 30)
+        progressBar.setProgress(0.0, animated: false)
+        
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
         lbl_option1.addGestureRecognizer(tapOption01)
-
+        
         let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
+        lbl_option2.addGestureRecognizer(tapOption02)    }
 
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
+    func fill_CELL_30() {
+     
     }
 
-    func fill_CELL_48() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_48.title
-
-        lbl_question.text = IPI_COURSE.PAGE_48.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_48.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_48.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_48.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_48.OPT4
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        // set tag for identify correct option
-        btn_opt1.tag = WRONG_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = WRONG_OPTION
-        btn_opt4.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
+    func fill_CELL_31() {
+     
     }
 
-    func fill_CELL_49() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_49.title
-        lbl_question.text = IPI_COURSE.PAGE_49.QUESTION
-        textField1.text = nullString
+    func fill_CELL_32() {
+     
     }
 
-    func fill_CELL_50() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_50.title
-
-        lbl_question.text = IPI_COURSE.PAGE_50.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_50.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_50.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_50.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_50.OPT4
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        // set tag for identify correct option
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = WRONG_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
+    func fill_CELL_33() {
+     
     }
 
-    func fill_CELL_51() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_51.title
-
-        lbl_question.text = IPI_COURSE.PAGE_51.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_51.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_51.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_51.OPT3
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-
-        // set tag for identify correct option
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-    }
-
-    func fill_CELL_52() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_52.title
-
-        lbl_question.text = IPI_COURSE.PAGE_52.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_52.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_52.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_52.OPT3
-
-        // set tag for identify correct option
-        btn_opt1.tag = WRONG_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-    }
-
-    func fill_CELL_53() {
-        content_tilte?.topline()
-        lbl_title.text = IPI_COURSE.PAGE_53.title
-
-        lbl_question.text = IPI_COURSE.PAGE_53.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_53.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_53.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_53.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_53.OPT4
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        // set tag for identify correct option
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
-    }
-
-    func fill_CELL_54() {
-        mainDelegate?.setImageBackground(withName: nullString)
-        content_tilte?.topline()
-
-        lbl_title.text = IPI_COURSE.PAGE_54.title
-        lbl_question.text = IPI_COURSE.PAGE_54.QUESTION
-        lbl_option1.text = IPI_COURSE.PAGE_54.OPT1
-        lbl_option2.text = IPI_COURSE.PAGE_54.OPT2
-        lbl_option3.text = IPI_COURSE.PAGE_54.OPT3
-        lbl_option4.text = IPI_COURSE.PAGE_54.OPT4
-
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
-        btn_opt3.isSelected = false
-        btn_opt4.isSelected = false
-
-        // set tag for identify correct option
-        btn_opt1.tag = CORRECT_OPTION
-        btn_opt2.tag = CORRECT_OPTION
-        btn_opt3.tag = CORRECT_OPTION
-        btn_opt4.tag = WRONG_OPTION
-
-        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
-
-        lbl_option1.tag = OPTION_01_TAG
-        lbl_option2.tag = OPTION_02_TAG
-        lbl_option3.tag = OPTION_03_TAG
-        lbl_option4.tag = OPTION_04_TAG
-
-        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option1.isUserInteractionEnabled = true
-        lbl_option1.addGestureRecognizer(tapOption01)
-
-        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)
-
-        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option3.isUserInteractionEnabled = true
-        lbl_option3.addGestureRecognizer(tapOption03)
-
-        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
-        lbl_option4.isUserInteractionEnabled = true
-        lbl_option4.addGestureRecognizer(tapOption04)
-    }
-
-    func fill_CELL_55() {
-        content_tilte?.topline()
-        lbl_review.text = Strings.review_content
-        lbl_title.text = IPI_COURSE.PAGE_55.title
-        lbl_text1.text = IPI_COURSE.PAGE_55.text1
-        lbl_text2.text = String(format: IPI_COURSE.PAGE_55.text2, getInsignia(forModule: .MOD_04))
-
-        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_04)
-        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_04)
-    }
-
-    // MARK: - Save Activities completed
-    private func saveActivity(activity name: String, forModule id: Int) {
-
-        //Obtiene la fecha actual
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateTimeFormat.formatInMillis
-
-        // save Activity complete
-        let actCompleted:ActityCompleted = ActityCompleted()
-        actCompleted.courseID = CourseIDs.VBG.rawValue
-        actCompleted.topicID = id
-        actCompleted.activity = name
-        actCompleted.dateCompleted = formatter.string(from: date)
-
-        // se envia post a servidor Si la respuesta es VERDADERA
-        guard let requestModel = saveProgress(forActivity: actCompleted) else {
-            return
-        }
-
-        courseDelegate?.sendRequest(formModel: requestModel)
-    } */
     // MARK: - User Interface
     /// Update child and parent UI
     private func updateUI() {
@@ -1346,8 +1131,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // Cambia el estado del boton que este reproduciendo el audio y actualiza los demás
     private func updateButtonsState(sender: UIButton) {
+        
+        // Select between checkbox and audios when is required
+        let radioButtons = sender.tag < AUDIO_ID.CURSO_PTN_03.rawValue ? radioGroup : radioGroup2
+        
         if sender.isSelected {
-            for button in radioGroup {
+            for button in radioButtons {
                 if button != sender {
                     button.isSelected = false
                 }
@@ -1371,6 +1160,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
                 nextField.becomeFirstResponder()
             }
             else {
+                if textField.returnKeyType == UIReturnKeyType.send {
+                    if checkFillWord() {
+                        courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
+                    }
+                }
                 textField.resignFirstResponder()
             }
         }
@@ -1380,8 +1174,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     
     // Método para realizar desde el botón 'Return' del keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.returnKeyType.rawValue == 7 {
-            printDebugMessage(tag: "Verificar respuestas")
+        if textField.returnKeyType == UIReturnKeyType.send {
+            if checkFillWord() {
+                courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
+            }
+            else {
+//                courseDelegate?.showMessagePopup(message: error_message, inbold: nil, type: .failed)
+
+            }
         }
         textField.resignFirstResponder()
         return false
@@ -1400,19 +1200,21 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
      */
     private func getNextTextField(forTextField tag: Int) -> UITextField! {
         
-        var tag_aux = tag
-        let tf_List = fill_word_line_01 + fill_word_line_02
+        let nextTF: UITextField! = nil
         
-        // Busca en las lista de textFields y retorna el siguiente
-        for texField in tf_List {
-            if texField.tag == (tag_aux + 1) {
-                if texField.isEnabled { return texField }
-                else {tag_aux = texField.tag }
-            }
-        }
-
-        // retorna nulo si no se encuentra la celda siguiente
-        return nil
+//        if textFieldToFill.count > 0 {
+//
+//            for i in 0 ..< (textFieldToFill.count - 1){
+//                printDebugMessage(tag: "TL[\(i)].tag \(textFieldToFill[i].tag) =? \(tag)")
+//                if textFieldToFill[i].tag == tag {
+//                    printDebugMessage(tag: "return \(textFieldToFill[i + 1].tag)")
+//                    nextTF = textFieldToFill[i + 1]
+//                    break
+//                }
+//            }
+//        }
+        
+        return nextTF
     }
     
     // MARK: - Save Activities completed
@@ -1477,6 +1279,29 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
+    private func checkFillWord () -> Bool {
+        let answer_array = Array(fill_word_answer)
+        var isAnswer = true
+        
+        //Check characters
+        for tf in textField_list {
+            if tf.text?.uppercased() != String(answer_array[tf.tag]).uppercased() {
+                isAnswer = false
+                tf.text = nullString
+                view_list[tf.tag].backgroundColor = Colors().getColor(from: ConseColors.pink_light.rawValue)
+            }
+        }
+        
+        //Clean form
+        for tf in textField_list {
+            if !isAnswer && tf.isEnabled {
+                tf.text = nullString
+            }
+        }
+        
+        return isAnswer
+    }
+    
     private func checkingQuestionary() -> Bool {
 
         for option in radioGroup {

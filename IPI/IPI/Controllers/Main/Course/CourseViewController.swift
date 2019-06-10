@@ -243,8 +243,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 // Case without footer
                 case CURSO_PTN.PAGE_01.rawValue,
                      CURSO_PTN.PAGE_10.rawValue...CURSO_PTN.PAGE_14.rawValue,
-                     CURSO_PTN.PAGE_17.rawValue, //TEMPORAL SOLO PARA VERSION
-                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_24.rawValue:
+                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_25.rawValue:
                     isBtnNext = false
                     break
 
@@ -287,11 +286,12 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 title = "Módulo 1. \(IPI_COURSE.MODULE_01)"
                 break
             
-            case CURSO_PTN.PAGE_15.rawValue...CURSO_PTN.PAGE_17.rawValue:
+            case CURSO_PTN.PAGE_15.rawValue...CURSO_PTN.PAGE_17.rawValue,
+                 CURSO_PTN.PAGE_25.rawValue:
                 title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
                 break
             
-            case 22...42:
+            case CURSO_PTN.PAGE_27.rawValue...CURSO_PTN.PAGE_42.rawValue:
                 title = "Módulo 3. \(IPI_COURSE.MODULE_03)"
                 break
             
@@ -440,11 +440,60 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell.fill_CELL_17()
             return cell
         }
-        else{
+        else if currentIndex == CURSO_PTN.PAGE_18.rawValue{
             cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE18.rawValue, for: indexPath) as! CourseTableViewCell
             
             cell.courseDelegate = self
             cell.fill_CELL_18()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_19.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE19.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_19()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_20.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE20.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_20()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_21.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE21.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_21()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_22.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE22.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_22()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_23.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE23.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_23()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_24.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE24.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_24()
+            return cell
+        }
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE25.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_25()
             return cell
         }
     }

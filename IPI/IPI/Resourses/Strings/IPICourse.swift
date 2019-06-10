@@ -18,6 +18,8 @@ struct IPI_COURSE {
     static let MODULE_03 = "Conceptos Básicos de Protección Internacional"
     static let SUCCEED_ANSWER = "¡Muy bien, respuesta correcta!"
     static let SUCCEED_FILL_WORD = "¡Lo has logrado!"
+    static let OPTION_YES = "SI"
+    static let OPTION_NOT = "NO"
 
     /** START MODULE 1 **/
     struct PAGE_01 {
@@ -165,7 +167,7 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 1"
         static let text2 = "Programa que busca fortalecer la capacidad de los Estados para acoger a los PNPI y mejorar los procedimientos para acceder a la condición de Refugiado."
         
-        static let ANSWER = "ASILIO DE CALIDAD"
+        static let ANSWER = "ASILO DECALIDAD"
         static let ERROR = "Mira nuevamente el video del Módulo 2 y así recordarás la propuesta del Plan de Acción Brasil para apoyar los procedimientos de asilo para refugiados."
     }
 
@@ -173,7 +175,7 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 2"
         static let text2 = "Programa que promueve la cooperación entre Estados para garantizar a un PNPI/Refugiado que pueda regresar a su país de origen."
         
-        static let ANSWER = "REPARACION VOLUNTARIA"
+        static let ANSWER = "REPATRIACIONVOLUNTARIA"
         static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar la propuesta del Plan de Acción Brasil con la cual fortalecen la repatriación de refugiados."
     }
 
@@ -181,7 +183,7 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 3"
         static let text2 = "Programa que refuerza la presencia de entidades en las áreas fronterizas y capacita a sus funcionarios."
         
-        static let ANSWER = "FRONTERAS SOLIDARIAS"
+        static let ANSWER = "FRONTERASSOLIDARIAS"
         static let ERROR = "Revisa nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que fortalece el movimiento de refugiados en las fronteras."
     }
 
@@ -189,7 +191,7 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 4"
         static let text2 = "Programa que apoya a los PNPI/Refugiados cuando deber ser reubicados en un tercer país que les brindará mejores condiciones, e incluso la residencia permanente."
         
-        static let ANSWER = "REASENTAMIENTO SOLIDARIO"
+        static let ANSWER = "REASENTAMIENTOSOLIDARIO"
         static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que apoya el reasentamiento de refugiados en países alternos."
     }
 
@@ -197,7 +199,7 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 5"
         static let text2 = "Programa que facilita la integración de los refugiados en la sociedad del país que los acoge: económica, social y legalmente."
         
-        static let ANSWER = "INTEGRACION LOCAL"
+        static let ANSWER = "INTEGRACIONLOCAL"
         static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que ayuda a los refugiados a integrarse a nivel local."
     }
 
@@ -205,22 +207,81 @@ struct IPI_COURSE {
         static let text1 = "Pregunta 6"
         static let text2 = "Programa que busca identificar los perfiles profesionales de los refugiados y las necesidades laborales en el país de destino."
         
-        static let ANSWER = "MOVILIDAD LABORAL"
+        static let ANSWER = "MOVILIDADLABORAL"
         static let ERROR = "Mira nuevamente el video del Módulo 2 para recordar el programa del Plan de Acción Brasil que ayuda a los refugiados a ubicarse laboralmente."
     }
 
     struct PAGE_25 {
+        static let text1 = "Ya tienes claros los programas que ofrecen los Estados de América Latina y el Caribe para las Personas en Necesidad de Protección Internacional. Has conseguido tu segunda insignia."
+        static let text2 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     }
 
     struct PAGE_26 {
+        static let text1 = "Hemos hecho un recorrido hasta el momento sobre los conceptos básicos de la Protección Internacional, los derechos que tiene una PNPI/Refugiado, las obligaciones de los Estados, pero nos falta lo más importante: reconocer si eres o no una persona que necesita Protección Internacional."
+        static let text2 = "A lo largo del Módulo No. 3, encontrarás una serie de preguntas y observaciones que te ayudarán a identificar si eres o no una PNPI."
     }
 
     struct PAGE_27 {
+        static let text1 = "¿Te encuentras fuera de tu país?"
+        static let text2 = "Lo primero a tener en cuenta es que para solicitar refugio debes estar fuera de tu país; si aún te encuentras allí, cualquier otro Estado asumirá que tu gobierno puede darte protección y que por lo tanto no es necesaria la Protección Internacional."
     }
 
     struct PAGE_28 {
+        static let text1 = "¿Tienes un temor fundado a sufrir persecución dentro de tu país?"
+        static let text2 = "Antes de responder, te invitamos a escuchar con atención los audios que se encuentran en esta página para establecer las diferencias entre persecución, discriminación y castigo."
+        static let text3 = "Persecución"
+        static let text4 = "Discriminación"
+        static let text5 = "Castigo"
     }
 
     struct PAGE_29 {
+        static let text1 = "¿Los motivos que te llevan a sentir un temor fundado a ser perseguido están relacionados con tu raza, religión, nacionalidad, pertenencia a determinado grupo social u opiniones políticas?"
+        static let text2 = "Para responder, ten en cuenta lo siguiente:"
+        
+        static let header_01 = "Raza"
+        static let boby_01 = "Has sido discriminado por pertenecer a un grupo étnico: una de las violaciones más comunes a los derechos humanos, que puede conllevar al establecimiento de barreras raciales."
+        
+        static let header_02 = "Religión"
+        static let boby_02 = "Has sufrido de discriminación por tus prácticas religiosas o por pertenecer a una determinada comunidad, violándote el derecho a la libertad de pensamiento, conciencia y religión."
+        
+        static let header_03 = "Nacionalidad"
+        static let boby_03 = "Has sido perseguido por tu ciudadanía o, porque perteneces a una minoría nacional (étnica o lingüística). En algunas situaciones, una disputa entre grupos nacionales puede mezclarse con movimientos políticos, por ejemplo cuando un movimiento político se identifica con una “nacionalidad” determinada."
+        
+        static let header_04 = "Pertenencia a un grupo social"
+        static let boby_04 = "Has sufrido persecución por pertenecer a un grupo de personas con antecedentes, costumbres o condición social similares, que causan desconfianza en los poderes públicos o que por sus opiniones políticas o económicas son un obstáculo para la política gubernamental."
+        
+        static let header_05 = "Opiniones políticas"
+        static let boby_05 = "Has sido perseguido por tus opiniones políticas (las hayas expresado públicamente o no),  situación que te ha puesto en conflicto con las autoridades. O has sido objeto de enjuiciamiento o castigo, por un delito político, ó por actos con una motivación política."
+    }
+    
+    struct PAGE_30 {
+        static let text1 = "¿A causa de ese temor fundado NO puedes o NO quieres acogerte a la protección de tu país?"
+        static let text2 = "Responde, a partir de la siguiente información:"
+        static let text3 = "Según el Manual de procedimientos de ACNUR:"
+        static let text4 = "Una persona no recibe protección de su país de origen debido a “circunstancias ajenas” a su voluntad. Estas circunstancias pueden presentarse por disturbios graves que alteran el orden público o causan violencia generalizada, porque existe una guerra civil o un conflicto interno o internacional que impiden que el Estado brinde protección a sus ciudadanos o que incluso “niegue su protección“. Estas razones pueden confirmar o reforzar los temores de la persona a ser perseguida. (Párrafo 98)"
+        static let text5 = "Cuando una persona no quiere o se niega a aceptar la protección de las autoridades del país de su nacionalidad, debe ser porque presenta temores fundados que atentan contra su vida o su bienestar, que así lo justifican. Si la persona se niega a recurrir a la protección de su país de origen y “no hay motivos basados en fundados temores para rehusarla” se considera que no necesita la protección internacional y no es un refugiado. (Párrafo 100)"
+    }
+    
+    struct PAGE_31 {
+        static let text1 = "¿Te viste obligado a abandonar tu país de origen porque tu vida, seguridad o libertad estaban amenazadas por la violencia generalizada, agresión extranjera, conflictos internos, violación masiva de los derechos humanos u otras circunstancias que hayan perturbado gravemente el orden público?"
+        static let text2 = "Escucha los siguientes audios:"
+        static let text3 = "Violencia generalizada."
+        static let text4 = "Violaciones masivas a los derechos humanos "
+        static let text5 = "Otras circunstancias que perturben gravemente el orden público"
+    }
+    
+    struct PAGE_32 {
+        static let text_1Y = "¡Las respuestas que has dado a las cinco preguntas de este módulo, dan cuenta de que eres una persona que necesita Protección Internacional!"
+        static let text_2Y = "Te invitamos a consultar la sección de Planea tu viaje - Refugio, para obtener más información sobre lo que debes hacer. También puedes ponerte en contacto con nosotros; consulta esta información en el menú ubicado en la parte izquierda superior de tu pantalla."
+        
+        static let text_1N = "¡Las respuestas que has dado a las cinco preguntas de este módulo, dan cuenta de que eres una persona que no necesita Protección Internacional!"
+        static let text_2N = "En todo caso te invitamos a que consultes en nuestro directorio, las organizaciones que pueden orientarte a nivel legal para atender tu caso. Igualmente navega por nuestro menú para que conozcas a qué otros mecanismos de atención migratoria puedes acceder."
+        
+        static let text3 = "Has finalizado con éxito este tercer y último módulo y con seguridad te llevas grandes aprendizajes."
+    }
+    
+    struct PAGE_33 {
+        static let text1 = "Tienes tu tercera insignia: ya eres un Consejero/a Experto/a"
+        static let text2 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     }
 }
