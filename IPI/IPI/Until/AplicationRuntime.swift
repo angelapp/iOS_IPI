@@ -138,6 +138,22 @@ class AplicationRuntime {
         return piecesList
     }
 
+    // MARK: - PLAN YOUR TRIP
+    public func getCountries(fromCountry name:String? = nullString) -> [String] {
+
+        guard appConfig != nil, appConfig.countries != nil else { return [] }
+
+        var countries: [String] = []
+
+        for country in appConfig.countries {
+            if country.name != name {
+                countries.append(country.name)
+            }
+        }
+
+        return countries
+    }
+
     // MARK: - USER DATA
     public func getUser() -> UserSerializer! {
         guard let user = userData?.user else { return nil }
@@ -153,7 +169,7 @@ class AplicationRuntime {
         guard let token = userData?.token else { return nullString }
         return token
     }
-    
+
     public func getIndex() -> Int {
         guard progress != nil else { return 0 }
         return progress.COURSE_INDEX != nil ? progress.COURSE_INDEX : 0
