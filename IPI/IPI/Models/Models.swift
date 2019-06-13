@@ -261,6 +261,17 @@ class ExampleData {
                 ExampleData(header: IPI_COURSE.PAGE_07.header3, body: [IPI_COURSE.PAGE_07.boby3]),
                 ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4])]
     }
+    
+    /** Arma lista cuestionario
+     - Returns: Arreglo la información por secciones
+     **/
+    func getInfoData() -> [ExampleData] {
+        return [ExampleData(header: IPI_COURSE.PAGE_29.header_01, body: [IPI_COURSE.PAGE_29.boby_01]),
+                ExampleData(header: IPI_COURSE.PAGE_29.header_02, body: [IPI_COURSE.PAGE_29.boby_02]),
+                ExampleData(header: IPI_COURSE.PAGE_29.header_03, body: [IPI_COURSE.PAGE_29.boby_03]),
+                ExampleData(header: IPI_COURSE.PAGE_29.header_04, body: [IPI_COURSE.PAGE_29.boby_04]),
+                ExampleData(header: IPI_COURSE.PAGE_29.header_05, body: [IPI_COURSE.PAGE_29.boby_05])]
+    }
 }
 
 /** Módelo para pasar los datos del slider del curso al controlador correspondiente **/

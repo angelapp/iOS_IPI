@@ -824,7 +824,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Set Images
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
         img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
-        img_insignia.image = UIImage(named: IPI_IMAGES.achievement_module_1)
+        img_insignia.image = UIImage(named: IPI_IMAGES.achievement_module_2)
         
         //Set buttons
         setButtonTitle(button: btn_next, title: Buttons.end_course)
@@ -837,7 +837,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         saveActivity(activity: (course?.topic_activity_list?[2].abreviature)!, forModule: (course?.id)!)
     }
-    /** END MODULE 1 **/
+    /** END MODULE 2 **/
 
     // MARK: MODULE 3
     func fill_CELL_26() {
@@ -937,9 +937,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     func fill_CELL_29() {
         lbl_text1.text = IPI_COURSE.PAGE_29.text1
         lbl_text2.text = IPI_COURSE.PAGE_29.text2
-        lbl_text3.text = IPI_COURSE.PAGE_28.text3
-        lbl_text4.text = IPI_COURSE.PAGE_28.text4
-        lbl_text5.text = IPI_COURSE.PAGE_28.text5
         
         // Config Check
         lbl_option1.text = IPI_COURSE.OPTION_YES
@@ -954,7 +951,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         radioGroup = [btn_opt1, btn_opt2]
         
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
-        img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_3)
         
         progressBar.heightAnchor.constraint(equalToConstant: 30)
         progressBar.setProgress(0.0, animated: false)
@@ -969,23 +966,137 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option2.isUserInteractionEnabled = true
-        lbl_option2.addGestureRecognizer(tapOption02)    }
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        // Set expandable table view
+        samplesList = ExampleData().getInfoData()
+        
+        tbl_examples.tag = TABLE_SAMPLES
+        tbl_examples.dataSource = self
+        tbl_examples.delegate = self
+    }
 
     func fill_CELL_30() {
-     
+        lbl_text1.text = IPI_COURSE.PAGE_30.text1
+        lbl_text2.text = IPI_COURSE.PAGE_30.text2
+        lbl_text3.text = IPI_COURSE.PAGE_30.text3
+        lbl_text4.text = IPI_COURSE.PAGE_30.text4
+        lbl_text5.text = IPI_COURSE.PAGE_30.text5
+        
+        // Config Check
+        lbl_option1.text = IPI_COURSE.OPTION_YES
+        lbl_option2.text = IPI_COURSE.OPTION_NOT
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        
+        radioGroup = [btn_opt1, btn_opt2]
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_4)  // No. 4
+        img_icon2.image = UIImage(named: IPI_IMAGES.success) // chulo naranja
+        img_icon3.image = UIImage(named: IPI_IMAGES.success) // chulo naranja
+        
+        progressBar.heightAnchor.constraint(equalToConstant: 30)
+        progressBar.setProgress(0.0, animated: false)
+        
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
     }
 
     func fill_CELL_31() {
-     
+        lbl_text1.text = IPI_COURSE.PAGE_31.text1
+        lbl_text2.text = IPI_COURSE.PAGE_31.text2
+        lbl_text3.text = IPI_COURSE.PAGE_31.text3
+        lbl_text4.text = IPI_COURSE.PAGE_31.text4
+        lbl_text5.text = IPI_COURSE.PAGE_31.text5
+        
+        // Config Check
+        lbl_option1.text = IPI_COURSE.OPTION_YES
+        lbl_option2.text = IPI_COURSE.OPTION_NOT
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        
+        setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
+        
+        radioGroup = [btn_opt1, btn_opt2]
+        
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_5)
+        
+        progressBar.heightAnchor.constraint(equalToConstant: 30)
+        progressBar.setProgress(0.0, animated: false)
+        
+        // SET TAP ACTION TO LABEL OPTION
+        lbl_option1.tag = TAG_OPTION_01
+        lbl_option2.tag = TAG_OPTION_02
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        // Set Audio config to audio buttons
+        btn_Aud1.isSelected = false
+        btn_Aud2.isSelected = false
+        btn_Aud3.isSelected = false
+        
+        btn_Aud1.tag = AUDIO_ID.CURSO_PTN_06.rawValue
+        btn_Aud2.tag = AUDIO_ID.CURSO_PTN_07.rawValue
+        btn_Aud3.tag = AUDIO_ID.CURSO_PTN_08.rawValue
+        
+        setButtonImages(button: btn_Aud1, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        setButtonImages(button: btn_Aud2, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        setButtonImages(button: btn_Aud3, normal: IPI_IMAGES.speaker_orange, hover: IPI_IMAGES.speaker_orange_hover)
+        
+        radioGroup2 = [btn_Aud1, btn_Aud2, btn_Aud3]
     }
 
     func fill_CELL_32() {
-     
+        
+        //Set labels
+        lbl_text1.text = IPI_COURSE.PAGE_32.text_1Y // progress > 0.8 ? text_y : text_n
+        lbl_text2.text = IPI_COURSE.PAGE_32.text_2Y // progress > 0.8 ? text_y : text_n
+        lbl_text3.text = IPI_COURSE.PAGE_32.text3
+        
+        //Set Images
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
+        img_auxiliar.image = UIImage(named: IPI_IMAGES.admiration)
     }
 
     func fill_CELL_33() {
-     
+        //Set labels
+        lbl_text1.text = IPI_COURSE.PAGE_33.text1
+        lbl_text2.text = IPI_COURSE.PAGE_33.text2
+        
+        //Set Images
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        img_corner1.image = UIImage(named: IPI_IMAGES.corner_YELLOW)
+        img_insignia.image = UIImage(named: IPI_IMAGES.achievement_module_3)
+        
+        //Set buttons
+        setButtonTitle(button: btn_next, title: Buttons.end_course)
+        setButtonTitle(button: btn_back, title: Buttons.come_back)
     }
+    /** END MODULE 3 **/
 
     // MARK: - User Interface
     /// Update child and parent UI

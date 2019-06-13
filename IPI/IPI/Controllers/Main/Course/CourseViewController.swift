@@ -17,10 +17,11 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     @IBOutlet weak var btn_back: UIButton!
     
     // MARK: - Properties
+    let maxPageIndex: Int = CURSO_PTN.PAGE_33.rawValue
+    
     var ncrAudio: AVAudioPlayer?
     var mainDelegate: MainProtocol?
     var isPlaying = nullString
-    let maxPageIndex: Int = 42
     var currentIndex: Int = 0
     
     // MARK: - Lifecycle
@@ -243,7 +244,8 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 // Case without footer
                 case CURSO_PTN.PAGE_01.rawValue,
                      CURSO_PTN.PAGE_10.rawValue...CURSO_PTN.PAGE_14.rawValue,
-                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_25.rawValue:
+                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_25.rawValue,
+                     CURSO_PTN.PAGE_33.rawValue:
                     isBtnNext = false
                     break
 
@@ -291,7 +293,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 title = "Módulo 2. \(IPI_COURSE.MODULE_02)"
                 break
             
-            case CURSO_PTN.PAGE_27.rawValue...CURSO_PTN.PAGE_42.rawValue:
+            case CURSO_PTN.PAGE_27.rawValue...CURSO_PTN.PAGE_33.rawValue:
                 title = "Módulo 3. \(IPI_COURSE.MODULE_03)"
                 break
             
@@ -489,11 +491,67 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             cell.fill_CELL_24()
             return cell
         }
-        else{
+        if currentIndex == CURSO_PTN.PAGE_25.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE25.rawValue, for: indexPath) as! CourseTableViewCell
             
             cell.courseDelegate = self
             cell.fill_CELL_25()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_26.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE26.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_26()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_27.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE27.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_27()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_28.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE28.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_28()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_29.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE29.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_29()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_30.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE30.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_30()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_31.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE31.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_31()
+            return cell
+        }
+        else if currentIndex == CURSO_PTN.PAGE_32.rawValue{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE32.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_32()
+            return cell
+        }
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: CellID.COURSE33.rawValue, for: indexPath) as! CourseTableViewCell
+            
+            cell.courseDelegate = self
+            cell.fill_CELL_33()
             return cell
         }
     }
