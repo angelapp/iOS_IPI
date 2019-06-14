@@ -18,6 +18,8 @@ let ACCESSORIES_GRID = 4
 let TABLE_COURSE = 100
 let TABLE_SAMPLES = 90
 
+let UNSELECT_ID = -1
+
 // MARK: - Índices usados para crear el avatar
 enum AvatarGenderIDs: Int {
     case male = 1

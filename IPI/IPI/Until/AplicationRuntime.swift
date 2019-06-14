@@ -139,15 +139,26 @@ class AplicationRuntime {
     }
 
     // MARK: - PLAN YOUR TRIP
-    public func getCountries(fromCountry name:String? = nullString) -> [String] {
+    /**
+     - Parameter fromCountry: ID de la nacionalidad o pais de origen
+     - Returns: Lista de paises
+    */
+    public func getCountries(fromCountry id:Int? = UNSELECT_ID) -> Array<Country> {
 
-        guard appConfig != nil, appConfig.countries != nil else { return [] }
+        guard appConfig != nil, appConfig.countries != nil else {
+            return []
+        }
 
-        var countries: [String] = []
+        guard id != UNSELECT_ID else {
+            return appConfig.countries
+        }
+
+        // Filtra lista de paises Excluyendo el pais de origen
+        var countries: Array<Country> = []
 
         for country in appConfig.countries {
-            if country.name != name {
-                countries.append(country.name)
+            if country.id != id {
+                countries.append(country)
             }
         }
 

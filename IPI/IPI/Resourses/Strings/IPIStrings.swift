@@ -107,7 +107,7 @@ struct Labels {
     static let create_account = "Crea tu cuenta"
     static let login_title = "Ingresa tus datos"
     static let welcome = "Te damos la bienvenida a:"
-    
+
     static let before_travel_title = "Antes de tu viaje, ten encuenta la siguiente información"
     static let before_travel_text1 = "¿Qué es la condición migratiora?"
     static let before_travel_text2 = "¿Qué es el estatus de refugiado?"
@@ -120,6 +120,7 @@ struct Labels {
     static let hint_confirm_pwssd = "Confirma la contraseña"
     static let hint_contact_message = "Escribe aquí tu mensaje"
     static let hint_kindofMessage = "Seleccione..."
+    static let hint_spinner = "Selecciona"
 
     static let contact_kindOfMessage = "Tipo de mensaje"
     static let contact_messageTitle = "Tu mensaje"
@@ -128,10 +129,13 @@ struct Labels {
     static let contact_send_message = "Se ha enviado tu mensaje"
 
     static let listenAudio = "Escucha el audio"
-    
+
     static let progress_message = "Pulsa sobre cada ícono para volver al inicio de cada módulo"
     static let progress_title = "MI PROGRESO"
     static let progress_toast_message = "Para poder ver el módulo seleccionado primero debes haber completado los módulos anteriores"
+
+    static let select_your_destination = "¿Cuál es tu destino?"
+    static let select_your_nationality = "¿Cuál es tu nacionalidad?"
 }
 
 // MARK: - Error Messages
