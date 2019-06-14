@@ -58,55 +58,30 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var lbl_text8: UILabel!
     @IBOutlet weak var lbl_text9: UILabel!
 
-    @IBOutlet weak var tf_line1_00: UITextField!
-    @IBOutlet weak var tf_line1_01: UITextField!
-    @IBOutlet weak var tf_line1_02: UITextField!
-    @IBOutlet weak var tf_line1_03: UITextField!
-    @IBOutlet weak var tf_line1_04: UITextField!
-    @IBOutlet weak var tf_line1_05: UITextField!
-    @IBOutlet weak var tf_line1_06: UITextField!
-    @IBOutlet weak var tf_line1_07: UITextField!
-    @IBOutlet weak var tf_line1_08: UITextField!
-    @IBOutlet weak var tf_line1_09: UITextField!
-    @IBOutlet weak var tf_line1_10: UITextField!
-    @IBOutlet weak var tf_line1_11: UITextField!
-    @IBOutlet weak var tf_line1_12: UITextField!
-    @IBOutlet weak var tf_line1_13: UITextField!
-    @IBOutlet weak var tf_line2_00: UITextField!
-    @IBOutlet weak var tf_line2_01: UITextField!
-    @IBOutlet weak var tf_line2_02: UITextField!
-    @IBOutlet weak var tf_line2_03: UITextField!
-    @IBOutlet weak var tf_line2_04: UITextField!
-    @IBOutlet weak var tf_line2_05: UITextField!
-    @IBOutlet weak var tf_line2_06: UITextField!
-    @IBOutlet weak var tf_line2_07: UITextField!
-    @IBOutlet weak var tf_line2_08: UITextField!
-    @IBOutlet weak var tf_line2_09: UITextField!
-    
-    @IBOutlet weak var view_line1_00: UIView!
-    @IBOutlet weak var view_line1_01: UIView!
-    @IBOutlet weak var view_line1_02: UIView!
-    @IBOutlet weak var view_line1_03: UIView!
-    @IBOutlet weak var view_line1_04: UIView!
-    @IBOutlet weak var view_line1_05: UIView!
-    @IBOutlet weak var view_line1_06: UIView!
-    @IBOutlet weak var view_line1_07: UIView!
-    @IBOutlet weak var view_line1_08: UIView!
-    @IBOutlet weak var view_line1_09: UIView!
-    @IBOutlet weak var view_line1_10: UIView!
-    @IBOutlet weak var view_line1_11: UIView!
-    @IBOutlet weak var view_line1_12: UIView!
-    @IBOutlet weak var view_line1_13: UIView!
-    @IBOutlet weak var view_line2_00: UIView!
-    @IBOutlet weak var view_line2_01: UIView!
-    @IBOutlet weak var view_line2_02: UIView!
-    @IBOutlet weak var view_line2_03: UIView!
-    @IBOutlet weak var view_line2_04: UIView!
-    @IBOutlet weak var view_line2_05: UIView!
-    @IBOutlet weak var view_line2_06: UIView!
-    @IBOutlet weak var view_line2_07: UIView!
-    @IBOutlet weak var view_line2_08: UIView!
-    @IBOutlet weak var view_line2_09: UIView!
+    @IBOutlet weak var tf_line1_00: UITextField!; @IBOutlet weak var view_line1_00: UIView!
+    @IBOutlet weak var tf_line1_01: UITextField!; @IBOutlet weak var view_line1_01: UIView!
+    @IBOutlet weak var tf_line1_02: UITextField!; @IBOutlet weak var view_line1_02: UIView!
+    @IBOutlet weak var tf_line1_03: UITextField!; @IBOutlet weak var view_line1_03: UIView!
+    @IBOutlet weak var tf_line1_04: UITextField!; @IBOutlet weak var view_line1_04: UIView!
+    @IBOutlet weak var tf_line1_05: UITextField!; @IBOutlet weak var view_line1_05: UIView!
+    @IBOutlet weak var tf_line1_06: UITextField!; @IBOutlet weak var view_line1_06: UIView!
+    @IBOutlet weak var tf_line1_07: UITextField!; @IBOutlet weak var view_line1_07: UIView!
+    @IBOutlet weak var tf_line1_08: UITextField!; @IBOutlet weak var view_line1_08: UIView!
+    @IBOutlet weak var tf_line1_09: UITextField!; @IBOutlet weak var view_line1_09: UIView!
+    @IBOutlet weak var tf_line1_10: UITextField!; @IBOutlet weak var view_line1_10: UIView!
+    @IBOutlet weak var tf_line1_11: UITextField!; @IBOutlet weak var view_line1_11: UIView!
+    @IBOutlet weak var tf_line1_12: UITextField!; @IBOutlet weak var view_line1_12: UIView!
+    @IBOutlet weak var tf_line1_13: UITextField!; @IBOutlet weak var view_line1_13: UIView!
+    @IBOutlet weak var tf_line2_00: UITextField!; @IBOutlet weak var view_line2_00: UIView!
+    @IBOutlet weak var tf_line2_01: UITextField!; @IBOutlet weak var view_line2_01: UIView!
+    @IBOutlet weak var tf_line2_02: UITextField!; @IBOutlet weak var view_line2_02: UIView!
+    @IBOutlet weak var tf_line2_03: UITextField!; @IBOutlet weak var view_line2_03: UIView!
+    @IBOutlet weak var tf_line2_04: UITextField!; @IBOutlet weak var view_line2_04: UIView!
+    @IBOutlet weak var tf_line2_05: UITextField!; @IBOutlet weak var view_line2_05: UIView!
+    @IBOutlet weak var tf_line2_06: UITextField!; @IBOutlet weak var view_line2_06: UIView!
+    @IBOutlet weak var tf_line2_07: UITextField!; @IBOutlet weak var view_line2_07: UIView!
+    @IBOutlet weak var tf_line2_08: UITextField!; @IBOutlet weak var view_line2_08: UIView!
+    @IBOutlet weak var tf_line2_09: UITextField!; @IBOutlet weak var view_line2_09: UIView!
     
     @IBOutlet weak var tbl_examples: UITableView!
     @IBOutlet weak var tbl_constraint_height: NSLayoutConstraint!
@@ -1350,38 +1325,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         courseDelegate?.sendRequest(formModel: requestModel)
     }
-
-    /*
-     // MARK: - Ayudas
-    @IBAction func showHelp(_ sender: UIButton) {
-
-        switch sender {
-
-        case btn_help1:
-            courseDelegate?.showPopupHelp(title: (btn_help1.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_1)
-            break
-
-        case btn_help2:
-            courseDelegate?.showPopupHelp(title: (btn_help2.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_2)
-            break
-
-        case btn_help3:
-            courseDelegate?.showPopupHelp(title: (btn_help3.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_3)
-            break
-
-        case btn_help4:
-            courseDelegate?.showPopupHelp(title: (btn_help4.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_4)
-            break
-
-        case btn_help5:
-            courseDelegate?.showPopupHelp(title: (btn_help5.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_5)
-            break
-
-        default:
-            courseDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: IPI_COURSE.PAGE_11.HELP_6)
-            break
-        }
-    }*/
 
     // MARK: - Video Manager
     @IBAction func videoActionManage (_ sender: UIButton) {

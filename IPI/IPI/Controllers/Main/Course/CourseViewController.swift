@@ -245,6 +245,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 case CURSO_PTN.PAGE_01.rawValue,
                      CURSO_PTN.PAGE_10.rawValue...CURSO_PTN.PAGE_14.rawValue,
                      CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_25.rawValue,
+                     CURSO_PTN.PAGE_27.rawValue...CURSO_PTN.PAGE_31.rawValue,
                      CURSO_PTN.PAGE_33.rawValue:
                     isBtnNext = false
                     break
