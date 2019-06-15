@@ -11,7 +11,6 @@ import ObjectMapper
 import SwiftyJSON
 
 /// Corporate Model
-// State: succed
 class CorporatePhoneBook: Mappable {
     
     var id: Int!
@@ -45,7 +44,6 @@ class CorporatePhoneBook: Mappable {
 }
 
 /// Organization Type Model
-// State: succed
 class OrganizationType: Mappable {
     
     var id: Int!
@@ -69,7 +67,6 @@ class OrganizationType: Mappable {
 // MARK: - User authenticated models
 
 /// User Model for register
-// State: succed
 class RegisterUserProfileModel : Mappable {
     
     var email: String!
@@ -89,7 +86,6 @@ class RegisterUserProfileModel : Mappable {
 }
 
 /// User Model for server response
-// state: succed
 class RegisterUserResponse : Mappable {
     
     var token: String!
@@ -108,7 +104,6 @@ class RegisterUserResponse : Mappable {
     }
 }
 
-// state: succed
 class UserSerializer : Mappable {
     
     var id: Int!
@@ -129,7 +124,6 @@ class UserSerializer : Mappable {
     }
 }
 
-// state: succed
 class DocumentType: Mappable {
     
     var id: Int!
@@ -157,7 +151,6 @@ class DocumentType: Mappable {
 }
 
 // NEW Model
-// state: succed
 class LibraryDocument: Mappable {
     var id: Int!
     var name: String!
@@ -181,7 +174,6 @@ class LibraryDocument: Mappable {
     }
 }
 
-// state: succed
 class MigrationConditionType: Mappable {
     
     var id: Int!
@@ -202,7 +194,6 @@ class MigrationConditionType: Mappable {
     }
 }
 
-// state: succed
 class DocumentConditionType: Mappable {
     
     var id: Int!
@@ -225,7 +216,6 @@ class DocumentConditionType: Mappable {
     }
 }
 
-// state: succed
 class BasicRight: Mappable {
     var id: Int!
     var name: String!
@@ -257,7 +247,6 @@ class BasicRight: Mappable {
 
 
 // MARK: - Config App Models
-// state: succed
 class GeneralConfiguration: Mappable {
     
     var terms_condition_url: String!
@@ -280,7 +269,6 @@ class GeneralConfiguration: Mappable {
     }
 }
 
-// State: succed
 class ApplicationConfiguration: Mappable {
     
     var general_configuration: GeneralConfiguration!
@@ -321,7 +309,6 @@ class ApplicationConfiguration: Mappable {
     }
 }
 
-// State: succed
 class Gender: Mappable {
     
     var id: Int!
@@ -344,7 +331,6 @@ class Gender: Mappable {
     }
 }
 
-// State: succed
 class City: Mappable {
     
     var id: Int!
@@ -363,7 +349,6 @@ class City: Mappable {
     }
 }
 
-// State: succed, new
 class Country: Mappable {
     
     var id: Int!
@@ -389,8 +374,6 @@ class Country: Mappable {
 }
 
 // MARK: - CONTÁCTANOS
-
-// State: succed
 class ContactFormType: Mappable {
     
     var  id: Int!
@@ -415,7 +398,6 @@ class ContactFormType: Mappable {
     }
 }
 
-// State: succed
 class ContactForm: Mappable {
     
     var  user: Int!
@@ -437,8 +419,6 @@ class ContactForm: Mappable {
 }
 
 // MARK: - CURSOS
-
-// State: succed
 class Course: Mappable {
     
     var  id: Int!
@@ -465,7 +445,6 @@ class Course: Mappable {
     }
 }
 
-// State: succed
 class Topic: Mappable {
     
     var  id: Int!
@@ -496,7 +475,6 @@ class Topic: Mappable {
     }
 }
 
-// State: succed
 class TopicActivity: Mappable {
     
     var  id: Int!
@@ -527,7 +505,6 @@ class TopicActivity: Mappable {
     }
 }
 
-// State: succed
 class SimpleResponseModel: Mappable {
     
     var  detail: String!
@@ -541,8 +518,6 @@ class SimpleResponseModel: Mappable {
 }
 
 // MARK: - Avatar Models
-
-// State: succed
 class BodyParts: Mappable {
     
     var id: Int!
@@ -567,7 +542,6 @@ class BodyParts: Mappable {
     }
 }
 
-// State: succed
 class AvatarPiece: Mappable {
     
     var id: Int!
@@ -594,7 +568,6 @@ class AvatarPiece: Mappable {
     }
 }
 
-// State: succed
 class UserAvatar: Mappable {
     
     var user: Int!
@@ -610,5 +583,200 @@ class UserAvatar: Mappable {
     func mapping(map: Map) {
         user <- map[JSONKeys.user]
         avatar_piece <- map[JSONKeys.avatar_piece]
+    }
+}
+
+// MARK: - Plan your trip Models
+/// Model for mapping destination country Information
+class PlanYourTripModel: Mappable {
+    
+    var general_country_data: GeneralCountryDataModel!
+    var refugee_aplication: RefugeeAplication!
+    var nationalization_requirements: NationalizationRequirements!
+    var visas: Array<NameDescription>!
+    ///country origin and country target filter
+    var migrations_requirements: Array<MigrationsRequirementsModel>!
+    var temp_by_city: Array<TempByCityModel>!
+    var public_tranportation_info: Array<TransportationInfoModel>!
+    //country origin and country target filter
+    var basic_rights: Array<BasicRight>!
+    var phonebook: Array<CorporatePhoneBook>!
+    var library: Array<LibraryDocument>!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        general_country_data <- map[JSONKeys.general_country_data]
+        refugee_aplication <- map[JSONKeys.refugee_aplication]
+        nationalization_requirements <- map[JSONKeys.nationalization_requirements]
+        visas <- map[JSONKeys.visas]
+        migrations_requirements <- map[JSONKeys.migrations_requirements]
+        temp_by_city <- map[JSONKeys.temp_by_city]
+        public_tranportation_info <- map[JSONKeys.public_tranportation_info]
+        basic_rights <- map[JSONKeys.basic_rights]
+        phonebook <- map[JSONKeys.phonebook]
+        library <- map[JSONKeys.library]
+    }
+}
+
+class GeneralCountryDataModel: Mappable {
+    
+    var id: Int!
+    var international_id: String!
+    var currency: String!
+    var trm: String!
+    var migration_authority: String!
+    var call_from_inside_requirements: String!
+    var call_from_outside_requirements: String!
+    var native_condition_description: String!
+    var country: Int!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        international_id <- map[JSONKeys.international_id]
+        currency <- map[JSONKeys.currency]
+        trm <- map[JSONKeys.trm]
+        migration_authority <- map[JSONKeys.migration_authority]
+        call_from_inside_requirements <- map[JSONKeys.call_from_inside_requirements]
+        call_from_outside_requirements <- map[JSONKeys.call_from_outside_requirements]
+        native_condition_description <- map[JSONKeys.native_condition_description]
+        country <- map[JSONKeys.country]
+    }
+}
+
+class RefugeeAplication: Mappable {
+    var id: Int!
+    var request: String!
+    var interview: String!
+    var case_study: String!
+    var notification: String!
+    var where_to_go: String!
+    var origin_city: Int!
+    var is_active: Bool!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        request <- map[JSONKeys.request]
+        interview <- map[JSONKeys.interview]
+        case_study <- map[JSONKeys.case_study]
+        notification <- map[JSONKeys.notification]
+        where_to_go <- map[JSONKeys.where_to_go]
+        origin_city <- map[JSONKeys.origin_city]
+        is_active <- map[JSONKeys.is_active]
+    }
+}
+
+class NationalizationRequirements: Mappable {
+    var id: Int!
+    var native_condition_description: String!
+    var description: String!
+    var reminder: String!
+    var origin_city: Int!
+    var is_active: Bool!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        native_condition_description <- map[JSONKeys.native_condition_description]
+        description <- map[JSONKeys.description]
+        reminder <- map[JSONKeys.reminder]
+        origin_city <- map[JSONKeys.origin_city]
+        is_active <- map[JSONKeys.is_active]
+    }
+}
+
+// Modelo Visas revisar contra advance
+class NameDescription: Mappable {
+    var name: String!
+    var description: String!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        name <- map[JSONKeys.name]
+        description <- map[JSONKeys.description]
+    }
+}
+
+class MigrationsRequirementsModel: Mappable {
+    var id: Int!
+    var description: String!
+    var origin_country: Int!
+    var target_country: Int!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        description <- map[JSONKeys.description]
+        origin_country <- map[JSONKeys.origin_country]
+        target_country <- map[JSONKeys.target_country]
+    }
+}
+
+class TempByCityModel: Mappable {
+    var id: Int!
+    var min_temp: Int!
+    var max_temp: Int!
+    var city: Int!
+    var temp_units: Int!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        min_temp <- map[JSONKeys.min_temp]
+        max_temp <- map[JSONKeys.max_temp]
+        city <- map[JSONKeys.city]
+        temp_units <- map[JSONKeys.temp_units]
+    }
+}
+
+class TransportationInfoModel: Mappable {
+    var id: Int!
+    var distance: String!
+    var time_between_cities: String!
+    var notes: String!
+    var origin_city: Int!
+    var target_city: Int!
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        distance <- map[JSONKeys.distance]
+        time_between_cities <- map[JSONKeys.time_between_cities]
+        notes <- map[JSONKeys.notes]
+        origin_city <- map[JSONKeys.origin_city]
+        target_city <- map[JSONKeys.target_city]
     }
 }

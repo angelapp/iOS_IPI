@@ -9,7 +9,7 @@ import UIKit
 import ObjectMapper
 
 class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     // MARK: - Outlets
 
     // Buttons
@@ -52,21 +52,21 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadView()
+        loadData()
 
     }
 
     // Private functions
-    private func loadView() {
+    private func loadData() {
 
         //Set Text to view
-        label_nationality.text = Lables.select_your_nationality
-        label_destination.text = Lables.select_your_destination
-        promt_nationality.text = hint_spinner
-        promt_destination.text = hint_spinner
+        label_nationality.text = Labels.select_your_nationality
+        label_destination.text = Labels.select_your_destination
+        promt_nationality.text = Labels.hint_spinner
+        promt_destination.text = Labels.hint_spinner
 
         //Disable Buttons
-        btn_pickerConfirm.isEnable = false
+        
 
         //Load nationality data
          nationalitiesList = AplicationRuntime.sharedManager.getCountries()
@@ -84,16 +84,16 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
          // Check if data is completed and correct
          guard nationalityID != nil, destinationID != nil, nationalityID != destinationID else { return }
 
-         sendRequest(from String(nationalityID),to String(destinationID))
+        sendRequest(from: String(nationalityID), to: String(destinationID))
      }
 
      /// Set get Request
-    func sendRequest(from nationality: String, to destination: String{
+    func sendRequest(from nationality: String, to destination: String) {
         let loader = LoadingOverlay(text: LoaderStrings.configApp)
         let headers: [[String:String]] = []
 
         let urlApi = NetworkGET.DESTINATION_COUNTRY_INFO + destination +
-                     COUNTRY_INFO_ORIGIN_COUNTRY_APPEND + nationality
+                     NetworkGET.COUNTRY_INFO_ORIGIN_COUNTRY_APPEND + nationality
 
         loader.showOverlay(view: self.view)
         self.view.isUserInteractionEnabled = false
@@ -109,7 +109,7 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
                 if !succeed, !message.isEmpty {
                     print(message)
                 }
-                self.startCose()
+//                self.startCose()
                 break
 
             case .error(let error):
@@ -121,15 +121,24 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
                 let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
 
                 // Save configuration data in Local and set to runtime
-                AplicationRuntime.sharedManager.setAppConfig(config: config!)
-                StorageFunctions.saveAppConfigInLocal(config: config!)
+//                AplicationRuntime.sharedManager.setAppConfig(config: config!)
+//                StorageFunctions.saveAppConfigInLocal(config: config!)
 
-                self.startCose()
+//                self.startCose()
                 break
 
             default:
                 break
             }
         })
+    }
+    
+    // MARK: - UIPickerView Delegate
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        <#code#>
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        <#code#>
     }
 }
