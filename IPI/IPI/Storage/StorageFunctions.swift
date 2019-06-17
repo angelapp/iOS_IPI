@@ -177,4 +177,14 @@ class StorageFunctions: NSObject {
 
         }
     }
+    
+    /// Save final questionary value
+    class func saveQuestionaryValue(value: Int) {
+        UserDefaults.standard.set(value, forKey: IPIKeys.questionaryValue.rawValue)
+    }
+
+    /// Load data and return image
+    class func loadQuestionaryValue() -> Int {
+        return UserDefaults.standard.integer(forKey: IPIKeys.questionaryValue.rawValue)
+    }
 }

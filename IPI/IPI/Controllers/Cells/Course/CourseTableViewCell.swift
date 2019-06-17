@@ -13,7 +13,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     @IBOutlet weak var btn_Aud1: UIButton!
     @IBOutlet weak var btn_Aud2: UIButton!
     @IBOutlet weak var btn_Aud3: UIButton!
-    @IBOutlet weak var btn_Aud4: UIButton!
 
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
@@ -40,8 +39,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     @IBOutlet weak var lbl_Aud1: UILabel!
     @IBOutlet weak var lbl_Aud2: UILabel!
-    @IBOutlet weak var lbl_Aud3: UILabel!
-    @IBOutlet weak var lbl_Aud4: UILabel!
 
     @IBOutlet weak var lbl_option1: UILabel!
     @IBOutlet weak var lbl_option2: UILabel!
@@ -93,6 +90,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     let TAG_OPTION_CORRECT: Int = 1
     let TAG_OPTION_WRONG:   Int = 0
     
+    // Tag for set ponderation to the answer
+    let TAG_OPTION_YES: Int = 1
+    let TAG_OPTION_NOT: Int = 0
+    
     let TAG_OPTION_01 = 0
     let TAG_OPTION_02 = 1
     let TAG_OPTION_03 = 2
@@ -102,7 +103,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     var view_list: Array<UIView> = []
     var radioGroup: Array<UIButton> = []
     var radioGroup2: Array<UIButton> = []
-    var textField_list: Array<UITextField> = []
     var textFieldToFill: Array<UITextField> = []
     
     var itemList: Array<SliderData> = []
@@ -111,6 +111,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     var fill_word_answer: String = nullString
     var error_message: String = nullString
+    var questionaryValue: Int = 0
     
     weak var courseDelegate: CourseViewControllerDelegate?
     weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
@@ -422,22 +423,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         error_message = IPI_COURSE.PAGE_19.ERROR
         
         //Config TextField - View Backgrounds
-        tf_line1_00.tag = 0; view_line1_00.tag = 0
         tf_line1_01.tag = 1; view_line1_01.tag = 1
         tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
-        tf_line1_04.tag = 4; view_line1_04.tag = 4
-        tf_line1_05.tag = 5; view_line1_05.tag = 5
-        tf_line1_06.tag = 6; view_line1_06.tag = 6
         tf_line1_07.tag = 7; view_line1_07.tag = 7
         
         tf_line2_00.tag = 8; view_line2_00.tag = 8
-        tf_line2_01.tag = 9; view_line2_01.tag = 9
-        tf_line2_02.tag = 10; view_line2_02.tag = 10
         tf_line2_03.tag = 11; view_line2_03.tag = 11
-        tf_line2_04.tag = 12; view_line2_04.tag = 12
         tf_line2_05.tag = 13; view_line2_05.tag = 13
-        tf_line2_06.tag = 14; view_line2_06.tag = 14
         
         //Set clues
         tf_line1_00.text = "A"; tf_line1_00.isEnabled = false
@@ -461,14 +453,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_07.delegate = self;
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06]
-        
         textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_07, tf_line2_00, tf_line2_03, tf_line2_05]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06]
+        view_list = [view_line1_01, view_line1_02, view_line1_07, view_line2_00, view_line2_03, view_line2_05]
     }
     
     func fill_CELL_20() {
@@ -481,29 +469,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         error_message = IPI_COURSE.PAGE_20.ERROR
         
         //Config TextField - View Backgrounds
-        tf_line1_00.tag = 0; view_line1_00.tag = 0
-        tf_line1_01.tag = 1; view_line1_01.tag = 1
         tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
-        tf_line1_04.tag = 4; view_line1_04.tag = 4
-        tf_line1_05.tag = 5; view_line1_05.tag = 5
         tf_line1_06.tag = 6; view_line1_06.tag = 6
-        tf_line1_07.tag = 7; view_line1_07.tag = 7
-        tf_line1_08.tag = 8; view_line1_07.tag = 8
         tf_line1_09.tag = 9; view_line1_07.tag = 9
-        tf_line1_10.tag = 10; view_line1_07.tag = 10
         tf_line1_11.tag = 11; view_line1_07.tag = 11
         
         tf_line2_00.tag = 12; view_line2_00.tag = 12
-        tf_line2_01.tag = 13; view_line2_01.tag = 13
-        tf_line2_02.tag = 14; view_line2_02.tag = 14
-        tf_line2_03.tag = 15; view_line2_03.tag = 15
         tf_line2_04.tag = 16; view_line2_04.tag = 16
-        tf_line2_05.tag = 17; view_line2_05.tag = 17
-        tf_line2_06.tag = 18; view_line2_06.tag = 18
-        tf_line2_07.tag = 19; view_line2_07.tag = 19
         tf_line2_08.tag = 20; view_line2_08.tag = 20
-        tf_line2_09.tag = 21; view_line2_09.tag = 21
         
         //Set clues
         tf_line1_00.text = "R"; tf_line1_00.isEnabled = false
@@ -530,14 +503,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_11.delegate = self
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10, tf_line1_11,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08, tf_line2_09]
-        
         textFieldToFill = [tf_line1_02, tf_line1_06, tf_line1_09, tf_line1_11, tf_line2_00, tf_line2_04, tf_line2_08]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10, view_line1_11,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08, view_line2_09]
+        view_list = [view_line1_02, view_line1_06, view_line1_09, view_line1_11, view_line2_00, view_line2_04, view_line2_08]
     }
     
     func fill_CELL_21() {
@@ -550,26 +519,15 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         error_message = IPI_COURSE.PAGE_21.ERROR
         
         //Config TextField - View Backgrounds
-        tf_line1_00.tag = 0; view_line1_00.tag = 0
         tf_line1_01.tag = 1; view_line1_01.tag = 1
         tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
-        tf_line1_04.tag = 4; view_line1_04.tag = 4
         tf_line1_05.tag = 5; view_line1_05.tag = 5
         tf_line1_06.tag = 6; view_line1_06.tag = 6
-        tf_line1_07.tag = 7; view_line1_07.tag = 7
-        tf_line1_08.tag = 8; view_line1_07.tag = 8
-        
-        tf_line2_00.tag = 9; view_line2_00.tag = 9
+    
         tf_line2_01.tag = 10; view_line2_01.tag = 10
         tf_line2_02.tag = 11; view_line2_02.tag = 11
-        tf_line2_03.tag = 12; view_line2_03.tag = 12
         tf_line2_04.tag = 13; view_line2_04.tag = 13
-        tf_line2_05.tag = 14; view_line2_05.tag = 14
         tf_line2_06.tag = 15; view_line2_06.tag = 15
-        tf_line2_07.tag = 16; view_line2_07.tag = 16
-        tf_line2_08.tag = 17; view_line2_08.tag = 17
-        tf_line2_09.tag = 18; view_line2_09.tag = 18
         
         //Set clues
         tf_line1_00.text = "F"; tf_line1_00.isEnabled = false
@@ -592,15 +550,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_06.delegate = self; tf_line2_06.delegate = self
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08, tf_line2_09]
-        
         textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_05, tf_line1_06,
                            tf_line2_01, tf_line2_02, tf_line2_04, tf_line2_06]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08, view_line2_09]
+        view_list = [view_line1_01, view_line1_02, view_line1_05, view_line1_06,
+                     view_line2_01, view_line2_02, view_line2_04, view_line2_06]
     }
     
     func fill_CELL_22() {
@@ -613,28 +568,17 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         error_message = IPI_COURSE.PAGE_22.ERROR
         
         //Config TextField - View Backgrounds
-        tf_line1_00.tag = 0; view_line1_00.tag = 0
-        tf_line1_01.tag = 1; view_line1_01.tag = 1
         tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
-        tf_line1_04.tag = 4; view_line1_04.tag = 4
         tf_line1_05.tag = 5; view_line1_05.tag = 5
         tf_line1_06.tag = 6; view_line1_06.tag = 6
         tf_line1_07.tag = 7; view_line1_07.tag = 7
-        tf_line1_08.tag = 8; view_line1_08.tag = 8
         tf_line1_09.tag = 9; view_line1_09.tag = 9
-        tf_line1_10.tag = 10; view_line1_10.tag = 10
-        tf_line1_11.tag = 11; view_line1_11.tag = 11
         tf_line1_12.tag = 12; view_line1_12.tag = 12
         tf_line1_13.tag = 13; view_line1_13.tag = 13
         
-        tf_line2_00.tag = 14; view_line2_00.tag = 14
         tf_line2_01.tag = 15; view_line2_01.tag = 15
-        tf_line2_02.tag = 16; view_line2_02.tag = 16
         tf_line2_03.tag = 17; view_line2_03.tag = 17
-        tf_line2_04.tag = 18; view_line2_04.tag = 18
         tf_line2_05.tag = 19; view_line2_05.tag = 19
-        tf_line2_06.tag = 20; view_line2_06.tag = 20
         tf_line2_07.tag = 21; view_line2_07.tag = 21
         tf_line2_08.tag = 22; view_line2_08.tag = 22
         
@@ -662,15 +606,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_13.delegate = self
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10, tf_line1_11, tf_line1_12, tf_line1_13,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06, tf_line2_07, tf_line2_08]
-        
-        textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_05, tf_line1_06,
-                           tf_line2_01, tf_line2_02, tf_line2_04, tf_line1_06]
+        textFieldToFill = [tf_line1_02, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_09, tf_line1_12, tf_line1_13,
+                           tf_line2_01, tf_line2_03, tf_line2_05, tf_line1_07, tf_line2_08]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10, view_line1_11, view_line1_12, view_line1_13,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line2_06, view_line2_07, view_line2_08]
+        view_list = [view_line1_02, view_line1_05, view_line1_06, view_line1_07, view_line1_09, view_line1_12, view_line1_13,
+                     view_line2_01, view_line2_03, view_line2_05, view_line1_07, view_line2_08]
     }
     
     func fill_CELL_23() {
@@ -684,22 +625,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
-        tf_line1_01.tag = 1; view_line1_01.tag = 1
-        tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
         tf_line1_04.tag = 4; view_line1_04.tag = 4
-        tf_line1_05.tag = 5; view_line1_05.tag = 5
         tf_line1_06.tag = 6; view_line1_06.tag = 6
         tf_line1_07.tag = 7; view_line1_07.tag = 7
         tf_line1_08.tag = 8; view_line1_08.tag = 8
-        tf_line1_09.tag = 9; view_line1_09.tag = 9
-        tf_line1_10.tag = 10; view_line1_10.tag = 10
         
-        tf_line2_00.tag = 11; view_line2_00.tag = 11
-        tf_line2_01.tag = 12; view_line2_01.tag = 12
         tf_line2_02.tag = 13; view_line2_02.tag = 13
         tf_line2_03.tag = 14; view_line2_03.tag = 14
-        tf_line2_04.tag = 15; view_line2_04.tag = 15
         
         //Set clues
         tf_line1_01.text = "N"; tf_line1_01.isEnabled = false
@@ -721,15 +653,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_08.delegate = self;
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08, tf_line1_09, tf_line1_10,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04]
-        
         textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_07, tf_line1_08,
                            tf_line2_02, tf_line2_03]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08, view_line1_09, view_line1_10,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04]
+        view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_07, view_line1_08,
+                     view_line2_02, view_line2_03]
     }
     
     func fill_CELL_24() {
@@ -743,21 +672,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
-        tf_line1_01.tag = 1; view_line1_01.tag = 1
-        tf_line1_02.tag = 2; view_line1_02.tag = 2
-        tf_line1_03.tag = 3; view_line1_03.tag = 3
         tf_line1_04.tag = 4; view_line1_04.tag = 4
-        tf_line1_05.tag = 5; view_line1_05.tag = 5
         tf_line1_06.tag = 6; view_line1_06.tag = 6
-        tf_line1_07.tag = 7; view_line1_07.tag = 7
         tf_line1_08.tag = 8; view_line1_08.tag = 8
         
         tf_line2_00.tag = 9; view_line2_00.tag = 9
-        tf_line2_01.tag = 10; view_line2_01.tag = 10
         tf_line2_02.tag = 11; view_line2_02.tag = 11
-        tf_line2_03.tag = 12; view_line2_03.tag = 12
-        tf_line2_04.tag = 13; view_line2_04.tag = 13
-        tf_line2_05.tag = 14; view_line2_05.tag = 14
         tf_line2_06.tag = 15; view_line2_06.tag = 15
         
         //Set clues
@@ -779,15 +699,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_08.delegate = self;
         
         //TextField Arrays
-        textField_list = [tf_line1_00, tf_line1_01, tf_line1_02, tf_line1_03, tf_line1_04, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_08,
-                          tf_line2_00, tf_line2_01, tf_line2_02, tf_line2_03, tf_line2_04, tf_line2_05, tf_line2_06]
-        
         textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_08,
                            tf_line2_00, tf_line2_02, tf_line2_06]
         
         //view Arrays
-        view_list = [view_line1_00, view_line1_01, view_line1_02, view_line1_03, view_line1_04, view_line1_05, view_line1_06, view_line1_07, view_line1_08,
-                     view_line2_00, view_line2_01, view_line2_02, view_line2_03, view_line2_04, view_line2_05, view_line1_06]
+        view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_08,
+                     view_line2_00, view_line2_02, view_line2_06]
     }
     
     func fill_CELL_25() {
@@ -803,7 +720,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         
         //Set buttons
         setButtonTitle(button: btn_next, title: Buttons.end_course)
-        btn_next.isEnabled = false
         setButtonTitle(button: btn_back, title: Buttons.come_back)
         
         // Save Activity progress
@@ -823,15 +739,21 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_27() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progressValue: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_27.text1
         lbl_text2.text = IPI_COURSE.PAGE_27.text2
         
         lbl_option1.text = IPI_COURSE.OPTION_YES
         lbl_option2.text = IPI_COURSE.OPTION_NOT
         
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
+        btn_opt1.isSelected = false; btn_opt1.tag = TAG_OPTION_YES
+        btn_opt2.isSelected = false; btn_opt2.tag = TAG_OPTION_NOT
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         
@@ -840,12 +762,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
         
-        progressBar.heightAnchor.constraint(equalToConstant: 30)
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        progressBar.setProgress(progressValue, animated: false)
         
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = TAG_OPTION_01
-        lbl_option2.tag = TAG_OPTION_02
+        lbl_option1.tag = TAG_OPTION_YES
+        lbl_option2.tag = TAG_OPTION_NOT
         
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -857,6 +779,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
     
     func fill_CELL_28() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progressValue: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_28.text1
         lbl_text2.text = IPI_COURSE.PAGE_28.text2
         lbl_text3.text = IPI_COURSE.PAGE_28.text3
@@ -867,9 +794,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         lbl_option1.text = IPI_COURSE.OPTION_YES
         lbl_option2.text = IPI_COURSE.OPTION_NOT
         
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
+        btn_opt1.isSelected = false; btn_opt1.tag = TAG_OPTION_YES
+        btn_opt2.isSelected = false; btn_opt2.tag = TAG_OPTION_NOT
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         
@@ -878,12 +806,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
         
-        progressBar.heightAnchor.constraint(equalToConstant: 30)
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        progressBar.setProgress(progressValue, animated: false)
         
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = TAG_OPTION_01
-        lbl_option2.tag = TAG_OPTION_02
+        lbl_option1.tag = TAG_OPTION_YES
+        lbl_option2.tag = TAG_OPTION_NOT
         
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -910,6 +838,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_29() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progressValue: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_29.text1
         lbl_text2.text = IPI_COURSE.PAGE_29.text2
         
@@ -917,9 +850,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         lbl_option1.text = IPI_COURSE.OPTION_YES
         lbl_option2.text = IPI_COURSE.OPTION_NOT
         
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
+        btn_opt1.isSelected = false; btn_opt1.tag = TAG_OPTION_YES
+        btn_opt2.isSelected = false; btn_opt2.tag = TAG_OPTION_NOT
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         
@@ -928,12 +862,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_3)
         
-        progressBar.heightAnchor.constraint(equalToConstant: 30)
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        progressBar.setProgress(progressValue, animated: false)
         
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = TAG_OPTION_01
-        lbl_option2.tag = TAG_OPTION_02
+        lbl_option1.tag = TAG_OPTION_YES
+        lbl_option2.tag = TAG_OPTION_NOT
         
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -952,6 +886,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_30() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progressValue: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_30.text1
         lbl_text2.text = IPI_COURSE.PAGE_30.text2
         lbl_text3.text = IPI_COURSE.PAGE_30.text3
@@ -962,25 +901,26 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         lbl_option1.text = IPI_COURSE.OPTION_YES
         lbl_option2.text = IPI_COURSE.OPTION_NOT
         
-        btn_opt1.isSelected = false
-        btn_opt2.isSelected = false
+        btn_opt1.isSelected = false; btn_opt1.tag = TAG_OPTION_YES
+        btn_opt2.isSelected = false; btn_opt2.tag = TAG_OPTION_NOT
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         
         radioGroup = [btn_opt1, btn_opt2]
         
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
-        img_icon1.image = UIImage(named: IPI_IMAGES.icon_4)  // No. 4
-        img_icon2.image = UIImage(named: IPI_IMAGES.success) // chulo naranja
-        img_icon3.image = UIImage(named: IPI_IMAGES.success) // chulo naranja
+        img_icon1.image = UIImage(named: IPI_IMAGES.icon_4)
+        img_icon2.image = UIImage(named: IPI_IMAGES.success_orange)
+        img_icon3.image = UIImage(named: IPI_IMAGES.success_orange)
         
-        progressBar.heightAnchor.constraint(equalToConstant: 30)
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        progressBar.setProgress(progressValue, animated: false)
         
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = TAG_OPTION_01
-        lbl_option2.tag = TAG_OPTION_02
+        lbl_option1.tag = TAG_OPTION_YES
+        lbl_option2.tag = TAG_OPTION_NOT
         
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -992,6 +932,11 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_31() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progressValue: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_31.text1
         lbl_text2.text = IPI_COURSE.PAGE_31.text2
         lbl_text3.text = IPI_COURSE.PAGE_31.text3
@@ -1005,6 +950,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
         
+        setButtonTitle(button: btn_next, title: Buttons.next)
         setButtonImages(button: btn_opt1, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         setButtonImages(button: btn_opt2, normal: IPI_IMAGES.check, hover: IPI_IMAGES.check_hover)
         
@@ -1013,12 +959,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_5)
         
-        progressBar.heightAnchor.constraint(equalToConstant: 30)
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
+        progressBar.setProgress(progressValue, animated: false)
         
         // SET TAP ACTION TO LABEL OPTION
-        lbl_option1.tag = TAG_OPTION_01
-        lbl_option2.tag = TAG_OPTION_02
+        lbl_option1.tag = TAG_OPTION_YES; btn_opt1.tag = TAG_OPTION_YES
+        lbl_option2.tag = TAG_OPTION_NOT; btn_opt2.tag = TAG_OPTION_NOT
         
         let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
         lbl_option1.isUserInteractionEnabled = true
@@ -1045,10 +991,15 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_32() {
+        //Get amount of questionary
+        questionaryValue = AplicationRuntime.sharedManager.getQuestionaryValue()
+        let progress: Float = Float(questionaryValue) / 5
+        
+        // Fill view
         
         //Set labels
-        lbl_text1.text = IPI_COURSE.PAGE_32.text_1Y // progress > 0.8 ? text_y : text_n
-        lbl_text2.text = IPI_COURSE.PAGE_32.text_2Y // progress > 0.8 ? text_y : text_n
+        lbl_text1.text = progress >= 0.8 ? IPI_COURSE.PAGE_32.text_1Y : IPI_COURSE.PAGE_32.text_1N
+        lbl_text2.text = progress >= 0.8 ? IPI_COURSE.PAGE_32.text_2Y : IPI_COURSE.PAGE_32.text_2N
         lbl_text3.text = IPI_COURSE.PAGE_32.text3
         
         //Set Images
@@ -1336,21 +1287,20 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     private func checkFillWord () -> Bool {
         let answer_array = Array(fill_word_answer)
         var isAnswer = true
+        var currentPosition = 0
         
         //Check characters
-        for tf in textField_list {
+        for tf in textFieldToFill {
             if tf.text?.uppercased() != String(answer_array[tf.tag]).uppercased() {
                 isAnswer = false
-                tf.text = nullString
-                view_list[tf.tag].backgroundColor = Colors().getColor(from: ConseColors.pink_light.rawValue)
+                view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.pink_light.rawValue)
             }
+            currentPosition += 1
         }
         
         //Clean form
-        for tf in textField_list {
-            if !isAnswer && tf.isEnabled {
-                tf.text = nullString
-            }
+        for tf in textFieldToFill {
+            tf.text = nullString
         }
         
         return isAnswer
@@ -1402,91 +1352,26 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)
         }
     }
-/*
-    @IBAction func checking_page_15(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_1_Q1.rawValue, forModule: TopicsIDs.mod_02.rawValue)
-            nextPage(nil)
+    
+    @IBAction func checking_questionary (_ sender: UIButton) {
+        
+        // verifica que se haya respondido
+        var isAnswered = false
+        for op in radioGroup {
+            if op.isSelected {
+                isAnswered = true
+                questionaryValue += op.tag
+            }
         }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_15.ERROR, inbold: IPI_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
+        
+        guard isAnswered else {
+            mainDelegate?.showMessageInMain(withMessage: ErrorMessages.unselectOption)
+            return
         }
+        
+        // Guarda el ponderado de respuestas
+        AplicationRuntime.sharedManager.setCourseFormValue(value: questionaryValue)
+        
+        nextPage(nil)
     }
-
-    @IBAction func checking_page_31(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q1.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
-        }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
-        }
-    }
-
-    @IBAction func checking_page_32(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q2.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
-        }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
-        }
-    }
-
-    @IBAction func checking_page_33(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q3.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
-        }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
-        }
-    }
-
-    @IBAction func checking_page_34(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q4.rawValue, forModule: TopicsIDs.mod_03.rawValue)
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.correct_answer, inbold: nil, type: .success)
-        }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
-        }
-    }
-    @IBAction func checking_page_47(_ sender: UIButton) {
-        if checkingQuestionary() {
-            saveActivity(activity: ActivitiesAbreviature.MOD_4_Q1.rawValue, forModule: TopicsIDs.mod_04.rawValue)
-            nextPage(nil)
-        }
-        else {
-            courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
-        }
-    }
-
-    @IBAction func checking_page_48(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_48.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_49(_ sender: UIButton) {
-        textField1.text?.trimmingCharacters(in: .whitespaces) == EmergencyStrings.line_155 ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_50(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_50.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_51(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_51.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_52(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_52.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_53(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_53.ERROR, inbold: nil, type: .failed)
-    }
-
-    @IBAction func checking_page_54(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
-    }*/
 }

@@ -296,3 +296,18 @@ class SliderData {
                 SliderData(title: IPI_COURSE.PAGE_15.slide2_title, message: IPI_COURSE.PAGE_15.slide2_text)]
     }
 }
+
+/** Modelo para mapear las opciones de acuerdo a pais de origen - destino **/
+class PlanYourTripOptions {
+    
+    var id : Int!
+    var icon : String!
+    
+    init() {
+    }
+    
+    init(id: Int, icon: String) {
+        self.id = id
+        self.icon = icon
+    }
+}

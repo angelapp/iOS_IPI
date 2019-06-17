@@ -28,6 +28,7 @@ enum IPIKeys: String {
     case isThereAnAvatar
     case nose
     case progress
+    case questionaryValue
     case states
     case user
     case userJSON

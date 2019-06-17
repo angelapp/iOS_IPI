@@ -14,6 +14,8 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
 
     // Buttons
     @IBOutlet weak var btn_pickerCancel: UIButton!
+    @IBOutlet weak var btn_nationality: UIButton!
+    @IBOutlet weak var btn_destination: UIButton!
     @IBOutlet weak var btn_pickerConfirm: UIButton!
 
     // Conteiners
@@ -42,7 +44,7 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
 
     // List for spinners
     var nationalitiesList: Array<Country> = []
-    var destinationspList: Array<Country> = []
+    var destinationsList: Array<Country> = []
 
     // Variables for items selected
     var nationalityID: Int!
@@ -53,7 +55,23 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
         super.viewDidLoad()
 
         loadData()
-
+        
+        cnt_pickers.isHidden = true
+        picker.delegate = self
+        picker.dataSource = self
+        
+        // Add gesture for go back
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .left
+        
+        view.addGestureRecognizer(edgePan)
+    }
+    
+    // Acction for go back with a gesture
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .ended {
+            mainDelegate?.addToContainer(viewControllerID: .selectActivies)
+        }
     }
 
     // Private functions
@@ -65,11 +83,9 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
         promt_nationality.text = Labels.hint_spinner
         promt_destination.text = Labels.hint_spinner
 
-        //Disable Buttons
-        
-
-        //Load nationality data
-         nationalitiesList = AplicationRuntime.sharedManager.getCountries()
+        //Load data from app runtime
+        nationalitiesList = AplicationRuntime.sharedManager.getCountries()
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
     }
 
      /// Hidden picker view
@@ -77,14 +93,18 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
         picker.isHidden = !showPicker
         cnt_pickers.isHidden =  !showPicker
     }
+    
+    private func showPlan() {
+        mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
+    }
 
      /// Prepare request
      private func prepareRequest() {
 
          // Check if data is completed and correct
          guard nationalityID != nil, destinationID != nil, nationalityID != destinationID else { return }
-
-        sendRequest(from: String(nationalityID), to: String(destinationID))
+        
+         sendRequest(from: String(nationalityID), to: String(destinationID))
      }
 
      /// Set get Request
@@ -109,7 +129,7 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
                 if !succeed, !message.isEmpty {
                     print(message)
                 }
-//                self.startCose()
+                self.showPlan()
                 break
 
             case .error(let error):
@@ -118,13 +138,12 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
 
             case .succeededObject(let objReceiver):
 
-                let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
+                let planModel = Mapper<PlanYourTripModel>().map(JSON: objReceiver as! [String: Any])
 
                 // Save configuration data in Local and set to runtime
-//                AplicationRuntime.sharedManager.setAppConfig(config: config!)
-//                StorageFunctions.saveAppConfigInLocal(config: config!)
+                AplicationRuntime.sharedManager.setPlanTrip(plan: planModel)
 
-//                self.startCose()
+                self.showPlan()
                 break
 
             default:
@@ -135,10 +154,123 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
     
     // MARK: - UIPickerView Delegate
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
+        
+        switch pickerView.tag {
+            
+        case nationality:
+            return nationalitiesList.count
+            
+        case destination:
+            return destinationsList.count
+            
+        default:
+            return 0
+        }
+    }
+    
+    // Set font to the label and set content
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        //custom label
+        let pickerLabel = UILabel()
+        pickerLabel.numberOfLines = 0
+        pickerLabel.sizeToFit()
+        pickerLabel.textColor = UIColor.black
+        pickerLabel.textAlignment = NSTextAlignment.center
+        
+        switch pickerView.tag {
+            
+            case nationality:
+                pickerLabel.text = nationalitiesList[row].name
+                break
+            
+            case destination:
+                pickerLabel.text = destinationsList[row].name
+                break
+            
+            default:
+                break
+        }
+        
+        return pickerLabel
+    }
+    
+    //action for event onchange
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        switch pickerView.tag {
+            
+            case nationality:
+                promt_nationality.text = nationalitiesList[row].name
+                nationalityID = nationalitiesList[row].id
+            break
+            
+            case destination:
+                promt_destination.text = destinationsList[row].name
+                destinationID = destinationsList[row].id
+                break
+            
+            default:
+                break
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 45
+    }
+    
+    // MARK: - Action buttons
+    @IBAction func actionButtons(_ sender: UIButton) {
+        
+        switch sender {
+            
+            case btn_nationality:
+                picker.tag = nationality
+                
+                picker.reloadAllComponents()
+                picker.selectRow(0, inComponent: 0, animated: false)
+                showHiddenPicker(showPicker: true)
+                return
+            
+            case btn_destination:
+                
+                guard nationalityID != nil else {
+                    mainDelegate?.showMessageInMain(withMessage: ErrorMessages.completeInformation)
+                    return
+                }
+                
+                picker.tag = destination
+                destinationsList = AplicationRuntime.sharedManager.getCountries(fromCountry: nationalityID)
+                
+                picker.reloadAllComponents()
+                picker.selectRow(0, inComponent: 0, animated: false)
+                showHiddenPicker(showPicker: true)
+                
+                return
+
+            case btn_pickerConfirm:
+                
+                if picker.tag == nationality {
+                    promt_nationality.text = nationalitiesList[picker.selectedRow(inComponent: 0)].name
+                    nationalityID = nationalitiesList[picker.selectedRow(inComponent: 0)].id
+                }
+                else {
+                    promt_destination.text = destinationsList[picker.selectedRow(inComponent: 0)].name
+                    destinationID = destinationsList[picker.selectedRow(inComponent: 0)].id
+                    
+                    prepareRequest()
+                }
+                
+                showHiddenPicker(showPicker: false)
+                return
+
+            default:
+                showHiddenPicker(showPicker: false)
+                return
+        }
     }
 }

@@ -41,12 +41,22 @@ enum ViewControllerID: String, CaseIterable {
     case leftMenu
     case swMenu
     case contactUs
-    case beforeYourTripVC, planYourTripVC, savedTripVC
+    case beforeYourTripVC, savedTripVC
 
     // Main
     case main, selectActivies
     case course, courseMessage, progress
-
+    
+    // Plan your trip
+    case selectCountries, planYourTripMenu, planYourTrip
+    case migrationRequirements
+    case countryData, generalData, weatherData, transportData
+    case basicRights, basicRights_Tab1, basicRights_Tab2
+    case refugeeForm
+    case visas
+    case nationalizationRequirements
+    case phonebook
+    case documents
 
     static var asArray: [ViewControllerID] {return self.allCases}
 
@@ -80,6 +90,9 @@ enum CellID: String {
     
     // Cells for progress
     case progress
+    
+    // cell for plan your trip options
+    case planYourTripOption
 }
 
 /// Tag for popup message

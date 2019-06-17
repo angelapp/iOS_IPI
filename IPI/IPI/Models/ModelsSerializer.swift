@@ -15,11 +15,18 @@ class CorporatePhoneBook: Mappable {
     
     var id: Int!
     var name: String!
+//    var descrition: String!
+//    var phone: String!
     var mobile_phone: String!
     var address: String!
+//    var url: String!
+//    var twitter: String!
+//    var email: String!
+//    var schedule: String!
     var latitude: Float!
     var longitude: Float!
     var organization_type: Int!
+//    var icon: String!
     var city: Int!
     var is_active: Bool!
     
@@ -590,16 +597,16 @@ class UserAvatar: Mappable {
 /// Model for mapping destination country Information
 class PlanYourTripModel: Mappable {
     
-    var general_country_data: GeneralCountryDataModel!
-    var refugee_aplication: RefugeeAplication!
-    var nationalization_requirements: NationalizationRequirements!
-    var visas: Array<NameDescription>!
-    ///country origin and country target filter
-    var migrations_requirements: Array<MigrationsRequirementsModel>!
-    var temp_by_city: Array<TempByCityModel>!
-    var public_tranportation_info: Array<TransportationInfoModel>!
     //country origin and country target filter
     var basic_rights: Array<BasicRight>!
+    ///country origin and country target filter
+    var migrations_requirements: Array<MigrationsRequirementsModel>!
+    var general_country_data: GeneralCountryDataModel!
+    var nationalization_requirements: NationalizationRequirements!
+    var refugee_aplication: RefugeeAplication!
+    var visas: Array<VisaModel>!
+    var temp_by_city: Array<TempByCityModel>!
+    var public_tranportation_info: Array<TransportationInfoModel>!
     var phonebook: Array<CorporatePhoneBook>!
     var library: Array<LibraryDocument>!
     
@@ -702,10 +709,13 @@ class NationalizationRequirements: Mappable {
     }
 }
 
-// Modelo Visas revisar contra advance
-class NameDescription: Mappable {
+// Modelo Visas
+class VisaModel: Mappable {
+    var id: Int!
     var name: String!
     var description: String!
+    var is_active: Bool!
+    var target_country: Int!
     
     init() {}
     
@@ -713,8 +723,11 @@ class NameDescription: Mappable {
     }
     
     func mapping(map: Map) {
+        id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
         description <- map[JSONKeys.description]
+        is_active <- map[JSONKeys.is_active]
+        target_country <- map[JSONKeys.target_country]
     }
 }
 

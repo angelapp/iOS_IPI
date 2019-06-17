@@ -27,7 +27,6 @@ class SelectActivitiesViewController: UIViewController {
         self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
         
         setButtonTitle(button: btn_planYourTrip, title: Buttons.plan_your_trip)
-        btn_planYourTrip.isHidden = true
         
         btn_basicConcepts.titleLabel?.lineBreakMode = .byWordWrapping
         btn_basicConcepts.titleLabel?.textAlignment = .center
@@ -47,6 +46,7 @@ class SelectActivitiesViewController: UIViewController {
             break
             
         default:
+            mainDelegate?.addToContainer(viewControllerID: .selectCountries)
             break
         }
     }

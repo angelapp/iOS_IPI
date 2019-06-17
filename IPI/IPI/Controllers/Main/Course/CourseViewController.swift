@@ -150,7 +150,10 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
             stopAudio(audio: isPlaying)
         }
         
-        guard currentIndex < maxPageIndex else { return }
+        guard currentIndex < maxPageIndex else {
+            mainDelegate?.addToContainer(viewControllerID: .selectActivies)
+            return
+        }
 		
 		currentIndex += 1
         AplicationRuntime.sharedManager.setProgress(progress: currentIndex)
@@ -244,8 +247,7 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
                 // Case without footer
                 case CURSO_PTN.PAGE_01.rawValue,
                      CURSO_PTN.PAGE_10.rawValue...CURSO_PTN.PAGE_14.rawValue,
-                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_25.rawValue,
-                     CURSO_PTN.PAGE_27.rawValue...CURSO_PTN.PAGE_31.rawValue,
+                     CURSO_PTN.PAGE_18.rawValue...CURSO_PTN.PAGE_31.rawValue,
                      CURSO_PTN.PAGE_33.rawValue:
                     isBtnNext = false
                     break

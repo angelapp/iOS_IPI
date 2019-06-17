@@ -25,6 +25,8 @@ class MainViewController: UIViewController, MainProtocol {
     var courseVC: CourseViewController!
     var contactFormVC: ContactUsViewController!
     var selectActivitiesVC: SelectActivitiesViewController!
+    var selectCountriesVC: SelectCountriesViewController!
+    var planYourTripOptionsVC: PlanYourTripMenuViewController!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -69,6 +71,8 @@ class MainViewController: UIViewController, MainProtocol {
         courseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.course.rawValue) as? CourseViewController
         contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.contactUs.rawValue) as? ContactUsViewController
         selectActivitiesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectActivies.rawValue) as? SelectActivitiesViewController
+        selectCountriesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectCountries.rawValue) as? SelectCountriesViewController
+        planYourTripOptionsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.planYourTripMenu.rawValue) as? PlanYourTripMenuViewController
 
         addToContainer(viewControllerID: .selectActivies)
     }
@@ -97,6 +101,16 @@ class MainViewController: UIViewController, MainProtocol {
             self.updateViewBackground()
             btn_progress.isHidden = true
             return contactFormVC
+            
+        case .selectCountries:
+            self.updateViewBackground()
+            btn_progress.isHidden = true
+            return selectCountriesVC
+            
+        case .planYourTripMenu:
+            self.updateViewBackground()
+            btn_progress.isHidden = true
+            return planYourTripOptionsVC
 
 //        case .videoPlayer:
 //            btn_progress.isHidden = false
@@ -172,6 +186,12 @@ class MainViewController: UIViewController, MainProtocol {
     /** Mostar mensajes en el main */
     func showMessageInMain(withMessage msn: String) {
         self.showErrorMessage(withMessage: msn)
+    }
+    
+    func showToastInMain (withMessage msn: String){
+        self.view.makeToast(message: Labels.progress_toast_message,
+                            duration: HRToastDefaultDuration,
+                            position: HRToastPositionDefault as AnyObject)
     }
 
 

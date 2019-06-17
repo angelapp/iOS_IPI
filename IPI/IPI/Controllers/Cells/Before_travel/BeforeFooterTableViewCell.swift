@@ -29,6 +29,6 @@ class BeforeFooterTableViewCell: UITableViewCell {
     
     // MARK: - Action
     @IBAction func action_buttons(_ sender: UIButton) {
-        mainDelegate?.addToContainer(viewControllerID: .planYourTripVC)
+        mainDelegate?.addToContainer(viewControllerID: .selectCountries)
     }
 }

@@ -72,7 +72,6 @@ extension UIViewController {
 	func playVideo(videoSTR: String) {
         printDebugMessage(tag: videoSTR)
 		let videoURL = NSURL(string: "http://nrc.org.co/conse/Lideres_Lideresas.mp4")
-        printDebugMessage(tag: "\(videoURL)")
 		let player = AVPlayer(url: videoURL! as URL)
         
 		
