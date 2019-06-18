@@ -923,25 +923,21 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPf-H8-ilT">
-                                        <rect key="frame" x="319" y="8" width="40" height="40"/>
+                                        <rect key="frame" x="259.5" y="8" width="99.5" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="TZG-en-bAT"/>
-                                            <constraint firstAttribute="width" secondItem="VPf-H8-ilT" secondAttribute="height" multiplier="1:1" id="lbh-jh-nMc"/>
+                                            <constraint firstAttribute="width" secondItem="VPf-H8-ilT" secondAttribute="height" multiplier="167:67" id="SJY-on-Gt7"/>
+                                            <constraint firstAttribute="height" constant="40" id="TpC-a0-kwK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" image="btn_bocina">
+                                        <state key="normal" image="btn_lisent">
                                             <color key="titleColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <state key="selected" image="btn_lisent_hover"/>
+                                        <state key="highlighted" image="btn_lisent_hover"/>
                                         <connections>
                                             <action selector="actionButtons:" destination="oJy-Is-kqL" eventType="touchUpInside" id="bnU-uP-hzT"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aV-U8-Awv">
-                                        <rect key="frame" x="271.5" y="19" width="39.5" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" red="1" green="0.46257907152175903" blue="0.0077000055462121964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fb5-h2-Jjd" firstAttribute="centerY" secondItem="pj4-WB-dpX" secondAttribute="centerY" id="BLh-6p-3hI"/>
@@ -950,11 +946,8 @@
                                     <constraint firstAttribute="trailing" secondItem="MT1-WG-mmY" secondAttribute="trailing" id="UGo-Qe-WQM"/>
                                     <constraint firstItem="MT1-WG-mmY" firstAttribute="leading" secondItem="pj4-WB-dpX" secondAttribute="leading" id="YBd-Hm-U9F"/>
                                     <constraint firstItem="MT1-WG-mmY" firstAttribute="top" secondItem="VPf-H8-ilT" secondAttribute="bottom" constant="8" id="eiA-jD-zWT"/>
-                                    <constraint firstItem="VPf-H8-ilT" firstAttribute="leading" secondItem="6aV-U8-Awv" secondAttribute="trailing" constant="8" id="jyb-IM-4uL"/>
                                     <constraint firstAttribute="bottom" secondItem="MT1-WG-mmY" secondAttribute="bottom" id="lmG-pP-nfq"/>
-                                    <constraint firstItem="6aV-U8-Awv" firstAttribute="centerY" secondItem="pj4-WB-dpX" secondAttribute="centerY" id="p64-Uh-ZXu"/>
                                     <constraint firstItem="VPf-H8-ilT" firstAttribute="top" secondItem="pj4-WB-dpX" secondAttribute="top" constant="8" id="pdy-xa-GnJ"/>
-                                    <constraint firstItem="6aV-U8-Awv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fb5-h2-Jjd" secondAttribute="trailing" constant="8" symbolic="YES" id="sPG-2z-lvi"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lsY-p2-DCx">
@@ -992,6 +985,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MzF-Db-fR4"/>
                     </view>
+                    <connections>
+                        <outlet property="btn_back" destination="fb5-h2-Jjd" id="leO-tC-U9a"/>
+                        <outlet property="btn_speaker" destination="VPf-H8-ilT" id="M4n-gE-p06"/>
+                        <outlet property="container" destination="yg2-6i-mzn" id="nYQ-FJ-lTn"/>
+                        <outlet property="img_icon" destination="lsY-p2-DCx" id="pa8-do-YaA"/>
+                        <outlet property="lbl_title" destination="kjg-Hb-dgW" id="jTg-Fo-DQs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ys-Qh-IP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -10151,6 +10151,8 @@ NORUEGO PARA REFUGIADOS</string>
         <image name="btn_contactanos" width="394" height="56"/>
         <image name="btn_editar_perfil" width="394" height="56"/>
         <image name="btn_intro" width="394" height="56"/>
+        <image name="btn_lisent" width="334" height="134"/>
+        <image name="btn_lisent_hover" width="334" height="134"/>
         <image name="btn_menu" width="48" height="39"/>
         <image name="btn_prepara" width="394" height="56"/>
         <image name="btn_selector" width="180" height="180"/>

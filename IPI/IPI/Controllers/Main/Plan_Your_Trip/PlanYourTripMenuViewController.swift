@@ -27,11 +27,6 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
         colletion_options!.alwaysBounceVertical = true
         optionList = AplicationRuntime.sharedManager.getPlanTripOptions()
         
-        for op in optionList {
-            printDebugMessage(tag: "id: \(op.id ?? -1125) image: \(op.icon ?? "T.T")")
-        }
-        
-        
         self.colletion_options.dataSource = self
         self.colletion_options.delegate = self
     }
