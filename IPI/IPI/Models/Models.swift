@@ -243,7 +243,7 @@ class BeforeTravelItem {
 class ExampleData {
     var header : String!
     var body : [String]!
-    
+
     init() {
     }
 
@@ -252,7 +252,7 @@ class ExampleData {
         self.body = body
     }
 
-    /** Arma la lista ejemplos del curso 
+    /** Arma la lista ejemplos del curso
     - Returns: Arreglo la información por secciones
     **/
     func getSampleData() -> [ExampleData] {
@@ -261,7 +261,7 @@ class ExampleData {
                 ExampleData(header: IPI_COURSE.PAGE_07.header3, body: [IPI_COURSE.PAGE_07.boby3]),
                 ExampleData(header: IPI_COURSE.PAGE_07.header4, body: [IPI_COURSE.PAGE_07.boby4])]
     }
-    
+
     /** Arma lista cuestionario
      - Returns: Arreglo la información por secciones
      **/
@@ -278,15 +278,15 @@ class ExampleData {
 class SliderData {
     var title : String!
     var message : String!
-    
+
     init() {
     }
-    
+
     init(title: String, message: String) {
         self.title = title
         self.message = message
     }
-    
+
     /** Arma la lista para el slider
      - Returns: Arreglo la información por secciones
      */
@@ -299,15 +299,28 @@ class SliderData {
 
 /** Modelo para mapear las opciones de acuerdo a pais de origen - destino **/
 class PlanYourTripOptions {
-    
+
     var id : Int!
+
+    /// Name of the resource for draw option button
     var icon : String!
-    
+
+    /// Name of the resource for draw option detail
+    var logo : String!
+    var title : String!
+
     init() {
     }
-    
+
     init(id: Int, icon: String) {
         self.id = id
         self.icon = icon
+    }
+
+    init(id: Int, icon: String, logo: String, title: String) {
+        self.id = id
+        self.icon = icon
+        self.logo = logo
+        self.title = title
     }
 }

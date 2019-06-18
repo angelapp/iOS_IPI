@@ -46,13 +46,13 @@ enum ViewControllerID: String, CaseIterable {
     // Main
     case main, selectActivies
     case course, courseMessage, progress
-    
+
     // Plan your trip
     case selectCountries, planYourTripMenu, planYourTrip
     case migrationRequirements
     case countryData, generalData, weatherData, transportData
     case basicRights, basicRights_Tab1, basicRights_Tab2
-    case refugeeForm
+    case refugeRequest
     case visas
     case nationalizationRequirements
     case phonebook
@@ -69,28 +69,28 @@ enum ViewControllerID: String, CaseIterable {
 enum CellID: String {
     // CElls for Authentication
     case signupCell, signinCell, recoveryPassCell
-    
+
     // CELLs for About NRC
     case aboutTabButtonsCell, aboutTab01Cell, aboutTab02Cell, aboutTab03Cell
-    
+
     // CELLs for Contact US
     case contactUsCell
-    
+
     // Cells for Before of travel
     case beforeHeader, beforeBody, beforeFooter
-    
+
     // CELLS for Course
     case COURSE01, COURSE02, COURSE03, COURSE04, COURSE05, COURSE06, COURSE07, COURSE08, COURSE09, COURSE10
     case COURSE11, COURSE12, COURSE13, COURSE14, COURSE15, COURSE16, COURSE17, COURSE18, COURSE19, COURSE20
     case COURSE21, COURSE22, COURSE23, COURSE24, COURSE25, COURSE26, COURSE27, COURSE28, COURSE29, COURSE30
     case COURSE31, COURSE32, COURSE33, COURSE34, COURSE35, COURSE36, COURSE37, COURSE38, COURSE39, COURSE40
     case COURSE41, COURSE42
-    
+
     case header, body, footer, courseHeader, courseFooter, courseMessage, courseSlider
-    
+
     // Cells for progress
     case progress
-    
+
     // cell for plan your trip options
     case planYourTripOption
 }

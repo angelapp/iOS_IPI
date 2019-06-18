@@ -83,9 +83,9 @@ struct IPI_IMAGES {
     static let btn_documents = "btn_documentos"
     static let btn_migration_requirements = "btn_requisitos_mig"
     static let btn_nationalization_requirements = "btn_requisitos_nacionalizacion"
-    static let btn_refugee_form = "btn_solicitud_refugio"
+    static let btn_refuge_request = "btn_solicitud_refugio"
     static let btn_visa = "btn_visas"
-    
+
     static let avatar = "avatar"
     static let btn_change_countries = "btn_change_countries"
     static let btn_download = "btn_download"
@@ -113,7 +113,7 @@ struct IPI_IMAGES {
     static let icon_requisitos = "icon_requisitos"
     static let icon_solicitud = "icon_solicitud"
     static let icon_visas = "icon_visas"
-    
+
     static let corner_BLUE = "esquina_azul"
     static let corner_PINK = "esquina_rosada"
     static let corner_YELLOW = "bocadillo"

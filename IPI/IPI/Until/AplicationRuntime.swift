@@ -14,13 +14,14 @@ class AplicationRuntime {
     // MARK: - Private properties
     private var appConfig: ApplicationConfiguration!
     private var planYourTrip: PlanYourTripModel!
+    private var currentOption: PlanYourTripOptions!
     private var userData: RegisterUserResponse!
     private var progress: CoursesProgress!
     private var avatar: MyAvatarPieces!
 
     var avatarImage: UIImage!
     var questionaryValue: Int!
-    
+
     weak var mainDelegate: MainProtocol?
     weak var courseDelegate: CourseViewControllerDelegate?
 
@@ -56,9 +57,13 @@ class AplicationRuntime {
     public func setProgress(progress: CoursesProgress) {
         self.progress = progress
     }
-    
+
     public func setPlanTrip(plan: PlanYourTripModel!) {
         self.planYourTrip = plan
+    }
+
+    public func setCurrentOption(currentOption: PlanYourTripOptions!) {
+        self.currentOption = currentOption
     }
 
     /// Guarda el indice del curso
@@ -68,11 +73,11 @@ class AplicationRuntime {
 
         StorageFunctions.saveProgress(progress: self.progress)
     }
-    
+
     /// Guarda el valor de las respuestas afirmativas
     public func setCourseFormValue(value: Int) {
         self.questionaryValue = value
-        
+
         StorageFunctions.saveQuestionaryValue(value: value)
     }
 
@@ -80,52 +85,80 @@ class AplicationRuntime {
     public func getAppConfig() -> ApplicationConfiguration! {
         return self.appConfig
     }
-    
+
     public func getPlanTrip() -> PlanYourTripModel! {
         return self.planYourTrip
     }
-    
+
+    public func getCurrentOption() -> PlanYourTripOptions! {
+        return self.currentOption
+    }
+
     public func getPlanTripOptions() -> Array<PlanYourTripOptions> {
-        
+
         guard planYourTrip != nil else { return [] }
-        
+
         var options: Array<PlanYourTripOptions> = []
-        
+
         //Check if Migration requirements is an available option
         if planYourTrip.migrations_requirements != nil, planYourTrip.migrations_requirements.count > 0 {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.MIGRATIONS_REQUIREMENTS.rawValue, icon: IPI_IMAGES.btn_migration_requirements))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.MIGRATIONS_REQUIREMENTS.rawValue,
+                                               icon: IPI_IMAGES.btn_migration_requirements,
+                                               logo: IPI_IMAGES.icon_requisitos,
+                                               title: ""))
         }
         //Check if country info is an available option
         if (planYourTrip.general_country_data.currency != nil) ||
            (planYourTrip.temp_by_city != nil && planYourTrip.temp_by_city.count > 0) ||
            (planYourTrip.public_tranportation_info != nil && planYourTrip.public_tranportation_info.count > 0) {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue, icon: IPI_IMAGES.btn_data))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue,
+                                               icon: IPI_IMAGES.btn_data
+                                               logo: IPI_IMAGES.icon_datos,
+                                               title: ""))
         }
         //Check if basic rights is an available option
         if planYourTrip.basic_rights != nil, planYourTrip.basic_rights.count > 0 {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue, icon: IPI_IMAGES.btn_basic_rights))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue,
+                                               icon: IPI_IMAGES.btn_basic_rights,
+                                               logo: IPI_IMAGES.icon_derechos,
+                                               title: ""))
         }
         //Check if refugee apply from is an available option
         if planYourTrip.refugee_aplication != nil, planYourTrip.refugee_aplication.case_study != nil {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.REFUGEE_APLICATION.rawValue, icon: IPI_IMAGES.btn_refugee_form))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.REFUGEE_APLICATION.rawValue,
+                                               icon: IPI_IMAGES.btn_refuge_request
+                                               logo: IPI_IMAGES.icon_solicitud,
+                                               title: ""))
         }
         //Check if visas is an available option
         if planYourTrip.visas != nil, planYourTrip.visas.count > 0 {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.VISAS.rawValue, icon: IPI_IMAGES.btn_visa))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.VISAS.rawValue,
+                                               icon: IPI_IMAGES.btn_visa
+                                               logo: IPI_IMAGES.icon_visas,
+                                               title: ""))
         }
         //Check if nationalization requirements is an available option
         if planYourTrip.nationalization_requirements != nil, planYourTrip.nationalization_requirements.description != nil {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.NATIONALIZATION_REQUIREMENTS.rawValue, icon: IPI_IMAGES.btn_nationalization_requirements))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.NATIONALIZATION_REQUIREMENTS.rawValue,
+                                               icon: IPI_IMAGES.btn_nationalization_requirements
+                                               logo: IPI_IMAGES.icon_requisitos,
+                                               title: ""))
         }
         //Check if phonebook is an available option
         if planYourTrip.phonebook != nil, planYourTrip.phonebook.count > 0 {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue, icon: IPI_IMAGES.btn_phonebook))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue,
+                                               icon: IPI_IMAGES.btn_phonebook
+                                               logo: IPI_IMAGES.icon_directorio,
+                                               title: ""))
         }
         //Check if library is an available option
         if planYourTrip.library != nil, planYourTrip.library.count > 0 {
-            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.LIBRARY.rawValue, icon: IPI_IMAGES.btn_documents))
+            options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.LIBRARY.rawValue,
+                                               icon: IPI_IMAGES.btn_documents
+                                               logo: IPI_IMAGES.icon_documentos,
+                                               title: ""))
         }
-        
+
         return options
     }
 
@@ -240,13 +273,13 @@ class AplicationRuntime {
         guard progress != nil else { return 0 }
         return progress.COURSE_INDEX != nil ? progress.COURSE_INDEX : 0
     }
-    
+
     public func getQuestionaryValue() -> Int {
         if self.questionaryValue == nil {
             self.questionaryValue = StorageFunctions.loadQuestionaryValue()
         }
-        
-        
+
+
         printDebugMessage(tag: "load value \(questionaryValue ?? -1125)")
         return self.questionaryValue
     }

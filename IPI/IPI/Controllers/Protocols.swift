@@ -72,3 +72,9 @@ protocol CourseViewControllerDelegate : class {
 protocol BeforeTravelViewControllerDelegate : class {
     func audioManager(audioID id: Int, play: Bool)
 }
+
+// Protocolos del controllador principal
+protocol PlanYourTripViewControllerDelegate: class {
+    func addToContainer(viewControllerID id: ViewControllerID)
+    func removeOfContainer()
+}
