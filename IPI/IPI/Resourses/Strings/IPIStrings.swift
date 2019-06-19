@@ -174,6 +174,16 @@ struct Labels {
 
     static let select_your_destination = "¿Cuál es tu destino?"
     static let select_your_nationality = "¿Cuál es tu nacionalidad?"
+    
+    //Titles for plan your trip
+    static let migration_requirements  = "REQUISITOS \nMIGRATORIOS"
+    static let country_general_data = "DATOS ÚTILES \nDE %@"
+    static let basic_rights = "DERECHOS \nBÁSICOS "
+    static let refuge_request  = "SOLICITUD \nDE REFUGIO"
+    static let visa = "VISAS"
+    static let nationalization_requirements = "REQUISITOS DE \nNACIONALIZACIÓN"
+    static let phonebook = "DIRECTORIO"
+    static let documents = "DOCUMENTOS"
 }
 
 // MARK: - Error Messages

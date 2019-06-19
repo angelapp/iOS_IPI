@@ -1144,11 +1144,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         courseDelegate?.nextPage()
     }
 
-//    @IBAction func endCourse(_ sender: UIButton) {
-//        mainDelegate?.setImageBackground(withName: nullString)
-//        mainDelegate?.addToContainer(viewControllerID: .myCourses)
-//    }
-
     // MARK: - update buttons states
     @objc func tapLabel(sender: UITapGestureRecognizer) {
 

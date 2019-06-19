@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDelegate {
+class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  PlanYourTripViewControllerDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_back: UIButton!
@@ -20,7 +21,7 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
     @IBOutlet weak var container: UIView!
 
     // MARK: - Properties
-    var logView: [ViewControllerID]! = []
+    var logView: [Int]! = []
     var option: PlanYourTripOptions!
 
     // properties for play audio
@@ -37,17 +38,20 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
     var refugeRequestVC: RefugeRequestViewController!
     var visasVC: VisasViewController!
 
-    weak var maindelegate: MainProtocol?
+    weak var mainDelegate: MainProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
+        
         // load current option
         option = AplicationRuntime.sharedManager.getCurrentOption()
+        printDebugMessage(tag: "option tapped id: \(option.id ?? -11)\n audioID: \(option.audioID ?? -22) icon:\(option.icon ?? "himesama n.n")")
 
         // load navigation bar and init viewController child
         drawNavbar()
-        initChildView()
+//        initChildView()
 
         btn_speaker.tag = option.audioID
     }
@@ -56,7 +60,10 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
     /** init child viewControllers */
     private func drawNavbar(){
         // Check if exist de option, else return to Plan Your Trip Menu
-        guard option != nil else { back(nil) }
+        guard option != nil else {
+            back(nil)
+            return
+        }
 
         img_icon.image = UIImage(named: option.logo)
         lbl_title.text = option.title
@@ -74,7 +81,7 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
         refugeRequestVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.refugeRequest.rawValue) as? RefugeRequestViewController
         visasVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.visas.rawValue) as? VisasViewController
 
-        addToContainer(viewControllerID: option.controllerID)
+        addToContainer(viewControllerID: option.id)
     }
 
     /** Return: viewController, add delegates and properties as appropriate */
@@ -133,6 +140,7 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
     }
 
     private func stopAudio(audio name: String) {
+        
         if let path = Bundle.main.path(forResource: name, ofType:"mp3") {
             let url = URL(fileURLWithPath: path)
 
@@ -153,6 +161,13 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
     private func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_AudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        //Check if the sound that finishes comes from a certain AVAudioPlayer
+        if player == ncrAudio {
+            btn_speaker.isSelected = !btn_speaker.isSelected
+        }
     }
 
     // MARK: - Plan Your Trip Delegate
@@ -188,6 +203,8 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
 
     /** Remove of container and the reference log */
     func removeOfContainer() {
+        
+        guard logView.count > 0 else { return }
 
         // Delete child from parent
         let vc = self.children.last
@@ -206,6 +223,11 @@ class PlanYourTripViewController: UIViewController, PlanYourTripViewControllerDe
 
         // Clean Container
         self.removeOfContainer()
+        
+        // Stop audio if it's playing
+        if ncrAudio != nil && (ncrAudio?.isPlaying)! {
+            stopAudio(audio: isPlaying)
+        }
 
         // Show plan your trip menu (Option List)
         mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)

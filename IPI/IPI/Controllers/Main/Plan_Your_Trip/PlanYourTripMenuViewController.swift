@@ -71,11 +71,10 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
     //Método para ejecutar acción al seleccionar una fila
     @objc func selected(gestureRecognizer: UITapGestureRecognizer){
 
-        //maindelegate?.showMessageInMain(withMessage: "Excuse us, option temporarily disabled")
         let btnTapped = gestureRecognizer.view!
         let tagID = btnTapped.tag
 
-        AplicationRuntime.sharedManager.setCurrentOption(currentOption: colletion_options[tagID])
-        AplicationRuntime.sharedManager.addToContainer(viewControllerID: .planYourTrip)
+        AplicationRuntime.sharedManager.setCurrentOption(currentOption: optionList[tagID])
+        maindelegate?.addToContainer(viewControllerID: .planYourTrip)
     }
 }

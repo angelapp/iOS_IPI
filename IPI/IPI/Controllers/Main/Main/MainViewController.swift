@@ -27,6 +27,7 @@ class MainViewController: UIViewController, MainProtocol {
     var selectActivitiesVC: SelectActivitiesViewController!
     var selectCountriesVC: SelectCountriesViewController!
     var planYourTripOptionsVC: PlanYourTripMenuViewController!
+    var planYourTripVC: PlanYourTripViewController!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -73,6 +74,7 @@ class MainViewController: UIViewController, MainProtocol {
         selectActivitiesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectActivies.rawValue) as? SelectActivitiesViewController
         selectCountriesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectCountries.rawValue) as? SelectCountriesViewController
         planYourTripOptionsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.planYourTripMenu.rawValue) as? PlanYourTripMenuViewController
+        planYourTripVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.planYourTrip.rawValue) as? PlanYourTripViewController
 
         addToContainer(viewControllerID: .selectActivies)
     }
@@ -111,6 +113,11 @@ class MainViewController: UIViewController, MainProtocol {
             self.updateViewBackground()
             btn_progress.isHidden = true
             return planYourTripOptionsVC
+            
+        case .planYourTrip:
+            self.updateViewBackground()
+            btn_progress.isHidden = true
+            return planYourTripVC
 
 //        case .videoPlayer:
 //            btn_progress.isHidden = false
@@ -139,6 +146,7 @@ class MainViewController: UIViewController, MainProtocol {
     /** Add a view controller as container child */
     func addToContainer(viewControllerID id: ViewControllerID) {
 
+        printDebugMessage(tag: "load: \(id.rawValue)")
         let vc = getViewController(viewControllerID: id)
 
 //        // continue is new vc to add is diferent to current top vc

@@ -300,6 +300,7 @@ class SliderData {
 /** Modelo para mapear las opciones de acuerdo a pais de origen - destino **/
 class PlanYourTripOptions {
 
+    var audioID : Int!
     var id : Int!
 
     /// Name of the resource for draw option button
@@ -317,10 +318,11 @@ class PlanYourTripOptions {
         self.icon = icon
     }
 
-    init(id: Int, icon: String, logo: String, title: String) {
+    init(id: Int, icon: String, logo: String, title: String, audioID: Int) {
         self.id = id
         self.icon = icon
         self.logo = logo
         self.title = title
+        self.audioID = audioID
     }
 }
