@@ -9,36 +9,6 @@
 import Foundation
 import ObjectMapper
 
-/* State: pending */
-//class ContactModel: Mappable {
-//    var fullName: String!
-//    var number: String!
-//
-//    init() {}
-//
-//    required init?(map: Map) {}
-//
-//    func mapping(map: Map) {
-//        fullName <- map[JSONKeys.full_name]
-//        number <- map[JSONKeys.number]
-//    }
-//}
-//
-///* State: pending */
-//class ContactListModel: Mappable {
-//
-//    var contacList: Array<ContactModel>!
-//
-//    init() {}
-//
-//    required init?(map: Map) {}
-//
-//    func mapping(map: Map) {
-//        contacList <- map[JSONKeys.contact_emergency_List]
-//    }
-//}
-
-/* State: pending */
 class CourseListModel: Mappable {
 
     var courseList: Array<Course>!
@@ -62,7 +32,6 @@ class ActityCompleted {
     var dateCompleted: String!
 }
 
-// State: succed -- UserActivityProgress in android
 class RequestCompleted: Mappable {
     var user: Int!
     var topic_activity: Int!
@@ -115,14 +84,6 @@ class MyAvatarPieces {
     init() {
     }
 }
-
-/* State: pending */
-//class UserModel {
-//    var email: String!
-//    var username: String!
-//    var token: String!
-//    var id: Int!
-//}
 
 /// Model used for send request by socialnetwork
 class SocialNetworkRegister : Mappable {
@@ -324,5 +285,20 @@ class PlanYourTripOptions {
         self.logo = logo
         self.title = title
         self.audioID = audioID
+    }
+}
+
+/** Model para mapping the answers of PNPI **/
+class PNPIAnswers {
+    var answer_01: Int!
+    var answer_02: Int!
+    var answer_03: Int!
+    var answer_04: Int!
+    var answer_05: Int!
+
+    init() {}
+
+    func getPNPIPorcentage() -> Float {
+        return Float(self.answer_01 + self.answer_02 + self.answer_03 + self.answer_04 + self.answer_05) / 5
     }
 }

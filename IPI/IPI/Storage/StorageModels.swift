@@ -167,40 +167,40 @@ class ProgressActivitiesPreferences: NSObject {
 
 /** Modelo de datos para tener en local los indices del avance de los cursos */
 class ProgressPreferences: NSObject {
-    
+
     var course_index: Int!
-    
+
     /// Inicializa el modelo para almacenar en local apartir del modelo de datos
     /// - Parameter indices: estados
     convenience init(indices: CoursesProgress){
         self.init()
         self.course_index = indices.COURSE_INDEX
     }
-    
+
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
         aCoder.encode(self.course_index as Int, forKey: IPIKeys.courseProgress.rawValue)
     }
-    
+
     /// Crea un diccionario con los datos del modelo
     /// - Returns: EL diccionario de datos del modelo
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
-        
+
         myDic[IPIKeys.courseProgress.rawValue] = self.course_index
-        
+
         return myDic
     }
-    
+
     /// Crea un modelo de datos a aprtir de un diccionario de datos
     /// - Parameter dic: Diccionario de datos
     /// - Returns: Modelo de datos
     class func initProgress(fromDic dic: [String: Any]) -> CoursesProgress {
         let progress = CoursesProgress()
-        
+
         progress.COURSE_INDEX = dic[IPIKeys.courseProgress.rawValue] as? Int ?? 0
-        
+
         return progress
     }
 }
@@ -267,5 +267,65 @@ class MyAvatarPreferences: NSObject {
         avatarPieces.genderID = dic[IPIKeys.gender.rawValue] as? Int ?? 0
 
         return avatarPieces
+    }
+}
+
+/** Modelo de datos para tener en local las respuestas del cuestionario del modulo 3 */
+class MyAnswersPreferences: NSObject {
+
+    var answer_01: Int!
+    var answer_02: Int!
+    var answer_03: Int!
+    var answer_04: Int!
+    var answer_05: Int!
+
+    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
+    /// - Parameter answers: respuestas
+    convenience init(answers: PNPIAnswers){
+        self.init()
+        self.answer_01 = answers.answer_01
+        self.answer_02 = answers.answer_02
+        self.answer_03 = answers.answer_03
+        self.answer_04 = answers.answer_04
+        self.answer_05 = answers.answer_05
+    }
+
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.answer_01 as Int, forKey: IPIKeys.answer_01.rawValue)
+        aCoder.encode(self.answer_02 as Int, forKey: IPIKeys.answer_02.rawValue)
+        aCoder.encode(self.answer_03 as Int, forKey: IPIKeys.answer_03.rawValue)
+        aCoder.encode(self.answer_04 as Int, forKey: IPIKeys.answer_04.rawValue)
+        aCoder.encode(self.answer_05 as Int, forKey: IPIKeys.answer_05.rawValue)
+    }
+
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+
+        myDic[IPIKeys.answer_01.rawValue] = self.answer_01
+        myDic[IPIKeys.answer_02.rawValue] = self.answer_02
+        myDic[IPIKeys.answer_03.rawValue] = self.answer_03
+        myDic[IPIKeys.answer_04.rawValue] = self.answer_04
+        myDic[IPIKeys.answer_05.rawValue] = self.answer_05
+
+        return myDic
+    }
+
+    /// Crea un modelo de datos a apartir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initAvatar(fromDic dic: [String: Any]) -> PNPIAnswers {
+        let answers = PNPIAnswers()
+
+        answers.answer_01 = dic[IPIKeys.answer_01.rawValue] as? Int ?? 0
+        answers.answer_02 = dic[IPIKeys.answer_02.rawValue] as? Int ?? 0
+        answers.answer_03 = dic[IPIKeys.answer_03.rawValue] as? Int ?? 0
+        answers.answer_04 = dic[IPIKeys.answer_04.rawValue] as? Int ?? 0
+        answers.answer_05 = dic[IPIKeys.answer_05.rawValue] as? Int ?? 0
+
+        return answers
     }
 }

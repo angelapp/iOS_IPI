@@ -54,7 +54,7 @@ class StorageFunctions: NSObject {
             storage.saveParameterFromKey(key: IPIKeys.states.rawValue, value: data as AnyObject)
         }
     }
-    
+
     /// Guarda en local, los indices del progreso del curso
     class func saveProgress(progress: CoursesProgress) {
         let storage = StorageConfig.share
@@ -77,6 +77,18 @@ class StorageFunctions: NSObject {
         let strRepresentation = saveData.dictionary()
         if let data = ProgressActivitiesPreferences.archive(course: strRepresentation) {
             storage.saveParameterFromKey(key: IPIKeys.activitiesProgress.rawValue, value: data as AnyObject)
+        }
+    }
+
+    /** Guarda las respuestas del cuestionario del modulo 3 */
+    class func saveAnsewrsInLocal(answers: PNPIAnswers) {
+
+        // Save JSON in local
+        let storage = StorageConfig.share
+        let saveData = MyAnswersPreferences(answers: answers)
+        let strRepresentation = saveData.dictionary()
+        if let data = MyAnswersPreferences.archive(avatar: strRepresentation) {
+            storage.saveParameterFromKey(key: IPIKeys.answers.rawValue, value: data as AnyObject)
         }
     }
 
@@ -132,16 +144,6 @@ class StorageFunctions: NSObject {
         return user
     }
 
-    /*// Get local list data
-    class func getContactList() -> Array<ContactModel>! {
-        let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: IPIKeys.contactList) as! Data? else { return nil }
-        guard let dic = ContactPreferences.unarchive(data: data) else { return nil }
-        let json = ContactPreferences.initContactList(fromDic: dic) as String?
-        let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
-        return contactList?.contacList
-    }*/
-
     /** carga los datos de cursos del, local  */
     class func loadActivitiesProgress() -> Array<Course>! {
         let storage = StorageConfig.share
@@ -177,14 +179,13 @@ class StorageFunctions: NSObject {
 
         }
     }
-    
-    /// Save final questionary value
-    class func saveQuestionaryValue(value: Int) {
-        UserDefaults.standard.set(value, forKey: IPIKeys.questionaryValue.rawValue)
-    }
 
-    /// Load data and return image
-    class func loadQuestionaryValue() -> Int {
-        return UserDefaults.standard.integer(forKey: IPIKeys.questionaryValue.rawValue)
+    /// Get storage Answers
+    class func getAnswers() -> PNPIAnswers! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: IPIKeys.answers.rawValue) as! Data? else { return nil}
+        guard let dic = MyAnswersPreferences.unarchive(data: data) else { return nil }
+        let answers = MyAnswersPreferences.initAvatar(fromDic: dic)
+        return answers
     }
 }

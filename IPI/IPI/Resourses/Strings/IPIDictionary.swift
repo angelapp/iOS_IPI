@@ -16,6 +16,12 @@ enum IPIKeys: String {
     case appConfig
     case avatarPieces
     case avatarImg
+    case answers
+    case answer_01
+    case answer_02
+    case answer_03
+    case answer_04
+    case answer_05
     case courseProgress
     case description
     case eyes
@@ -59,14 +65,14 @@ struct JSONKeys {
     static let address = "address"
     static let avatar_piece = "avatar_piece"
     static let avatar_pieces_list  = "avatar_pieces_list"
-    
+
     //MARK: - B
     static let basic_rights = "basic_rights"
 	static let basic_right_list = "basic_right_list"
 	static let basic_right_type = "basic_right_type"
     static let body_part = "body_part"
     static let body_parts_list = "body_parts_list"
-    
+
     //MARK: - C
     static let call_from_inside_requirements = "call_from_inside_requirements"
     static let call_from_outside_requirements = "call_from_outside_requirements"
@@ -80,7 +86,7 @@ struct JSONKeys {
     static let course = "course"
     static let course_list = "course_list"
     static let course_topics = "course_topics"
-    
+
     //MARK: - D
     // static let date = "date"
     static let date_completed = "date_completed"
@@ -93,37 +99,37 @@ struct JSONKeys {
 	static let document_condition_list = "document_condition_list"
     static let document_condition_types = "document_condition_types"
     static let document_type_list = "document_type_list"
-    
+
     //MARK: - E
     static let email = "email"
 
     //MARK: - F
     static let file = "file"
-    
+
     //MARK: - G
     static let gender = "gender"
     static let gender_list = "gender_list"
 	static let general_configuration = "general_configuration"
     static let general_country_data = "general_country_data"
-    
+
     //MARK: - H
-    
+
     //MARK: - I
     static let icon = "icon"
     static let id = "id"
     static let international_id = "international_id"
     static let interview = "interview"
 	static let is_active = "is_active"
-    
+
     //MARK: - J
-    
+
     //MARK: - K
-    
+
     //MARK: - L
     static let latitude = "latitude"
     static let library = "library"
     static let longitude = "longitude"
-    
+
     //MARK: - M
     static let max_temp = "max_temp"
     static let migration_authority = "migration_authority"
@@ -134,7 +140,7 @@ struct JSONKeys {
     static let min_pin_length = "min_pin_length"
     static let min_temp = "min_temp"
     static let mobile_phone = "mobile_phone"
-    
+
     //MARK: - N
     static let name = "name"
 	static let nationality = "nationality"
@@ -142,13 +148,13 @@ struct JSONKeys {
     static let native_condition_description = "native_condition_description"
     static let notes = "notes"
     static let notification = "notification"
-    
+
     //MARK: - O
     static let organization_type = "organization_type"
     static let organization_types = "organization_types"
     static let origin_city = "origin_city"
 	static let origin_country = "origin_country"
-    
+
     //MARK: - P
     static let password = "password"
     static let phonebook = "phonebook"
@@ -156,17 +162,17 @@ struct JSONKeys {
     static let public_tranportation_info = "public_tranportation_info"
     static let psw_error_recomendation = "psw_error_recomendation"
     static let psw_regular_expression = "psw_regular_expression"
-    
+
     //MARK: - Q
-    
+
     //MARK: - R
     static let refugee_aplication = "refugee_aplication"
 	static let registries = "registries"
     static let reminder = "reminder"
     static let request = "request"
-    
+
     //MARK: - S
-    
+
     //MARK: - T
     static let target_city = "target_city"
 	static let target_country = "target_country"
@@ -179,20 +185,20 @@ struct JSONKeys {
     static let topic_activity = "topic_activity"
     static let topic_activity_list = "topic_activity_list"
     static let trm = "trm"
-    
+
     //MARK: - U
     static let user = "user"
     static let username = "username"
-    
+
     //MARK: - V
     static let visas = "visas"
-    
+
     //MARK: - W
     static let where_to_go = "where_to_go"
-    
+
     //MARK: - X
-    
+
     //MARK: - Y
-    
+
     //MARK: - Z
 }

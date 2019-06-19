@@ -18,9 +18,9 @@ class AplicationRuntime {
     private var userData: RegisterUserResponse!
     private var progress: CoursesProgress!
     private var avatar: MyAvatarPieces!
+    private var answers: PNPIAnswers!
 
     var avatarImage: UIImage!
-    var questionaryValue: Int!
 
     weak var mainDelegate: MainProtocol?
     weak var courseDelegate: CourseViewControllerDelegate?
@@ -75,10 +75,10 @@ class AplicationRuntime {
     }
 
     /// Guarda el valor de las respuestas afirmativas
-    public func setCourseFormValue(value: Int) {
-        self.questionaryValue = value
+    public func setAnswersValue(answers: IPNPIAnswers) {
+        self.answers = answers
 
-        StorageFunctions.saveQuestionaryValue(value: value)
+        StorageFunctions.saveAnsewrsInLocal(answers: answers)
     }
 
     // MARK: - GETTERS
@@ -282,13 +282,11 @@ class AplicationRuntime {
         return progress.COURSE_INDEX != nil ? progress.COURSE_INDEX : 0
     }
 
-    public func getQuestionaryValue() -> Int {
-        if self.questionaryValue == nil {
-            self.questionaryValue = StorageFunctions.loadQuestionaryValue()
+    public func getAnswersValue() -> Int {
+        if self.answers == nil {
+            self.answers = StorageFunctions.getAnswers()
         }
 
-
-        printDebugMessage(tag: "load value \(questionaryValue ?? -1125)")
-        return self.questionaryValue
+        return self.answers
     }
 }

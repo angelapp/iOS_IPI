@@ -12,11 +12,23 @@ class MainViewController: UIViewController, MainProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_menu: UIButton!
-    @IBOutlet weak var btn_progress: UIButton!
+    @IBOutlet weak var btn_progress: UIButton!        //Show progress (tag 0) or show suggestions (tag 1)
+    @IBOutlet weak var btn_change: UIButton!          //Buttton for change countries
 
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var planYourTrip_buttons: UIView!  //This view content icons and buttons for Plan Your Trip
+
+    @IBOutlet weak var img_arrow:  UIImageView!
+    @IBOutlet weak var img_marker: UIImageView!
+    @IBOutlet weak var img_person: UIImageView!
+
+    @IBOutlet weak var lbl_nat_country: UILabel!      // Country Origin
+    @IBOutlet weak var lbl_des_country: UILabel!      // Country Destination
 
     // MARK: - Properties
+    let PROGRESS_TAG = 0
+    let SUGGESTIONS_TAG = 1
+
     var logView: [ViewControllerID]! = []
 
     // Controllers that are managed by this controller
@@ -85,53 +97,68 @@ class MainViewController: UIViewController, MainProtocol {
         switch id {
 
         case .aboutUs:
-            self.updateViewBackground(newColor: .groupTableViewBackground)
-            btn_progress.isHidden = true
             return aboutNRCVC
-            
+
         case .beforeYourTripVC:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return beforeVC
-            
+
         case .course:
-            self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))
-            btn_progress.isHidden = false
             return courseVC
-            
+
         case .contactUs:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return contactFormVC
-            
+
         case .selectCountries:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return selectCountriesVC
-            
+
         case .planYourTripMenu:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return planYourTripOptionsVC
-            
+
         case .planYourTrip:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return planYourTripVC
 
-//        case .videoPlayer:
-//            btn_progress.isHidden = false
-//            return videoPlayerVC
-
         default:
-            self.updateViewBackground()
-            btn_progress.isHidden = true
             return selectActivitiesVC
         }
     }
 
+    /** Show or hidde navigation bar option, depend on current view
+    - Parameter forView: ID de la vista a mostar.
+    **/
+    private func configNavBarOptions(forView id: ViewControllerID) {
+        switch id {
+
+            case .aboutUs:
+                self.updateViewBackground(newColor: .groupTableViewBackground)
+                planYourTrip_buttons.isHidden = true
+                btn_progress.isHidden = true
+                break
+
+            case .course:
+                self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))
+                planYourTrip_buttons.isHidden = true
+                btn_progress.tag = PROGRESS_TAG
+                btn_progress.isHidden = false
+                break
+
+            case .planYourTrip, .planYourTripMenu:
+                self.updateViewBackground()
+                planYourTrip_buttons.isHidden = false
+
+                btn_progress.tag = SUGGESTIONS_TAG
+                btn_progress.isHidden = false
+                break
+
+            default:
+                self.updateViewBackground()
+                planYourTrip_buttons.isHidden = true
+                btn_progress.isHidden = true
+                break
+        }
+    }
+
     /** Cambia el color de fondo de la vista principal
-        newColor: Nuevo Color **/
+        - Parameter newColor: Nuevo Color **/
     private func updateViewBackground(newColor: UIColor? = nil){
         // Set default color
         guard newColor != nil else {
@@ -195,7 +222,7 @@ class MainViewController: UIViewController, MainProtocol {
     func showMessageInMain(withMessage msn: String) {
         self.showErrorMessage(withMessage: msn)
     }
-    
+
     func showToastInMain (withMessage msn: String){
         self.view.makeToast(message: Labels.progress_toast_message,
                             duration: HRToastDefaultDuration,
