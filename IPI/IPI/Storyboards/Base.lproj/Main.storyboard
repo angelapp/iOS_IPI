@@ -40,10 +40,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7KC-0o-pp1">
-                                        <rect key="frame" x="16" y="5" width="35" height="35"/>
+                                        <rect key="frame" x="16" y="10" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="7TX-zl-KMu"/>
-                                            <constraint firstAttribute="height" constant="35" id="8SE-z0-wlD"/>
+                                            <constraint firstAttribute="height" constant="25" id="8SE-z0-wlD"/>
+                                            <constraint firstAttribute="width" secondItem="7KC-0o-pp1" secondAttribute="height" multiplier="1:1" id="Lqc-w9-cT7"/>
                                         </constraints>
                                         <state key="normal" image="btn_menu"/>
                                         <connections>
@@ -60,11 +60,76 @@
                                             <action selector="showProgress:" destination="CP5-e0-Scv" eventType="touchUpInside" id="IZX-Mf-5O9"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tx6-Za-gP5">
+                                        <rect key="frame" x="49" y="5" width="273" height="35"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pot-gI-BQ9">
+                                                <rect key="frame" x="195.5" y="5" width="77.5" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="pot-gI-BQ9" secondAttribute="height" multiplier="31:10" id="HuO-w0-LRk"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="btn_change_countries"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgf-vY-AfV">
+                                                <rect key="frame" x="156" y="8.5" width="31.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="2Qw-B8-O7u">
+                                                <rect key="frame" x="136" y="8" width="19" height="19"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="2Qw-B8-O7u" secondAttribute="height" multiplier="1:1" id="lTa-EX-8ib"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jow-uj-hBq">
+                                                <rect key="frame" x="76.5" y="8.5" width="31.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avanzado" translatesAutoresizingMaskIntoConstraints="NO" id="4aO-rp-K8A">
+                                                <rect key="frame" x="112" y="7.5" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="a0P-Mg-bYf"/>
+                                                    <constraint firstAttribute="width" secondItem="4aO-rp-K8A" secondAttribute="height" multiplier="1:1" id="qGB-OR-H1Y"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_person" translatesAutoresizingMaskIntoConstraints="NO" id="KU9-Js-al1">
+                                                <rect key="frame" x="56" y="4" width="19.5" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KU9-Js-al1" secondAttribute="height" multiplier="8:11" id="G0V-A3-xj0"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="1MR-BE-0Dl"/>
+                                            <constraint firstItem="pot-gI-BQ9" firstAttribute="leading" secondItem="jgf-vY-AfV" secondAttribute="trailing" constant="8" id="1t6-dY-5J7"/>
+                                            <constraint firstItem="Jow-uj-hBq" firstAttribute="centerY" secondItem="tx6-Za-gP5" secondAttribute="centerY" id="6mV-gU-ZdQ"/>
+                                            <constraint firstItem="KU9-Js-al1" firstAttribute="top" secondItem="tx6-Za-gP5" secondAttribute="top" constant="4" id="7mb-Tj-uKh"/>
+                                            <constraint firstAttribute="bottom" secondItem="pot-gI-BQ9" secondAttribute="bottom" constant="5" id="Dw0-wo-Aui"/>
+                                            <constraint firstItem="2Qw-B8-O7u" firstAttribute="top" secondItem="tx6-Za-gP5" secondAttribute="top" constant="8" id="FWD-t7-LUX"/>
+                                            <constraint firstItem="jgf-vY-AfV" firstAttribute="centerY" secondItem="tx6-Za-gP5" secondAttribute="centerY" id="KoF-Qw-Jst"/>
+                                            <constraint firstItem="4aO-rp-K8A" firstAttribute="leading" secondItem="Jow-uj-hBq" secondAttribute="trailing" constant="4" id="S8g-PD-ZF1"/>
+                                            <constraint firstItem="2Qw-B8-O7u" firstAttribute="leading" secondItem="4aO-rp-K8A" secondAttribute="trailing" constant="4" id="V0x-St-nwd"/>
+                                            <constraint firstItem="Jow-uj-hBq" firstAttribute="leading" secondItem="KU9-Js-al1" secondAttribute="trailing" constant="1" id="W5k-tS-pOF"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Qw-B8-O7u" secondAttribute="bottom" constant="8" id="bbp-fa-DIx"/>
+                                            <constraint firstItem="4aO-rp-K8A" firstAttribute="centerY" secondItem="tx6-Za-gP5" secondAttribute="centerY" id="djf-GL-OCN"/>
+                                            <constraint firstItem="pot-gI-BQ9" firstAttribute="top" secondItem="tx6-Za-gP5" secondAttribute="top" constant="5" id="gRh-as-fpY"/>
+                                            <constraint firstAttribute="bottom" secondItem="KU9-Js-al1" secondAttribute="bottom" constant="4" id="o48-xB-qDX"/>
+                                            <constraint firstAttribute="trailing" secondItem="pot-gI-BQ9" secondAttribute="trailing" id="ocz-L3-mtn"/>
+                                            <constraint firstItem="KU9-Js-al1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tx6-Za-gP5" secondAttribute="leading" id="sLs-mv-7Ib"/>
+                                            <constraint firstItem="jgf-vY-AfV" firstAttribute="leading" secondItem="2Qw-B8-O7u" secondAttribute="trailing" constant="1" id="vAt-Bb-edg"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hUL-y9-UV9" secondAttribute="trailing" id="DJz-2G-Q5C"/>
+                                    <constraint firstItem="hUL-y9-UV9" firstAttribute="leading" secondItem="tx6-Za-gP5" secondAttribute="trailing" constant="8" id="IQT-Hs-vfX"/>
                                     <constraint firstAttribute="height" constant="45" id="Jp0-33-KYG"/>
+                                    <constraint firstItem="tx6-Za-gP5" firstAttribute="leading" secondItem="7KC-0o-pp1" secondAttribute="trailing" constant="8" id="Sem-PK-tVE"/>
                                     <constraint firstItem="7KC-0o-pp1" firstAttribute="centerY" secondItem="8fl-e7-uit" secondAttribute="centerY" id="Zeq-Og-i4K"/>
+                                    <constraint firstItem="tx6-Za-gP5" firstAttribute="centerY" secondItem="8fl-e7-uit" secondAttribute="centerY" id="gj7-L0-5MQ"/>
                                     <constraint firstItem="7KC-0o-pp1" firstAttribute="leading" secondItem="8fl-e7-uit" secondAttribute="leading" constant="16" id="mir-Fr-rdR"/>
                                     <constraint firstItem="hUL-y9-UV9" firstAttribute="centerY" secondItem="8fl-e7-uit" secondAttribute="centerY" id="pMB-Eb-UQR"/>
                                 </constraints>
@@ -86,9 +151,16 @@
                         <viewLayoutGuide key="safeArea" id="HVn-X7-Rw0"/>
                     </view>
                     <connections>
+                        <outlet property="btn_change" destination="pot-gI-BQ9" id="hAv-Eo-UuC"/>
                         <outlet property="btn_menu" destination="7KC-0o-pp1" id="YMH-rN-ZBE"/>
                         <outlet property="btn_progress" destination="hUL-y9-UV9" id="BA1-rm-XbW"/>
                         <outlet property="container" destination="wQP-aq-XJ3" id="tHZ-Zv-PyS"/>
+                        <outlet property="img_arrow" destination="4aO-rp-K8A" id="UJd-i3-ag8"/>
+                        <outlet property="img_marker" destination="2Qw-B8-O7u" id="nhE-u0-N6z"/>
+                        <outlet property="img_person" destination="KU9-Js-al1" id="2AI-5a-XiV"/>
+                        <outlet property="lbl_des_country" destination="jgf-vY-AfV" id="BpR-2H-U7V"/>
+                        <outlet property="lbl_nat_country" destination="Jow-uj-hBq" id="jOs-Dj-wQh"/>
+                        <outlet property="planYourTrip_buttons" destination="tx6-Za-gP5" id="3zK-1Q-ANm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3X-eN-M5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -10139,6 +10211,7 @@ NORUEGO PARA REFUGIADOS</string>
         </scene>
     </scenes>
     <resources>
+        <image name="avanzado" width="94" height="192"/>
         <image name="bocadillo" width="164" height="164"/>
         <image name="btn_antes" width="394" height="56"/>
         <image name="btn_atras" width="61" height="109"/>
@@ -10147,6 +10220,7 @@ NORUEGO PARA REFUGIADOS</string>
         <image name="btn_bocina_hover" width="230" height="230"/>
         <image name="btn_cerrar_menu" width="39" height="39"/>
         <image name="btn_cerrar_sesion" width="394" height="56"/>
+        <image name="btn_change_countries" width="320" height="100"/>
         <image name="btn_conceptos" width="394" height="56"/>
         <image name="btn_contactanos" width="394" height="56"/>
         <image name="btn_editar_perfil" width="394" height="56"/>
@@ -10163,6 +10237,8 @@ NORUEGO PARA REFUGIADOS</string>
         <image name="esquina_azul" width="120" height="120"/>
         <image name="esquina_rosada" width="120" height="120"/>
         <image name="icon_facebook" width="128" height="128"/>
+        <image name="icon_person" width="69" height="127"/>
+        <image name="icon_pin" width="76" height="99"/>
         <image name="icon_sobre" width="56" height="36"/>
         <image name="icon_twitter" width="128" height="128"/>
         <image name="insignia" width="214" height="291"/>

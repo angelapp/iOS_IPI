@@ -145,7 +145,7 @@ class MainViewController: UIViewController, MainProtocol {
 
             case .course:
                 self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))
-                //planYourTrip_buttons.isHidden = true
+                self.planYourTrip_buttons.isHidden = true
                 btn_progress.tag = PROGRESS_TAG
                 btn_progress.isHidden = false
                 updateButtonImage()
@@ -153,8 +153,7 @@ class MainViewController: UIViewController, MainProtocol {
 
             case .planYourTrip, .planYourTripMenu:
                 self.updateViewBackground()
-                //planYourTrip_buttons.isHidden = false
-
+                self.planYourTrip_buttons.isHidden = false
                 btn_progress.tag = SUGGESTIONS_TAG
                 btn_progress.isHidden = false
                 updateButtonImage()
@@ -162,6 +161,7 @@ class MainViewController: UIViewController, MainProtocol {
 
             default:
                 self.updateViewBackground()
+                self.planYourTrip_buttons.isHidden = true
                 btn_progress.isHidden = true
                 break
         }
