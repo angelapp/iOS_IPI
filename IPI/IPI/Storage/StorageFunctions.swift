@@ -87,7 +87,7 @@ class StorageFunctions: NSObject {
         let storage = StorageConfig.share
         let saveData = MyAnswersPreferences(answers: answers)
         let strRepresentation = saveData.dictionary()
-        if let data = MyAnswersPreferences.archive(avatar: strRepresentation) {
+        if let data = MyAnswersPreferences.archive(answers: strRepresentation) {
             storage.saveParameterFromKey(key: IPIKeys.answers.rawValue, value: data as AnyObject)
         }
     }
@@ -183,9 +183,12 @@ class StorageFunctions: NSObject {
     /// Get storage Answers
     class func getAnswers() -> PNPIAnswers! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: IPIKeys.answers.rawValue) as! Data? else { return nil}
+        guard let data = storage.getParameterFromKey(key: IPIKeys.answers.rawValue) as! Data? else {
+            let answers = PNPIAnswers.init(setDefaultValues: true)
+            return answers
+        }
         guard let dic = MyAnswersPreferences.unarchive(data: data) else { return nil }
-        let answers = MyAnswersPreferences.initAvatar(fromDic: dic)
+        let answers = MyAnswersPreferences.initAnsewrs(fromDic: dic)
         return answers
     }
 }

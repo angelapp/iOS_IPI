@@ -34,8 +34,8 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
         before_list = BeforeTravelItem().getBeforeTravelItemList()
 
         //Set background
-        //self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
-        //tbl_before_travel.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+//        self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+//        tbl_before_travel.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
     }
 
     // MARK: - Private Functions

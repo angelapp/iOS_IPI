@@ -297,8 +297,20 @@ class PNPIAnswers {
     var answer_05: Int!
 
     init() {}
+    
+    init(setDefaultValues: Bool) {
+        
+        guard setDefaultValues else { return }
+        
+        self.answer_01 = 0
+        self.answer_02 = 0
+        self.answer_03 = 0
+        self.answer_04 = 0
+        self.answer_05 = 0
+    }
 
     func getPNPIPorcentage() -> Float {
-        return Float(self.answer_01 + self.answer_02 + self.answer_03 + self.answer_04 + self.answer_05) / 5
+        let sum = (self.answer_01 + self.answer_02 + self.answer_03 + self.answer_04 + self.answer_05)
+        return  Float(sum) / 5
     }
 }

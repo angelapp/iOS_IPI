@@ -92,6 +92,7 @@ struct IPI_IMAGES {
     static let btn_download_hover = "btn_download_hover"
     static let btn_lisent = "btn_lisent"
     static let btn_lisent_hover = "btn_lisent_hover"
+    static let btn_progress = "btn_avance"
     static let btn_share = "btn_share"
     static let btn_share_hover = "btn_share_hover"
     static let btn_suggestions = "btn_suggestions"

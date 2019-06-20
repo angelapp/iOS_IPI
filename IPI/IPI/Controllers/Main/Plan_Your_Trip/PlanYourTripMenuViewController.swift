@@ -29,6 +29,8 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         self.colletion_options.dataSource = self
         self.colletion_options.delegate = self
+        
+        colletion_options.reloadData()
     }
 
     //MARK: Collection view DataSource and FlowLayout Dategate
@@ -73,6 +75,8 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         let btnTapped = gestureRecognizer.view!
         let tagID = btnTapped.tag
+        
+        printDebugMessage(tag: "count \(optionList.count) tag\(tagID)")
 
         AplicationRuntime.sharedManager.setCurrentOption(currentOption: optionList[tagID])
         maindelegate?.addToContainer(viewControllerID: .planYourTrip)

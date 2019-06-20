@@ -68,12 +68,21 @@ class MainViewController: UIViewController, MainProtocol {
     }
 
     @IBAction func showProgress(_ sender: UIButton) {
-        let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.progress.rawValue) as! ProgressViewController
-
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        present(nextVC, animated: true, completion: nil)
+        
+        switch btn_progress.tag {
+            
+        case PROGRESS_TAG:
+            let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.progress.rawValue) as! ProgressViewController
+            
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            present(nextVC, animated: true, completion: nil)
+            break
+            
+        default:
+            break
+        }
     }
 
     // MARK: - Private Functions
@@ -130,28 +139,29 @@ class MainViewController: UIViewController, MainProtocol {
 
             case .aboutUs:
                 self.updateViewBackground(newColor: .groupTableViewBackground)
-                planYourTrip_buttons.isHidden = true
+                //planYourTrip_buttons.isHidden = true
                 btn_progress.isHidden = true
                 break
 
             case .course:
                 self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))
-                planYourTrip_buttons.isHidden = true
+                //planYourTrip_buttons.isHidden = true
                 btn_progress.tag = PROGRESS_TAG
                 btn_progress.isHidden = false
+                updateButtonImage()
                 break
 
             case .planYourTrip, .planYourTripMenu:
                 self.updateViewBackground()
-                planYourTrip_buttons.isHidden = false
+                //planYourTrip_buttons.isHidden = false
 
                 btn_progress.tag = SUGGESTIONS_TAG
                 btn_progress.isHidden = false
+                updateButtonImage()
                 break
 
             default:
                 self.updateViewBackground()
-                planYourTrip_buttons.isHidden = true
                 btn_progress.isHidden = true
                 break
         }
@@ -168,6 +178,11 @@ class MainViewController: UIViewController, MainProtocol {
         // Set new color
         self.view.backgroundColor = newColor
     }
+    
+    private func updateButtonImage() {
+        let imgName = btn_progress.tag == PROGRESS_TAG ? IPI_IMAGES.btn_progress : IPI_IMAGES.btn_suggestions
+        setButtonImages(button: btn_progress, normal: imgName, hover: imgName)
+    }
 
     // MARK: - Main Delegate
     /** Add a view controller as container child */
@@ -175,11 +190,9 @@ class MainViewController: UIViewController, MainProtocol {
 
         printDebugMessage(tag: "load: \(id.rawValue)")
         let vc = getViewController(viewControllerID: id)
-
-//        // continue is new vc to add is diferent to current top vc
-//        guard logView.last != id else {
-//            return
-//        }
+        
+        //Config navigation bar
+        configNavBarOptions(forView: id)
 
         if container.subviews.count > 0 {
             let vc = self.children.last

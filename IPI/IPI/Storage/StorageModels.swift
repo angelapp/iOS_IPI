@@ -317,7 +317,7 @@ class MyAnswersPreferences: NSObject {
     /// Crea un modelo de datos a apartir de un diccionario de datos
     /// - Parameter dic: Diccionario de datos
     /// - Returns: Modelo de datos
-    class func initAvatar(fromDic dic: [String: Any]) -> PNPIAnswers {
+    class func initAnsewrs(fromDic dic: [String: Any]) -> PNPIAnswers {
         let answers = PNPIAnswers()
 
         answers.answer_01 = dic[IPIKeys.answer_01.rawValue] as? Int ?? 0
@@ -325,7 +325,7 @@ class MyAnswersPreferences: NSObject {
         answers.answer_03 = dic[IPIKeys.answer_03.rawValue] as? Int ?? 0
         answers.answer_04 = dic[IPIKeys.answer_04.rawValue] as? Int ?? 0
         answers.answer_05 = dic[IPIKeys.answer_05.rawValue] as? Int ?? 0
-
+        
         return answers
     }
 }

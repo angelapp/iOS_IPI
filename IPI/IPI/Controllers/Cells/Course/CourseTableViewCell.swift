@@ -747,7 +747,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     func fill_CELL_27() {
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progressValue = questionaryValue.getPNPIPorcentage()
 
         // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_27.text1
@@ -788,7 +788,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     func fill_CELL_28() {
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progress = questionaryValue.getPNPIPorcentage()
 
         // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_28.text1
@@ -815,7 +815,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
 
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
-        progressBar.setProgress(progressValue, animated: false)
+        progressBar.setProgress(progress, animated: false)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_YES
@@ -854,7 +854,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progress = questionaryValue.getPNPIPorcentage()
 
         // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_29.text1
@@ -878,7 +878,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_3)
 
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
-        progressBar.setProgress(progressValue, animated: false)
+        progressBar.setProgress(progress, animated: false)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_YES
@@ -903,7 +903,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     func fill_CELL_30() {
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progress = questionaryValue.getPNPIPorcentage()
 
         // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_30.text1
@@ -932,7 +932,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_icon3.image = UIImage(named: IPI_IMAGES.success_orange)
 
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
-        progressBar.setProgress(progressValue, animated: false)
+        progressBar.setProgress(progress, animated: false)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_YES
@@ -956,7 +956,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progress = questionaryValue.getPNPIPorcentage()
 
         // Fill view
         lbl_text1.text = IPI_COURSE.PAGE_31.text1
@@ -983,7 +983,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_5)
 
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
-        progressBar.setProgress(progressValue, animated: false)
+        progressBar.setProgress(progress, animated: false)
 
         // SET TAP ACTION TO LABEL OPTION
         lbl_option1.tag = TAG_OPTION_YES; btn_opt1.tag = TAG_OPTION_YES
@@ -1022,7 +1022,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         //Get amount of questionary
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
-        let progress = questionary.getPNPIPorcentage()
+        let progress = questionaryValue.getPNPIPorcentage()
 
         // Fill view
 
@@ -1386,7 +1386,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         for op in radioGroup {
             if op.isSelected {
                 isAnswered = true
-                anserValue = op.tag
+                answerValue = op.tag
             }
         }
 
@@ -1401,30 +1401,30 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         switch btn_next.tag {
 
             case TAG_ANSWER_01:
-                questionaryValue.answer_01 = anserValue
+                questionaryValue.answer_01 = answerValue
                 break
 
             case TAG_ANSWER_02:
-                questionaryValue.answer_02 = anserValue
+                questionaryValue.answer_02 = answerValue
                 break
 
             case TAG_ANSWER_03:
-                questionaryValue.answer_03 = anserValue
+                questionaryValue.answer_03 = answerValue
                 break
 
             case TAG_ANSWER_04:
-                questionaryValue.answer_04 = anserValue
+                questionaryValue.answer_04 = answerValue
                 break
 
             default:
-                questionaryValue.answer_05 = anserValue
+                questionaryValue.answer_05 = answerValue
                 break
         }
 
 
 
         // Update value in runtime
-        AplicationRuntime.sharedManager.setAnswersValue(value: questionaryValue)
+        AplicationRuntime.sharedManager.setAnswersValue(answers: questionaryValue)
 
         nextPage(nil)
     }

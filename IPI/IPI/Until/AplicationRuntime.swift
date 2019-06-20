@@ -75,7 +75,7 @@ class AplicationRuntime {
     }
 
     /// Guarda el valor de las respuestas afirmativas
-    public func setAnswersValue(answers: IPNPIAnswers) {
+    public func setAnswersValue(answers: PNPIAnswers) {
         self.answers = answers
 
         StorageFunctions.saveAnsewrsInLocal(answers: answers)
@@ -282,11 +282,8 @@ class AplicationRuntime {
         return progress.COURSE_INDEX != nil ? progress.COURSE_INDEX : 0
     }
 
-    public func getAnswersValue() -> Int {
-        if self.answers == nil {
-            self.answers = StorageFunctions.getAnswers()
-        }
-
+    public func getAnswersValue() -> PNPIAnswers {
+        self.answers = StorageFunctions.getAnswers()
         return self.answers
     }
 }

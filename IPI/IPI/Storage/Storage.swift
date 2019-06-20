@@ -138,3 +138,19 @@ extension MyAvatarPreferences {
         return avatar
     }
 }
+
+// Extensión de AvatarPreferences para agregar los métodos Archivar o Desarchivar
+extension MyAnswersPreferences {
+    
+    /// Archiva la data del usuario a partir de un diccionario de datos
+    class func archive(answers: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: answers)
+    }
+    
+    /// Desarchiva la data de un usuario
+    /// - Returns: diccionario con la data del usuario
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let answers = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else { return nil }
+        return answers
+    }
+}
