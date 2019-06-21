@@ -67,7 +67,7 @@ class LeftMenuViewController: UIViewController {
                                       btn_about_NRC, btn_contact_Us,
                                       btn_edit_Profile, btn_intro, btn_logout)
 
-        
+
         //Ajusta el ancho del menú
         let screenSize = UIScreen.main.bounds
         self.revealViewController().rearViewRevealWidth = screenSize.width * 0.85
@@ -102,8 +102,17 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_saved_trip:
-            //mainDelegate?.addToContainer(viewControllerID: .savedTripVC)
-            //mainDelegate?.showToast if doesn't have a trip saved
+
+            let plan = StorageFunctions.getSavedPlanTrip()
+            AplicationRuntime.sharedManager.setPlanTrip(plan: plan!)
+
+            if plan != nil {
+                mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
+            }
+            else {
+                mainDelegate?.showMessageInMain(withMessage: "No has guardado ninguna consulta aún")
+            }
+
             self.revealViewController().revealToggle(animated: true)
             break
 

@@ -33,6 +33,7 @@ enum IPIKeys: String {
     case isLogin
     case isThereAnAvatar
     case nose
+    case planTrip
     case progress
     case questionaryValue
     case states
@@ -91,6 +92,7 @@ struct JSONKeys {
     // static let date = "date"
     static let date_completed = "date_completed"
     static let description = "description"
+    static let desCountryID = "desCountryID"
     static let detail = "detail"
     static let distance = "distance"
 	static let doc_type = "doc_type"
@@ -144,6 +146,7 @@ struct JSONKeys {
     //MARK: - N
     static let name = "name"
 	static let nationality = "nationality"
+    static let natCountryID = "natCountryID"
     static let nationalization_requirements = "nationalization_requirements"
     static let native_condition_description = "native_condition_description"
     static let notes = "notes"

@@ -15,7 +15,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_speaker: UIButton!
     @IBOutlet weak var btn_save_query: UIButton!
-    
+
     @IBOutlet weak var img_icon: UIImageView!
     @IBOutlet weak var lbl_title: UILabel!
 
@@ -45,7 +45,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         super.viewDidLoad()
 
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
-        
+
         // load current option
         option = AplicationRuntime.sharedManager.getCurrentOption()
         printDebugMessage(tag: "option tapped id: \(option.id ?? -11)\n audioID: \(option.audioID ?? -22) icon:\(option.icon ?? "himesama n.n")")
@@ -141,7 +141,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     }
 
     private func stopAudio(audio name: String) {
-        
+
         if let path = Bundle.main.path(forResource: name, ofType:"mp3") {
             let url = URL(fileURLWithPath: path)
 
@@ -163,7 +163,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         let audioName = get_AudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
     }
-    
+
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //Check if the sound that finishes comes from a certain AVAudioPlayer
         if player == ncrAudio {
@@ -204,7 +204,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     /** Remove of container and the reference log */
     func removeOfContainer() {
-        
+
         guard logView.count > 0 else { return }
 
         // Delete child from parent
@@ -224,7 +224,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         // Clean Container
         self.removeOfContainer()
-        
+
         // Stop audio if it's playing
         if ncrAudio != nil && (ncrAudio?.isPlaying)! {
             stopAudio(audio: isPlaying)
@@ -238,9 +238,16 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         sender.isSelected = !sender.isSelected
         self.audioManager(audioID: sender.tag, play: sender.isSelected)
     }
-    
+
     @IBAction func saveQuery(_ sender: Any) {
-        
+        let plan = AplicationRuntime.sharedManager.getPlanTrip()
+        StorageFunctions.savePlanTripInLocal(plan: plan!)
+
+        let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.savedTrip.rawValue) as! SaveQueryPopupViewController
+
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
     }
-    
 }

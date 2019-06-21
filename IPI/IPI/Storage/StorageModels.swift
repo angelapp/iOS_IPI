@@ -325,7 +325,43 @@ class MyAnswersPreferences: NSObject {
         answers.answer_03 = dic[IPIKeys.answer_03.rawValue] as? Int ?? 0
         answers.answer_04 = dic[IPIKeys.answer_04.rawValue] as? Int ?? 0
         answers.answer_05 = dic[IPIKeys.answer_05.rawValue] as? Int ?? 0
-        
+
         return answers
+    }
+}
+
+/** Modelo de datos para guardar en local la consulta actual */
+class PlanYourTripPreferences: NSObject {
+
+    var jsonPlanYourTrip: String!
+
+    /** Recibe JSON de los datos de la consulta para almacenarlos en local */
+    convenience init(jsonPlanTrip: String) {
+        self.init()
+        self.jsonPlanYourTrip = jsonPlanTrip
+    }
+
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.jsonPlanYourTrip as String, forKey: IPIKeys.planTrip.rawValue)
+    }
+
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+
+        myDic[IPIKeys.planTrip.rawValue] = self.jsonPlanYourTrip
+
+        return myDic
+    }
+
+    /// Crea un modelo de datos a apartir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initPlanTrip(fromDic dic: [String: Any]) -> String {
+        let json = dic[IPIKeys.planTrip.rawValue] as! String
+        return json
     }
 }

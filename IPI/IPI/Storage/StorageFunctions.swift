@@ -104,6 +104,21 @@ class StorageFunctions: NSObject {
         }
     }
 
+    /** Guarda la consulta de la APP */
+    class func savePlanTripInLocal(plan: PlanYourTripModel!) {
+
+        // Map App Configuration Model in JSON string
+        let jsonPlanTrip = Mapper().toJSONString(plan, prettyPrint: true)
+
+        // Save JSON in local
+        let storage = StorageConfig.share
+        let saveData = PlanYourTripPreferences(jsonPlanTrip: jsonPlanTrip!)
+        let strRepresentation = saveData.dictionary()
+        if let data = PlanYourTripPreferences.archive(plan: strRepresentation) {
+            storage.saveParameterFromKey(key: IPIKeys.planTrip.rawValue, value: data as AnyObject)
+        }
+    }
+
     // MARK: - LOAD METHODS
 
     /// Get local storage data
@@ -190,5 +205,15 @@ class StorageFunctions: NSObject {
         guard let dic = MyAnswersPreferences.unarchive(data: data) else { return nil }
         let answers = MyAnswersPreferences.initAnsewrs(fromDic: dic)
         return answers
+    }
+
+    /// Get local storage data
+    class func getSavedPlanTrip() -> PlanYourTripModel! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: IPIKeys.planTrip.rawValue) as! Data? else { return nil}
+        guard let dic = PlanYourTripPreferences.unarchive(data: data) else { return nil}
+        let strPlanTrip = PlanYourTripPreferences.initPlanTrip(fromDic: dic) as String?
+        let planTrip = Mapper<PlanYourTripModel>().map(JSON: convertToDictionary(text: strPlanTrip!)!)
+        return planTrip
     }
 }

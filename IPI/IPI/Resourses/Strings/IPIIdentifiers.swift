@@ -41,7 +41,7 @@ enum ViewControllerID: String, CaseIterable {
     case leftMenu
     case swMenu
     case contactUs
-    case beforeYourTripVC, savedTripVC
+    case beforeYourTripVC
 
     // Main
     case main, selectActivies
@@ -57,6 +57,7 @@ enum ViewControllerID: String, CaseIterable {
     case nationalizationRequirements
     case phonebook
     case documents
+    case savedTrip
 
     static var asArray: [ViewControllerID] {return self.allCases}
 
