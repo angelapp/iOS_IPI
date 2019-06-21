@@ -54,6 +54,7 @@ protocol ContactUsViewControllerDelegate: class {
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerID)
     func removeOfContainer()
+    func setDataQuery(fromCountry origin: String, toCountry destination: String)
     func showMessageInMain(withMessage msn: String)
 }
 

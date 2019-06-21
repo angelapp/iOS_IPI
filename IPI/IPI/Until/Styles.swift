@@ -55,6 +55,8 @@ func setButtonTitle(button: UIButton, title: String){
 
 func setButtonImages(button: UIButton, normal: String, hover: String){
     button.setBackgroundImage(UIImage(named: normal), for: .normal)
+    
+    guard hover != nullString else { return }
     button.setBackgroundImage(UIImage(named: hover), for: .highlighted)
     button.setBackgroundImage(UIImage(named: hover), for: .selected)
 }

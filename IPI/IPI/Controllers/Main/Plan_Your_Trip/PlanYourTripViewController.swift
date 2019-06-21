@@ -14,7 +14,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     // MARK: - Outlets
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_speaker: UIButton!
-
+    @IBOutlet weak var btn_save_query: UIButton!
+    
     @IBOutlet weak var img_icon: UIImageView!
     @IBOutlet weak var lbl_title: UILabel!
 
@@ -237,4 +238,9 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         sender.isSelected = !sender.isSelected
         self.audioManager(audioID: sender.tag, play: sender.isSelected)
     }
+    
+    @IBAction func saveQuery(_ sender: Any) {
+        
+    }
+    
 }

@@ -146,7 +146,7 @@ class AplicationRuntime {
         if planYourTrip.nationalization_requirements != nil, planYourTrip.nationalization_requirements.description != nil {
             options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.NATIONALIZATION_REQUIREMENTS.rawValue,
                                                icon: IPI_IMAGES.btn_nationalization_requirements,
-                                               logo: IPI_IMAGES.icon_requisitos,
+                                               logo: IPI_IMAGES.icon_resquisitos_nac,
                                                title: Labels.nationalization_requirements,
                                                audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_06.rawValue))
         }
@@ -259,6 +259,25 @@ class AplicationRuntime {
         }
 
         return countries
+    }
+    
+    /**
+     - Parameter fromID: ID del pais
+     - Returns: Abreviatura del pais
+     */
+    public func getCountry(fromID id: Int) -> String {
+        
+        guard appConfig != nil, appConfig.countries != nil else {
+            return nullString
+        }
+        
+        for country in appConfig.countries {
+            if country.id == id {
+                return country.abreviature
+            }
+        }
+        
+        return nullString
     }
 
     // MARK: - USER DATA

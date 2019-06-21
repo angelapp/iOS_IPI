@@ -32,8 +32,6 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
 
         // Set properties to button
         btn_back.setImage(UIImage(named: IPI_IMAGES.btn_back_yellow), for: .normal)
-        btn_back.setImage(UIImage(named: IPI_IMAGES.btn_back_yellow), for: .highlighted)
-        btn_back.setImage(UIImage(named: IPI_IMAGES.btn_back_yellow), for: .selected)
         btn_back.imageView?.contentMode = .scaleAspectFit
         
         // Load Images

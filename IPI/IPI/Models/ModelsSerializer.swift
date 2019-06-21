@@ -597,6 +597,10 @@ class UserAvatar: Mappable {
 /// Model for mapping destination country Information
 class PlanYourTripModel: Mappable {
     
+    //Variable for local unmapping
+    var natCountryID: Int! // Keep the origin country
+    var desCountryID: Int! // Keep the destination country
+    
     //country origin and country target filter
     var basic_rights: Array<BasicRight>!
     ///country origin and country target filter

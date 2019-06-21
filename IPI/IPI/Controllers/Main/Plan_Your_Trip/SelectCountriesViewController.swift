@@ -86,6 +86,9 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
         //Load data from app runtime
         nationalitiesList = AplicationRuntime.sharedManager.getCountries()
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
+        
+        //Set background
+        self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
     }
 
      /// Hidden picker view
@@ -139,6 +142,9 @@ class SelectCountriesViewController: UIViewController, UIPickerViewDelegate, UIP
             case .succeededObject(let objReceiver):
 
                 let planModel = Mapper<PlanYourTripModel>().map(JSON: objReceiver as! [String: Any])
+                
+                planModel?.natCountryID = self.nationalityID
+                planModel?.desCountryID = self.destinationID
 
                 // Save configuration data in Local and set to runtime
                 AplicationRuntime.sharedManager.setPlanTrip(plan: planModel)

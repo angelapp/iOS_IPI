@@ -56,6 +56,9 @@ class MainViewController: UIViewController, MainProtocol {
             //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         }
+        
+        // Set propertis to button image
+        setAspectFitToButton(buttons: btn_change)
 
         // init viewController child
         initChildView()
@@ -181,7 +184,7 @@ class MainViewController: UIViewController, MainProtocol {
     
     private func updateButtonImage() {
         let imgName = btn_progress.tag == PROGRESS_TAG ? IPI_IMAGES.btn_progress : IPI_IMAGES.btn_suggestions
-        setButtonImages(button: btn_progress, normal: imgName, hover: imgName)
+        setButtonImages(button: btn_progress, normal: imgName, hover: nullString)
     }
 
     // MARK: - Main Delegate
@@ -230,6 +233,13 @@ class MainViewController: UIViewController, MainProtocol {
         let indexOF = logView.index(of: refVC!)
         logView.remove(at: indexOF!)
     }
+    
+    /** Set data of query */
+    func setDataQuery(fromCountry origin: String, toCountry destination: String){
+        lbl_nat_country.text = origin
+        lbl_des_country.text = destination
+    }
+    
 
     /** Mostar mensajes en el main */
     func showMessageInMain(withMessage msn: String) {

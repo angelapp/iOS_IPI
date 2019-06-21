@@ -45,6 +45,7 @@ struct Buttons {
     static let begin = "Iniciar"
     static let carry_on = "¡Adelante!"
 	static let come_back = "VOLVER"
+    static let done = "Entendido"
     static let end = "FINALIZAR"
 	static let end_course = "Finalizar"
     static let facebook = "Continuar con Facebook"
@@ -95,8 +96,10 @@ struct IPI_IMAGES {
     static let btn_progress = "btn_avance"
     static let btn_share = "btn_share"
     static let btn_share_hover = "btn_share_hover"
+    static let btn_save_query = "btn_save_query"
     static let btn_suggestions = "btn_suggestions"
     static let bubble_audio = "bubble_audio"
+    static let icon_arrow = "icon_arrow"
     static let icon_autoridad = "icon_autoridad"
     static let icon_conversion = "icon_conversion"
     static let icon_datos = "icon_datos"
@@ -112,6 +115,7 @@ struct IPI_IMAGES {
     static let icon_person = "icon_person"
     static let icon_pin = "icon_pin"
     static let icon_requisitos = "icon_requisitos"
+    static let icon_resquisitos_nac = "icon_resquisitos_nac"
     static let icon_solicitud = "icon_solicitud"
     static let icon_visas = "icon_visas"
 
@@ -185,6 +189,8 @@ struct Labels {
     static let nationalization_requirements = "REQUISITOS DE \nNACIONALIZACIÓN"
     static let phonebook = "DIRECTORIO"
     static let documents = "DOCUMENTOS"
+    
+    static let saveQuery_format = "Acabas de guardar la información disponible para el trayecto %@ - %@. \(doubleJump) Puedes consultarla más tarde en la opción del menú ÚLTIMA CONSULTA."
 }
 
 // MARK: - Error Messages

@@ -22,15 +22,29 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Load Option
         maindelegate = AplicationRuntime.sharedManager.mainDelegate
-
-        colletion_options!.alwaysBounceVertical = true
         optionList = AplicationRuntime.sharedManager.getPlanTripOptions()
+        
+        //update nav bar
+        setQueryData()
+
+        // Config Collection View
+        colletion_options!.alwaysBounceVertical = true
 
         self.colletion_options.dataSource = self
         self.colletion_options.delegate = self
         
         colletion_options.reloadData()
+    }
+    
+    func setQueryData(){
+        
+        if let nat = AplicationRuntime.sharedManager.getPlanTrip()?.natCountryID, let des = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID {
+            
+            maindelegate?.setDataQuery(fromCountry: AplicationRuntime.sharedManager.getCountry(fromID: nat),
+                                       toCountry: AplicationRuntime.sharedManager.getCountry(fromID: des))
+        }
     }
 
     //MARK: Collection view DataSource and FlowLayout Dategate
