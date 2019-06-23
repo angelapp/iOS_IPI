@@ -79,3 +79,7 @@ protocol PlanYourTripViewControllerDelegate: class {
     func addToContainer(viewControllerID id: Int)
     func removeOfContainer()
 }
+
+protocol RefugeRequestViewControllerDelegate: class {
+    func audioManager(audioID id: Int, play: Bool)
+}

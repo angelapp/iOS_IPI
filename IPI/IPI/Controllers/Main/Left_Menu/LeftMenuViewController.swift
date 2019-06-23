@@ -104,13 +104,13 @@ class LeftMenuViewController: UIViewController {
         case btn_saved_trip:
 
             let plan = StorageFunctions.getSavedPlanTrip()
-            AplicationRuntime.sharedManager.setPlanTrip(plan: plan!)
+            AplicationRuntime.sharedManager.setPlanTrip(plan: plan)
 
             if plan != nil {
                 mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
             }
             else {
-                mainDelegate?.showMessageInMain(withMessage: "No has guardado ninguna consulta aún")
+                mainDelegate?.showMessageInMain(withMessage: ErrorMessages.unsavedPlan)
             }
 
             self.revealViewController().revealToggle(animated: true)

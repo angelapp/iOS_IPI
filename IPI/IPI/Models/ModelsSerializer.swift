@@ -620,6 +620,8 @@ class PlanYourTripModel: Mappable {
     }
     
     func mapping(map: Map) {
+        natCountryID <- map[JSONKeys.natCountryID]
+        desCountryID <- map[JSONKeys.desCountryID]
         general_country_data <- map[JSONKeys.general_country_data]
         refugee_aplication <- map[JSONKeys.refugee_aplication]
         nationalization_requirements <- map[JSONKeys.nationalization_requirements]
@@ -670,7 +672,7 @@ class RefugeeAplication: Mappable {
     var case_study: String!
     var notification: String!
     var where_to_go: String!
-    var origin_city: Int!
+    var origin_country: Int!
     var is_active: Bool!
     
     init() {}
@@ -685,7 +687,7 @@ class RefugeeAplication: Mappable {
         case_study <- map[JSONKeys.case_study]
         notification <- map[JSONKeys.notification]
         where_to_go <- map[JSONKeys.where_to_go]
-        origin_city <- map[JSONKeys.origin_city]
+        origin_country <- map[JSONKeys.origin_country]
         is_active <- map[JSONKeys.is_active]
     }
 }

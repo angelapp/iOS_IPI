@@ -41,6 +41,7 @@ enum ConseColors: String{
     case white = "FFFFFF"
     case yellow = "F9EBB8"
     case yellow_dark = "FFDE4E"
+    case yellow_background = "FAE9B4"
     
     case colorTrans = "80000000"
 }

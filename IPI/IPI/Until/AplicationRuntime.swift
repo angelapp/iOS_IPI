@@ -262,10 +262,14 @@ class AplicationRuntime {
     }
     
     /**
-     - Parameter fromID: ID del pais
-     - Returns: Abreviatura del pais
+     Return information about counrty shortname, country name or country nationality
+    
+     - Parameter fromID: country ID
+     - Parameter getName: (Optional) if true returns the name of country
+     - Parameter getNationality: (Optional) if true returns country's nationality
+     - Returns: country Info by default returns country shortname
      */
-    public func getCountry(fromID id: Int) -> String {
+    public func getCountry(fromID id: Int, getName: Bool? = false, getNationality: Bool? = false ) -> String {
         
         guard appConfig != nil, appConfig.countries != nil else {
             return nullString
@@ -273,7 +277,9 @@ class AplicationRuntime {
         
         for country in appConfig.countries {
             if country.id == id {
-                return country.abreviature
+                if getName != nil, getName! { return country.name }
+                else if getNationality != nil, getNationality! { return country.nationality}
+                else { return country.abreviature }
             }
         }
         

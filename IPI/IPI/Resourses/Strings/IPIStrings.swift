@@ -74,6 +74,8 @@ struct IPI_IMAGES {
     static let admiration = "admiracion"
     static let btn_acordeon_open = "btn_acordeon_abrir"
     static let btn_acordeon_close = "btn_acordeon_cerrar"
+    static let btn_audio = "btn_audio"
+    static let btn_audio_hover = "btn_audio_hover"
     static let btn_back_yellow = "btn_back_yellow"
     static let btn_back_red = "btn_back_red"
     static let btn_play = "btn_reproducir"
@@ -172,6 +174,7 @@ struct Labels {
     static let contact_send_message = "Se ha enviado tu mensaje"
 
     static let listenAudio = "Escucha el audio"
+    static let listenAudioRefugeRequest = "PULSA PARA ESCUCHAR"
 
     static let progress_message = "Pulsa sobre cada ícono para volver al inicio de cada módulo"
     static let progress_title = "MI PROGRESO"
@@ -212,6 +215,7 @@ struct ErrorMessages {
     static let registerTitle = "Error al registrar"
     static let requiredField = "Debes diligenciar este campo"
     static let unselectOption = "Debes responder para continuar"
+    static let unsavedPlan = "No has guardado ninguna consulta aún"
     static let tryAgain = "Inténtalo de nuevo más tarde"
 }
 
@@ -265,4 +269,7 @@ struct Formats {
     static let matchesFormat = "SELF MATCHES %@"
     static let contactMessage = "Email: %@ \n\n Teléfono: %@ \n\n Mensaje: %@"
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
+    
+    static let migrationRequirementFormat = "Lista de chequeo para tu viaje a %@"
+    static let refugeRequestFormat = "Si eres una persona refugiada ó en necesidad de protección internacional, esta es la ruta que deberás seguir para regular tu condición en territorio %@"
 }

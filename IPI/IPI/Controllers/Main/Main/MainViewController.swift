@@ -88,6 +88,10 @@ class MainViewController: UIViewController, MainProtocol {
         }
     }
 
+    @IBAction func changeCountries(_ sender: UIButton) {
+        addToContainer(viewControllerID: .selectCountries)
+    }
+    
     // MARK: - Private Functions
     /** init child viewControllers */
     private func initChildView() {

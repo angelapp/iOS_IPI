@@ -8,8 +8,23 @@
 
 import Foundation
 
-// MARK: - Identificador de las vistas
+enum RefugeRequestHeaders: String, CaseIterable{
+    case request = "Solicitud"
+    case interview = "Declaración juramentada y entrevistas"
+    case studyCase = "Estudio del caso"
+    case notification = "Notificacion"
+    case remember = "Recuerda que:"
+    case whereToGo = "A dónde acudir en %@"
+    
+    static var asArray: [RefugeRequestHeaders] {return self.allCases}
+    
+    func asInt() -> Int {
+        return RefugeRequestHeaders.asArray.firstIndex(of: self)!
+    }
+}
 
+
+// MARK: - Identificador de las vistas
 /// Id for each storyboard
 enum StoryboardID: String, CaseIterable{
     case LaunchScreen, OnBoarding, Authentication
@@ -87,13 +102,18 @@ enum CellID: String {
     case COURSE31, COURSE32, COURSE33, COURSE34, COURSE35, COURSE36, COURSE37, COURSE38, COURSE39, COURSE40
     case COURSE41, COURSE42
 
-    case header, body, footer, courseHeader, courseFooter, courseMessage, courseSlider
+    case header, body, footer, bodyAvatar
+    case courseHeader, courseFooter, courseMessage, courseSlider
 
     // Cells for progress
     case progress
 
     // cell for plan your trip options
+    //Collection cell
     case planYourTripOption
+    
+    //Table view cell
+    case migrationRequirementsBody
 }
 
 /// Tag for popup message
