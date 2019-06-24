@@ -272,4 +272,5 @@ struct Formats {
     
     static let migrationRequirementFormat = "Lista de chequeo para tu viaje a %@"
     static let refugeRequestFormat = "Si eres una persona refugiada ó en necesidad de protección internacional, esta es la ruta que deberás seguir para regular tu condición en territorio %@"
+	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
 }

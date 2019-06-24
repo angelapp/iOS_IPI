@@ -10,6 +10,14 @@ import UIKit
 
 class VisasViewController: UIViewController {
 
+	// MARK: - Outlets 
+	@IBOutlet weak var lbl_msn: UILabel!
+	@IBOutlet weak var tbl_visas: UITableView!
+
+	// MARK: - Properties
+    var mainDelegate: MainProtocol?
+	var visas: Array<VisaModel> = []
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
