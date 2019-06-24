@@ -52,7 +52,7 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             nationality = AplicationRuntime.sharedManager.getCountry(fromID: targetCountryID, getName: false, getNationality: true)
         }
         
-        lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality)
+        lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast())
     }
 
     // MARK: - Private Functions
