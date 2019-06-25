@@ -69,9 +69,8 @@ class MigrationRequirementsViewController: UIViewController, UITableViewDelegate
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.migrationRequirementsBody.rawValue, for: indexPath) as! CourseBodyTableViewCell
         
-        if let text = items[indexPath.row].htmlToAttributedString {
-            cell.lbl_text.attributedText = addFont(forText: text)
-        }
+        let htmlCSSString = Formats.cssStyles + items[indexPath.row]
+        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
         
         return cell
     }

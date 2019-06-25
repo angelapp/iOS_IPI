@@ -43,6 +43,10 @@ class ContactUsViewController: UIViewController, UITableViewDelegate, UITableVie
         edgePan.edges = .left
         
         view.addGestureRecognizer(edgePan)
+        
+        //Set background
+        self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+        contact_tableView.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
     }
 
     // MARK: - Action for Gestures

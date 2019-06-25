@@ -24,7 +24,7 @@ class TabButtonsCollectionViewCell: UICollectionViewCell {
     // Se usan para actualizar la vista padre
     
     var aboutNRCTabDelegate: AboutNRCTabProtocol? // Protocolo para las pestañas de "Sobre NRC"
-//    var documentsTabDelegate: DocumentsTabProtocol? // Protocolo para las pestañas de "Documentos"
+    var documentsTabDelegate: DocumentsViewControllerDelegate? // Protocolo para las pestañas de "Documentos"
 //    var leadersRoutesTabDelegate: LeadersRouteTabProtocol? // Protocolo para las pestañas de "Rutas de protecion para líderes"
 //    var progressTabDelegate: ProgressTabProtocol? // Protocolo para las pestañas de "Progreso Cursos"
 //    var vbgRoutesTabDelegate: VBGRouteTabProtocol? // Protocolo para las pestañas de "Rutas de protecion Violencia Basada en Genero"
@@ -46,7 +46,7 @@ class TabButtonsCollectionViewCell: UICollectionViewCell {
      que este activo, es decir, que no sea nulo */
     @IBAction func actionButton(_ sender: UIButton){
         aboutNRCTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
-//        documentsTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
+        documentsTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
 //        leadersRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
 //        progressTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
 //        vbgRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)

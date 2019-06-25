@@ -9,10 +9,10 @@
 import Foundation
 
 enum RefugeRequestHeaders: String, CaseIterable{
-    case request = "Solicitud"
-    case interview = "Declaración juramentada y entrevistas"
-    case studyCase = "Estudio del caso"
-    case notification = "Notificacion"
+    case request = "1. Solicitud"
+    case interview = "2. Declaración juramentada y entrevistas"
+    case studyCase = "3. Estudio del caso"
+    case notification = "4. Notificacion"
     case remember = "Recuerda que:"
     case whereToGo = "A dónde acudir en %@"
     
@@ -71,8 +71,11 @@ enum ViewControllerID: String, CaseIterable {
     case visas
     case nationalizationRequirements
     case phonebook
-    case documents
+    case documents, documentsFormats, documentsLegal, openFileVC
     case savedTrip
+    
+    // Suggestions
+    case suggestions
 
     static var asArray: [ViewControllerID] {return self.allCases}
 

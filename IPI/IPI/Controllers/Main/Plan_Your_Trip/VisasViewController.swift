@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VisasViewController: UIViewController {
+class VisasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 	// MARK: - Outlets 
 	@IBOutlet weak var lbl_msn: UILabel!
@@ -28,7 +28,7 @@ class VisasViewController: UIViewController {
 
         // Load Data
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
-        visas = AplicationRuntime.sharedManager.getPlanTrip()?.visas
+        visas = (AplicationRuntime.sharedManager.getPlanTrip()?.visas)!
         originCountryID = AplicationRuntime.sharedManager.getPlanTrip()?.natCountryID
         targetCountryID = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID
         
@@ -38,6 +38,9 @@ class VisasViewController: UIViewController {
         }
         
         lbl_msn.text = String(format: Formats.visasFormat, country)
+        
+        tbl_visas.delegate = self
+        tbl_visas.dataSource = self
     }
 	
 	// MARK: - Expandable tableview functions
@@ -116,7 +119,9 @@ class VisasViewController: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
-		cell.lbl_text.attributedText = addFont(forText: visas[indexPath.row].description.htmlToAttributedString!)
+        
+        let htmlCSSString = Formats.cssStyles + visas[indexPath.section].description
+		cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
 		
 		return cell
     }

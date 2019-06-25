@@ -100,7 +100,7 @@ struct JSONKeys {
 	static let document_condition = "document_condition"
 	static let document_condition_list = "document_condition_list"
     static let document_condition_types = "document_condition_types"
-    static let document_type_list = "document_type_list"
+    static let document_type_list = "document_types"
 
     //MARK: - E
     static let email = "email"
@@ -190,6 +190,7 @@ struct JSONKeys {
     static let trm = "trm"
 
     //MARK: - U
+    static let url = "url"
     static let user = "user"
     static let username = "username"
 

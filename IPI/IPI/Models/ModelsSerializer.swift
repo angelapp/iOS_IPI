@@ -163,6 +163,7 @@ class LibraryDocument: Mappable {
     var name: String!
     var description: String!
     var file: String!
+    var url: String!
     var doc_type: Int!
     
     //inicializador vacio
@@ -177,6 +178,7 @@ class LibraryDocument: Mappable {
         name <- map[JSONKeys.name]
         description <- map[JSONKeys.description]
         file <- map[JSONKeys.file]
+        url <- map[JSONKeys.url]
         doc_type <- map[JSONKeys.doc_type]
     }
 }

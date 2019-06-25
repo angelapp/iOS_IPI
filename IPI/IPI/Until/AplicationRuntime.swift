@@ -85,6 +85,20 @@ class AplicationRuntime {
     public func getAppConfig() -> ApplicationConfiguration! {
         return self.appConfig
     }
+    
+    public func getDocuments(fromType id: Int) -> Array<LibraryDocument> {
+        guard planYourTrip != nil, planYourTrip.library != nil
+            else { return [] }
+        
+        var documentList: Array<LibraryDocument> = []
+        for document in self.planYourTrip.library {
+            if document.doc_type == id {
+                documentList.append(document)
+            }
+        }
+        
+        return documentList
+    }
 
     public func getPlanTrip() -> PlanYourTripModel! {
         return self.planYourTrip

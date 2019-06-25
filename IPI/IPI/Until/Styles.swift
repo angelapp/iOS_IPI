@@ -75,16 +75,3 @@ func addLinkStyle(forText text: String) -> NSAttributedString {
 
     return textAttributed
 }
-
-func addFont(forText text: NSAttributedString) -> NSAttributedString {
-    
-    let range = (text.string as NSString).range(of: text.string)
-    let textAttributed = NSMutableAttributedString(attributedString: text)
-    let fontAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
-    let colorAttribute = [NSAttributedString.Key.foregroundColor: Colors().getColor(from: ConseColors.texts_blue.rawValue)]
-    
-    textAttributed.addAttributes(fontAttribute, range: range)
-    textAttributed.addAttributes(colorAttribute, range: range)
-    
-    return textAttributed
-}

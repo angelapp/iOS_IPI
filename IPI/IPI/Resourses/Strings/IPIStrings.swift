@@ -78,6 +78,7 @@ struct IPI_IMAGES {
     static let btn_audio_hover = "btn_audio_hover"
     static let btn_back_yellow = "btn_back_yellow"
     static let btn_back_red = "btn_back_red"
+    static let btn_back_green = "btn_back_green"
     static let btn_play = "btn_reproducir"
     static let btn_play_hover = "btn_reproducir_hover"
     static let btn_data = "btn_datos_utiles"
@@ -183,6 +184,10 @@ struct Labels {
     static let select_your_destination = "¿Cuál es tu destino?"
     static let select_your_nationality = "¿Cuál es tu nacionalidad?"
     
+    // Suggestions for your trip
+    static let suggestions_title = "Recomendaciones para tu protección"
+    static let suggestions_text = "Al salir de tu país de origen y dirigirte a un país desconocido, es probable que debas enfrentarte a diversas situaciones que pueden poner en riesgo tu bienestar y el de las personas que viajen contigo. Consulta a continuación algunas recomendaciones para tu protección."
+    
     //Titles for plan your trip
     static let migration_requirements  = "REQUISITOS \nMIGRATORIOS"
     static let country_general_data = "DATOS ÚTILES \nDE %@"
@@ -192,6 +197,8 @@ struct Labels {
     static let nationalization_requirements = "REQUISITOS DE \nNACIONALIZACIÓN"
     static let phonebook = "DIRECTORIO"
     static let documents = "DOCUMENTOS"
+    
+    static let remind = "Recuerda..."
     
     static let saveQuery_format = "Acabas de guardar la información disponible para el trayecto %@ - %@. \(doubleJump) Puedes consultarla más tarde en la opción del menú ÚLTIMA CONSULTA."
 }
@@ -265,12 +272,15 @@ struct DateTimeFormat {
 
 /// Formatos, y Expresiones regulares
 struct Formats {
+    static let cssStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto;} a {color: #FF7602;} </style>"
+    static let cssItalicStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto; font-style: italic;} a {color: #FF7602;} </style>"
     static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let matchesFormat = "SELF MATCHES %@"
     static let contactMessage = "Email: %@ \n\n Teléfono: %@ \n\n Mensaje: %@"
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
-    
+    static let bodyEmailShare = "Plantilla %@"
     static let migrationRequirementFormat = "Lista de chequeo para tu viaje a %@"
     static let refugeRequestFormat = "Si eres una persona refugiada ó en necesidad de protección internacional, esta es la ruta que deberás seguir para regular tu condición en territorio %@"
 	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
+    static let nationalizationFormat = "Son %@ por nacimiento:"
 }

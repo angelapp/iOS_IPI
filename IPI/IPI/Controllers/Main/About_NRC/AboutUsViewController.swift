@@ -113,8 +113,8 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: - Public Functions (Access by protocols)
     func changeTabSelected(toPosition position: Int) {
         currentTab = position
-        button_collection.reloadData()
         changeTab()
+        button_collection.reloadData()
     }
 
     // MARK: - Collection view DataSource and FlowLayout Dategate

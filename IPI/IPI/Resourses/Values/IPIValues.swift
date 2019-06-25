@@ -31,6 +31,11 @@ enum AvatarPiecesIDs: Int {
     case Hair, Accessory
 }
 
+enum FileActions: Int {
+    case open
+    case share
+}
+
 // MARK: - Index
 /// Indices para las páginas del curso *Conceptos Básicos de Protección Internacional*
 enum CURSO_PTN: Int {

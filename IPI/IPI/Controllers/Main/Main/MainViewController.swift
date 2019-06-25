@@ -83,6 +83,15 @@ class MainViewController: UIViewController, MainProtocol {
             present(nextVC, animated: true, completion: nil)
             break
             
+        case SUGGESTIONS_TAG:
+            let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.suggestions.rawValue) as! SuggestionsPopupViewController
+            
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            present(nextVC, animated: true, completion: nil)
+            break
+            
         default:
             break
         }
@@ -146,12 +155,12 @@ class MainViewController: UIViewController, MainProtocol {
 
             case .aboutUs:
                 self.updateViewBackground(newColor: .groupTableViewBackground)
-                //planYourTrip_buttons.isHidden = true
+                planYourTrip_buttons.isHidden = true
                 btn_progress.isHidden = true
                 break
 
             case .course:
-                self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.background_gray.rawValue))
+                self.updateViewBackground(newColor: Colors().getColor(from: ConseColors.yellow_dark.rawValue))
                 self.planYourTrip_buttons.isHidden = true
                 btn_progress.tag = PROGRESS_TAG
                 btn_progress.isHidden = false

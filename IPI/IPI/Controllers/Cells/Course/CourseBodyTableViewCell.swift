@@ -11,7 +11,9 @@ import UIKit
 class CourseBodyTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
+    @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_text: UILabel!
+    @IBOutlet weak var img_item: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

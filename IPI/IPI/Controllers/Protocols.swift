@@ -83,3 +83,12 @@ protocol PlanYourTripViewControllerDelegate: class {
 protocol RefugeRequestViewControllerDelegate: class {
     func audioManager(audioID id: Int, play: Bool)
 }
+
+// Protocolo library
+protocol DocumentsViewControllerDelegate: class {
+    func changeTabSelected(toPosition: Int)
+}
+
+protocol DocumentsFormatsControllerDelegate: class {
+    func openShareDocument(file: String!, action: FileActions)
+}

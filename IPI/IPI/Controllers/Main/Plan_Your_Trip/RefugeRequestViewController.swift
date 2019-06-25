@@ -52,7 +52,7 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             nationality = AplicationRuntime.sharedManager.getCountry(fromID: targetCountryID, getName: false, getNationality: true)
         }
         
-        lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast())
+        lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast() as CVarArg)
     }
 
     // MARK: - Private Functions
@@ -211,40 +211,41 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
                 cell.btn_audio.tag = targetCountryID
             }
             
-            cell.img_avatar.image = UIImage(named: IPI_IMAGES.avatar)
+            cell.img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
             cell.refugeRequestDelegate = self
             
             return cell
         }
         else {
             
-            var text: NSAttributedString!
+            var text = nullString
             
             switch indexPath.section {
                 case RefugeRequestHeaders.request.asInt():
-                    text = refugeRequest.request.htmlToAttributedString!
+                    text = refugeRequest.request!
                     break
                 
                 case RefugeRequestHeaders.interview.asInt():
-                    text = refugeRequest.interview.htmlToAttributedString!
+                    text = refugeRequest.interview!
                     break
                 
                 case RefugeRequestHeaders.studyCase.asInt():
-                    text = refugeRequest.case_study.htmlToAttributedString!
+                    text = refugeRequest.case_study!
                     break
                 
                 case RefugeRequestHeaders.notification.asInt():
-                    text = refugeRequest.notification.htmlToAttributedString!
+                    text = refugeRequest.notification!
                     break
                 
                 default:
-                    text = refugeRequest.where_to_go.htmlToAttributedString!
+                    text = refugeRequest.where_to_go!
                     break
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
             
-            cell.lbl_text.attributedText = addFont(forText: text!)
+            let htmlCSSString = Formats.cssStyles + text
+            cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
             
             return cell
         }

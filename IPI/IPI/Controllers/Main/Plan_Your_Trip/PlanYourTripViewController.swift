@@ -48,7 +48,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         // load current option
         option = AplicationRuntime.sharedManager.getCurrentOption()
-        printDebugMessage(tag: "option tapped id: \(option.id ?? -11)\n audioID: \(option.audioID ?? -22) icon:\(option.icon ?? "himesama n.n")")
+        printDebugMessage(tag: "option tapped id: \(option.id ?? -11)\n audioID: \(option.audioID ?? -22)\n icon:\(option.icon ?? "himesama n.n")")
 
         // load navigation bar and init viewController child
         drawNavbar()
@@ -60,6 +60,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     // MARK: - Private Functions
     /** init child viewControllers */
     private func drawNavbar(){
+        
         // Check if exist de option, else return to Plan Your Trip Menu
         guard option != nil else {
             back(nil)
@@ -74,13 +75,13 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     private func initChildView() {
 
 //        basicRightsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.basicRights.rawValue) as? BasicRightsViewController
-//        documentsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.documents.rawValue) as? DocumentsViewController
+        documentsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.documents.rawValue) as? DocumentsViewController
 //        generalDataVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.countryData.rawValue) as? GeneralDataViewController
         migrationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.migrationRequirements.rawValue) as? MigrationRequirementsViewController
-//        nationalizationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.nationalizationRequirements.rawValue) as? NationalizationRequirementsViewController
+        nationalizationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.nationalizationRequirements.rawValue) as? NationalizationRequirementsViewController
 //        phonebookVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.phonebook.rawValue) as? PhonebookViewController
         refugeRequestVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.refugeRequest.rawValue) as? RefugeRequestViewController
-//        visasVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.visas.rawValue) as? VisasViewController
+        visasVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.visas.rawValue) as? VisasViewController
 
         addToContainer(viewControllerID: option.id)
     }
@@ -90,14 +91,14 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         switch id {
 
-        case PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue:
-            return basicRightsVC
+//        case PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue:
+//            return basicRightsVC
 
         case PLAN_YOUR_TRIP_OPTION.LIBRARY.rawValue:
             return documentsVC
 
-        case PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue:
-            return generalDataVC
+//        case PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue:
+//            return generalDataVC
 
         case PLAN_YOUR_TRIP_OPTION.MIGRATIONS_REQUIREMENTS.rawValue:
             return migrationRequirementsVC
@@ -105,8 +106,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         case PLAN_YOUR_TRIP_OPTION.NATIONALIZATION_REQUIREMENTS.rawValue:
             return nationalizationRequirementsVC
 
-        case PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue:
-            return phonebookVC
+//        case PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue:
+//            return phonebookVC
 
         case PLAN_YOUR_TRIP_OPTION.REFUGEE_APLICATION.rawValue:
             return refugeRequestVC

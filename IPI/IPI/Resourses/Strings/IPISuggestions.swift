@@ -9,13 +9,13 @@
 import Foundation
 
 enum RecomendationsTittles: String, CaseIterable {
-    case item_01 = "Violencia basada en género"
-    case item_02 = "Trata/Tráfico de personas"
-    case item_03 = "Explotación y abuso sexual de niños y niñas"
-    case item_04 = "Albergue"
-    case item_05 = "Agua, saneamiento e higiene"
-    case item_06 = "Salud"
-    case item_07 = "Reclutamiento forzado para actividades ilegales"
+    case item_00 = "Violencia basada en género"
+    case item_01 = "Trata/Tráfico de personas"
+    case item_02 = "Explotación y abuso sexual de niños y niñas"
+    case item_03 = "Albergue"
+    case item_04 = "Agua, saneamiento e higiene"
+    case item_05 = "Salud"
+    case item_06 = "Reclutamiento forzado para actividades ilegales"
 	
 	static var asArray: [RecomendationsTittles] {return self.allCases}
     
@@ -34,10 +34,10 @@ enum RecomendationsContent_00: String, CaseIterable {
 	case item_07 = "¡Por último y no menos importante! No importa que seas extranjera, tienes derecho a ser respetada y a vivir libre de agresiones."
 	case item_08 = "Si vas a caminar largos recorridos y personas desconocidas te ofrecen llevarte gratuitamente en algún medio de transporte, ten precaución con quienes van en su interior. No permitas de ningún modo, que se lleven a los niños y/o niñas sin tu compañía."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_00] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_00.asArray.firstIndex(of: self)!
     }
 }
 
@@ -52,10 +52,10 @@ enum RecomendationsContent_01: String, CaseIterable {
 	case item_08 = "No dejes a niños y niñas al cuidado de extraños. Cuéntales sobre los riesgos que existen en relación con la violencia de género, trata y tráfico de personas."
 	case item_09 = "Si vas a caminar largos recorridos y personas desconocidas te ofrecen llevarte gratuitamente en algún medio de transporte, ten precaución con quienes van en su interior. No permitas de ningún modo, que se lleven a los niños y/o niñas sin tu compañía."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_01] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_01.asArray.firstIndex(of: self)!
     }
 }
 
@@ -66,27 +66,27 @@ enum RecomendationsContent_02: String, CaseIterable {
 	case item_04 = "No dejes a los niños y niñas al cuidado de extraños. Cuéntales sobre los riesgos que existen en relación con la violencia de género, trata y tráfico de personas."
 	case item_05 = "Si vas a caminar largos recorridos y personas desconocidas te ofrecen llevarte gratuitamente en algún medio de transporte, ten precaución con quienes van en su interior. No permitas de ningún modo, que se lleven a los niños y/o niñas sin tu compañía."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_02] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_02.asArray.firstIndex(of: self)!
     }
 }
 
 enum RecomendationsContent_03: String, CaseIterable {
-	case item_01 = "Si accedes a un cobijo o albergue, ten en cuenta que sea un lugar que garantice tu dignidad, privacidad,	salud, protección física y social. Revisa el tipo de contrato y legalidad del lugar donde decides permanecer."
+	case item_01 = "Si accedes a un cobijo o albergue, ten en cuenta que sea un lugar que garantice tu dignidad, privacidad, salud, protección física y social. Revisa el tipo de contrato y legalidad del lugar donde decides permanecer."
 	case item_02 = "Evalúa los posibles riesgos (naturales o humanos) a los que te puedes ver expuesto según el lugar donde decidas dormir."
 	case item_03 = "Evita lugares en donde se hospede más de 1 persona por cada 3,5 metros cuadrados, o más de una familia por espacio habitable. Esto para evitar riesgos de abusos, violaciones u otros tipos de violencia."
 	case item_04 = "Busca opciones de hospedaje que cuenten con los servicios básicos: agua, saneamiento, electricidad y gas. Asegúrate también, de tener un control del acceso de las puertas de tu habitación o cuarto desde el interior."
 	case item_05 = "No permitas que dividan a tu grupo familiar si te ofrecen una opción de alojamiento temporal. Es importante que los niños, niñas y adolescentes de tu grupo familiar no permanezcan solos, tengan privacidad y estén protegidos contra cualquier riesgo dentro del albergue."
-	case item_05 = "Revisa bien el estado de la construcción en donde te alojas grietas o fisuras importantes pueden generar la caida de una teja, pared o material defectuoso. De igual forma, evita la exposición a elementos cortantes, toma corrientes, cables en mal estado, caídas o falta de protección en ventanas, puertas, escaleras o balcones que pueden causar caídas o accidentes"
+	case item_06 = "Revisa bien el estado de la construcción en donde te alojas grietas o fisuras importantes pueden generar la caida de una teja, pared o material defectuoso. De igual forma, evita la exposición a elementos cortantes, toma corrientes, cables en mal estado, caídas o falta de protección en ventanas, puertas, escaleras o balcones que pueden causar caídas o accidentes"
 	case item_07 = "Procura ubicar lugares que se adecúen a tu contexto sociocultural y étnico."
 	case item_08 = "Demanda tu participación activa en la toma de decisiones sobre la posible respuesta humanitaria en temas de albergue."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_03] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_03.asArray.firstIndex(of: self)!
     }
 }
 
@@ -99,10 +99,10 @@ enum RecomendationsContent_04: String, CaseIterable {
 	case item_06 = "Realiza tu lavado de manos después de ir al baño, y antes de consumir cualquier alimento. Si no tienes a disposición agua y jabón, busca opciones como lociones a base de alcohol o desinfectantes."
 	case item_07 = "No tires tus desechos fuera de los puntos indicados, puedes estar contaminando el agua que luego vas a necesitar."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_04] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_04.asArray.firstIndex(of: self)!
     }
 }
 
@@ -113,10 +113,10 @@ enum RecomendationsContent_05: String, CaseIterable {
 	case item_04 = "No te expongas innecesariamente a climas extremos, si no cuentas con la ropa adecuada para protegerte, sobre todo de bajas temperaturas en donde puedes presentar hipotermia. Cuídate del sol y las altas temperaturas, en donde puedas presentar deshidratación."
 	case item_05 = "En caso de ser víctima de violencia sexual o violencia de género, consulta las recomendaciones indicadas en el apartado correspondiente en esta sección."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_05] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_05.asArray.firstIndex(of: self)!
     }
 }
 
@@ -128,9 +128,9 @@ enum RecomendationsContent_06: String, CaseIterable {
 	case item_05 = "No te confíes, sin investigar previamente, sobre trabajos que se vean fáciles o atractivos. Puede ser el inicio de una vinculación forzada en un grupo ilegal."
 	case item_06 = "Si vas a caminar largos recorridos y personas desconocidas te ofrecen llevarte gratuitamente en algún medio de transporte, ten precaución con quienes van en su interior. No permitas de ningún modo, que se lleven a los niños y/o niñas sin tu compañía."
 
-	static var asArray: [RecomendationsTittles] {return self.allCases}
+	static var asArray: [RecomendationsContent_06] {return self.allCases}
     
     func asInt() -> Int {
-        return RecomendationsTittles.asArray.firstIndex(of: self)!
+        return RecomendationsContent_06.asArray.firstIndex(of: self)!
     }
 }
