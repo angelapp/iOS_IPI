@@ -87,8 +87,9 @@ protocol RefugeRequestViewControllerDelegate: class {
 // Protocolo library
 protocol DocumentsViewControllerDelegate: class {
     func changeTabSelected(toPosition: Int)
-}
-
-protocol DocumentsFormatsControllerDelegate: class {
     func openShareDocument(file: String!, action: FileActions)
 }
+
+//protocol DocumentsFormatsControllerDelegate: class {
+//    func openShareDocument(file: String!, action: FileActions)
+//}

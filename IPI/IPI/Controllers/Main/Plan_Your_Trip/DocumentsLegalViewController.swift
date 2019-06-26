@@ -8,23 +8,129 @@
 
 import UIKit
 
-class DocumentsLegalViewController: UIViewController {
+class DocumentsLegalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    // MARK: - Outlets
+    @IBOutlet weak var tbl_documents: UITableView!
+
+    // MARK: - Properties
+    var documentType: Int!
+    var documents: Array<LibraryDocument> = []
+    var documentsDelegate: DocumentsViewControllerDelegate?
+
+    var expandedSections : NSMutableSet = []
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        documents = AplicationRuntime.sharedManager.getDocuments(fromType: documentType)
+
+        tbl_documents.delegate = self
+        tbl_documents.dataSource = self
     }
-    
 
-    /*
-    // MARK: - Navigation
+    // MARK: - Expandable tableview functions
+    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func sectionTapped(_ sender: UIButton) {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let section = sender.tag
+        let shouldExpand = !expandedSections.contains(section)
+
+        if (shouldExpand) {
+            expandedSections.removeAllObjects()
+            expandedSections.add(section)
+        } else {
+            expandedSections.removeAllObjects()
+        }
+
+        tbl_documents.reloadData()
     }
-    */
 
+    // MARK: - TableView delegate and datasource
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return documents.count
+    }
+
+    // Número de filas por sección
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    // MARK: Header properties
+    // Propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 62
+    }
+
+    // Encabezado de las secciones
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        // Load and fill de cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+
+        cell?.headerTitle = documents[indexPath.row].name
+        cell?.fill_header(forTable: TABLE_SAMPLES)
+        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        cell?.btn_openClose.tag = section
+        cell?.btn_openClose.isSelected = expandedSections.contains(section)
+
+        return cell
+    }
+
+    // MARK: Footer properties
+    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    // Tamaño estimado del pie de página
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 58
+    }
+
+    // Dibuja el pie de página
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+        return cell
+    }
+
+    // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    // Tamaño estimado de las celdas
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 52
+    }
+
+    // pintado de la tabla
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! DocumentsBodyTableViewCell
+
+        //Look the URL file
+        var fileURL = nullString
+        if documents[indexPath.row].file != nil {
+            fileURL = documents[indexPath.row].file
+        }
+        else if documents[indexPath.row].url != nil {
+            fileURL = documents[indexPath.row].url
+        }
+
+        cell.lbl_text.text = documents[indexPath.row].name
+        cell.file = fileURL
+        cell.documentsDelegate = self.documentsDelegate
+        cell.config_buttons()
+
+        return cell
+    }
 }

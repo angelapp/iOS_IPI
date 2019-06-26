@@ -183,11 +183,11 @@ struct Labels {
 
     static let select_your_destination = "¿Cuál es tu destino?"
     static let select_your_nationality = "¿Cuál es tu nacionalidad?"
-    
+
     // Suggestions for your trip
     static let suggestions_title = "Recomendaciones para tu protección"
     static let suggestions_text = "Al salir de tu país de origen y dirigirte a un país desconocido, es probable que debas enfrentarte a diversas situaciones que pueden poner en riesgo tu bienestar y el de las personas que viajen contigo. Consulta a continuación algunas recomendaciones para tu protección."
-    
+
     //Titles for plan your trip
     static let migration_requirements  = "REQUISITOS \nMIGRATORIOS"
     static let country_general_data = "DATOS ÚTILES \nDE %@"
@@ -197,9 +197,9 @@ struct Labels {
     static let nationalization_requirements = "REQUISITOS DE \nNACIONALIZACIÓN"
     static let phonebook = "DIRECTORIO"
     static let documents = "DOCUMENTOS"
-    
+
     static let remind = "Recuerda..."
-    
+
     static let saveQuery_format = "Acabas de guardar la información disponible para el trayecto %@ - %@. \(doubleJump) Puedes consultarla más tarde en la opción del menú ÚLTIMA CONSULTA."
 }
 
@@ -224,6 +224,7 @@ struct ErrorMessages {
     static let unselectOption = "Debes responder para continuar"
     static let unsavedPlan = "No has guardado ninguna consulta aún"
     static let tryAgain = "Inténtalo de nuevo más tarde"
+    static let dataNotFound = "¡No se encontraron archivos!"
 }
 
 // MARK: - String for loader
