@@ -65,7 +65,7 @@ class DocumentsFormatsViewController: UIViewController, UITableViewDelegate, UIT
 
         cell.lbl_text.text = documents[indexPath.row].name
         cell.file = fileURL
-        cell.documentsFormatDelegate = self.documentsDelegate
+        cell.documentsDelegate = self.documentsDelegate
         cell.config_buttons()
 
         return cell

@@ -46,12 +46,12 @@ class DocumentsBodyTableViewCell: UITableViewCell {
         switch sender {
 
         case btn_share:
-            documentsDelegate.openShareDocument(file: file, action: .share)
+            documentsDelegate?.openShareDocument(file: file, action: .share)
             printDebugMessage(tag: "sharing...")
             break
 
         default:
-            documentsDelegate.openShareDocument(file: file, action: .open)
+            documentsDelegate?.openShareDocument(file: file, action: .open)
             printDebugMessage(tag: "opennig...")
             break
         }

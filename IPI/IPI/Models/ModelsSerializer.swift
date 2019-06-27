@@ -16,7 +16,7 @@ class CorporatePhoneBook: Mappable {
     var id: Int!
     var name: String!
 //    var descrition: String!
-//    var phone: String!
+    var phone: String!
     var mobile_phone: String!
     var address: String!
 //    var url: String!
@@ -40,6 +40,7 @@ class CorporatePhoneBook: Mappable {
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
+        phone <- map[JSONKeys.phone]
         mobile_phone <- map[JSONKeys.mobile_phone]
         address <- map[JSONKeys.address]
         latitude <- map[JSONKeys.latitude]

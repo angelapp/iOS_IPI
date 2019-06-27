@@ -160,6 +160,7 @@ struct JSONKeys {
 
     //MARK: - P
     static let password = "password"
+    static let phone = "phone"
     static let phonebook = "phonebook"
     static let ponderation_progress = "ponderation_progress"
     static let public_tranportation_info = "public_tranportation_info"

@@ -44,7 +44,7 @@ class DocumentsViewController: UIViewController, UICollectionViewDataSource, UIC
         }
 
         //Check that exist Data
-        guard tabs != nil. tabs.count > 0 else {
+        guard tabs.count > 0 else {
             mainDelegate?.showMessageInMain(withMessage: ErrorMessages.dataNotFound)
 //            mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
             return

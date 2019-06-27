@@ -75,7 +75,7 @@ class DocumentsLegalViewController: UIViewController, UITableViewDelegate, UITab
         // Load and fill de cell
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
 
-        cell?.headerTitle = documents[indexPath.row].name
+        cell?.headerTitle = documents[section].name
         cell?.fill_header(forTable: TABLE_SAMPLES)
         cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
         cell?.btn_openClose.tag = section
@@ -119,14 +119,14 @@ class DocumentsLegalViewController: UIViewController, UITableViewDelegate, UITab
 
         //Look the URL file
         var fileURL = nullString
-        if documents[indexPath.row].file != nil {
-            fileURL = documents[indexPath.row].file
+        if documents[indexPath.section].file != nil {
+            fileURL = documents[indexPath.section].file
         }
-        else if documents[indexPath.row].url != nil {
-            fileURL = documents[indexPath.row].url
+        else if documents[indexPath.section].url != nil {
+            fileURL = documents[indexPath.section].url
         }
 
-        cell.lbl_text.text = documents[indexPath.row].name
+        cell.lbl_text.text = documents[indexPath.section].name
         cell.file = fileURL
         cell.documentsDelegate = self.documentsDelegate
         cell.config_buttons()
