@@ -84,6 +84,13 @@ extension UIViewController {
 	}
 }
 
+//Class for add values in gesture
+class IPITapGesture: UITapGestureRecognizer {
+    
+    /// Number to call in tap
+    var phoneNumber = String()
+}
+
 // Link action as tapGesture
 // REVISAR
 extension UITapGestureRecognizer {

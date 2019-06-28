@@ -10,38 +10,83 @@ import UIKit
 
 class PhonebookViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    // Buttons
+    @IBOutlet weak var btn_selectCity: UIButton!
+    @IBOutlet weak var btn_pickerCancel: UIButton!
+    @IBOutlet weak var btn_pickerConfirm: UIButton!
+
+    // Labels
+    @IBOutlet weak var lbl_Message: UILabel!
+    @IBOutlet weak var promt_city: UILabel!
+    
+    // Pickers
+    @IBOutlet weak var picker: UIPickerView!
+    
+    // Views
+    @IBOutlet weak var cnt_picker: UIView!
+    @IBOutlet weak var selector_city: UIView!
+    @IBOutlet weak var v_selectCity: UIView!
+    
+    @IBOutlet weak var tbl_phonebook: UITableView!
+    
     //Properties
+    
+    var coutryName: String = nullString
+    var countyID: Int!
+    
+    // Phonebook list
+    var cityList: Array<City>!
     var phoneList: Array<CorporatePhoneBook>!
+    var phoneListByType: Array<OrganizationType>!
+    
+    // Expandable
+    var expandedSections : NSMutableSet = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    // MARK: - Gestures
-    @objc func imageTapped (sender: UITapGestureRecognizer) {
-        let imgTapped = sender.view!
-        let imgTag = imgTapped.tag
+        phoneList = AplicationRuntime.sharedManager.getPlanTrip()?.phonebook
+        countyID = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID
         
-        var phone = nullString
-//        if phonelist[imgTag].phone != nil, phoneItem.phone != nullString {
-//            phone = phoneItem.phone
-//        }
-//        else if phoneItem.mobile_phone != nil, phoneItem.mobile_phone != nullString {
-//            phone = phoneItem.mobile_phone
-//        }
+        if countyID != nil {
+            coutryName = AplicationRuntime.sharedManager.getCountry(fromID: countyID, getName: true)
+        }
+        
+        lbl_Message.text = String(format: Formats.selectCityFormat, coutryName)
+    }
+    
+    func showCitySelector() {
+        
+        self.v_selectCity.isHidden = false
+        self.tbl_phonebook.isHidden = true
+        
+        cityList = getCities(fromPhonebook: phoneList)
+    }
+    
+    func getCities(fromPhonebook: Array<CorporatePhoneBook>!) -> Array<City> {
+        var cities: Array<City> = []
+        
+        return cities
     }
 
+    
+    // MARK: - Navigation
+     @objc func openCall(sender : IPITapGesture) {
+        
+        let number = sender.phoneNumber.components(separatedBy: .whitespaces).joined()
+        
+        if let url = URL(string: String(format: Formats.callFormat, number)), UIApplication.shared.canOpenURL(url) {
+            
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        else {
+            showErrorMessage(withMessage: ErrorMessages.disabledAction)
+        }
+    }
 }

@@ -209,6 +209,7 @@ struct ErrorMessages {
     static let audioDontLoad = "No se pudo cargar el Audio"
     static let blankFields = "Por favor completa todos los campos para continuar"
     static let completeInformation = "Debe completar información"
+    static let disabledAction = "El dispositivo no puedo realizar esta acción."
     static let email = "Por favor revisa tu correo he inténtalo de nuevo"
     static let invalidEmail = "Correo no válido"
     static let failedDataUpdate = "Error al actualizar datos"
@@ -273,6 +274,7 @@ struct DateTimeFormat {
 
 /// Formatos, y Expresiones regulares
 struct Formats {
+    static let callFormat = "tel://%@"
     static let cssStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto;} a {color: #FF7602;} </style>"
     static let cssItalicStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto; font-style: italic;} a {color: #FF7602;} </style>"
     static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -282,6 +284,7 @@ struct Formats {
     static let bodyEmailShare = "Plantilla %@"
     static let migrationRequirementFormat = "Lista de chequeo para tu viaje a %@"
     static let refugeRequestFormat = "Si eres una persona refugiada ó en necesidad de protección internacional, esta es la ruta que deberás seguir para regular tu condición en territorio %@"
+    static let selectCityFormat = "Selecciona la ciudad en %@"
 	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
     static let nationalizationFormat = "Son %@ por nacimiento:"
 }

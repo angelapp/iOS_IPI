@@ -59,8 +59,6 @@ class PhonebookTableViewCell: UITableViewCell {
         
         setButtonImages(button: btn_address, normal: IPI_IMAGES.icon_google_maps, hover: nullString)
         setAspectFitToButton(buttons: btn_address)
-        
-        
     }
 
 }
