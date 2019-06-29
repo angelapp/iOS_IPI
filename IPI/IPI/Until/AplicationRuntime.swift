@@ -103,6 +103,19 @@ class AplicationRuntime {
     public func getPlanTrip() -> PlanYourTripModel! {
         return self.planYourTrip
     }
+	
+	public func getPhoneBoook() -> Arrray<City> {
+		guard planYourTrip != nil, planYourTrip.phonebook != nil
+			else { return [] }
+		
+		var cities: Array<City> = []
+		
+		//Looking for city
+		
+		
+		
+		return cities
+	}
 
     public func getCurrentOption() -> PlanYourTripOptions! {
         return self.currentOption

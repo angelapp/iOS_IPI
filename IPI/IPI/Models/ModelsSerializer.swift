@@ -345,6 +345,7 @@ class City: Mappable {
     
     var id: Int!
     var name: String!
+	var phonebook: OrganizationType!
     
     //inicializador vacio
     init() {
