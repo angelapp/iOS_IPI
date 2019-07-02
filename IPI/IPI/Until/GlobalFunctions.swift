@@ -201,3 +201,58 @@ func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
 
     return progress
 }
+
+/**
+ Function for order phonebook by organization type
+ 
+ - Parameter phoneBook: List of phoneboook for order
+ - Returns: List of organization type
+*/
+func orderByOrganizationType(phoneBook: Array<CorporatePhoneBook>) -> Array<OrganizationType> {
+    
+    // Check if exist Data
+    guard let appConf = AplicationRuntime.sharedManager.getAppConfig(), phoneBook.count > 0 else { return [] }
+    guard appConf.organization_types != nil, appConf.organization_types.count > 0 else { return [] }
+    
+    /// Arreglo auxiliar para mantener los Id de las Org que ya sean agregado al arreglo de retorno
+    var aux: Array<Int> = []
+    var orgList: Array<OrganizationType> = []
+    
+    // Looking available organizationType in phonebook
+    for phone in phoneBook {
+        
+        // Looking organization type Data
+        orgLoop: for org in appConf.organization_types {
+            
+            if org.id == phone.organization_type {
+                
+                // Verifica si la org ya se encuentar en el arreglo de retorno
+                if !aux.contains(org.id) {
+                    
+                    // Init corporate registers if it's null
+                    if org.registries == nil { org.registries = [] }
+                    
+                    // Add de current phonebook add sub-array phonebook
+                    org.registries.append(phone)
+                    orgList.append(org)
+                    
+                    // update index array
+                    aux.append(org.id)
+                }
+                else {
+                    // update sub-phonebook array when the city exist
+                    // pos: position in registres
+                    if let pos = aux.index(of: org.id) {
+                        orgList[pos].registries.append(phone)
+                    }
+                }
+                
+                // Leave innerLoop
+                break orgLoop
+            }
+        }
+    }
+    
+    return orgList
+}
+

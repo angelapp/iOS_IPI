@@ -77,6 +77,7 @@ protocol BeforeTravelViewControllerDelegate : class {
 // Protocolos del controllador principal
 protocol PlanYourTripViewControllerDelegate: class {
     func addToContainer(viewControllerID id: Int)
+    func showPhonebook(forCity city: City)
     func removeOfContainer()
 }
 

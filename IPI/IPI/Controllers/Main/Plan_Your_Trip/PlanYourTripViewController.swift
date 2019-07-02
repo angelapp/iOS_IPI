@@ -23,7 +23,10 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // MARK: - Properties
     var logView: [Int]! = []
+    var isShowSelectCity = true
+    
     var option: PlanYourTripOptions!
+    var currentCity: City!
 
     // properties for play audio
     var ncrAudio: AVAudioPlayer?
@@ -36,6 +39,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     var migrationRequirementsVC: MigrationRequirementsViewController!
     var nationalizationRequirementsVC: NationalizationRequirementsViewController!
     var phonebookVC: PhonebookViewController!
+    var selectCityVC: PhonebookSelectCityViewController!
     var refugeRequestVC: RefugeRequestViewController!
     var visasVC: VisasViewController!
 
@@ -80,6 +84,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         migrationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.migrationRequirements.rawValue) as? MigrationRequirementsViewController
         nationalizationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.nationalizationRequirements.rawValue) as? NationalizationRequirementsViewController
 //        phonebookVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.phonebook.rawValue) as? PhonebookViewController
+//        selectCityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectCity.rawValue) as? PhonebookSelectCityViewController
         refugeRequestVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.refugeRequest.rawValue) as? RefugeRequestViewController
         visasVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.visas.rawValue) as? VisasViewController
 
@@ -88,6 +93,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     /** Return: viewController, add delegates and properties as appropriate */
     private func getViewController(viewControllerID id: Int) -> UIViewController {
+        
+        _ = AplicationRuntime.sharedManager.getCities()
 
         switch id {
 
@@ -107,7 +114,16 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
             return nationalizationRequirementsVC
 
 //        case PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue:
-//            return phonebookVC
+//            if isShowSelectCity {
+//                isShowSelectCity = false
+//                phonebookVC.city = currentCity
+//                return phonebookVC
+//            }
+//            else {
+//                isShowSelectCity = true
+//                selectCityVC.plantripDelegate
+//                return selectCityVC
+//            }
 
         case PLAN_YOUR_TRIP_OPTION.REFUGEE_APLICATION.rawValue:
             return refugeRequestVC
@@ -219,9 +235,19 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         let indexOF = logView.index(of: refVC!)
         logView.remove(at: indexOF!)
     }
+    
+    func showPhonebook(forCity city: City) {
+        self.currentCity = city
+        self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue)
+    }
 
     // MARK: - Action buttons
     @IBAction func back(_ sender: UIButton?) {
+        
+        guard isShowSelectCity else {
+            self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue)
+            return
+        }
 
         // Clean Container
         self.removeOfContainer()

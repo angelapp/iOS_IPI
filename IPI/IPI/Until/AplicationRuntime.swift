@@ -103,18 +103,82 @@ class AplicationRuntime {
     public func getPlanTrip() -> PlanYourTripModel! {
         return self.planYourTrip
     }
-	
-	public func getPhoneBoook() -> Arrray<City> {
-		guard planYourTrip != nil, planYourTrip.phonebook != nil
+    
+    /**
+     Function to search country by itselft ID **defult = nil**
+     
+     - Parameter fromID: country's ID
+     - Returns: Country
+     */
+    public func getCountry(fromID id: Int) -> Country! {
+        
+        //Check if exist config and countries data
+        guard self.appConfig != nil, self.appConfig.countries != nil else {
+            return nil
+        }
+        
+        // Looking for country by ID
+        for country in self.appConfig.countries {
+            if country.id == id {
+                return country
+            }
+        }
+        
+        // Defautl return value
+        return nil
+    }
+    
+    /**
+     Function to get cities of target country, with avaible phonebook
+     **defult = empty**
+     
+     - Returns: City List
+     */
+	public func getCities() -> Array<City> {
+		
+        //Check if exist data
+        guard planYourTrip != nil,  let country = getCountry(fromID: self.planYourTrip.desCountryID)
 			else { return [] }
 		
+        /// Arreglo auxiliar para mantener los Id de las Ciudades que ya sean agregado al arreglo de retorno
+        var aux: Array<Int> = []
 		var cities: Array<City> = []
 		
-		//Looking for city
-		
-		
-		
-		return cities
+		// Looking available cities in phonebook
+        for phone in planYourTrip.phonebook{
+            
+            // Looking cities Data
+            cityLoop: for city in country.country_cities {
+                
+                if city.id == phone.city {
+                    
+                    // Verifica si la ciudad ya se encuentar en el arreglo de retorno
+                    if !aux.contains(city.id) {
+                        
+                        // Init city phonebook if it's null
+                        if city.cityPhonebook == nil { city.cityPhonebook = [] }
+                        
+                        // Add de current phonebook add sub-array phonebook
+                        city.cityPhonebook.append(phone)
+                        cities.append(city)
+                        
+                        // update index array
+                        aux.append(city.id)
+                    }
+                    else {
+                        // update sub-phonebook array when the city exist
+                        if let pos = aux.index(of: city.id) {
+                            cities[pos].cityPhonebook.append(phone)
+                        }
+                    }
+                    
+                    // Leave innerLoop
+                    break cityLoop
+                }
+            }
+        }
+        
+        return cities
 	}
 
     public func getCurrentOption() -> PlanYourTripOptions! {
@@ -142,7 +206,7 @@ class AplicationRuntime {
             options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue,
                                                icon: IPI_IMAGES.btn_data,
                                                logo: IPI_IMAGES.icon_datos,
-                                               title: Labels.country_general_data,
+                                               title: String(format: Labels.country_general_data, getCountry(fromID: self.planYourTrip.desCountryID, getName: true)),//Labels.country_general_data,
                                                audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_02.rawValue))
         }
         //Check if basic rights is an available option

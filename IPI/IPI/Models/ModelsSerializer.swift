@@ -345,11 +345,11 @@ class City: Mappable {
     
     var id: Int!
     var name: String!
-	var phonebook: OrganizationType!
+    ///Filter Phonebook by City
+	var cityPhonebook: Array<CorporatePhoneBook>!
     
     //inicializador vacio
-    init() {
-    }
+    init() {}
     
     required init?(map: Map) {
     }

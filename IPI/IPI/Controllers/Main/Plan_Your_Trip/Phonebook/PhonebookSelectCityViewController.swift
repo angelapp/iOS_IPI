@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhonebookSelectCityViewController: UIViewController {
+class PhonebookSelectCityViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: - Outlets
     // Buttons
@@ -28,15 +28,101 @@ class PhonebookSelectCityViewController: UIViewController {
     @IBOutlet weak var selector_city: UIView!
     
     //MARK: - Properties
-    var countyID: Int!
     var cityList: Array<City>!
+    var citySelected: City!
+    var plantripDelegate: PlanYourTripViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Load City list
+        if cityList == nil { cityList = AplicationRuntime.sharedManager.getCities()}
+        
+        // Load Country Name
+        var country = nullString
+        if let id = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID {
+            country = AplicationRuntime.sharedManager.getCountry(fromID: id, getName: true)
+        }
+
+        // Fill Labels
+        lbl_Message.text = String(format: Formats.selectCityFormat, country)
+        promt_city.text = Labels.hint_spinner
+        
+        // Config pickers
+        cnt_picker.isHidden = true
+        picker.delegate = self
+        picker.dataSource = self
     }
     
+    /// Hidden picker view
+    private func showHiddenPicker(showPicker: Bool) {
+        picker.isHidden = !showPicker
+        cnt_picker.isHidden =  !showPicker
+    }
     
-
+    private func showPhonebook() {
+        plantripDelegate?.showPhonebook(forCity: citySelected)
+    }
+    
+    // MARK: - UIPickerView Delegate
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cityList.count
+    }
+    
+    // Set font to the label and set content
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        //custom label
+        let pickerLabel = UILabel()
+        pickerLabel.numberOfLines = 0
+        pickerLabel.sizeToFit()
+        pickerLabel.textColor = UIColor.black
+        pickerLabel.textAlignment = NSTextAlignment.center
+        
+        pickerLabel.text = cityList[row].name
+        
+        return pickerLabel
+    }
+    
+    //action for event onchange
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        promt_city.text = cityList[row].name
+        citySelected = cityList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 45
+    }
+    
+    // MARK: - Action buttons
+    @IBAction func actionButtons(_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_selectCity:
+            
+            picker.reloadAllComponents()
+            showHiddenPicker(showPicker: true)
+            return
+            
+        case btn_pickerConfirm:
+            
+            promt_city.text = cityList[picker.selectedRow(inComponent: 0)].name
+            citySelected = cityList[picker.selectedRow(inComponent: 0)]
+            
+            showPhonebook()
+            
+            showHiddenPicker(showPicker: false)
+            return
+            
+        default:
+            showHiddenPicker(showPicker: false)
+            return
+        }
+    }
 }

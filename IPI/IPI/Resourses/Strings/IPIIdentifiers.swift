@@ -70,7 +70,7 @@ enum ViewControllerID: String, CaseIterable {
     case refugeRequest
     case visas
     case nationalizationRequirements
-    case phonebook
+    case selectCity, phonebook
     case documents, documentsFormats, documentsLegal, openFileVC
     case savedTrip
     

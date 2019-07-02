@@ -24,7 +24,7 @@ class SaveQueryPopupViewController: UIViewController {
             let fromCountry = AplicationRuntime.sharedManager.getCountry(fromID: nat)
             let toCountry = AplicationRuntime.sharedManager.getCountry(fromID: des)
             
-            lbl_message.text = String(format: Labels.saveQuery_format, fromCountry, toCountry)
+            lbl_message.text = String(format: Labels.saveQuery_format, fromCountry as! CVarArg, toCountry as! CVarArg)
         }
         
         setButtonTitle(button: btn_done, title: Buttons.done)

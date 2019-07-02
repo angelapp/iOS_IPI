@@ -17,9 +17,9 @@ class PhonebookViewController: UIViewController {
     var coutryName: String = nullString
     
     // Phonebook list
-    var cityList: Array<City>!
-    var phoneList: Array<CorporatePhoneBook>!
-    var phoneListByType: Array<OrganizationType>!
+    var city: City!
+//    var phoneList: Array<CorporatePhoneBook>!
+//    var phoneListByType: Array<OrganizationType>!
     
     // Expandable
     var expandedSections : NSMutableSet = []
