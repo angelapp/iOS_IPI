@@ -214,8 +214,14 @@ func orderByOrganizationType(phoneBook: Array<CorporatePhoneBook>) -> Array<Orga
     guard let appConf = AplicationRuntime.sharedManager.getAppConfig(), phoneBook.count > 0 else { return [] }
     guard appConf.organization_types != nil, appConf.organization_types.count > 0 else { return [] }
     
+    // clean data
+    for org in appConf.organization_types {
+        org.registries = []
+    }
+    
     /// Arreglo auxiliar para mantener los Id de las Org que ya sean agregado al arreglo de retorno
     var aux: Array<Int> = []
+    var aux2: Array<Int> = []
     var orgList: Array<OrganizationType> = []
     
     // Looking available organizationType in phonebook
@@ -233,17 +239,23 @@ func orderByOrganizationType(phoneBook: Array<CorporatePhoneBook>) -> Array<Orga
                     if org.registries == nil { org.registries = [] }
                     
                     // Add de current phonebook add sub-array phonebook
-                    org.registries.append(phone)
-                    orgList.append(org)
+                    if !aux2.contains(phone.id) {
+                        org.registries.append(phone)
+                        aux2.append(phone.id)
+                    }
                     
                     // update index array
+                    orgList.append(org)
                     aux.append(org.id)
                 }
                 else {
                     // update sub-phonebook array when the city exist
                     // pos: position in registres
                     if let pos = aux.index(of: org.id) {
-                        orgList[pos].registries.append(phone)
+                        if !aux2.contains(phone.id) {
+                            orgList[pos].registries.append(phone)
+                            aux2.append(phone.id)
+                        }
                     }
                 }
                 

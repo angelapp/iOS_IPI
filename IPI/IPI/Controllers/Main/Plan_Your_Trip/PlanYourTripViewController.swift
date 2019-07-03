@@ -23,7 +23,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // MARK: - Properties
     var logView: [Int]! = []
-    var isShowSelectCity = true
+    var phoneBookTAG = ViewControllerID.selectCity.asInt()
     
     var option: PlanYourTripOptions!
     var currentCity: City!
@@ -83,8 +83,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 //        generalDataVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.countryData.rawValue) as? GeneralDataViewController
         migrationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.migrationRequirements.rawValue) as? MigrationRequirementsViewController
         nationalizationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.nationalizationRequirements.rawValue) as? NationalizationRequirementsViewController
-//        phonebookVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.phonebook.rawValue) as? PhonebookViewController
-//        selectCityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectCity.rawValue) as? PhonebookSelectCityViewController
+        phonebookVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.phonebook.rawValue) as? PhonebookViewController
+        selectCityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.selectCity.rawValue) as? PhonebookSelectCityViewController
         refugeRequestVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.refugeRequest.rawValue) as? RefugeRequestViewController
         visasVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.visas.rawValue) as? VisasViewController
 
@@ -93,8 +93,6 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     /** Return: viewController, add delegates and properties as appropriate */
     private func getViewController(viewControllerID id: Int) -> UIViewController {
-        
-        _ = AplicationRuntime.sharedManager.getCities()
 
         switch id {
 
@@ -113,17 +111,17 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         case PLAN_YOUR_TRIP_OPTION.NATIONALIZATION_REQUIREMENTS.rawValue:
             return nationalizationRequirementsVC
 
-//        case PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue:
-//            if isShowSelectCity {
-//                isShowSelectCity = false
-//                phonebookVC.city = currentCity
-//                return phonebookVC
-//            }
-//            else {
-//                isShowSelectCity = true
-//                selectCityVC.plantripDelegate
-//                return selectCityVC
-//            }
+        case PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue:
+            if phoneBookTAG == ViewControllerID.phonebook.asInt() {
+                lbl_title.text = String(format: Formats.phonebookFormat, currentCity.name.uppercased())
+                phonebookVC.city = currentCity
+                return phonebookVC
+            }
+            else {
+                lbl_title.text = Labels.phonebook
+                selectCityVC.plantripDelegate = self
+                return selectCityVC
+            }
 
         case PLAN_YOUR_TRIP_OPTION.REFUGEE_APLICATION.rawValue:
             return refugeRequestVC
@@ -194,9 +192,6 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         let vc = getViewController(viewControllerID: id)
 
-        // continue is new vc to add is diferent to current top vc
-        guard logView.last != id else { return }
-
         if container.subviews.count > 0 {
             let vc = self.children.last
             vc?.willMove(toParent: nil)
@@ -238,13 +233,15 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     
     func showPhonebook(forCity city: City) {
         self.currentCity = city
+        self.phoneBookTAG = ViewControllerID.phonebook.asInt()
         self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue)
     }
 
     // MARK: - Action buttons
     @IBAction func back(_ sender: UIButton?) {
         
-        guard isShowSelectCity else {
+        guard phoneBookTAG != ViewControllerID.phonebook.asInt() else {
+            self.phoneBookTAG = ViewControllerID.selectCity.asInt()
             self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue)
             return
         }

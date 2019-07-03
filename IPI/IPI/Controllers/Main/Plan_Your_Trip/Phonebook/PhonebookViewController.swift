@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhonebookViewController: UIViewController {
+class PhonebookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Outlets
     @IBOutlet weak var tbl_phonebook: UITableView!
@@ -18,8 +18,7 @@ class PhonebookViewController: UIViewController {
     
     // Phonebook list
     var city: City!
-//    var phoneList: Array<CorporatePhoneBook>!
-//    var phoneListByType: Array<OrganizationType>!
+    var phoneListByType: Array<OrganizationType> = []
     
     // Expandable
     var expandedSections : NSMutableSet = []
@@ -27,32 +26,41 @@ class PhonebookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        phoneList = AplicationRuntime.sharedManager.getPlanTrip()?.phonebook
-//        countyID = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID
-//
-//        if countyID != nil {
-//            coutryName = AplicationRuntime.sharedManager.getCountry(fromID: countyID, getName: true)
-//        }
-//
-//        lbl_Message.text = String(format: Formats.selectCityFormat, coutryName)
+        //Load data
+        if phoneListByType.count == 0 {
+            phoneListByType = orderByOrganizationType(phoneBook: city?.cityPhonebook ?? [])
+        }
+        
+        tbl_phonebook.reloadData()
+        
+        tbl_phonebook.delegate = self
+        tbl_phonebook.dataSource = self
     }
     
-//    func showCitySelector() {
-//
-//        self.v_selectCity.isHidden = false
-//        self.tbl_phonebook.isHidden = true
-//
-//        cityList = getCities(fromPhonebook: phoneList)
-//    }
-//
-//    func getCities(fromPhonebook: Array<CorporatePhoneBook>!) -> Array<City> {
-//        var cities: Array<City> = []
-//
-//        return cities
-//    }
-
+    override func viewDidDisappear(_ animated: Bool) {
+        city = nil
+        phoneListByType = []
+        tbl_phonebook.reloadData()
+    }
     
-    // MARK: - Navigation
+    // MARK: - Expandable tableview functions
+    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func sectionTapped(_ sender: UIButton) {
+        
+        let section = sender.tag
+        let shouldExpand = !expandedSections.contains(section)
+        
+        if (shouldExpand) {
+            expandedSections.removeAllObjects()
+            expandedSections.add(section)
+        } else {
+            expandedSections.removeAllObjects()
+        }
+        
+        tbl_phonebook.reloadData()
+    }
+    
+    // MARK: - Gestures
      @objc func openCall(sender : IPITapGesture) {
         
         let number = sender.phoneNumber.components(separatedBy: .whitespaces).joined()
@@ -68,5 +76,83 @@ class PhonebookViewController: UIViewController {
         else {
             showErrorMessage(withMessage: ErrorMessages.disabledAction)
         }
+    }
+    
+    // MARK: - Table view Delegate and Datasource
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return phoneListByType.count
+    }
+    
+    // Número de filas por sección
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return expandedSections.contains(section) ? phoneListByType[section].registries.count : 0
+    }
+    
+    // MARK: Header properties
+    // Propiedad para ajustar el tamaño del encabezado al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del encabezado
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 62
+    }
+    
+    // Encabezado de las secciones
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        // Load and fill de cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
+        
+        cell?.headerTitle = phoneListByType[section].name
+        cell?.fill_header(forTable: TABLE_SAMPLES)
+        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        cell?.btn_openClose.tag = section
+        cell?.btn_openClose.isSelected = expandedSections.contains(section)
+        
+        return cell
+    }
+    
+    // MARK: Footer properties
+    // Se agrega la propiedad para ajustar el tamaño del pie de página al contenido
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    // Tamaño estimado del pie de página
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 58
+    }
+    
+    // fill Footer
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.footer.rawValue) as! CourseFooterTableViewCell
+        return cell
+    }
+    
+    // fill Body
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! PhonebookTableViewCell
+        
+        cell.phoneItem = phoneListByType[indexPath.section].registries[indexPath.row]
+        cell.fillCell()
+        
+        // Crea tap gesture si existe número
+        if let phone = cell.lbl_phone.text, phone != nullString {
+            
+            //create Tap gesture
+            let callGesture = IPITapGesture(target: self, action: #selector(self.openCall))
+            callGesture.phoneNumber = phone
+                
+                // Add geture
+            cell.lbl_phone.isUserInteractionEnabled = true
+            cell.lbl_phone.addGestureRecognizer(callGesture)
+        }
+        
+        return cell
     }
 }

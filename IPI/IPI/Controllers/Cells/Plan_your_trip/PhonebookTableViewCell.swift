@@ -50,15 +50,16 @@ class PhonebookTableViewCell: UITableViewCell {
             phone = phoneItem.mobile_phone
         }
         
+        let imgPhone = phone == nullString ? nullString : IPI_IMAGES.icon_mobile
         lbl_phone.text = phone
         
         // Set Image
+        img_phone.image = UIImage(named: imgPhone)
         img_address.image = UIImage(named: IPI_IMAGES.icon_marker)
-        img_phone.image = UIImage(named: IPI_IMAGES.icon_mobile)
         img_title.image = UIImage(named: IPI_IMAGES.success_orange)
         
-        setButtonImages(button: btn_address, normal: IPI_IMAGES.icon_google_maps, hover: nullString)
-        setAspectFitToButton(buttons: btn_address)
+//        setButtonImages(button: btn_address, normal: IPI_IMAGES.icon_google_maps, hover: nullString)
+//        setAspectFitToButton(buttons: btn_address)
     }
 
 }

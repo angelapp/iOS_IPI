@@ -10,7 +10,7 @@ import Foundation
 
 // Global constants
 let appName = "IPI Conse"
-let debugFlag = "♻️ \(appName)_Debug: "
+let debugFlag = "IPI_debug_message: "
 
 let blankSpace = " "
 let nullString = ""
@@ -285,6 +285,7 @@ struct Formats {
     static let migrationRequirementFormat = "Lista de chequeo para tu viaje a %@"
     static let refugeRequestFormat = "Si eres una persona refugiada ó en necesidad de protección internacional, esta es la ruta que deberás seguir para regular tu condición en territorio %@"
     static let selectCityFormat = "Selecciona la ciudad en %@"
+    static let phonebookFormat = "DIRECTORIO DE ENTIDADES \nDE APOYO EN %@"
 	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
     static let nationalizationFormat = "Son %@ por nacimiento:"
 }

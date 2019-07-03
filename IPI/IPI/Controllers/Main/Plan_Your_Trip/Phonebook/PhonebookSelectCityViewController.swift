@@ -36,7 +36,7 @@ class PhonebookSelectCityViewController: UIViewController, UIPickerViewDelegate,
         super.viewDidLoad()
 
         // Load City list
-        if cityList == nil { cityList = AplicationRuntime.sharedManager.getCities()}
+        if cityList == nil { loadData() }
         
         // Load Country Name
         var country = nullString
@@ -52,6 +52,18 @@ class PhonebookSelectCityViewController: UIViewController, UIPickerViewDelegate,
         cnt_picker.isHidden = true
         picker.delegate = self
         picker.dataSource = self
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        cityList = []
+        picker.reloadAllComponents()
+    }
+    
+    private func loadData(reload: Bool? = false) {
+        cityList = AplicationRuntime.sharedManager.getCities()
+        picker.reloadAllComponents()
+        
+        if reload ?? false { actionButtons(btn_selectCity) }
     }
     
     /// Hidden picker view
@@ -105,10 +117,16 @@ class PhonebookSelectCityViewController: UIViewController, UIPickerViewDelegate,
         switch sender {
             
         case btn_selectCity:
+            if cityList.count > 0 {
+                picker.reloadAllComponents()
+                showHiddenPicker(showPicker: true)
+                return
+            }
+            else {
+                loadData(reload: true)
+                return
+            }
             
-            picker.reloadAllComponents()
-            showHiddenPicker(showPicker: true)
-            return
             
         case btn_pickerConfirm:
             

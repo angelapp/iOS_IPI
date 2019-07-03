@@ -139,9 +139,15 @@ class AplicationRuntime {
         //Check if exist data
         guard planYourTrip != nil,  let country = getCountry(fromID: self.planYourTrip.desCountryID)
 			else { return [] }
+        
+        //Init phonebook for cities
+        for city in country.country_cities {
+            city.cityPhonebook = []
+        }
 		
         /// Arreglo auxiliar para mantener los Id de las Ciudades que ya sean agregado al arreglo de retorno
         var aux: Array<Int> = []
+        var aux2: Array<Int> = []
 		var cities: Array<City> = []
 		
 		// Looking available cities in phonebook
@@ -159,16 +165,21 @@ class AplicationRuntime {
                         if city.cityPhonebook == nil { city.cityPhonebook = [] }
                         
                         // Add de current phonebook add sub-array phonebook
-                        city.cityPhonebook.append(phone)
-                        cities.append(city)
+                        if !aux2.contains(phone.id) {
+                            city.cityPhonebook.append(phone)
+                            aux2.append(phone.id)
+                        }
                         
-                        // update index array
+                        cities.append(city)
                         aux.append(city.id)
                     }
                     else {
                         // update sub-phonebook array when the city exist
                         if let pos = aux.index(of: city.id) {
-                            cities[pos].cityPhonebook.append(phone)
+                            if !aux2.contains(phone.id) {
+                                cities[pos].cityPhonebook.append(phone)
+                                aux2.append(phone.id)
+                            }
                         }
                     }
                     
@@ -176,6 +187,10 @@ class AplicationRuntime {
                     break cityLoop
                 }
             }
+        }
+        
+        for city in cities {
+            printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
         }
         
         return cities
