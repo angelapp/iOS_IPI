@@ -47,6 +47,8 @@ class SigninTableViewCell: UITableViewCell, UITextFieldDelegate {
         tf_password.placeholder = Labels.hint_password
         tf_password.delegate = self
         tf_password.tag = 1
+        
+        setButtonTitle(button: btn_recovery, title: Buttons.forgot)
     }
 
     //MARK: Métodos para el control de eventos del teclado

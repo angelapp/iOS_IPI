@@ -17,9 +17,10 @@ struct TabsName {
         static let tab_03 = "DÓNDE TRABAJAMOS"
     }
     
-    struct ProgressTabs {
-        static let tab_01 = "Violencia Basada en Género"
-        static let tab_02 = "Protección de líderes y lideresas"
+    struct GeneralDataTabs {
+        static let tab_01 = "DATOS \nGENERALES"
+        static let tab_02 = "TEMPERATURA"
+        static let tab_03 = "TRAYECTOS EN \nTRANSPORTE PÚBLICO"
     }
 }
 
@@ -36,6 +37,9 @@ func getTabs(forViewID id: ViewControllerID) -> [String] {
         
     case .aboutUs:
         return [TabsName.AboutNRCTabs.tab_01, TabsName.AboutNRCTabs.tab_02, TabsName.AboutNRCTabs.tab_03]
+        
+    case .countryData:
+        return [TabsName.GeneralDataTabs.tab_01, TabsName.GeneralDataTabs.tab_02, TabsName.GeneralDataTabs.tab_03]
         
     default:
         return [nullString]

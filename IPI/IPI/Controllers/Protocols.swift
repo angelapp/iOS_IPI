@@ -91,6 +91,7 @@ protocol DocumentsViewControllerDelegate: class {
     func openShareDocument(file: String!, action: FileActions)
 }
 
-//protocol DocumentsFormatsControllerDelegate: class {
-//    func openShareDocument(file: String!, action: FileActions)
-//}
+// Protocolo Country Data
+protocol CountryDataViewControllerDelegate: class {
+    func changeTabSelected(toPosition: Int)
+}

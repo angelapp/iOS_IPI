@@ -78,12 +78,12 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
         // El dispositivo está en mute
         do {
             if #available(iOS 10.0, *) {
-                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [])
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             } else {
                 // Fallback on earlier versions
                 AVAudioSession.sharedInstance().perform(NSSelectorFromString("setCategory:error:"), with: AVAudioSession.Category.playback)
             }
-        }
+            try AVAudioSession.sharedInstance().setActive(true)        }
         catch {
             // report for an error
             print(error)

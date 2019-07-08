@@ -110,9 +110,11 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
     
     // MARK: - Expandable tableview functions
     //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
-    @objc func sectionTapped(_ sender: UIButton) {
+    @objc func tapSection(sender: UITapGestureRecognizer) {
         
-        let section = sender.tag
+        let sectionTapped = sender.view!
+        let section = sectionTapped.tag
+        
         let shouldExpand = !expandedSections.contains(section)
         
         if (shouldExpand) {
@@ -165,8 +167,18 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
         
         cell?.headerTitle = title
         cell?.fill_header(forTable: TABLE_SAMPLES)
-        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        
         cell?.btn_openClose.tag = section
+        cell?.tag = section
+        
+        // Add Gesture for expand list
+        let tapButton = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.btn_openClose.addGestureRecognizer(tapButton)
+        
+        let tapHeader = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.addGestureRecognizer(tapHeader)
+            
+        // Update Button state
         cell?.btn_openClose.isSelected = expandedSections.contains(section)
         
         //Change the background color for a specific header

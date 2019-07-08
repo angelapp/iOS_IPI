@@ -162,7 +162,7 @@ struct IPI_COURSE {
         static let text1 = "¡Felicitaciones! Has completado los contenidos del Módulo 2. Pon a prueba tus conocimientos con el siguiente juego de letras."
         static let text2 = "Completa el nombre de seis de los programas propuestos por el Plan de Acción Brasil mencionados en el video. Lee las preguntas e ingresa las letras que hacen falta para completar las palabras."
     }
-
+    
     struct PAGE_19 {
         static let text1 = "Pregunta 1"
         static let text2 = "Programa que busca fortalecer la capacidad de los Estados para acoger a los PNPI y mejorar los procedimientos para acceder a la condición de Refugiado."
@@ -215,7 +215,9 @@ struct IPI_COURSE {
         static let text1 = "Ya tienes claros los programas que ofrecen los Estados de América Latina y el Caribe para las Personas en Necesidad de Protección Internacional. Has conseguido tu segunda insignia."
         static let text2 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     }
-
+    /** END MODULE 2 **/
+    
+    /** START MODULE 3 **/
     struct PAGE_26 {
         static let text1 = "Hemos hecho un recorrido hasta el momento sobre los conceptos básicos de la Protección Internacional, los derechos que tiene una PNPI/Refugiado, las obligaciones de los Estados, pero nos falta lo más importante: reconocer si eres o no una persona que necesita Protección Internacional."
         static let text2 = "A lo largo del Módulo No. 3, encontrarás una serie de preguntas y observaciones que te ayudarán a identificar si eres o no una PNPI."
@@ -284,4 +286,5 @@ struct IPI_COURSE {
         static let text1 = "Tienes tu tercera insignia: ya eres un Consejero/a Experto/a"
         static let text2 = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     }
+    /** END MODULE 3 **/
 }

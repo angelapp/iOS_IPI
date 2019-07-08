@@ -169,7 +169,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="lJv-cS-OLH"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <state key="normal" title="¿Olvidaste la contraseña">
+                                                            <state key="normal" title="¿Olvidaste la contraseña?">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AboutNRCTabProtocol {
+class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AboutNRCTabProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var container: UIView!
@@ -34,23 +34,32 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //load data
         instanciateTabs()
-
-        currentTab = tab1Index
-        changeTab()
 
         button_collection.delegate = self
         button_collection.dataSource = self
 
+        //Auto Adjust Collection view
         if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 151, height: 40)
+            flowLayout.estimatedItemSize = CGSize(width: 125, height: 40)
         }
         
-        // Add gesture for go back
-        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
-        edgePan.edges = .left
+        //Check that exist Data
+        guard tabs.count > 0 else {
+            mainDelegate?.showMessageInMain(withMessage: ErrorMessages.dataNotFound)
+            //            mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
+            return
+        }
         
-        self.view.addGestureRecognizer(edgePan)
+        changeTab()
+        button_collection.reloadData()
+        
+//        // Add gesture for go back
+//        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+//        edgePan.edges = .left
+//
+//        self.view.addGestureRecognizer(edgePan)
     }
     
     // MARK: - Action for Gestures
@@ -92,20 +101,20 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: - Actions
     func changeTab() {
 
-        let indexPath = IndexPath(row: currentTab, section: 0)
-        button_collection.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.right, animated: false)
+//        let indexPath = IndexPath(row: currentTab, section: 0)
+//        button_collection.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.right, animated: true)
 
         switch currentTab {
-
-        case tab1Index:
-            showTab(tab: tab1)
-            break
 
         case tab2Index:
             showTab(tab: tab2)
             break
 
-        default:showTab(tab: tab3)
+        case tab3Index:
+            showTab(tab: tab3)
+            break
+
+        default:showTab(tab: tab1)
             break
         }
     }
@@ -113,8 +122,8 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: - Public Functions (Access by protocols)
     func changeTabSelected(toPosition position: Int) {
         currentTab = position
-        changeTab()
         button_collection.reloadData()
+        changeTab()
     }
 
     // MARK: - Collection view DataSource and FlowLayout Dategate
@@ -142,4 +151,15 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
 
         return cell
     }
+    
+//    //Set Width and Heigth of the cell
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let paddingSpace: CGFloat = 0
+//        let availableWidth = button_collection.bounds.size.width - paddingSpace
+//        let cellwidth = availableWidth / tabs.count
+//        let cellheigth: CGFloat = 40.0
+//
+//        return CGSize(width: cellwidth, height: cellheigth)
+//    }
 }

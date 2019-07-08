@@ -62,7 +62,7 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
                 break
             
             case mod_3:
-                index = CURSO_PTN.PAGE_04.rawValue
+                index = CURSO_PTN.PAGE_26.rawValue
                 break
             
             default:

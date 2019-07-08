@@ -35,7 +35,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     // Controllers that are managed by this controller
     var basicRightsVC: BasicRightsViewController!
     var documentsVC: DocumentsViewController!
-    var generalDataVC: GeneralDataViewController!
+    var countryDataVC: CountryDataViewController!
     var migrationRequirementsVC: MigrationRequirementsViewController!
     var nationalizationRequirementsVC: NationalizationRequirementsViewController!
     var phonebookVC: PhonebookViewController!
@@ -80,7 +80,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
 //        basicRightsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.basicRights.rawValue) as? BasicRightsViewController
         documentsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.documents.rawValue) as? DocumentsViewController
-//        generalDataVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.countryData.rawValue) as? GeneralDataViewController
+        countryDataVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.countryData.rawValue) as? CountryDataViewController
         migrationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.migrationRequirements.rawValue) as? MigrationRequirementsViewController
         nationalizationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.nationalizationRequirements.rawValue) as? NationalizationRequirementsViewController
         phonebookVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.phonebook.rawValue) as? PhonebookViewController
@@ -102,8 +102,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         case PLAN_YOUR_TRIP_OPTION.LIBRARY.rawValue:
             return documentsVC
 
-//        case PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue:
-//            return generalDataVC
+        case PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue:
+            return countryDataVC
 
         case PLAN_YOUR_TRIP_OPTION.MIGRATIONS_REQUIREMENTS.rawValue:
             return migrationRequirementsVC

@@ -49,6 +49,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
 
             do {
                 ncrAudio = try AVAudioPlayer(contentsOf: url)
+                printDebugMessage(tag: "Volumen \(ncrAudio?.volume ?? -11.25)")
                 ncrAudio?.play()
                 ncrAudio?.delegate = self
                 isPlaying = name

@@ -22,7 +22,7 @@ class LetStartViewController: UIViewController {
         // Show upload avatar message
         self.view.makeToast(message: AvatarStrings.uploadSuccess,
                             duration: HRToastDefaultDuration,
-                            position: HRToastPositionTop as AnyObject)
+                            position: HRToastPositionDefault     as AnyObject)
 
         // set Tittle
         setButtonTitle(button: btn_next, title: Buttons.start)

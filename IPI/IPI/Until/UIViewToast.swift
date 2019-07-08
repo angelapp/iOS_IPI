@@ -18,8 +18,8 @@ let ToastLongDuration       =   8.0
 let HRToastDefaultDuration  =   2.0
 let HRToastFadeDuration     =   0.2
 
-let HRToastHorizontalMargin : CGFloat  =   10.0
-let HRToastVerticalMargin   : CGFloat  =   20.0
+let HRToastHorizontalMargin : CGFloat  =   8.0
+let HRToastVerticalMargin   : CGFloat  =   8.0
 
 /// Bottom position
 let HRToastPositionDefault  =   "bottom"
@@ -36,8 +36,8 @@ let HRToastImageViewWidth :  CGFloat  = 80.0
 let HRToastImageViewHeight:  CGFloat  = 80.0
 
 // label setting
-let HRToastMaxWidth       :  CGFloat  = 0.8;      // 80% of parent view width
-let HRToastMaxHeight      :  CGFloat  = 0.8;
+let HRToastMaxWidth       :  CGFloat  = 0.90;      // 90% of parent view width
+let HRToastMaxHeight      :  CGFloat  = 0.90;
 let HRToastFontSize       :  CGFloat  = 16.0
 let HRToastMaxTitleLines              = 0
 let HRToastMaxMessageLines            = 0
@@ -56,9 +56,8 @@ var HRToastView: UnsafePointer<UIView>?
 
 
 // Color Scheme
-let HRAppColor:UIColor = UIColor.lightGray//UIappViewController().appUIColor
+let HRAppColor:UIColor = UIColor.lightGray //UIappViewController().appUIColor
 let HRAppColor_2:UIColor = UIColor.white
-
 
 let HRToastHidesOnTap       =   true
 let HRToastDisplayShadow    =   false
@@ -290,6 +289,7 @@ extension UIView {
         return self.centerPointForPosition(position: HRToastPositionDefault as AnyObject, toast: toast)
     }
     
+    // MARK: Create toast
     func viewForMessage(msg: String?, title: String?, image: UIImage?) -> UIView? {
         if msg == nil && title == nil && image == nil { return nil }
         
@@ -300,7 +300,7 @@ extension UIView {
         let wrapperView = UIView()
         wrapperView.autoresizingMask = ([.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin])
         wrapperView.layer.cornerRadius = HRToastCornerRadius
-        wrapperView.backgroundColor = UIColor.black.withAlphaComponent(HRToastOpacity)
+        wrapperView.backgroundColor = UIColor.lightGray.withAlphaComponent(HRToastOpacity)
         
         if HRToastDisplayShadow {
             wrapperView.layer.shadowColor = UIColor.black.cgColor

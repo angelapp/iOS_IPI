@@ -170,7 +170,7 @@ struct Labels {
 
     static let contact_kindOfMessage = "Tipo de mensaje"
     static let contact_messageTitle = "Tu mensaje"
-    static let contact_telephone = "Tú Teléfono"
+    static let contact_telephone = "Tú teléfono"
     static let contact_title = "DÉJANOS TU MENSAJE"
     static let contact_send_message = "Se ha enviado tu mensaje"
 
@@ -255,7 +255,9 @@ struct WebsiteURL {
 
 /// Id's de los videos en Youtube!
 struct VideosID {
-    static let DEFAULT_VIDEO = "KuUWKzD8e00"
+    ///IPI: ¿sabes cuáles son tus derechos cuando huyes de tu país?
+    static let DEFAULT_VIDEO = "gikA6FxhHRM"
+    ///Conse: Ruta de protección para líderes y lideresas
     static let PROTECTION_VIDEO = "7t0rIdNhayM"
 }
 

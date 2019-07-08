@@ -221,7 +221,7 @@ class AplicationRuntime {
             options.append(PlanYourTripOptions(id: PLAN_YOUR_TRIP_OPTION.GENERAL_COUNTRY_DATA.rawValue,
                                                icon: IPI_IMAGES.btn_data,
                                                logo: IPI_IMAGES.icon_datos,
-                                               title: String(format: Labels.country_general_data, getCountry(fromID: self.planYourTrip.desCountryID, getName: true)),//Labels.country_general_data,
+                                               title: String(format: Labels.country_general_data, getCountry(fromID: self.planYourTrip.desCountryID, getName: true).uppercased()),
                                                audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_02.rawValue))
         }
         //Check if basic rights is an available option

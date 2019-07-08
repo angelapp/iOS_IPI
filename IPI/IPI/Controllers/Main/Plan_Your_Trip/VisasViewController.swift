@@ -44,10 +44,12 @@ class VisasViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 	
 	// MARK: - Expandable tableview functions
-    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
-    @objc func sectionTapped(_ sender: UIButton) {
+    /// Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func tapSection(sender: UITapGestureRecognizer) {
         
-        let section = sender.tag
+        let sectionTapped = sender.view!
+        let section = sectionTapped.tag
+        
         let shouldExpand = !expandedSections.contains(section)
         
         if (shouldExpand) {
@@ -90,8 +92,18 @@ class VisasViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell?.headerTitle = visas[section].name
         cell?.fill_header(forTable: TABLE_SAMPLES)
-        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        
         cell?.btn_openClose.tag = section
+        cell?.tag = section
+        
+        // Add Gesture for expand list
+        let tapButton = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.btn_openClose.addGestureRecognizer(tapButton)
+        
+        let tapHeader = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.addGestureRecognizer(tapHeader)
+        
+        // Update Button state
         cell?.btn_openClose.isSelected = expandedSections.contains(section)
         
         return cell

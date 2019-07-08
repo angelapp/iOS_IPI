@@ -407,8 +407,8 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     func fill_CELL_18() {
-        lbl_text1.text = IPI_COURSE.PAGE_10.text1
-        lbl_text2.text = IPI_COURSE.PAGE_10.text2
+        lbl_text1.text = IPI_COURSE.PAGE_18.text1
+        lbl_text2.text = IPI_COURSE.PAGE_18.text2
 
         setButtonTitle(button: btn_next, title: Buttons.go_activity)
 
@@ -769,6 +769,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_1)
 
+        //Custome Progress bar
+        progressBar.clipsToBounds = true
+        progressBar.layer.cornerRadius = (progressBar.frame.height / 2)
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         progressBar.setProgress(progressValue, animated: false)
 
@@ -814,6 +817,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_2)
 
+        //Custome Progress bar
+        progressBar.clipsToBounds = true
+        progressBar.layer.cornerRadius = (progressBar.frame.height / 2)
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         progressBar.setProgress(progress, animated: false)
 
@@ -877,6 +883,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_3)
 
+        //Custome Progress bar
+        progressBar.clipsToBounds = true
+        progressBar.layer.cornerRadius = (progressBar.frame.height / 2)
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         progressBar.setProgress(progress, animated: false)
 
@@ -931,6 +940,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_icon2.image = UIImage(named: IPI_IMAGES.success_orange)
         img_icon3.image = UIImage(named: IPI_IMAGES.success_orange)
 
+        //Custome Progress bar
+        progressBar.clipsToBounds = true
+        progressBar.layer.cornerRadius = (progressBar.frame.height / 2)
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         progressBar.setProgress(progress, animated: false)
 
@@ -982,6 +994,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         img_auxiliar.image = UIImage(named: IPI_IMAGES.sheet_top)
         img_icon1.image = UIImage(named: IPI_IMAGES.icon_5)
 
+        //Custome Progress bar
+        progressBar.clipsToBounds = true
+        progressBar.layer.cornerRadius = (progressBar.frame.height / 2)
         progressBar.transform = CGAffineTransform(scaleX: 1, y: 5)
         progressBar.setProgress(progress, animated: false)
 
@@ -1061,21 +1076,24 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     }
 
     // MARK: - Expandable tableview functions
-    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
-    @objc func sectionTapped(_ sender: UIButton) {
-
-        let section = sender.tag
+    /// Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func tapSection(sender: UITapGestureRecognizer) {
+        
+        let sectionTapped = sender.view!
+        let section = sectionTapped.tag
+        
         let shouldExpand = !expandedSections.contains(section)
-
+        
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
         } else {
             expandedSections.removeAllObjects()
         }
-
+        
         updateUI()
     }
+    
 
     // MARK: - Table view Delegate and Datasource
     // Número de secciones de la tabla
@@ -1106,8 +1124,18 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         cell?.headerTitle = samplesList[section].header
         cell?.fill_header(forTable: tableView.tag)
-        cell?.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        
         cell?.btn_openClose.tag = section
+        cell?.tag = section
+        
+        // Add Gesture for expand list
+        let tapButton = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.btn_openClose.addGestureRecognizer(tapButton)
+
+        let tapHeader = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
+        cell?.addGestureRecognizer(tapHeader)
+
+        // Update Button state
         cell?.btn_openClose.isSelected = expandedSections.contains(section)
 
         return cell
