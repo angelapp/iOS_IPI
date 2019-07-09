@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, BasicRightsViewControllerDelegate {
+class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, BasicRightsViewControllerDelegate {
 
 	// MARK: - Outlets
     @IBOutlet weak var lbl_msn: UILabel!
@@ -16,15 +16,15 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var button_collection: UICollectionView!
 
     // MARK: - Properties
-    private let tabs = []
     private let tab1Index: Int = 0
     private let tab2Index: Int = 1
 	
 	var currentTab: Int = 0
 	
-	// List
+	//
 	var migrationCondition: MigrationConditionType!
 	var migrationTypeList: Array<DocumentConditionType> = []
+    var basicRightsList: Array<BasicRight> = []
     
 	// Expandable
 	var expandedSections : NSMutableSet = []
@@ -37,7 +37,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
 
         //load data
 		if migrationTypeList.count == 0 {
-			//getTabsData()
+            loadData()
 		}
         
 		// Set data sourse and delegate to tableview
@@ -52,22 +52,25 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = CGSize(width: 125, height: 40)
         }
-		
-		//Check that exist Data
-        guard tabs.count > 0 else {
-            mainDelegate?.showMessageInMain(withMessage: ErrorMessages.dataNotFound)
-            //            mainDelegate?.addToContainer(viewControllerID: .planYourTripMenu)
-            return
-        }
         
         changeTab()
 		tbl_basicRights.reloadData()
         button_collection.reloadData()
     }
 	
-	private func getTabsData(){
-		
+	private func loadData(){
+		migrationTypeList = migrationCondition.document_condition_list
+        basicRightsList = migrationTypeList[currentTab].basic_right_list
 	}
+    
+    func changeTab() {
+        //Clean List
+        basicRightsList = []
+        //Set data for new selected
+        basicRightsList = migrationTypeList[currentTab].basic_right_list
+        //Update view
+        tbl_basicRights.reloadData()
+    }
 	
 	// MARK: Basic Rights Delegate
     func changeTabSelected(toPosition position: Int) {
@@ -98,12 +101,12 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Table view Delegate and Datasource
     // Número de secciones de la tabla
     func numberOfSections(in tableView: UITableView) -> Int {
-        return migrationTypeList.count
+        return basicRightsList.count
     }
     
     // Número de filas por sección
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return expandedSections.contains(section) ? migrationTypeList[section].basic_right_list.count : 0
+        return expandedSections.contains(section) ? 1 : 0
     }
     
     // MARK: Header properties
@@ -123,7 +126,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         // Load and fill de cell
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.header.rawValue) as? CourseHeaderTableViewCell
         
-        cell?.headerTitle = migrationTypeList[section].name
+        cell?.headerTitle = basicRightsList[section].name
         cell?.fill_header(forTable: TABLE_SAMPLES)
         
         cell?.btn_openClose.tag = section
@@ -164,56 +167,12 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Fill cell for Remember section
-        if indexPath.section == RefugeRequestHeaders.remember.asInt() {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.bodyAvatar.rawValue) as! RefugeRequestBobyTableViewCell
-            
-            cell.lbl_title.text = Labels.listenAudioRefugeRequest
-            
-            cell.btn_audio.isSelected = false
-            cell.config_button()
-            
-            if targetCountryID != nil {
-                cell.btn_audio.tag = targetCountryID
-            }
-            
-            cell.img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
-            cell.refugeRequestDelegate = self
-            
-            return cell
-        }
-        else {
-            
-            var text = nullString
-            
-            switch indexPath.section {
-                case RefugeRequestHeaders.request.asInt():
-                    text = refugeRequest.request!
-                    break
-                
-                case RefugeRequestHeaders.interview.asInt():
-                    text = refugeRequest.interview!
-                    break
-                
-                case RefugeRequestHeaders.studyCase.asInt():
-                    text = refugeRequest.case_study!
-                    break
-                
-                case RefugeRequestHeaders.notification.asInt():
-                    text = refugeRequest.notification!
-                    break
-                
-                default:
-                    text = refugeRequest.where_to_go!
-                    break
-            }
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
-            
-            let htmlCSSString = Formats.cssStyles + text
-            cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
-            
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
+        
+        let htmlCSSString = Formats.cssStyles + basicRightsList[indexPath.row].description
+        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+        
+        return cell
     }
     
 	// MARK: - Collection view DataSource and FlowLayout Dategate
@@ -224,7 +183,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
     
     //number of the items in the section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tabs.count
+        return migrationTypeList.count
     }
     
     //fill collection
@@ -233,7 +192,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.aboutTabButtonsCell.rawValue, for: indexPath) as! TabButtonsCollectionViewCell
         
         cell.basicRightsTabDelegate = self
-        cell.titleButton = tabs[indexPath.row]
+        cell.titleButton = migrationTypeList[indexPath.row].name
         cell.tab_button.tag = indexPath.row
         cell.tab_button.titleLabel?.textAlignment = .center
         cell.tab_button.isSelected = indexPath.row == currentTab

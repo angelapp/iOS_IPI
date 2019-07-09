@@ -9,6 +9,23 @@
 import UIKit
 
 class BasicRightsSelectorViewController: UIViewController {
+    
+    // MARK: - Outlets
+    // Buttons
+    @IBOutlet weak var btn_selectCondition: UIButton!
+    @IBOutlet weak var btn_pickerCancel: UIButton!
+    @IBOutlet weak var btn_pickerConfirm: UIButton!
+    
+    // Labels
+    @IBOutlet weak var lbl_Message: UILabel!
+    @IBOutlet weak var promt_condition: UILabel!
+    
+    // Pickers
+    @IBOutlet weak var picker: UIPickerView!
+    
+    // Views
+    @IBOutlet weak var cnt_picker: UIView!
+    @IBOutlet weak var selector_condition: UIView!
 
 	var migrationConditionList: Array<MigrationConditionType> = []
 

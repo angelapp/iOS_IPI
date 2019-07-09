@@ -66,7 +66,7 @@ enum ViewControllerID: String, CaseIterable {
     case selectCountries, planYourTripMenu, planYourTrip
     case migrationRequirements
     case countryData, generalData, weatherData, transportData
-    case basicRights, basicRights_Tab1, basicRights_Tab2
+    case basicRightSelector, basicRights
     case refugeRequest
     case visas
     case nationalizationRequirements
