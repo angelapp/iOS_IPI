@@ -95,3 +95,8 @@ protocol DocumentsViewControllerDelegate: class {
 protocol CountryDataViewControllerDelegate: class {
     func changeTabSelected(toPosition: Int)
 }
+
+// Protocolo Basic Rights
+protocol BasicRightsViewControllerDelegate: class {
+    func changeTabSelected(toPosition: Int)
+}

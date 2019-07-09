@@ -10,6 +10,8 @@ import UIKit
 
 class BasicRightsSelectorViewController: UIViewController {
 
+	var migrationConditionList: Array<MigrationConditionType> = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
