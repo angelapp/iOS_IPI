@@ -23,10 +23,12 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // MARK: - Properties
     var logView: [Int]! = []
+    var basicRightsTAG = ViewControllerID.basicRightSelector.asInt()
     var phoneBookTAG = ViewControllerID.selectCity.asInt()
-    
+
     var option: PlanYourTripOptions!
     var currentCity: City!
+    var currentCondition: MigrationConditionType!
 
     // properties for play audio
     var ncrAudio: AVAudioPlayer?
@@ -34,6 +36,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // Controllers that are managed by this controller
     var basicRightsVC: BasicRightsViewController!
+    var basicRightSelectorVC: BasicRightsSelectorViewController!
     var documentsVC: DocumentsViewController!
     var countryDataVC: CountryDataViewController!
     var migrationRequirementsVC: MigrationRequirementsViewController!
@@ -64,7 +67,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
     // MARK: - Private Functions
     /** init child viewControllers */
     private func drawNavbar(){
-        
+
         // Check if exist de option, else return to Plan Your Trip Menu
         guard option != nil else {
             back(nil)
@@ -78,7 +81,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     private func initChildView() {
 
-//        basicRightsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.basicRights.rawValue) as? BasicRightsViewController
+        basicRightsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.basicRights.rawValue) as? BasicRightsViewController
+        basicRightSelectorVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.basicRightSelector.rawValue) as? BasicRightsSelectorViewController
         documentsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.documents.rawValue) as? DocumentsViewController
         countryDataVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.countryData.rawValue) as? CountryDataViewController
         migrationRequirementsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerID.migrationRequirements.rawValue) as? MigrationRequirementsViewController
@@ -96,8 +100,15 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         switch id {
 
-//        case PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue:
-//            return basicRightsVC
+        case PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue:
+           if basicRightsTAG == ViewControllerID.basicRights.asInt() {
+                basicRightsVC.conditonSelected = currentCondition
+                return basicRightsVC
+            }
+            else {
+                basicRightSelectorVC.plantripDelegate = self
+                return basicRightSelectorVC
+            }
 
         case PLAN_YOUR_TRIP_OPTION.LIBRARY.rawValue:
             return documentsVC
@@ -230,7 +241,13 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         let indexOF = logView.index(of: refVC!)
         logView.remove(at: indexOF!)
     }
-    
+
+    func showBasicRights(forCondition condition: MigrationConditionType) {
+        self.currentCondition = condition
+        self.basicRightsTAG = ViewControllerID.basicRights.asInt()
+        self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue)
+    }
+
     func showPhonebook(forCity city: City) {
         self.currentCity = city
         self.phoneBookTAG = ViewControllerID.phonebook.asInt()
@@ -239,7 +256,15 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // MARK: - Action buttons
     @IBAction func back(_ sender: UIButton?) {
-        
+
+        //Back Action from Basic Rights
+        guard basicRightsTAG != ViewControllerID.basicRights.asInt() else {
+            self.basicRightsTAG = ViewControllerID.basicRightSelector.asInt()
+            self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue)
+            return
+        }
+
+        //Back Action from Phonebook
         guard phoneBookTAG != ViewControllerID.phonebook.asInt() else {
             self.phoneBookTAG = ViewControllerID.selectCity.asInt()
             self.addToContainer(viewControllerID: PLAN_YOUR_TRIP_OPTION.PHONEBOOK.rawValue)

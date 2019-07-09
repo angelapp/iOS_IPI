@@ -12,31 +12,31 @@ import SwiftyJSON
 
 /// Corporate Model
 class CorporatePhoneBook: Mappable {
-    
+
     var id: Int!
     var name: String!
-//    var descrition: String!
+    var descrition: String!
     var phone: String!
     var mobile_phone: String!
     var address: String!
-//    var url: String!
-//    var twitter: String!
-//    var email: String!
-//    var schedule: String!
+    var url: String!
+    var twitter: String!
+    var email: String!
+    var schedule: String!
     var latitude: Float!
     var longitude: Float!
     var organization_type: Int!
-//    var icon: String!
+    var icon: String!
     var city: Int!
     var is_active: Bool!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -53,18 +53,18 @@ class CorporatePhoneBook: Mappable {
 
 /// Organization Type Model
 class OrganizationType: Mappable {
-    
+
     var id: Int!
     var name: String!
     var registries: Array<CorporatePhoneBook>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -76,17 +76,17 @@ class OrganizationType: Mappable {
 
 /// User Model for register
 class RegisterUserProfileModel : Mappable {
-    
+
     var email: String!
     var password: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         email <- map[JSONKeys.email]
         password <- map[JSONKeys.password]
@@ -95,17 +95,17 @@ class RegisterUserProfileModel : Mappable {
 
 /// User Model for server response
 class RegisterUserResponse : Mappable {
-    
+
     var token: String!
     var user: UserSerializer!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         token <- map[JSONKeys.token]
         user <- map[JSONKeys.user]
@@ -113,18 +113,18 @@ class RegisterUserResponse : Mappable {
 }
 
 class UserSerializer : Mappable {
-    
+
     var id: Int!
     var username: String!
     var email: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         username <- map[JSONKeys.username]
@@ -133,21 +133,21 @@ class UserSerializer : Mappable {
 }
 
 class DocumentType: Mappable {
-    
+
     var id: Int!
     var name: String!
     var abreviature: String!
     var description: String!
     var icon: String!
     var documents: Array<LibraryDocument>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -166,14 +166,14 @@ class LibraryDocument: Mappable {
     var file: String!
     var url: String!
     var doc_type: Int!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -185,18 +185,18 @@ class LibraryDocument: Mappable {
 }
 
 class MigrationConditionType: Mappable {
-    
+
     var id: Int!
     var name: String!
     var document_condition_list: Array<DocumentConditionType>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -205,19 +205,19 @@ class MigrationConditionType: Mappable {
 }
 
 class DocumentConditionType: Mappable {
-    
+
     var id: Int!
     var name: String!
     var migration_condition: String!
     var basic_right_list: Array<BasicRight>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -235,14 +235,14 @@ class BasicRight: Mappable {
     var document_condition: Int!
     var basic_right_type: Int!
     var is_active: Bool!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -258,19 +258,19 @@ class BasicRight: Mappable {
 
 // MARK: - Config App Models
 class GeneralConfiguration: Mappable {
-    
+
     var terms_condition_url: String!
     var min_pin_length: Int!
     var psw_regular_expression: String!
     var psw_error_recomendation: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         terms_condition_url <- map[JSONKeys.terms_condition_url]
         min_pin_length <- map[JSONKeys.min_pin_length]
@@ -280,7 +280,7 @@ class GeneralConfiguration: Mappable {
 }
 
 class ApplicationConfiguration: Mappable {
-    
+
     var general_configuration: GeneralConfiguration!
     var document_type_Array: Array<DocumentType>!
     var contact_form_type_Array: Array<ContactFormType>!
@@ -288,20 +288,20 @@ class ApplicationConfiguration: Mappable {
     var avatar_pieces_Array: Array<AvatarPiece>!
     var body_parts_Array: Array<BodyParts>!
     var course_Array: Array<Course>!
-    
+
     // New Model
     var migration_condition_types: Array<MigrationConditionType>!
     var document_condition_types: Array<DocumentConditionType>!
     var organization_types: Array<OrganizationType>!
     var countries: Array<Country>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         general_configuration <- map[JSONKeys.general_configuration]
         document_type_Array <- map[JSONKeys.document_type_list]
@@ -310,7 +310,7 @@ class ApplicationConfiguration: Mappable {
         avatar_pieces_Array <- map[JSONKeys.avatar_pieces_list]
         body_parts_Array <- map[JSONKeys.body_parts_list]
         course_Array <- map[JSONKeys.course_list]
-        
+
         //New
         migration_condition_types <- map[JSONKeys.migration_condition_types]
         document_condition_types <- map[JSONKeys.document_condition_types]
@@ -320,19 +320,19 @@ class ApplicationConfiguration: Mappable {
 }
 
 class Gender: Mappable {
-    
+
     var id: Int!
     var name: String!
     var abreviature: String!
     var icon: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -342,18 +342,18 @@ class Gender: Mappable {
 }
 
 class City: Mappable {
-    
+
     var id: Int!
     var name: String!
     ///Filter Phonebook by City
 	var cityPhonebook: Array<CorporatePhoneBook>!
-    
+
     //inicializador vacio
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -361,20 +361,20 @@ class City: Mappable {
 }
 
 class Country: Mappable {
-    
+
     var id: Int!
     var name: String!
     var abreviature: String!
     var nationality: String!
     var country_cities: Array<City>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -386,20 +386,20 @@ class Country: Mappable {
 
 // MARK: - CONTÁCTANOS
 class ContactFormType: Mappable {
-    
+
     var  id: Int!
     var  name: String!
     var  abreviature: String!
     var  description: String!
     var  icon: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -410,18 +410,18 @@ class ContactFormType: Mappable {
 }
 
 class ContactForm: Mappable {
-    
+
     var  user: Int!
     var  message_type: Int!
     var  detail: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         user <- map[JSONKeys.user]
         message_type <- map[JSONKeys.message_type]
@@ -431,21 +431,21 @@ class ContactForm: Mappable {
 
 // MARK: - CURSOS
 class Course: Mappable {
-    
+
     var  id: Int!
     var  name: String!
     var  abreviature: String!
     var  description: String!
     var  icon: String!
     var  course_topics: Array<Topic>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -457,23 +457,23 @@ class Course: Mappable {
 }
 
 class Topic: Mappable {
-    
+
     var  id: Int!
     var  course: Int!
     var  name: String!
     var  abreviature: String!
     var  description: String!
     var  icon: String!
-    
+
     var  topic_activity_list: Array<TopicActivity>!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         course <- map[JSONKeys.course]
@@ -481,13 +481,13 @@ class Topic: Mappable {
         abreviature <- map[JSONKeys.abreviature]
         description <- map[JSONKeys.description]
         icon <- map[JSONKeys.icon]
-        
+
         topic_activity_list <- map[JSONKeys.topic_activity_list]
     }
 }
 
 class TopicActivity: Mappable {
-    
+
     var  id: Int!
     var  topic: Int!
     var  name: String!
@@ -496,14 +496,14 @@ class TopicActivity: Mappable {
     var  icon: String!
     var  ponderation_progress: Int!
     var  dateCompleted: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         topic <- map[JSONKeys.topic]
@@ -517,12 +517,12 @@ class TopicActivity: Mappable {
 }
 
 class SimpleResponseModel: Mappable {
-    
+
     var  detail: String!
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         detail <- map[JSONKeys.detail]
     }
@@ -530,20 +530,20 @@ class SimpleResponseModel: Mappable {
 
 // MARK: - Avatar Models
 class BodyParts: Mappable {
-    
+
     var id: Int!
     var name: String!
     var abreviature: String!
     var description: String!
     var icon: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -554,21 +554,21 @@ class BodyParts: Mappable {
 }
 
 class AvatarPiece: Mappable {
-    
+
     var id: Int!
     var body_part: Int!
     var gender: Int!
     var name: String!
     var description: String!
     var icon: String!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         body_part <- map[JSONKeys.body_part]
@@ -580,17 +580,17 @@ class AvatarPiece: Mappable {
 }
 
 class UserAvatar: Mappable {
-    
+
     var user: Int!
     var avatar_piece: Int!
-    
+
     //inicializador vacio
     init() {
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         user <- map[JSONKeys.user]
         avatar_piece <- map[JSONKeys.avatar_piece]
@@ -600,11 +600,11 @@ class UserAvatar: Mappable {
 // MARK: - Plan your trip Models
 /// Model for mapping destination country Information
 class PlanYourTripModel: Mappable {
-    
+
     //Variable for local unmapping
     var natCountryID: Int! // Keep the origin country
     var desCountryID: Int! // Keep the destination country
-    
+
     //country origin and country target filter
     var basic_rights: Array<BasicRight>!
     ///country origin and country target filter
@@ -617,12 +617,12 @@ class PlanYourTripModel: Mappable {
     var public_tranportation_info: Array<TransportationInfoModel>!
     var phonebook: Array<CorporatePhoneBook>!
     var library: Array<LibraryDocument>!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         natCountryID <- map[JSONKeys.natCountryID]
         desCountryID <- map[JSONKeys.desCountryID]
@@ -640,7 +640,7 @@ class PlanYourTripModel: Mappable {
 }
 
 class GeneralCountryDataModel: Mappable {
-    
+
     var id: Int!
     var international_id: String!
     var currency: String!
@@ -650,12 +650,12 @@ class GeneralCountryDataModel: Mappable {
     var call_from_outside_requirements: String!
     var native_condition_description: String!
     var country: Int!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         international_id <- map[JSONKeys.international_id]
@@ -678,12 +678,12 @@ class RefugeeAplication: Mappable {
     var where_to_go: String!
     var origin_country: Int!
     var is_active: Bool!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         request <- map[JSONKeys.request]
@@ -703,12 +703,12 @@ class NationalizationRequirements: Mappable {
     var reminder: String!
     var origin_city: Int!
     var is_active: Bool!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         native_condition_description <- map[JSONKeys.native_condition_description]
@@ -726,12 +726,12 @@ class VisaModel: Mappable {
     var description: String!
     var is_active: Bool!
     var target_country: Int!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         name <- map[JSONKeys.name]
@@ -746,12 +746,12 @@ class MigrationsRequirementsModel: Mappable {
     var description: String!
     var origin_country: Int!
     var target_country: Int!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         description <- map[JSONKeys.description]
@@ -766,12 +766,12 @@ class TempByCityModel: Mappable {
     var max_temp: Int!
     var city: Int!
     var temp_units: Int!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         min_temp <- map[JSONKeys.min_temp]
@@ -788,12 +788,12 @@ class TransportationInfoModel: Mappable {
     var notes: String!
     var origin_city: Int!
     var target_city: Int!
-    
+
     init() {}
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         id <- map[JSONKeys.id]
         distance <- map[JSONKeys.distance]

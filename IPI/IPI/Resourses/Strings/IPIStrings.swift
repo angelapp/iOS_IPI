@@ -201,6 +201,8 @@ struct Labels {
     static let remind = "Recuerda..."
 
     static let saveQuery_format = "Acabas de guardar la información disponible para el trayecto %@ - %@. \(doubleJump) Puedes consultarla más tarde en la opción del menú ÚLTIMA CONSULTA."
+
+    static let select_condition_msn = "Selecciona tu condición migratoria"
 }
 
 // MARK: - Error Messages

@@ -85,91 +85,91 @@ class AplicationRuntime {
     public func getAppConfig() -> ApplicationConfiguration! {
         return self.appConfig
     }
-    
+
     public func getDocuments(fromType id: Int) -> Array<LibraryDocument> {
         guard planYourTrip != nil, planYourTrip.library != nil
             else { return [] }
-        
+
         var documentList: Array<LibraryDocument> = []
         for document in self.planYourTrip.library {
             if document.doc_type == id {
                 documentList.append(document)
             }
         }
-        
+
         return documentList
     }
 
     public func getPlanTrip() -> PlanYourTripModel! {
         return self.planYourTrip
     }
-    
+
     /**
      Function to search country by itselft ID **defult = nil**
-     
+
      - Parameter fromID: country's ID
      - Returns: Country
      */
     public func getCountry(fromID id: Int) -> Country! {
-        
+
         //Check if exist config and countries data
         guard self.appConfig != nil, self.appConfig.countries != nil else {
             return nil
         }
-        
+
         // Looking for country by ID
         for country in self.appConfig.countries {
             if country.id == id {
                 return country
             }
         }
-        
+
         // Defautl return value
         return nil
     }
-    
+
     /**
      Function to get cities of target country, with avaible phonebook
      **defult = empty**
-     
+
      - Returns: City List
      */
 	public func getCities() -> Array<City> {
-		
+
         //Check if exist data
         guard planYourTrip != nil,  let country = getCountry(fromID: self.planYourTrip.desCountryID)
 			else { return [] }
-        
+
         //Init phonebook for cities
         for city in country.country_cities {
             city.cityPhonebook = []
         }
-		
+
         /// Arreglo auxiliar para mantener los Id de las Ciudades que ya sean agregado al arreglo de retorno
         var aux: Array<Int> = []
         var aux2: Array<Int> = []
 		var cities: Array<City> = []
-		
+
 		// Looking available cities in phonebook
         for phone in planYourTrip.phonebook{
-            
+
             // Looking cities Data
             cityLoop: for city in country.country_cities {
-                
+
                 if city.id == phone.city {
-                    
+
                     // Verifica si la ciudad ya se encuentar en el arreglo de retorno
                     if !aux.contains(city.id) {
-                        
+
                         // Init city phonebook if it's null
                         if city.cityPhonebook == nil { city.cityPhonebook = [] }
-                        
+
                         // Add de current phonebook add sub-array phonebook
                         if !aux2.contains(phone.id) {
                             city.cityPhonebook.append(phone)
                             aux2.append(phone.id)
                         }
-                        
+
                         cities.append(city)
                         aux.append(city.id)
                     }
@@ -182,19 +182,150 @@ class AplicationRuntime {
                             }
                         }
                     }
-                    
+
                     // Leave innerLoop
                     break cityLoop
                 }
             }
         }
-        
+
         for city in cities {
             printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
         }
-        
+
         return cities
 	}
+
+    /**
+     Function to get migration condition list,
+     with available migration type
+
+     **defult = empty**
+
+     - Returns: Migration Condition Type List
+     */
+    public func getConditionList() -> Array<MigrationConditionType> {
+
+        //Check if exist data for migration condition types
+        guard appConfig != nil, appConfig.migration_condition_types != nil, appConfig.migration_condition_types.count > 0
+            else { return [] }
+
+        //Check if exist data for document condition types
+        guard appConfig != nil, appConfig.document_condition_types != nil, appConfig.document_condition_types.count > 0
+            else { return [] }
+
+        //Check if exist data for Basic Rights
+        guard planYourTrip != nil, planYourTrip.basic_rights != nil, planYourTrip.basic_rights.count > 0
+            else { return [] }
+
+        //Init basic_rights for document_condition_list
+        for doc in appConfig.document_condition_types {
+            doc.basic_right_list = []
+        }
+
+        //Init document_condition_list for migration_condition_types
+        for conditionType in appConfig.migration_condition_types {
+            conditionType.document_condition_list = []
+        }
+
+        /// Arreglo auxiliar para mantener los Id de los elementos que ya sean agregado
+        var aux_right_id: Array<Int> = []
+        var aux_documents_id: Array<Int> = []
+
+        var documentConditionList: Array<DocumentConditionType> = []
+
+        // ORDER BASIC RIGHTS BY DOCUMENT CONDITION TYPE
+        for right in planYourTrip.basic_rights {
+
+            // Looking for document conditon type
+            docLoop: for doc in appConfig.document_condition_types {
+
+                if doc.id == right.document_condition {
+
+                    // check if document has been added into document condition list
+                    if !aux_documents_id.contains(doc.id) {
+
+                        // Init basic rights List if it's null
+                        if doc.basic_right_list == nil { doc.basic_right_list = [] }
+
+                        // The right is added to basic_right_list if it has not been added to any other
+                        if !aux_right_id.contains(right.id) {
+                            doc.basic_right_list.append(right)
+                            aux_right_id.append(right.id)
+                        }
+
+                        documentConditionList.append(doc)
+                        aux_documents_id.append(doc.id)
+                    }
+                    else {
+                        // update basic_right_list when the document exist
+                        if let pos = aux_documents_id.index(of: doc.id) {
+                            // The right is added to basic_right_list if it has not been added to any other
+                            if !aux_right_id.contains(right.id) {
+                                documentConditionList[pos].basic_right_list.append(right)
+                                aux_right_id.append(right.id)
+                            }
+                        }
+                    }
+
+                    // Leave innerLoop
+                    break docLoop
+                }
+            }
+        }
+
+        // Clean aux document id
+        aux_documents_id = []
+        var aux_migration_id: Array<Int> = []
+
+        var migrationConditionList: Array<MigrationConditionType> = []
+
+        // ORDER DOCUMENT CONDITION TYPE BY MIGRATION CONDITION TYPE
+        for document in documentConditionList {
+
+            // Looking for migration conditon type
+            migrationLoop: for migration in appConfig.migration_condition_types {
+
+                if migration.id == document.migration_condition {
+
+                    // check if document has been added into document condition list
+                    if !aux_migration_id.contains(migration.id) {
+
+                        // Init basic rights List if it's null
+                        if migration.document_condition_list == nil { migration.document_condition_list = [] }
+
+                        // The document is added to document_condition_list if it has not been added to any other
+                        if !aux_documents_id.contains(document.id) {
+                            migration.document_condition_list.append(document)
+                            aux_documents_id.append(document.id)
+                        }
+
+                        migrationConditionList.append(migration)
+                        aux_migration_id.append(migration.id)
+                    }
+                    else {
+                        // update document_condition_list when the document exist
+                        if let pos = aux_migration_id.index(of: migration.id) {
+                            // The document is added to document_condition_list if it has not been added to any other
+                            if !aux_documents_id.contains(document.id) {
+                                migrationConditionList[pos].document_condition_list.append(document)
+                                aux_documents_id.append(document.id)
+                            }
+                        }
+                    }
+
+                    // Leave innerLoop
+                    break migrationLoop
+                }
+            }
+        }
+
+//        for m in migrationConditionList {
+//            printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
+//        }
+
+        return migrationConditionList
+    }
 
     public func getCurrentOption() -> PlanYourTripOptions! {
         return self.currentOption
@@ -366,21 +497,21 @@ class AplicationRuntime {
 
         return countries
     }
-    
+
     /**
      Return information about counrty shortname, country name or country nationality
-    
+
      - Parameter fromID: country ID
      - Parameter getName: (Optional) if true returns the name of country
      - Parameter getNationality: (Optional) if true returns country's nationality
      - Returns: country Info by default returns country shortname
      */
     public func getCountry(fromID id: Int, getName: Bool? = false, getNationality: Bool? = false ) -> String {
-        
+
         guard appConfig != nil, appConfig.countries != nil else {
             return nullString
         }
-        
+
         for country in appConfig.countries {
             if country.id == id {
                 if getName != nil, getName! { return country.name }
@@ -388,7 +519,7 @@ class AplicationRuntime {
                 else { return country.abreviature }
             }
         }
-        
+
         return nullString
     }
 
