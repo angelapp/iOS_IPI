@@ -208,7 +208,7 @@ class DocumentConditionType: Mappable {
 
     var id: Int!
     var name: String!
-    var migration_condition: String!
+    var migration_condition: Int!
     var basic_right_list: Array<BasicRight>!
 
     //inicializador vacio

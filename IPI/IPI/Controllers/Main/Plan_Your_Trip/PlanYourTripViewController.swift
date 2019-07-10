@@ -102,7 +102,7 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
         case PLAN_YOUR_TRIP_OPTION.BASIC_RIGHTS.rawValue:
            if basicRightsTAG == ViewControllerID.basicRights.asInt() {
-                basicRightsVC.conditonSelected = currentCondition
+                basicRightsVC.migrationCondition = currentCondition
                 return basicRightsVC
             }
             else {

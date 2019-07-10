@@ -57,10 +57,22 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
 		tbl_basicRights.reloadData()
         button_collection.reloadData()
     }
+    
+    // Clean Al properties when the controller its removed
+    override func viewDidDisappear(_ animated: Bool) {
+        migrationCondition = nil
+        migrationTypeList = []
+        basicRightsList = []
+        lbl_msn.text = nullString
+        currentTab = 0
+        tbl_basicRights.reloadData()
+    }
 	
 	private func loadData(){
 		migrationTypeList = migrationCondition.document_condition_list
         basicRightsList = migrationTypeList[currentTab].basic_right_list
+        
+        lbl_msn.text = migrationCondition.name
 	}
     
     func changeTab() {
@@ -75,8 +87,8 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
 	// MARK: Basic Rights Delegate
     func changeTabSelected(toPosition position: Int) {
         currentTab = position
-        button_collection.reloadData()
         changeTab()
+        button_collection.reloadData()
     }
 	
 	// MARK: - Expandable tableview functions
@@ -153,7 +165,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
     
     // Tamaño estimado del pie de página
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 58
+        return 10
     }
     
     // fill Footer
@@ -169,7 +181,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         // Fill cell for Remember section
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
         
-        let htmlCSSString = Formats.cssStyles + basicRightsList[indexPath.row].description
+        let htmlCSSString = Formats.cssStyles + basicRightsList[indexPath.section].description
         cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
         
         return cell
@@ -192,7 +204,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.aboutTabButtonsCell.rawValue, for: indexPath) as! TabButtonsCollectionViewCell
         
         cell.basicRightsTabDelegate = self
-        cell.titleButton = migrationTypeList[indexPath.row].name
+        cell.titleButton = migrationTypeList[indexPath.row].name.uppercased()
         cell.tab_button.tag = indexPath.row
         cell.tab_button.titleLabel?.textAlignment = .center
         cell.tab_button.isSelected = indexPath.row == currentTab

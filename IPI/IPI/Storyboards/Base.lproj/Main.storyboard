@@ -2180,7 +2180,12 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </tableViewCellContentView>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="btn_openClose" destination="03P-ww-JLg" id="jbt-D3-L4N"/>
                                                                 <outlet property="cnt_header" destination="2f9-fY-PY6" id="BK8-I5-iVA"/>
@@ -2219,7 +2224,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     <constraint firstItem="Uac-qa-9aR" firstAttribute="leading" secondItem="Idg-Xn-CJr" secondAttribute="leading" constant="8" id="x9i-4H-Gyf"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
-                                                            <color key="backgroundColor" red="0.9018746018409729" green="0.90209001302719116" blue="0.89776968955993652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <connections>
                                                                 <outlet property="lbl_text" destination="Awr-Wg-uDZ" id="BOd-3e-GWk"/>
                                                             </connections>
@@ -7125,7 +7130,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="9968.5" width="375" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4xN-14-dEG" id="hrH-uw-3Fz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="304.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-9m-hUp" userLabel="sheet">
@@ -7709,7 +7714,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="10778.5" width="375" height="665"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EYH-VY-Ara" id="d3d-Jd-bVx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="664.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="665"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7t-Eh-ily" userLabel="sheet">
@@ -7891,7 +7896,12 @@ NORUEGO PARA REFUGIADOS</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </tableViewCellContentView>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="10"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
                                                                             <connections>
                                                                                 <outlet property="btn_openClose" destination="uAs-Jd-YOH" id="8hQ-qt-7GT"/>
                                                                                 <outlet property="cnt_header" destination="tA3-N5-B1Z" id="hKP-Ky-r7S"/>
@@ -7930,7 +7940,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                                     <constraint firstItem="Tgx-wn-fxH" firstAttribute="leading" secondItem="9fT-fl-mES" secondAttribute="leading" constant="8" id="eTd-RT-Pay"/>
                                                                                 </constraints>
                                                                             </tableViewCellContentView>
-                                                                            <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <connections>
                                                                                 <outlet property="lbl_text" destination="jDE-hN-AVh" id="IO2-rv-wbK"/>
                                                                             </connections>
@@ -10119,7 +10129,12 @@ NORUEGO PARA REFUGIADOS</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_openClose" destination="pSO-eO-itL" id="d9k-jM-ApK"/>
                                             <outlet property="cnt_header" destination="qKy-mO-lDl" id="Olu-Vi-pJG"/>
@@ -10158,7 +10173,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="WUX-lU-WRl" firstAttribute="leading" secondItem="ASd-RN-B6U" secondAttribute="leading" constant="8" id="lBD-nO-eBl"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -10407,7 +10422,7 @@ NORUEGO PARA REFUGIADOS</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rjj-St-n54">
-                                <rect key="frame" x="8" y="20" width="359" height="40"/>
+                                <rect key="frame" x="16" y="55.5" width="343" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -10432,9 +10447,9 @@ NORUEGO PARA REFUGIADOS</string>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="37" id="e0q-Zb-EoU"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                     <state key="normal" title="Button ">
-                                                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <state key="selected">
                                                         <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -10476,33 +10491,33 @@ NORUEGO PARA REFUGIADOS</string>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-3A-0HN">
-                                <rect key="frame" x="8" y="68" width="359" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="16" y="28" width="343" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jzT-f9-tq9">
-                                <rect key="frame" x="8" y="95.5" width="359" height="571.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="8" translatesAutoresizingMaskIntoConstraints="NO" id="jzT-f9-tq9">
+                                <rect key="frame" x="16" y="111.5" width="343" height="555.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="62" id="Zot-cf-wL6" customClass="CourseHeaderTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="359" height="62"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="343" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zot-cf-wL6" id="onu-uh-EBW">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcS-gM-re7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnh-K7-dLM">
-                                                            <rect key="frame" x="16" y="8" width="269" height="46"/>
+                                                            <rect key="frame" x="16" y="8" width="285" height="46"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5m-9y-Ken">
-                                                            <rect key="frame" x="293" y="14" width="34" height="34"/>
+                                                            <rect key="frame" x="309" y="14" width="34" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="34" id="Lku-tf-tXC"/>
                                                                 <constraint firstAttribute="height" constant="34" id="Xgv-Qa-UE7"/>
@@ -10524,11 +10539,6 @@ NORUEGO PARA REFUGIADOS</string>
                                                         <constraint firstItem="m5m-9y-Ken" firstAttribute="centerY" secondItem="HcS-gM-re7" secondAttribute="centerY" id="bQq-i0-DuN"/>
                                                         <constraint firstAttribute="bottom" secondItem="dnh-K7-dLM" secondAttribute="bottom" constant="8" id="uo6-98-dxO"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.89795345069999999" green="0.89816820620000004" blue="0.89384859800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10538,13 +10548,13 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="HcS-gM-re7" firstAttribute="leading" secondItem="onu-uh-EBW" secondAttribute="leading" id="ZxV-Kq-7fd"/>
                                                 <constraint firstAttribute="bottom" secondItem="HcS-gM-re7" secondAttribute="bottom" id="eso-TW-J0F"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_openClose" destination="m5m-9y-Ken" id="88N-lG-ZA7"/>
                                             <outlet property="cnt_header" destination="HcS-gM-re7" id="Cdb-pr-wZl"/>
@@ -10552,17 +10562,17 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="37" id="nnC-PJ-i7R" customClass="CourseBodyTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="117.5" width="359" height="37"/>
+                                        <rect key="frame" x="0.0" y="117.5" width="343" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nnC-PJ-i7R" id="kwe-VD-40P">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-7W-KmJ">
-                                                    <rect key="frame" x="8" y="0.0" width="327" height="37"/>
+                                                    <rect key="frame" x="8" y="0.0" width="343" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al9-tm-oPA">
-                                                            <rect key="frame" x="8" y="8" width="311" height="21"/>
+                                                            <rect key="frame" x="8" y="8" width="327" height="21"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="Label">
                                                                     <attributes>
@@ -10600,16 +10610,16 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="8" id="m6H-1c-bUe" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="154.5" width="359" height="8"/>
+                                        <rect key="frame" x="0.0" y="154.5" width="343" height="8"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6H-1c-bUe" id="QHZ-lm-Ojc">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="8"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6H-1c-bUe" id="QHZ-lm-Ojc">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-pT-jdI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="6"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="8" id="RYq-aA-1hM"/>
+                                                        <constraint firstAttribute="height" constant="6" id="RYq-aA-1hM"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -10637,13 +10647,13 @@ NORUEGO PARA REFUGIADOS</string>
                             <constraint firstItem="MjM-3A-0HN" firstAttribute="leading" secondItem="Rjj-St-n54" secondAttribute="leading" id="EXQ-ur-AYR"/>
                             <constraint firstItem="jzT-f9-tq9" firstAttribute="leading" secondItem="MjM-3A-0HN" secondAttribute="leading" id="Fp6-N3-lsu"/>
                             <constraint firstItem="MjM-3A-0HN" firstAttribute="trailing" secondItem="Rjj-St-n54" secondAttribute="trailing" id="QuU-dw-0QO"/>
-                            <constraint firstItem="MjM-3A-0HN" firstAttribute="top" secondItem="Rjj-St-n54" secondAttribute="bottom" constant="8" id="SB9-Yx-9FI"/>
+                            <constraint firstItem="MjM-3A-0HN" firstAttribute="top" secondItem="7Uc-Vk-gtj" secondAttribute="top" constant="8" id="SB9-Yx-9FI"/>
                             <constraint firstAttribute="bottom" secondItem="jzT-f9-tq9" secondAttribute="bottom" id="YdJ-Mt-tM4"/>
-                            <constraint firstItem="jzT-f9-tq9" firstAttribute="top" secondItem="MjM-3A-0HN" secondAttribute="bottom" constant="8" id="fEX-Cb-jsR"/>
+                            <constraint firstItem="jzT-f9-tq9" firstAttribute="top" secondItem="Rjj-St-n54" secondAttribute="bottom" constant="16" id="fEX-Cb-jsR"/>
                             <constraint firstItem="jzT-f9-tq9" firstAttribute="trailing" secondItem="MjM-3A-0HN" secondAttribute="trailing" id="kLl-q1-mMG"/>
-                            <constraint firstItem="Rjj-St-n54" firstAttribute="top" secondItem="7Uc-Vk-gtj" secondAttribute="top" id="pEu-jS-eIo"/>
-                            <constraint firstItem="Rjj-St-n54" firstAttribute="leading" secondItem="7Uc-Vk-gtj" secondAttribute="leading" constant="8" id="pNe-0o-YWa"/>
-                            <constraint firstItem="7Uc-Vk-gtj" firstAttribute="trailing" secondItem="Rjj-St-n54" secondAttribute="trailing" constant="8" id="tKh-XS-Vuk"/>
+                            <constraint firstItem="Rjj-St-n54" firstAttribute="top" secondItem="MjM-3A-0HN" secondAttribute="bottom" constant="8" id="pEu-jS-eIo"/>
+                            <constraint firstItem="Rjj-St-n54" firstAttribute="leading" secondItem="7Uc-Vk-gtj" secondAttribute="leading" constant="16" id="pNe-0o-YWa"/>
+                            <constraint firstItem="7Uc-Vk-gtj" firstAttribute="trailing" secondItem="Rjj-St-n54" secondAttribute="trailing" constant="16" id="tKh-XS-Vuk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Uc-Vk-gtj"/>
                     </view>
@@ -10845,7 +10855,12 @@ NORUEGO PARA REFUGIADOS</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_openClose" destination="0aF-m5-gl3" id="G4r-zQ-fsx"/>
                                             <outlet property="cnt_header" destination="zXp-hl-ep1" id="Og2-nf-uY3"/>
@@ -10890,7 +10905,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="fvT-3N-qgx" firstAttribute="leading" secondItem="XxJ-4k-GDp" secondAttribute="leading" constant="8" id="nPz-c2-bey"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -11131,7 +11146,12 @@ NORUEGO PARA REFUGIADOS</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_openClose" destination="rOb-gO-6UA" id="9KG-la-uWR"/>
                                             <outlet property="cnt_header" destination="nAT-Qv-PzU" id="Bq7-Jh-7f2"/>
@@ -11176,7 +11196,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <constraint firstItem="XZy-8k-zZV" firstAttribute="leading" secondItem="hpQ-68-lQh" secondAttribute="leading" constant="8" id="jeP-qy-7AU"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -11224,6 +11244,9 @@ NORUEGO PARA REFUGIADOS</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jjU-hx-dqw"/>
                     </view>
+                    <connections>
+                        <outlet property="tbl_documents" destination="JjE-NJ-6km" id="9Uh-O4-K33"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFM-zp-IkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -11821,6 +11844,11 @@ NORUEGO PARA REFUGIADOS</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_openClose" destination="cWW-4F-wb2" id="x7y-9l-VM1"/>
                                             <outlet property="cnt_header" destination="z4g-8J-Z0Q" id="AM7-dL-YLq"/>
@@ -11939,6 +11967,11 @@ NORUEGO PARA REFUGIADOS</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="btn_address" destination="SE4-d3-XIl" id="AbI-gh-hXh"/>
                                             <outlet property="img_address" destination="giN-Ea-CyG" id="jW2-8f-y9I"/>

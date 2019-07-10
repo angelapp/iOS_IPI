@@ -320,9 +320,16 @@ class AplicationRuntime {
             }
         }
 
-//        for m in migrationConditionList {
-//            printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
-//        }
+        for m in migrationConditionList {
+            printDebugMessage(tag: "\(m.id ?? -1) \(m.name ?? "nippon")")
+            for d in m.document_condition_list {
+                printDebugMessage(tag: "\t -\(d.id ?? -1) \(d.name ?? "Kioto")")
+                for r in d.basic_right_list {
+                    printDebugMessage(tag: "\t\t * \(r.id ?? -1) \(r.name ?? "France")")
+//                    printDebugMessage(tag: "\t\t * \(r.description ?? "France")")
+                }
+            }
+        }
 
         return migrationConditionList
     }

@@ -55,7 +55,7 @@ class BasicRightsSelectorViewController: UIViewController, UIPickerViewDelegate,
     }
 
     private func loadData(reload: Bool? = false) {
-        migrationConditionList = AplicationRuntime.sharedManager.//getCities()
+        migrationConditionList = AplicationRuntime.sharedManager.getConditionList()
         picker.reloadAllComponents()
 
         if reload ?? false { actionButtons(btn_selectCondition) }
@@ -68,7 +68,16 @@ class BasicRightsSelectorViewController: UIViewController, UIPickerViewDelegate,
     }
 
     private func showBasicRights() {
-        plantripDelegate?showBasicRights(forCondition: conditonSelected)
+        printDebugMessage(tag: "The user has been selected:")
+        printDebugMessage(tag: "\(conditonSelected.id ?? -1) \(conditonSelected.name ?? "nippon")")
+        for d in conditonSelected.document_condition_list {
+            printDebugMessage(tag: "\t -\(d.id ?? -1) \(d.name ?? "Kioto")")
+            for r in d.basic_right_list {
+                printDebugMessage(tag: "\t\t * \(r.id ?? -1) \(r.name ?? "France")")
+                //                    printDebugMessage(tag: "\t\t * \(r.description ?? "France")")
+            }
+        }
+        plantripDelegate?.showBasicRights(forCondition: conditonSelected)
     }
 
     // MARK: - UIPickerView Delegate
@@ -111,7 +120,7 @@ class BasicRightsSelectorViewController: UIViewController, UIPickerViewDelegate,
 
         switch sender {
 
-        case btn_selectCity:
+        case btn_selectCondition:
             if migrationConditionList.count > 0 {
                 picker.reloadAllComponents()
                 showHiddenPicker(showPicker: true)
