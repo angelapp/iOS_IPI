@@ -127,6 +127,30 @@ class AplicationRuntime {
         // Defautl return value
         return nil
     }
+    
+    /**
+     Function to get name of the city according with target country
+     
+     - Parameter forID: Id of the city to search
+     - Returns: city name **defult, empty**
+     */
+    public func getCityName(forID id: Int) -> String {
+        var name = nullString
+        
+        //Check if exist data
+        guard planYourTrip != nil,  let country = getCountry(fromID: self.planYourTrip.desCountryID)
+            else { return name }
+        
+        //Search city
+        for city in country.country_cities {
+            if city.id == id {
+                name = city.name
+                break
+            }
+        }
+        
+        return name
+    }
 
     /**
      Function to get cities of target country, with avaible phonebook
@@ -189,9 +213,9 @@ class AplicationRuntime {
             }
         }
 
-        for city in cities {
-            printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
-        }
+//        for city in cities {
+//            printDebugMessage(tag: "\(city.name ?? "nippon") tiene: \(city.cityPhonebook.count) numeros")
+//        }
 
         return cities
 	}
@@ -320,16 +344,16 @@ class AplicationRuntime {
             }
         }
 
-        for m in migrationConditionList {
-            printDebugMessage(tag: "\(m.id ?? -1) \(m.name ?? "nippon")")
-            for d in m.document_condition_list {
-                printDebugMessage(tag: "\t -\(d.id ?? -1) \(d.name ?? "Kioto")")
-                for r in d.basic_right_list {
-                    printDebugMessage(tag: "\t\t * \(r.id ?? -1) \(r.name ?? "France")")
-//                    printDebugMessage(tag: "\t\t * \(r.description ?? "France")")
-                }
-            }
-        }
+//        for m in migrationConditionList {
+//            printDebugMessage(tag: "\(m.id ?? -1) \(m.name ?? "nippon")")
+//            for d in m.document_condition_list {
+//                printDebugMessage(tag: "\t -\(d.id ?? -1) \(d.name ?? "Kioto")")
+//                for r in d.basic_right_list {
+//                    printDebugMessage(tag: "\t\t * \(r.id ?? -1) \(r.name ?? "France")")
+////                    printDebugMessage(tag: "\t\t * \(r.description ?? "France")")
+//                }
+//            }
+//        }
 
         return migrationConditionList
     }

@@ -12,7 +12,8 @@ import ObjectMapper
 class RecoveryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecoveryViewControllerDelegate {
 
     // MARK: - Outlets
-    @IBOutlet var recovery_tableView : UITableView!
+    @IBOutlet weak var btn_back: UIButton!
+    @IBOutlet weak var recovery_tableView : UITableView!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -27,23 +28,9 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
         self.recovery_tableView.delegate = self
         self.recovery_tableView.dataSource = self
         self.recovery_tableView.isScrollEnabled = false
-
-        // Add gesture for go back
-        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
-        edgePan.edges = .left
-
-        view.addGestureRecognizer(edgePan)
     }
 
     // MARK: - Action for Gestures
-
-    // Acction for go back with a gesture
-    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .ended {
-            dismiss()
-        }
-    }
-
     //Observer for increment contentSize in the tableView
     @objc func keyboardWillShow(notification: NSNotification) {
 
@@ -152,5 +139,10 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
                 break
             }
         })
+    }
+    
+    // MARK: Actions
+    @IBAction func back (_ sender: UIButton){
+        self.dismiss(animated: true, completion: nil)
     }
 }

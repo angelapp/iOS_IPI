@@ -292,4 +292,5 @@ struct Formats {
     static let phonebookFormat = "DIRECTORIO DE ENTIDADES \nDE APOYO EN %@"
 	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
     static let nationalizationFormat = "Son %@ por nacimiento:"
+    static let weatherFormat = "%@°"
 }

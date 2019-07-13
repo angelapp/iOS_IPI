@@ -38,7 +38,7 @@
                                         <rect key="frame" x="61.5" y="222" width="220" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQz-QI-0V7">
-                                                <rect key="frame" x="0.0" y="0.0" width="220" height="49"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
                                                 <color key="backgroundColor" red="0.035294117649999998" green="0.52941176469999995" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="fm4-A6-hkD"/>
@@ -60,7 +60,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc1-OE-oB3">
-                                                <rect key="frame" x="0.0" y="65" width="220" height="50"/>
+                                                <rect key="frame" x="0.0" y="66" width="220" height="50"/>
                                                 <color key="backgroundColor" red="0.035294117649999998" green="0.52941176469999995" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="LqT-Qy-qkp"/>
@@ -135,8 +135,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAm-ze-cgo" userLabel="Nav Bar">
+                                <rect key="frame" x="8" y="20" width="359" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-Tz-iDR">
+                                        <rect key="frame" x="8" y="0.0" width="30" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="d9k-Tz-iDR" secondAttribute="height" multiplier="10:15" id="Vka-Ea-uWO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="4" minY="6" maxX="4" maxY="6"/>
+                                        <state key="normal" image="btn_atras">
+                                            <color key="titleColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actionBack:" destination="WUC-RR-oDN" eventType="touchUpInside" id="kSW-Cp-gwo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d9k-Tz-iDR" firstAttribute="top" secondItem="YAm-ze-cgo" secondAttribute="top" id="LNx-eF-mEe"/>
+                                    <constraint firstItem="d9k-Tz-iDR" firstAttribute="leading" secondItem="YAm-ze-cgo" secondAttribute="leading" constant="8" id="Slt-Pc-w3U"/>
+                                    <constraint firstAttribute="height" constant="45" id="Z25-ea-gpy"/>
+                                    <constraint firstAttribute="bottom" secondItem="d9k-Tz-iDR" secondAttribute="bottom" id="uSi-fK-VIp"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrL-4d-tiM">
-                                <rect key="frame" x="16" y="44" width="343" height="190.5"/>
+                                <rect key="frame" x="16" y="65" width="343" height="190.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="167-PQ-w82">
                                         <rect key="frame" x="78" y="0.0" width="187" height="186.5"/>
@@ -190,13 +215,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcj-IT-HKb">
-                                <rect key="frame" x="16" y="242.5" width="343" height="342.5"/>
+                                <rect key="frame" x="16" y="263.5" width="343" height="321.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-wb-unu" userLabel="Head">
-                                        <rect key="frame" x="16" y="0.0" width="311" height="68.5"/>
+                                        <rect key="frame" x="16" y="0.0" width="311" height="64.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7F-kt-cDr">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -205,7 +230,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjY-jg-wLl">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -214,7 +239,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nab-De-Dsj">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -223,13 +248,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqW-6X-52i">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fan-sS-dxi">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vsZ-hb-35J">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -262,10 +287,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-Qz-tWb" userLabel="Eyes">
-                                        <rect key="frame" x="16" y="68.5" width="311" height="68.5"/>
+                                        <rect key="frame" x="16" y="64.5" width="311" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMC-Mm-BfB">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -274,7 +299,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrD-kD-UO5">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -283,7 +308,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ve-Ce-5jz">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -292,13 +317,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-Tw-ClD">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-dm-y4k">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMj-jP-Lnu">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -329,10 +354,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-zF-VsJ" userLabel="Nose">
-                                        <rect key="frame" x="16" y="137" width="311" height="68.5"/>
+                                        <rect key="frame" x="16" y="128.5" width="311" height="64.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-cc-OMS">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -341,7 +366,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQN-NI-2j5">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -350,7 +375,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzD-HR-YUT">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -359,13 +384,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l36-au-leX">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wuc-wn-uox">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpz-Ww-0Ra">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -396,10 +421,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKZ-KV-gkY" userLabel="Hair">
-                                        <rect key="frame" x="16" y="205.5" width="311" height="68.5"/>
+                                        <rect key="frame" x="16" y="193" width="311" height="64"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi9-Uf-gYN">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -408,7 +433,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcu-EJ-ski">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -417,7 +442,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-U0-Ytl">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -426,13 +451,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-hq-5WC">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-WB-K5a">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjG-8k-tzL">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -463,10 +488,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anC-5Z-GaP" userLabel="Accessories">
-                                        <rect key="frame" x="16" y="274" width="311" height="68.5"/>
+                                        <rect key="frame" x="16" y="257" width="311" height="64.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-3g-gfl">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -475,7 +500,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgC-LH-Sre">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -484,7 +509,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCu-EJ-3zw">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -493,13 +518,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-AA-Y7A">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-Kv-yqX">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="64.5"/>
+                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBg-kO-olL">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="64.5"/>
+                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -581,19 +606,22 @@
                         <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YrL-4d-tiM" firstAttribute="leading" secondItem="Hci-Sd-F2g" secondAttribute="leading" constant="16" id="3pQ-NR-Rwz"/>
-                            <constraint firstItem="YrL-4d-tiM" firstAttribute="top" secondItem="Hci-Sd-F2g" secondAttribute="top" constant="24" id="4XG-3h-Kon"/>
                             <constraint firstItem="hcj-IT-HKb" firstAttribute="top" secondItem="YrL-4d-tiM" secondAttribute="bottom" constant="8" id="76U-IU-p1z"/>
+                            <constraint firstItem="YAm-ze-cgo" firstAttribute="top" secondItem="Hci-Sd-F2g" secondAttribute="top" id="H4T-4E-4TU"/>
                             <constraint firstItem="Hci-Sd-F2g" firstAttribute="bottom" secondItem="kS4-cy-7qI" secondAttribute="bottom" constant="24" id="T77-Nn-pcf"/>
+                            <constraint firstAttribute="trailing" secondItem="YAm-ze-cgo" secondAttribute="trailing" constant="8" id="XZL-0X-hRF"/>
                             <constraint firstItem="hcj-IT-HKb" firstAttribute="leading" secondItem="Hci-Sd-F2g" secondAttribute="leading" constant="16" id="aFM-uh-5Kf"/>
-                            <constraint firstItem="YrL-4d-tiM" firstAttribute="width" secondItem="YrL-4d-tiM" secondAttribute="height" multiplier="9:5" id="c6q-zC-kdR"/>
                             <constraint firstItem="Hci-Sd-F2g" firstAttribute="trailing" secondItem="hcj-IT-HKb" secondAttribute="trailing" constant="16" id="ek2-Ta-ori"/>
+                            <constraint firstItem="YAm-ze-cgo" firstAttribute="leading" secondItem="8B1-oY-llS" secondAttribute="leading" constant="8" id="fsA-EZ-Ch2"/>
                             <constraint firstItem="kS4-cy-7qI" firstAttribute="centerX" secondItem="8B1-oY-llS" secondAttribute="centerX" id="hTr-UY-4Z0"/>
                             <constraint firstItem="kS4-cy-7qI" firstAttribute="top" secondItem="hcj-IT-HKb" secondAttribute="bottom" constant="8" id="jgc-F1-AKG"/>
                             <constraint firstItem="Hci-Sd-F2g" firstAttribute="trailing" secondItem="YrL-4d-tiM" secondAttribute="trailing" constant="16" id="vwE-lq-o4b"/>
+                            <constraint firstItem="YrL-4d-tiM" firstAttribute="top" secondItem="YAm-ze-cgo" secondAttribute="bottom" id="xRx-OB-MBN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hci-Sd-F2g"/>
                     </view>
                     <connections>
+                        <outlet property="bnt_back" destination="d9k-Tz-iDR" id="2eK-r3-GGx"/>
                         <outlet property="btn_accessories_1" destination="ekj-3g-gfl" id="3e4-gc-DoL"/>
                         <outlet property="btn_accessories_2" destination="vgC-LH-Sre" id="QCT-JQ-QTY"/>
                         <outlet property="btn_accessories_3" destination="JCu-EJ-3zw" id="qp9-Dj-nHG"/>
@@ -725,6 +753,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_atras" width="61" height="109"/>
         <image name="circulo_amarillo" width="75" height="75"/>
         <image name="circulo_blanco" width="75" height="75"/>
     </resources>

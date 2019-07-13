@@ -15,7 +15,8 @@ import ObjectMapper
 class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SignupViewControllerDelegate, GIDSignInDelegate, GIDSignInUIDelegate  {
 
     // MARK: - Outlets
-    @IBOutlet var singup_tableView : UITableView!
+    @IBOutlet weak var btn_back: UIButton!
+    @IBOutlet weak var singup_tableView : UITableView!
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,24 +35,9 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         // Add delegate and Data Source to itself
         self.singup_tableView.delegate = self
-        self.singup_tableView.dataSource = self
-
-        // Add gesture for go back
-        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
-        edgePan.edges = .left
-
-        view.addGestureRecognizer(edgePan)
-    }
+        self.singup_tableView.dataSource = self    }
 
     // MARK: - Action for Gestures
-
-    // Acction for go back with a gesture
-    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .ended {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-
     //Observer for increment contentSize in the tableView
     @objc func keyboardWillShow(notification: NSNotification) {
 
@@ -303,5 +289,10 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func launchNextView() {
         let sb = UIStoryboard(name: StoryboardID.ConfigAvatar.rawValue, bundle: nil)
         self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
+    
+    // MARK: Actions
+    @IBAction func back (_ sender: UIButton){
+        self.dismiss(animated: true, completion: nil)
     }
 }

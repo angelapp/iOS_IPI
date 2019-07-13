@@ -23,8 +23,8 @@ class CorporatePhoneBook: Mappable {
     var twitter: String!
     var email: String!
     var schedule: String!
-    var latitude: Float!
-    var longitude: Float!
+    var latitude: String!
+    var longitude: String!
     var organization_type: Int!
     var icon: String!
     var city: Int!

@@ -12,8 +12,9 @@ import ObjectMapper
 class MakeYourAvatarViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var bnt_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
-
+    
     @IBOutlet weak var btn_head_1: UIButton!
     @IBOutlet weak var btn_head_2: UIButton!
     @IBOutlet weak var btn_head_3: UIButton!
@@ -81,24 +82,11 @@ class MakeYourAvatarViewController: UIViewController {
         addStyles()
         fillRadioGroups()
         fillGrid()
-        
-        // Add gesture for go back
-        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
-        edgePan.edges = .left
-        
-        view.addGestureRecognizer(edgePan)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // Acction for go back with a gesture
-    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .ended {
-            actionBack(btn_next)
-        }
     }
 
     // MARK: - Private Functions

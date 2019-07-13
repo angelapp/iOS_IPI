@@ -201,6 +201,12 @@ class MainViewController: UIViewController, MainProtocol {
     }
 
     // MARK: - Main Delegate
+    
+    /** - Returns: ViewController **/
+    func getMainViewController() -> UIViewController {
+        return self
+    }
+    
     /** Add a view controller as container child */
     func addToContainer(viewControllerID id: ViewControllerID) {
 

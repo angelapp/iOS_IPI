@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Karte
+import CoreLocation
 
 class PhonebookTableViewCell: UITableViewCell {
     
@@ -23,6 +25,7 @@ class PhonebookTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     var phoneItem: CorporatePhoneBook!
+    weak var mainDelegate = AplicationRuntime.sharedManager.mainDelegate
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,8 +61,22 @@ class PhonebookTableViewCell: UITableViewCell {
         img_address.image = UIImage(named: IPI_IMAGES.icon_marker)
         img_title.image = UIImage(named: IPI_IMAGES.success_orange)
         
-//        setButtonImages(button: btn_address, normal: IPI_IMAGES.icon_google_maps, hover: nullString)
-//        setAspectFitToButton(buttons: btn_address)
-    }
+        // Config UI for button
+        setButtonImages(button: btn_address, normal: IPI_IMAGES.icon_google_maps, hover: nullString)
+        setAspectFitToButton(buttons: btn_address)
+        
+        btn_address.isHidden = !(phoneItem.latitude != nil && phoneItem.longitude != nil)
 
+    }
+    
+    @IBAction func openAddress(_ sender: UIButton){
+        
+        if let mainView = mainDelegate?.getMainViewController() {
+            
+            let coordinate = CLLocationCoordinate2D(latitude: Double((phoneItem?.latitude)!)!, longitude: Double((phoneItem?.longitude)!)!)
+            let location = Location(name: phoneItem.name, address: phoneItem.address, coordinate: coordinate)
+            
+            Karte.presentPicker(destination: location, presentOn: mainView)
+        }
+    }
 }

@@ -56,6 +56,7 @@ protocol MainProtocol: class {
     func removeOfContainer()
     func setDataQuery(fromCountry origin: String, toCountry destination: String)
     func showMessageInMain(withMessage msn: String)
+    func getMainViewController() -> UIViewController
 }
 
 // Protocol for Course Manager

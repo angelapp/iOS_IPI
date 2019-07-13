@@ -17,7 +17,9 @@ class NationalizationRequirementsViewController: UIViewController, UITableViewDe
     var targetCountryID: Int!
     var nationality = nullString
     
+    /// Nationalitation Destination TAG
     let NAT_DES_TAG = 0
+    /// Description TAG
     let DES_TAG = 1
     
     var nationalizationRequirements: NationalizationRequirements!
