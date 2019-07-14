@@ -106,12 +106,14 @@ class SocialNetworkRegister : Mappable {
 /// Model Used for keep the Authentication states
 class StatesModel {
     var hasViewedOnboarding: Bool!
+    var hasViewedBefore: Bool!
     var isLogin: Bool!
     var isThereAnAvatar: Bool!
 
     init() {
         self.isLogin = false
         self.isThereAnAvatar = false
+        self.hasViewedBefore = false
         self.hasViewedOnboarding = false
     }
 }
@@ -297,11 +299,11 @@ class PNPIAnswers {
     var answer_05: Int!
 
     init() {}
-    
+
     init(setDefaultValues: Bool) {
-        
+
         guard setDefaultValues else { return }
-        
+
         self.answer_01 = 0
         self.answer_02 = 0
         self.answer_03 = 0
