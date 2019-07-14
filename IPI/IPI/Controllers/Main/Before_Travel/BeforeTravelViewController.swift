@@ -49,7 +49,6 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
 
             do {
                 ncrAudio = try AVAudioPlayer(contentsOf: url)
-                printDebugMessage(tag: "Volumen \(ncrAudio?.volume ?? -11.25)")
                 ncrAudio?.play()
                 ncrAudio?.delegate = self
                 isPlaying = name
@@ -164,14 +163,16 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.beforeBody.rawValue, for: indexPath) as! BeforeBodyTableViewCell
 
+		cell.cutoff_top.isHidden = indexPath.row > 0 ? true : false
         cell.lbl_body.text = before_list?[indexPath.row].title
         cell.btn_audio.tag = (before_list?[indexPath.row].audioID)!
 
         setAspectFitToButton(buttons: cell.btn_audio)
         cell.btn_audio.isSelected = cell.btn_audio.tag == currentAudioID ? true : false
 
-        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue), for: .normal)
-        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue_hover), for: .selected)
+		setButtonImages(button: cell.btn_audio, normal: speaker_blue, hover: speaker_blue_hover)
+//        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue), for: .normal)
+//        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue_hover), for: .selected)
 
         cell.beforeDelegate = self
 

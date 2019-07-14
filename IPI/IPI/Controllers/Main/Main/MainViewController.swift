@@ -134,7 +134,17 @@ class MainViewController: UIViewController, MainProtocol {
             return contactFormVC
 
         case .selectCountries:
-            return selectCountriesVC
+			
+			let states = StorageFunctions.getStates()
+			if states.hasViewedBefore {
+				return selectCountriesVC
+			}
+			else {
+				states.hasViewedBefore = true
+				StorageFunctions.saveStates(states: states)
+				
+				return beforeVC
+			}
 
         case .planYourTripMenu:
             return planYourTripOptionsVC

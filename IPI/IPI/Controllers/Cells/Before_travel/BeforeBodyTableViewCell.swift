@@ -13,7 +13,10 @@ class BeforeBodyTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var btn_audio: UIButton!
     @IBOutlet weak var lbl_body: UILabel!
-    
+	
+	@IBOutlet weak var cutoff_top: UIView!
+	
+    // MARK: - Properties
     weak var beforeDelegate: BeforeTravelViewControllerDelegate?
     
     override func awakeFromNib() {
