@@ -135,7 +135,10 @@ class MainViewController: UIViewController, MainProtocol {
 
         case .selectCountries:
 			
+			// Load local states
 			let states = StorageFunctions.getStates()
+			
+			// Check if it´s necesry show before
 			if states.hasViewedBefore {
 				return selectCountriesVC
 			}

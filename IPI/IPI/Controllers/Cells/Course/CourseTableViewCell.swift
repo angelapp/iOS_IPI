@@ -1401,6 +1401,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
         }
         else {
+			// Clean option radio Group			
+			for op in radioGroup { op.isSelected = false }
+			// Show fail messege
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)
         }
     }
@@ -1448,8 +1451,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
                 questionaryValue.answer_05 = answerValue
                 break
         }
-
-
 
         // Update value in runtime
         AplicationRuntime.sharedManager.setAnswersValue(answers: questionaryValue)
