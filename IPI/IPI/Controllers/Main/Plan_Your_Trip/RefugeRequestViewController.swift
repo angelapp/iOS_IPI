@@ -52,11 +52,16 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             nationality = AplicationRuntime.sharedManager.getCountry(fromID: targetCountryID, getName: false, getNationality: true)
         }
         
+        // Observer for stop audio
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toggleAudio(notification:)), name: .stopBodyTripAudio, object: nil)
+        
         lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast() as CVarArg)
     }
 
     // MARK: - Private Functions
     private func playAudio(audio name: String) {
+        
+        NotificationCenter.default.post(name: .stopHeaderTripAudio, object: nil)
         
         if isPlaying != nullString {
             stopAudio(audio: name)
@@ -80,6 +85,10 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
     }
     
     private func stopAudio(audio name: String) {
+        
+        // Update UI
+        tbl_requirements.reloadData()
+        
         if let path = Bundle.main.path(forResource: name, ofType:"mp3") {
             let url = URL(fileURLWithPath: path)
             
@@ -101,6 +110,10 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
     func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_AudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
+    }
+
+    @objc func toggleAudio(notification: NSNotification) {
+        self.stopAudio(audio: isPlaying)
     }
     
     // MARK: - AVAudioPlayer Delegate
@@ -220,7 +233,34 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             cell.config_button()
             
             if targetCountryID != nil {
-                cell.btn_audio.tag = targetCountryID
+                
+                let name = AplicationRuntime.sharedManager.getCountry(fromID: targetCountryID, getName: true).uppercased()
+                var audioID = NOTCOUNTRY
+                
+                switch name {
+                
+                case "PANAMA":
+                    audioID = AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_13.rawValue
+                    break
+                    
+                case "ECUADOR":
+                    audioID = AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_14.rawValue
+                    break
+                    
+                case "COLOMBIA":
+                    audioID = AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_15.rawValue
+                    break
+                    
+                case "PERU":
+                    audioID = AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_16.rawValue
+                    break
+                    
+                default:
+                    audioID = NOTCOUNTRY
+                    break
+                }
+                
+                cell.btn_audio.tag = audioID
             }
             
             cell.img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()

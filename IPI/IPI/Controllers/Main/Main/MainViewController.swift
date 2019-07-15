@@ -134,20 +134,7 @@ class MainViewController: UIViewController, MainProtocol {
             return contactFormVC
 
         case .selectCountries:
-			
-			// Load local states
-			let states = StorageFunctions.getStates()
-			
-			// Check if it´s necesry show before
-			if states.hasViewedBefore {
-				return selectCountriesVC
-			}
-			else {
-				states.hasViewedBefore = true
-				StorageFunctions.saveStates(states: states)
-				
-				return beforeVC
-			}
+			return selectCountriesVC
 
         case .planYourTripMenu:
             return planYourTripOptionsVC
@@ -218,6 +205,22 @@ class MainViewController: UIViewController, MainProtocol {
     /** - Returns: ViewController **/
     func getMainViewController() -> UIViewController {
         return self
+    }
+    
+    func prepareYourTrip() {
+        // Load local states
+        let states = StorageFunctions.getStates()
+        
+        // Check if it's necesry show before
+        if states.hasViewedBefore {
+            addToContainer(viewControllerID: .selectCountries)
+        }
+        else {
+            states.hasViewedBefore = true
+            StorageFunctions.saveStates(states: states)
+            
+            addToContainer(viewControllerID: .beforeYourTripVC)
+        }
     }
     
     /** Add a view controller as container child */

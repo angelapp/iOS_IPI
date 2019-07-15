@@ -13,16 +13,18 @@ class OpenFilePopupViewController: UIViewController, UIWebViewDelegate {
     // MARK: - Outlets
     @IBOutlet weak var wkView: UIWebView!
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     var strURL: String! = nullString
     var fileName: String?
+    var boxView = UIView()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wkView.delegate? = self
+        wkView.delegate = self
         navBar.topItem?.title = fileName
         
         openFile()
@@ -44,10 +46,20 @@ class OpenFilePopupViewController: UIViewController, UIWebViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Share action button
     @IBAction func acction(_ sender: UIBarButtonItem) {
         guard strURL != nullString else { return }
         let objectsToShare = [strURL] as [Any]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Web view delegate
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        loader.stopAnimating()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        loader.stopAnimating()
     }
 }

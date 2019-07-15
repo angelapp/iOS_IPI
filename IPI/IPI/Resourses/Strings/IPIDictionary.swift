@@ -27,7 +27,7 @@ enum IPIKeys: String {
     case eyes
     case gender
     case hair
-    case hasViewedOnboarding
+    case hasViewedOnboarding, hasViewedBefore
     case head
     case image
     case isLogin

@@ -563,6 +563,7 @@
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="btn_audio" destination="Wid-uZ-wua" id="adt-hL-vW6"/>
+                                            <outlet property="cutoff_top" destination="Knq-Cc-FPV" id="Jjm-13-9tO"/>
                                             <outlet property="lbl_body" destination="ySb-wz-IAF" id="Vzf-j8-zxF"/>
                                         </connections>
                                     </tableViewCell>
@@ -3323,7 +3324,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="6910.5" width="375" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6lx-mz-x9C" id="aSm-lQ-cCX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="322.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="323"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-aS-MQ6">
@@ -3384,7 +3385,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="7233.5" width="375" height="383"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Wf-uf-Yy9" id="KtN-Ft-ry3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="382.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="383"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Au-dI-xVl">
@@ -3516,7 +3517,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="7616.5" width="375" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9i9-N2-rEK" id="GgT-bf-F9z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNq-2l-uS7">
@@ -3614,7 +3615,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3636,7 +3637,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.8666666666666667" green="0.85098039215686272" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3657,7 +3658,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3678,7 +3679,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3699,7 +3700,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3720,7 +3721,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
@@ -3740,7 +3741,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3761,7 +3762,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3821,7 +3822,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3843,7 +3844,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3864,7 +3865,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3885,7 +3886,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3906,7 +3907,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3927,7 +3928,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3948,7 +3949,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4074,7 +4075,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4096,7 +4097,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4117,7 +4118,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4138,7 +4139,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4159,7 +4160,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4180,7 +4181,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4201,7 +4202,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4222,7 +4223,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4243,7 +4244,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4264,7 +4265,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4285,7 +4286,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4306,7 +4307,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4382,7 +4383,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4404,7 +4405,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4425,7 +4426,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4572,7 +4573,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4724,7 +4725,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4746,7 +4747,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4767,7 +4768,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4788,7 +4789,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4809,7 +4810,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4830,7 +4831,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4851,7 +4852,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4872,7 +4873,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4893,7 +4894,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4957,7 +4958,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4979,7 +4980,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5000,7 +5001,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5021,7 +5022,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5042,7 +5043,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5063,7 +5064,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5105,7 +5106,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5126,7 +5127,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5147,7 +5148,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5293,7 +5294,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5315,7 +5316,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5336,7 +5337,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5357,7 +5358,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5378,7 +5379,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5399,7 +5400,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5420,7 +5421,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5441,7 +5442,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5462,7 +5463,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5483,7 +5484,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5504,7 +5505,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5525,7 +5526,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5546,7 +5547,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5567,7 +5568,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5651,7 +5652,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5673,7 +5674,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5694,7 +5695,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5715,7 +5716,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5736,7 +5737,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5757,7 +5758,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5778,7 +5779,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5799,7 +5800,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5820,7 +5821,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5970,7 +5971,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5992,7 +5993,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6013,7 +6014,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6034,7 +6035,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6055,7 +6056,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6076,7 +6077,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6097,7 +6098,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6118,7 +6119,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6139,7 +6140,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6160,7 +6161,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6181,7 +6182,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6253,7 +6254,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6275,7 +6276,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6296,7 +6297,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6317,7 +6318,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6338,7 +6339,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6458,7 +6459,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6480,7 +6481,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6501,7 +6502,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6522,7 +6523,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6543,7 +6544,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6564,7 +6565,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6585,7 +6586,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6606,7 +6607,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6627,7 +6628,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6691,7 +6692,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6713,7 +6714,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6734,7 +6735,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6755,7 +6756,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6776,7 +6777,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6797,7 +6798,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="next"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6818,7 +6819,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                     </constraints>
                                                                     <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="send"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.86705428360000003" green="0.85139954090000003" blue="0.82616913319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -10909,9 +10910,163 @@ NORUEGO PARA REFUGIADOS</string>
                     <view key="view" contentMode="scaleToFill" id="awP-83-43h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-DG-LXN">
+                                <rect key="frame" x="8" y="28" width="359" height="639"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="62" id="Tgt-Ab-eYI" customClass="CourseHeaderTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="359" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tgt-Ab-eYI" id="WHd-AQ-nUD">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-WU-jbs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-M0-qE9">
+                                                            <rect key="frame" x="16" y="8" width="269" height="46"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-0D-geT">
+                                                            <rect key="frame" x="293" y="14" width="34" height="34"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="34" id="H8a-gU-8YM"/>
+                                                                <constraint firstAttribute="height" constant="34" id="OYv-kI-j3q"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
+                                                                    <integer key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="sIe-0D-geT" secondAttribute="trailing" constant="16" id="AC7-7s-FzU"/>
+                                                        <constraint firstItem="Eae-M0-qE9" firstAttribute="top" secondItem="cnF-WU-jbs" secondAttribute="top" constant="8" id="Cyy-bI-mdM"/>
+                                                        <constraint firstItem="sIe-0D-geT" firstAttribute="leading" secondItem="Eae-M0-qE9" secondAttribute="trailing" constant="8" id="LOY-dU-bE0"/>
+                                                        <constraint firstItem="sIe-0D-geT" firstAttribute="centerY" secondItem="cnF-WU-jbs" secondAttribute="centerY" id="Omh-Md-8cf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Eae-M0-qE9" secondAttribute="bottom" constant="8" id="Otd-bL-UgI"/>
+                                                        <constraint firstItem="Eae-M0-qE9" firstAttribute="leading" secondItem="cnF-WU-jbs" secondAttribute="leading" constant="16" id="Web-Bw-s1x"/>
+                                                        <constraint firstItem="sIe-0D-geT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cnF-WU-jbs" secondAttribute="top" constant="14" id="Xqu-zh-T5l"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sIe-0D-geT" secondAttribute="bottom" constant="14" id="dbt-af-sBi"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.89795345069999999" green="0.89816820620000004" blue="0.89384859800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="cnF-WU-jbs" firstAttribute="leading" secondItem="WHd-AQ-nUD" secondAttribute="leading" id="6cO-fG-lI1"/>
+                                                <constraint firstAttribute="trailing" secondItem="cnF-WU-jbs" secondAttribute="trailing" id="ATN-bV-jEg"/>
+                                                <constraint firstAttribute="bottom" secondItem="cnF-WU-jbs" secondAttribute="bottom" id="gmD-bD-GuY"/>
+                                                <constraint firstItem="cnF-WU-jbs" firstAttribute="top" secondItem="WHd-AQ-nUD" secondAttribute="top" id="zH4-A0-gdH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="btn_openClose" destination="sIe-0D-geT" id="KTn-3o-Men"/>
+                                            <outlet property="cnt_header" destination="cnF-WU-jbs" id="HTm-Vt-C74"/>
+                                            <outlet property="lbl_title" destination="Eae-M0-qE9" id="gow-WL-6qo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="37" id="ojZ-pr-xUo" customClass="WeatherTransporBodyTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="117.5" width="359" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ojZ-pr-xUo" id="oRa-Fj-HjQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jg1-FS-Xid">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="37"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTw-r5-z2I">
+                                                            <rect key="frame" x="16" y="8" width="177" height="21"/>
+                                                            <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDQ-am-7gt">
+                                                            <rect key="frame" x="201" y="8" width="150" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="150" id="k34-Hk-YRg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="WDQ-am-7gt" secondAttribute="trailing" constant="8" id="LsM-GD-io0"/>
+                                                        <constraint firstItem="rTw-r5-z2I" firstAttribute="top" secondItem="jg1-FS-Xid" secondAttribute="top" constant="8" id="M0n-nw-hAs"/>
+                                                        <constraint firstItem="WDQ-am-7gt" firstAttribute="leading" secondItem="rTw-r5-z2I" secondAttribute="trailing" constant="8" id="Q2C-nL-RX6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="rTw-r5-z2I" secondAttribute="bottom" constant="8" id="c7q-Oh-eWa"/>
+                                                        <constraint firstItem="WDQ-am-7gt" firstAttribute="bottom" secondItem="rTw-r5-z2I" secondAttribute="bottom" id="fDy-AL-Ulh"/>
+                                                        <constraint firstItem="rTw-r5-z2I" firstAttribute="leading" secondItem="jg1-FS-Xid" secondAttribute="leading" constant="16" id="i6q-og-Zla"/>
+                                                        <constraint firstItem="WDQ-am-7gt" firstAttribute="top" secondItem="rTw-r5-z2I" secondAttribute="top" id="zG2-dD-aXu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="jg1-FS-Xid" secondAttribute="trailing" id="B9Y-jx-5Sv"/>
+                                                <constraint firstItem="jg1-FS-Xid" firstAttribute="leading" secondItem="oRa-Fj-HjQ" secondAttribute="leading" id="lIM-my-egT"/>
+                                                <constraint firstItem="jg1-FS-Xid" firstAttribute="top" secondItem="oRa-Fj-HjQ" secondAttribute="top" id="ntg-zU-Zae"/>
+                                                <constraint firstAttribute="bottom" secondItem="jg1-FS-Xid" secondAttribute="bottom" id="u5V-sf-rbs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="lbl_city" destination="rTw-r5-z2I" id="JSQ-Eh-PEO"/>
+                                            <outlet property="lbl_text_01" destination="WDQ-am-7gt" id="iAj-Vb-eyS"/>
+                                            <outlet property="view" destination="jg1-FS-Xid" id="SlZ-ws-Srr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="8" id="mvG-Zt-kH1" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="154.5" width="359" height="8"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mvG-Zt-kH1" id="yU3-UB-dVY">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="8"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZt-VA-B8C">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="8" id="8mt-MU-gGz"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="QZt-VA-B8C" secondAttribute="bottom" id="Lnx-x2-txR"/>
+                                                <constraint firstItem="QZt-VA-B8C" firstAttribute="top" secondItem="yU3-UB-dVY" secondAttribute="top" id="n90-MV-Zef"/>
+                                                <constraint firstItem="QZt-VA-B8C" firstAttribute="leading" secondItem="yU3-UB-dVY" secondAttribute="leading" id="oJ1-kG-Dgn"/>
+                                                <constraint firstAttribute="trailing" secondItem="QZt-VA-B8C" secondAttribute="trailing" id="qzz-WO-h9n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="cnt_footer" destination="QZt-VA-B8C" id="Kvt-wK-nH3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="scH-aL-BH7" id="60R-LU-1Gc"/>
+                                    <outlet property="delegate" destination="scH-aL-BH7" id="F0n-ww-WrX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lp1-DG-LXN" firstAttribute="leading" secondItem="vH0-Gv-XOU" secondAttribute="leading" constant="8" id="2ze-8M-qLZ"/>
+                            <constraint firstItem="lp1-DG-LXN" firstAttribute="top" secondItem="vH0-Gv-XOU" secondAttribute="top" constant="8" id="Qno-cR-Ez2"/>
+                            <constraint firstItem="vH0-Gv-XOU" firstAttribute="trailing" secondItem="lp1-DG-LXN" secondAttribute="trailing" constant="8" id="WB2-yc-MuK"/>
+                            <constraint firstItem="lp1-DG-LXN" firstAttribute="bottom" secondItem="vH0-Gv-XOU" secondAttribute="bottom" id="nEA-b6-WjH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vH0-Gv-XOU"/>
                     </view>
+                    <connections>
+                        <outlet property="tbl_transportData" destination="lp1-DG-LXN" id="HWI-NH-nqQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZI-3G-fJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

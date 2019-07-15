@@ -97,7 +97,8 @@ class LeftMenuViewController: UIViewController {
             break
 
         case btn_plan_your_trip:
-            mainDelegate?.addToContainer(viewControllerID: .selectCountries)
+//            mainDelegate?.addToContainer(viewControllerID: .selectCountries)
+            mainDelegate?.prepareYourTrip()
             self.revealViewController().revealToggle(animated: true)
             break
 

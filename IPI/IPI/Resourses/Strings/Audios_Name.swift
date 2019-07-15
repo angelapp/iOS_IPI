@@ -109,16 +109,16 @@ func get_AudioName(forAudio id: Int) -> String {
         //Antes de viajar
         
     case AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_01.rawValue : AUDIO_FEMALE.mer_ptv_m_01.rawValue
+        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_01.rawValue : AUDIO_FEMALE.mer_ptv_m_01.rawValue // Condición migratoria
         
     case AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_02.rawValue : AUDIO_FEMALE.mer_ptv_m_02.rawValue
+        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_02.rawValue : AUDIO_FEMALE.mer_ptv_m_02.rawValue // Estatus de Refugiado
         
     case AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_03.rawValue : AUDIO_FEMALE.mer_ptv_m_03.rawValue
+        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_03.rawValue : AUDIO_FEMALE.mer_ptv_m_03.rawValue // Temporal o en transito
         
     case AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_12.rawValue:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_04.rawValue : AUDIO_FEMALE.mer_ptv_m_04.rawValue
+        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.mer_ptv_h_04.rawValue : AUDIO_FEMALE.mer_ptv_m_04.rawValue // Permanente
         
         //Curos CBPI
         

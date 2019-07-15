@@ -57,6 +57,7 @@ protocol MainProtocol: class {
     func setDataQuery(fromCountry origin: String, toCountry destination: String)
     func showMessageInMain(withMessage msn: String)
     func getMainViewController() -> UIViewController
+    func prepareYourTrip()
 }
 
 // Protocol for Course Manager

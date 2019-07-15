@@ -293,4 +293,5 @@ struct Formats {
 	static let visasFormat = "Consulta a continuación las clases de visas a las que puedes acceder en %@ y los requisitos para cada una de ellas."
     static let nationalizationFormat = "Son %@ por nacimiento:"
     static let weatherFormat = "%@°"
+    static let transportHeaderFormat = "Desde %@ a:"
 }

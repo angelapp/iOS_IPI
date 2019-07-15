@@ -70,8 +70,7 @@ extension UIViewController {
 	
 	/// Show video in AVPlayer
 	func playVideo(videoSTR: String) {
-        printDebugMessage(tag: videoSTR)
-		let videoURL = NSURL(string: "http://nrc.org.co/conse/Lideres_Lideresas.mp4")
+		let videoURL = NSURL(string: videoSTR)
 		let player = AVPlayer(url: videoURL! as URL)
         
 		
@@ -205,6 +204,12 @@ extension UIFont {
         guard let descriptor = self.fontDescriptor.withSymbolicTraits(traits) else { return self }
         return UIFont(descriptor: descriptor, size: 0)
     }
+}
+
+//Extension for skip errors due to misspellings
+extension NSNotification.Name {
+    static let stopHeaderTripAudio = Notification.Name("stopHeaderTripAudio")
+    static let stopBodyTripAudio = Notification.Name("stopBodyTripAudio")
 }
 
 extension UIView {

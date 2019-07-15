@@ -60,8 +60,15 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         // load navigation bar and init viewController child
         drawNavbar()
         initChildView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopAudio(notification:)), name: .stopHeaderTripAudio, object: nil)
 
         btn_speaker.tag = option.audioID
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        btn_speaker.isSelected = false
+        stopAudio(audio: isPlaying)
     }
 
     // MARK: - Private Functions
@@ -144,6 +151,8 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     // MARK: - Audio Functions
     private func playAudio(audio name: String) {
+        
+        NotificationCenter.default.post(name: .stopBodyTripAudio, object: nil)
 
         if isPlaying != nullString {
             stopAudio(audio: name)
@@ -168,6 +177,9 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
 
     private func stopAudio(audio name: String) {
 
+        // Update UI
+        btn_speaker.isSelected = false
+        
         if let path = Bundle.main.path(forResource: name, ofType:"mp3") {
             let url = URL(fileURLWithPath: path)
 
@@ -298,5 +310,9 @@ class PlanYourTripViewController: UIViewController, AVAudioPlayerDelegate,  Plan
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true, completion: nil)
+    }
+    
+    @objc func stopAudio(notification: NSNotification) {
+        self.stopAudio(audio: isPlaying)
     }
 }

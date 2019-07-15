@@ -162,7 +162,14 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     }
     
     func playMV(urlStr: String) {
-        self.playVideo(videoSTR: urlStr)
+//        self.playVideo(videoSTR: urlStr)
+        let sb = UIStoryboard(name: StoryboardID.Popup.rawValue, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllerID.openFileVC.rawValue) as! OpenFilePopupViewController
+        
+        nextVC.strURL = urlStr
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
     }
     
     func audioManager(audioID id: Int, play: Bool) {

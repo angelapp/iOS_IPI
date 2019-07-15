@@ -151,6 +151,49 @@ class AplicationRuntime {
         
         return name
     }
+    
+    public func getTransportByCity() -> Array<TransportInfoList> {
+        
+        var transportByCity: Array<TransportInfoList> = []
+        
+        //Check if exist data for migration condition types
+        guard planYourTrip != nil, planYourTrip.public_tranportation_info != nil, planYourTrip.public_tranportation_info.count > 0
+            else { return transportByCity }
+        
+        /// Arreglo auxiliar para mantener los Id de las ciudades Origen
+        var aux_origin_id: Array<Int> = []
+        /// Auxiliar para mantener la dupla Origen_Destino
+        var aux_destination_id: Array<String> = []
+        
+        // ORDER CITY TRANSPORT BY ORIGIN CITY
+        for transportInfo in planYourTrip.public_tranportation_info {
+            
+            // Create destination aux tag (ORIGENID_TARGETID)
+            let destinationTAG = String(transportInfo.origin_city) + "_" + String(transportInfo.target_city)
+            
+            if !aux_origin_id.contains(transportInfo.origin_city) {
+                let cityOrigin = TransportInfoList(name: getCityName(forID: transportInfo.origin_city))
+                
+                aux_origin_id.append(transportInfo.origin_city)
+                aux_destination_id.append(destinationTAG)
+                
+                cityOrigin.targetList.append(transportInfo)
+                transportByCity.append(cityOrigin)
+            }
+            else {
+                // update list when the city origin exist
+                if let pos = aux_origin_id.index(of: transportInfo.origin_city) {
+                    // The right is added to target list if it has not been added
+                    if !aux_destination_id.contains(destinationTAG) {
+                        transportByCity[pos].targetList.append(transportInfo)
+                        aux_destination_id.append(destinationTAG)
+                    }
+                }
+            }
+        }
+        
+        return transportByCity
+    }
 
     /**
      Function to get cities of target country, with avaible phonebook

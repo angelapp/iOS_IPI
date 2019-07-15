@@ -46,7 +46,8 @@ class SelectActivitiesViewController: UIViewController {
             break
             
         default:
-            mainDelegate?.addToContainer(viewControllerID: .selectCountries)
+//            mainDelegate?.addToContainer(viewControllerID: .selectCountries)
+            mainDelegate?.prepareYourTrip()
             break
         }
     }

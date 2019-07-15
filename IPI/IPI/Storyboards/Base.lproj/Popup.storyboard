@@ -552,10 +552,11 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z64-5d-BSw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Title" id="wbc-ZU-dsd">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="r5X-SK-IlO">
+                                        <barButtonItem key="leftBarButtonItem" title="Listo" id="r5X-SK-IlO">
                                             <connections>
                                                 <action selector="acctionButton:" destination="1F2-oV-QVd" id="Swq-9R-B16"/>
                                             </connections>
@@ -571,12 +572,21 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEE-4y-fr4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1F2-oV-QVd" id="jg2-7u-nUh"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PTJ-1F-WHg">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PTJ-1F-WHg" firstAttribute="centerX" secondItem="KEE-4y-fr4" secondAttribute="centerX" id="2Wk-1p-VmW"/>
                             <constraint firstItem="KEE-4y-fr4" firstAttribute="bottom" secondItem="AJz-nK-Rfa" secondAttribute="bottom" id="9c4-CF-5Qd"/>
                             <constraint firstItem="KEE-4y-fr4" firstAttribute="trailing" secondItem="AJz-nK-Rfa" secondAttribute="trailing" id="ASD-Xc-Lw2"/>
+                            <constraint firstItem="PTJ-1F-WHg" firstAttribute="centerY" secondItem="KEE-4y-fr4" secondAttribute="centerY" id="Bdp-9N-oBx"/>
                             <constraint firstItem="Z64-5d-BSw" firstAttribute="trailing" secondItem="AJz-nK-Rfa" secondAttribute="trailing" id="HLH-2N-sCb"/>
                             <constraint firstItem="Z64-5d-BSw" firstAttribute="top" secondItem="AJz-nK-Rfa" secondAttribute="top" id="gk8-9c-bYw"/>
                             <constraint firstItem="Z64-5d-BSw" firstAttribute="leading" secondItem="AJz-nK-Rfa" secondAttribute="leading" id="jIe-uc-zyv"/>
@@ -586,6 +596,7 @@
                         <viewLayoutGuide key="safeArea" id="AJz-nK-Rfa"/>
                     </view>
                     <connections>
+                        <outlet property="loader" destination="PTJ-1F-WHg" id="hUa-lA-XFu"/>
                         <outlet property="navBar" destination="Z64-5d-BSw" id="kI8-Mv-uL3"/>
                         <outlet property="wkView" destination="KEE-4y-fr4" id="C72-ya-CDZ"/>
                     </connections>

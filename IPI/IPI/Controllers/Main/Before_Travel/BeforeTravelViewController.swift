@@ -170,7 +170,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
         setAspectFitToButton(buttons: cell.btn_audio)
         cell.btn_audio.isSelected = cell.btn_audio.tag == currentAudioID ? true : false
 
-		setButtonImages(button: cell.btn_audio, normal: speaker_blue, hover: speaker_blue_hover)
+		setButtonImages(button: cell.btn_audio, normal: IPI_IMAGES.speaker_blue, hover: IPI_IMAGES.speaker_blue_hover)
 //        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue), for: .normal)
 //        cell.btn_audio.setImage(UIImage(named: IPI_IMAGES.speaker_blue_hover), for: .selected)
 

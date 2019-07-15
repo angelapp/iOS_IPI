@@ -195,12 +195,25 @@ class BeforeTravelItem {
     */
     func getBeforeTravelItemList() -> [BeforeTravelItem] {
 
-        return [BeforeTravelItem(title: Labels.before_travel_text1, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_08.rawValue),
-                BeforeTravelItem(title: Labels.before_travel_text2, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue),
-                BeforeTravelItem(title: Labels.before_travel_text3, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue),
-                BeforeTravelItem(title: Labels.before_travel_text4, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue)]
+        return [BeforeTravelItem(title: Labels.before_travel_text1, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_09.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text2, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_10.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text3, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_11.rawValue),
+                BeforeTravelItem(title: Labels.before_travel_text4, audioID: AUDIO_ID.PLAN_YOUR_TRIP_AUDIO_12.rawValue)]
     }
 }
+
+class TransportInfoList {
+    var name: String!
+    var targetList: Array<TransportationInfoModel>!
+    
+    init() {}
+    
+    init(name: String) {
+        self.name = name
+        self.targetList = []
+    }
+}
+
 
 /** Módelo para pasar los datos de la lista desplegable al controlador correspondiente **/
 class ExampleData {

@@ -789,7 +789,7 @@ class TransportationInfoModel: Mappable {
     var origin_city: Int!
     var target_city: Int!
 
-    init() {}
+    init() { }
 
     required init?(map: Map) {
     }

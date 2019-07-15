@@ -30,6 +30,7 @@ class RefugeRequestBobyTableViewCell: UITableViewCell {
     }
     
     func config_button() {
+        
         btn_audio.setImage(UIImage(named: IPI_IMAGES.btn_audio), for: .normal)
         btn_audio.setImage(UIImage(named: IPI_IMAGES.btn_audio_hover), for: .selected)
         
@@ -41,5 +42,4 @@ class RefugeRequestBobyTableViewCell: UITableViewCell {
         sender.isSelected = !sender.isSelected
         refugeRequestDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
     }
-
 }
