@@ -25,7 +25,7 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
         // Load Option
         maindelegate = AplicationRuntime.sharedManager.mainDelegate
         optionList = AplicationRuntime.sharedManager.getPlanTripOptions()
-        
+
         //update nav bar
         setQueryData()
 
@@ -34,14 +34,14 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         self.colletion_options.dataSource = self
         self.colletion_options.delegate = self
-        
+
         colletion_options.reloadData()
     }
-    
+
     func setQueryData(){
-        
+
         if let nat = AplicationRuntime.sharedManager.getPlanTrip()?.natCountryID, let des = AplicationRuntime.sharedManager.getPlanTrip()?.desCountryID {
-            
+
             maindelegate?.setDataQuery(fromCountry: AplicationRuntime.sharedManager.getCountry(fromID: nat),
                                        toCountry: AplicationRuntime.sharedManager.getCountry(fromID: des))
         }
@@ -82,6 +82,25 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         return CGSize(width: cellwidth, height: cellheigth)
     }
+    /*
+    // Set UIEdgeInsets for section
+    // Source: https://stackoverflow.com/questions/34267662/how-to-center-horizontally-uicollectionview-cells
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        // Get
+        let paddingSpace: CGFloat = 30
+        let availableWidth = colletion_options.bounds.size.width - paddingSpace
+	    let cellwidth = availableWidth / itemsPerRow
+
+	    let totalCellWidth = cellwidth * colletion_options.numberOfItems(inSection: section)
+        let totalSpacingWidth = paddingSpace * (colletion_options.numberOfItems(inSection: section) - 1)
+
+        let leftInset = (collectionViewcolletion_options.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+    }
+    */
 
     // MARK: -  Gestures
     //Método para ejecutar acción al seleccionar una fila
@@ -89,7 +108,7 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         let btnTapped = gestureRecognizer.view!
         let tagID = btnTapped.tag
-        
+
         printDebugMessage(tag: "count \(optionList.count) tag\(tagID)")
 
         AplicationRuntime.sharedManager.setCurrentOption(currentOption: optionList[tagID])
