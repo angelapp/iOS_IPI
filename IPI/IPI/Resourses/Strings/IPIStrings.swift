@@ -203,6 +203,12 @@ struct Labels {
     static let saveQuery_format = "Acabas de guardar la información disponible para el trayecto %@ - %@. \(doubleJump) Puedes consultarla más tarde en la opción del menú ÚLTIMA CONSULTA."
 
     static let select_condition_msn = "Selecciona tu condición migratoria"
+
+    static let currency = "MONEDA"
+    static let trm = "CONVERSIÓN A DÓLARES"
+    static let migration_authority = "AUTORIDAD MIGRATORIA"
+    static let call_from_inside_requirements = "¿CÓMO LLAMAR DENTRO DE %@?"
+    static let call_from_outside_requirements = "¿CÓMO LLAMAR A %@ DESDE EL EXTERIOR?"
 }
 
 // MARK: - Error Messages

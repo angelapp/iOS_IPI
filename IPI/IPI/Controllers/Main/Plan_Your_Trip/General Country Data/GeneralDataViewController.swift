@@ -8,23 +8,55 @@
 
 import UIKit
 
-class GeneralDataViewController: UIViewController {
+class GeneralDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: - Outlets
+    @IBOutlet weak var tbl_countryData: UITableView!
+
+    // MARK: - Properties
+    var countrDataList: Array<GeneralCountryData>!
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        countrDataList = AplicationRuntime.sharedManager.getGeneralDataList()
+
+        tbl_countryData.delegate = self
+        tbl_countryData.dataSource = self
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - TableView delegate and datasource
+    // Número de secciones de la tabla
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
 
+    // Número de filas
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countrDataList.count
+    }
+
+    // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    // Tamaño estimado de las celdas
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 42
+    }
+
+    // pintado de la tabla
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue, for: indexPath) as! WeatherTransporBodyTableViewCell
+        let htmlCSSString = Formats.cssStyles + countrDataList[IndexPath.row].description
+
+        cell.img_icon.image = UIImage(named: countrDataList[IndexPath.row].icon)
+        cell.lbl_text_01.text = countrDataList[IndexPath.row].title
+        cell.lbl_text_02.attributedText = htmlCSSString.htmlToAttributedString!
+
+        return cell
+    }
 }

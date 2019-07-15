@@ -17,7 +17,7 @@ class LandscapeAVPlayerController: AVPlayerViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
-    
+
     open override var shouldAutorotate: Bool {
         return false
     }
@@ -67,16 +67,16 @@ extension UIViewController {
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
-	
+
 	/// Show video in AVPlayer
 	func playVideo(videoSTR: String) {
 		let videoURL = NSURL(string: videoSTR)
 		let player = AVPlayer(url: videoURL! as URL)
-        
-		
+
+
         let playerController = LandscapeAVPlayerController()
         playerController.player = player
-		
+
 		self.present(playerController, animated: true){
 			player.play()
 		}
@@ -85,7 +85,7 @@ extension UIViewController {
 
 //Class for add values in gesture
 class IPITapGesture: UITapGestureRecognizer {
-    
+
     /// Number to call in tap
     var phoneNumber = String()
 }
@@ -191,15 +191,15 @@ extension UIFont {
     var bold: UIFont {
         return with(traits: .traitBold)
     }
-    
+
     var italic: UIFont {
         return with(traits: .traitItalic)
     }
-    
+
     var boldItalic: UIFont {
         return with(traits: [.traitBold, .traitItalic])
     }
-    
+
     func with(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
         guard let descriptor = self.fontDescriptor.withSymbolicTraits(traits) else { return self }
         return UIFont(descriptor: descriptor, size: 0)
@@ -213,7 +213,7 @@ extension NSNotification.Name {
 }
 
 extension UIView {
-    
+
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
@@ -223,7 +223,7 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
-    
+
     @IBInspectable
     var borderWidth: CGFloat {
         get {
@@ -233,7 +233,7 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
+
     @IBInspectable
     var borderColor: UIColor? {
         get {

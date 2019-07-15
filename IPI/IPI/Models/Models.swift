@@ -205,9 +205,9 @@ class BeforeTravelItem {
 class TransportInfoList {
     var name: String!
     var targetList: Array<TransportationInfoModel>!
-    
+
     init() {}
-    
+
     init(name: String) {
         self.name = name
         self.targetList = []
@@ -302,6 +302,41 @@ class PlanYourTripOptions {
         self.audioID = audioID
     }
 }
+
+/** Modelo para mapear las opciones de datos generales del destino **/
+class GeneralCountryData {
+
+    var description : String!
+    var icon : String!
+    var title : String!
+
+    init() {}
+
+    init(icon: String, description: String, title: String) {
+        self.description = description
+        self.icon = icon
+        self.title = title
+    }
+}
+
+/*
+extension GeneralCountryData.title {
+    static let currency = GeneralCountryData.title("MONEDA")
+    static let trm = GeneralCountryData.title("CONVERSIÓN A DÓLARES")
+    static let migration_authority = GeneralCountryData.title("AUTORIDAD MIGRATORIA")
+    static let call_from_inside_requirements = GeneralCountryData.title("¿CÓMO LLAMAR DENTRO DE %@?")
+    static let call_from_outside_requirements = GeneralCountryData.title("¿CÓMO LLAMAR A %@ DESDE EL EXTERIOR?")
+}
+
+extension GeneralCountryData.icon {
+    static let currency = GeneralCountryData.icon(IPI_IMAGES.icon_moneda)
+    static let trm = GeneralCountryData.icon(IPI_IMAGES.icon_conversion)
+    static let migration_authority = GeneralCountryData.icon(IPI_IMAGES.icon_autoridad)
+    static let call_from_inside_requirements = GeneralCountryData.icon(IPI_IMAGES.icon_llamada_local)
+    static let call_from_outside_requirements = GeneralCountryData.icon(IPI_IMAGES.icon_llamada_exterior)
+}
+*/
+
 
 /** Model para mapping the answers of PNPI **/
 class PNPIAnswers {

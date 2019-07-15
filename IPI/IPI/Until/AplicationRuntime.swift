@@ -127,20 +127,20 @@ class AplicationRuntime {
         // Defautl return value
         return nil
     }
-    
+
     /**
      Function to get name of the city according with target country
-     
+
      - Parameter forID: Id of the city to search
      - Returns: city name **defult, empty**
      */
     public func getCityName(forID id: Int) -> String {
         var name = nullString
-        
+
         //Check if exist data
         guard planYourTrip != nil,  let country = getCountry(fromID: self.planYourTrip.desCountryID)
             else { return name }
-        
+
         //Search city
         for city in country.country_cities {
             if city.id == id {
@@ -148,35 +148,35 @@ class AplicationRuntime {
                 break
             }
         }
-        
+
         return name
     }
-    
+
     public func getTransportByCity() -> Array<TransportInfoList> {
-        
+
         var transportByCity: Array<TransportInfoList> = []
-        
+
         //Check if exist data for migration condition types
         guard planYourTrip != nil, planYourTrip.public_tranportation_info != nil, planYourTrip.public_tranportation_info.count > 0
             else { return transportByCity }
-        
+
         /// Arreglo auxiliar para mantener los Id de las ciudades Origen
         var aux_origin_id: Array<Int> = []
         /// Auxiliar para mantener la dupla Origen_Destino
         var aux_destination_id: Array<String> = []
-        
+
         // ORDER CITY TRANSPORT BY ORIGIN CITY
         for transportInfo in planYourTrip.public_tranportation_info {
-            
+
             // Create destination aux tag (ORIGENID_TARGETID)
             let destinationTAG = String(transportInfo.origin_city) + "_" + String(transportInfo.target_city)
-            
+
             if !aux_origin_id.contains(transportInfo.origin_city) {
                 let cityOrigin = TransportInfoList(name: getCityName(forID: transportInfo.origin_city))
-                
+
                 aux_origin_id.append(transportInfo.origin_city)
                 aux_destination_id.append(destinationTAG)
-                
+
                 cityOrigin.targetList.append(transportInfo)
                 transportByCity.append(cityOrigin)
             }
@@ -191,7 +191,7 @@ class AplicationRuntime {
                 }
             }
         }
-        
+
         return transportByCity
     }
 
@@ -403,6 +403,58 @@ class AplicationRuntime {
 
     public func getCurrentOption() -> PlanYourTripOptions! {
         return self.currentOption
+    }
+
+    public func getGeneralDataList() -> Array<GeneralCountryData> {
+
+        var list: Array<GeneralCountryData> = []
+
+        // check if exist data
+        guard planYourTrip != nil, planYourTrip.general_country_data != nil else { return list }
+
+        var countryName = nullString
+        if let country = getCountry(fromID: planYourTrip.general_country_data.country) {
+            countryName = counrty.name
+        }
+
+        // Add currency Info
+        if planYourTrip.general_country_data.currency != nil {
+            list.append(GeneralCountryData(
+                icon: IPI_IMAGES.icon_moneda,
+                title: Labels.currency,
+                description: planYourTrip.general_country_data.currency))
+        }
+        // Add TRM Info
+        if planYourTrip.general_country_data.trm != nil {
+            list.append(GeneralCountryData(
+                icon: IPI_IMAGES.icon_conversion,
+                title: Labels.trm,
+                description: planYourTrip.general_country_data.trm))
+        }
+        // Add migration authority Info
+        if planYourTrip.general_country_data.migration_authority != nil {
+            list.append(GeneralCountryData(
+                icon: IPI_IMAGES.icon_autoridad,
+                title: Labels.migration_authority,
+                description: planYourTrip.general_country_data.migration_authority))
+        }
+        // Add how to call from inside Info
+        if planYourTrip.general_country_data.call_from_inside_requirements != nil {
+            list.append(GeneralCountryData(
+                icon: IPI_IMAGES.icon_llamada_local,
+                title: String(format: Labels.call_from_inside_requirements, countryName),
+                description: planYourTrip.general_country_data.call_from_inside_requirements))
+        }
+        // Add how to call from outside
+        if planYourTrip.general_country_data.call_from_outside_requirements != nil {
+            list.append(GeneralCountryData(
+                icon: IPI_IMAGES.icon_llamada_exterior,
+                title: String(format: Labels.call_from_outside_requirements, countryName),
+                description: planYourTrip.general_country_data.call_from_outside_requirements))
+        }
+
+
+        return list
     }
 
     public func getPlanTripOptions() -> Array<PlanYourTripOptions> {
