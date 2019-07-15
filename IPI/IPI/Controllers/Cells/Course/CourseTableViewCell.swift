@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
@@ -105,6 +105,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     let TAG_OPTION_03 = 2
 
     private let courseID: Int = 1
+
+    // Slider
+    let itemsPerRow: CGFloat = 1
 
     var view_list: Array<UIView> = []
     var radioGroup: Array<UIButton> = []
@@ -373,12 +376,18 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         lbl_text1.text = IPI_COURSE.PAGE_15.text1
         lbl_text2.text = IPI_COURSE.PAGE_15.text2
 
+        // Config Inner Slider
         img_auxiliar.image = UIImage(named: IPI_IMAGES.slider_logo)
-
+        // load slider data
         itemList = SliderData().getSliderData()
+
+        // Config and show Slider
+        collection_slide!.alwaysBounceVertical = true
 
         collection_slide.delegate = self
         collection_slide.dataSource = self
+
+        collection_slide.reloadData()
     }
 
     func fill_CELL_16() {
@@ -1078,22 +1087,26 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     // MARK: - Expandable tableview functions
     /// Determina la sección de la tabla que fue seleccionada para mostrar el contenido
     @objc func tapSection(sender: UITapGestureRecognizer) {
-        
+
         let sectionTapped = sender.view!
         let section = sectionTapped.tag
-        
+
         let shouldExpand = !expandedSections.contains(section)
-        
+
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
+
+            // Scroll to top of the section
+            let indexPath = IndexPath(row: NSNotFound, section: section)
+            tbl_examples.scrollToRow(at: indexPath, at: .top, animated: true)
         } else {
             expandedSections.removeAllObjects()
         }
-        
+
         updateUI()
     }
-    
+
 
     // MARK: - Table view Delegate and Datasource
     // Número de secciones de la tabla
@@ -1124,10 +1137,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         cell?.headerTitle = samplesList[section].header
         cell?.fill_header(forTable: tableView.tag)
-        
+
         cell?.btn_openClose.tag = section
         cell?.tag = section
-        
+
         // Add Gesture for expand list
         let tapButton = UITapGestureRecognizer(target: self, action: #selector(self.tapSection))
         cell?.btn_openClose.addGestureRecognizer(tapButton)
@@ -1190,6 +1203,17 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         cell.lbl_message.text = itemList[indexPath.row].message
 
         return cell
+    }
+
+     //Set Width and Heigth of the cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let paddingSpace: CGFloat = 16
+        let availableWidth = collection_slide.bounds.size.width - paddingSpace
+        let cellwidth = availableWidth / itemsPerRow
+        let cellheigth = cellwidth * 1.30
+
+        return CGSize(width: cellwidth, height: cellheigth)
     }
 
     // MARK: - Navigation actions
@@ -1401,7 +1425,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
         }
         else {
-			// Clean option radio Group			
+			// Clean option radio Group
 			for op in radioGroup { op.isSelected = false }
 			// Show fail messege
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_12.ERROR, inbold: nil, type: .failed)

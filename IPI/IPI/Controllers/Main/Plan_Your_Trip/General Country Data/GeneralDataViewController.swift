@@ -50,12 +50,12 @@ class GeneralDataViewController: UIViewController, UITableViewDelegate, UITableV
     // pintado de la tabla
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue, for: indexPath) as! WeatherTransporBodyTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue, for: indexPath) as! CourseBodyTableViewCell
         let htmlCSSString = Formats.cssStyles + countrDataList[IndexPath.row].description
 
-        cell.img_icon.image = UIImage(named: countrDataList[IndexPath.row].icon)
-        cell.lbl_text_01.text = countrDataList[IndexPath.row].title
-        cell.lbl_text_02.attributedText = htmlCSSString.htmlToAttributedString!
+        cell.img_item.image = UIImage(named: countrDataList[IndexPath.row].icon)
+        cell.lbl_title.text = countrDataList[IndexPath.row].title
+        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
 
         return cell
     }
