@@ -3104,7 +3104,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="6214.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PGC-Ba-xgJ" id="gm7-fL-Btc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FD1-dJ-xsL">
@@ -3170,86 +3170,90 @@ NORUEGO PARA REFUGIADOS</string>
                                             <outlet property="lbl_title" destination="Rsw-jh-qEL" id="YWb-bt-cQ8"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE15" rowHeight="496" id="6mG-Cj-sOu" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6414.5" width="375" height="496"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE15" rowHeight="550" id="6mG-Cj-sOu" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="6414.5" width="375" height="550"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6mG-Cj-sOu" id="Bqs-dk-4ei">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="495.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYk-t0-n4V">
-                                                    <rect key="frame" x="16" y="24" width="343" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <rect key="frame" x="16" y="24" width="343" height="18"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-sC-1G4">
-                                                    <rect key="frame" x="16" y="60.5" width="343" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <rect key="frame" x="16" y="58" width="343" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7S-Sy-Fau">
-                                                    <rect key="frame" x="16" y="98" width="343" height="371"/>
+                                                    <rect key="frame" x="16" y="93.5" width="343" height="383"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPn-FH-5F2">
-                                                            <rect key="frame" x="0.0" y="40" width="343" height="331"/>
+                                                            <rect key="frame" x="0.0" y="40" width="343" height="343"/>
                                                             <subviews>
                                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-rQ-GFg">
-                                                                    <rect key="frame" x="152" y="48" width="39" height="37"/>
+                                                                    <rect key="frame" x="152" y="40" width="39" height="37"/>
                                                                     <color key="pageIndicatorTintColor" red="0.4716774225" green="0.84417468309999999" blue="0.85019344090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="currentPageIndicatorTintColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </pageControl>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sZe-YP-fgy">
-                                                                    <rect key="frame" x="8" y="93" width="327" height="230"/>
+                                                                    <rect key="frame" x="8" y="85" width="327" height="250"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="230" id="hR5-1w-94Z"/>
+                                                                        <constraint firstAttribute="width" secondItem="sZe-YP-fgy" secondAttribute="height" multiplier="327:250" id="2bt-G0-uUO"/>
                                                                     </constraints>
-                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LXz-sb-sJD">
-                                                                        <size key="itemSize" width="327" height="214"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IUL-5q-4F5">
+                                                                        <size key="itemSize" width="143" height="104"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                     </collectionViewFlowLayout>
                                                                     <cells>
                                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="courseSlider" id="GJT-6z-Q9U" customClass="CourseSliderCollectionViewCell" customModule="IPI" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="8" width="327" height="214"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="143" height="104"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="214"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="143" height="104"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnt-qT-fAK">
-                                                                                        <rect key="frame" x="8" y="8" width="311" height="198"/>
+                                                                                        <rect key="frame" x="8" y="16" width="127" height="80"/>
+                                                                                        <subviews>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-kB-7wp">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="127" height="19.5"/>
+                                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvI-pi-97s">
+                                                                                                <rect key="frame" x="0.0" y="27.5" width="127" height="44.5"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="bottom" secondItem="EvI-pi-97s" secondAttribute="bottom" constant="8" id="0Gy-2g-Q6T"/>
+                                                                                            <constraint firstItem="EvI-pi-97s" firstAttribute="top" secondItem="Hke-kB-7wp" secondAttribute="bottom" constant="8" id="Dmo-W0-MWZ"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="Hke-kB-7wp" secondAttribute="trailing" id="E7S-9d-mIJ"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="EvI-pi-97s" secondAttribute="trailing" id="G3b-NK-c3r"/>
+                                                                                            <constraint firstItem="Hke-kB-7wp" firstAttribute="leading" secondItem="Dnt-qT-fAK" secondAttribute="leading" id="Nt8-pb-DxZ"/>
+                                                                                            <constraint firstItem="Hke-kB-7wp" firstAttribute="top" secondItem="Dnt-qT-fAK" secondAttribute="top" id="Yeh-Fb-jpZ"/>
+                                                                                            <constraint firstItem="EvI-pi-97s" firstAttribute="leading" secondItem="Dnt-qT-fAK" secondAttribute="leading" id="qf4-AJ-aFR"/>
+                                                                                        </constraints>
                                                                                     </view>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-kB-7wp">
-                                                                                        <rect key="frame" x="8" y="0.0" width="311" height="20.5"/>
-                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                                        <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvI-pi-97s">
-                                                                                        <rect key="frame" x="8" y="36.5" width="311" height="161.5"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                                        <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
                                                                                 </subviews>
                                                                             </view>
                                                                             <constraints>
-                                                                                <constraint firstItem="EvI-pi-97s" firstAttribute="leading" secondItem="GJT-6z-Q9U" secondAttribute="leading" constant="8" id="47N-QJ-WQq"/>
-                                                                                <constraint firstItem="EvI-pi-97s" firstAttribute="top" secondItem="Hke-kB-7wp" secondAttribute="bottom" constant="16" id="4oo-3H-bDW"/>
-                                                                                <constraint firstItem="Hke-kB-7wp" firstAttribute="top" secondItem="GJT-6z-Q9U" secondAttribute="top" id="9Bv-dh-lgk"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="Dnt-qT-fAK" secondAttribute="trailing" constant="8" id="9r4-SG-cJW"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="Hke-kB-7wp" secondAttribute="trailing" constant="8" id="G8f-6i-Wjb"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="EvI-pi-97s" secondAttribute="trailing" constant="8" id="KCL-bT-8fC"/>
-                                                                                <constraint firstAttribute="bottomMargin" secondItem="EvI-pi-97s" secondAttribute="bottom" constant="16" id="KzM-Ka-NfC"/>
-                                                                                <constraint firstItem="Dnt-qT-fAK" firstAttribute="top" secondItem="GJT-6z-Q9U" secondAttribute="top" constant="8" id="Sfg-Rz-Sl8"/>
+                                                                                <constraint firstItem="Dnt-qT-fAK" firstAttribute="top" secondItem="GJT-6z-Q9U" secondAttribute="top" constant="16" id="Sfg-Rz-Sl8"/>
                                                                                 <constraint firstItem="Dnt-qT-fAK" firstAttribute="leading" secondItem="GJT-6z-Q9U" secondAttribute="leading" constant="8" id="XN5-ML-Mxq"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="Dnt-qT-fAK" secondAttribute="bottom" constant="8" id="Y9V-HO-E2C"/>
-                                                                                <constraint firstItem="Hke-kB-7wp" firstAttribute="leading" secondItem="GJT-6z-Q9U" secondAttribute="leading" constant="8" id="nHQ-Lw-fKm"/>
                                                                             </constraints>
                                                                             <connections>
                                                                                 <outlet property="lbl_message" destination="EvI-pi-97s" id="ciR-Xx-7RP"/>
@@ -3262,7 +3266,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="sZe-YP-fgy" secondAttribute="bottom" constant="8" id="LHA-hx-90r"/>
-                                                                <constraint firstItem="0kE-rQ-GFg" firstAttribute="top" secondItem="cPn-FH-5F2" secondAttribute="top" constant="48" id="RqJ-Of-Z3E"/>
+                                                                <constraint firstItem="0kE-rQ-GFg" firstAttribute="top" secondItem="cPn-FH-5F2" secondAttribute="top" constant="40" id="RqJ-Of-Z3E"/>
                                                                 <constraint firstItem="sZe-YP-fgy" firstAttribute="top" secondItem="0kE-rQ-GFg" secondAttribute="bottom" constant="8" id="Sfe-mZ-2nh"/>
                                                                 <constraint firstItem="sZe-YP-fgy" firstAttribute="leading" secondItem="cPn-FH-5F2" secondAttribute="leading" constant="8" id="cvL-CR-RBA"/>
                                                                 <constraint firstItem="0kE-rQ-GFg" firstAttribute="centerX" secondItem="cPn-FH-5F2" secondAttribute="centerX" id="hGf-ft-Hpc"/>
@@ -3321,10 +3325,10 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE16" rowHeight="323" id="6lx-mz-x9C" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6910.5" width="375" height="323"/>
+                                        <rect key="frame" x="0.0" y="6964.5" width="375" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6lx-mz-x9C" id="aSm-lQ-cCX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="323"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="322.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-aS-MQ6">
@@ -3382,10 +3386,10 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE17" rowHeight="383" id="0Wf-uf-Yy9" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7233.5" width="375" height="383"/>
+                                        <rect key="frame" x="0.0" y="7287.5" width="375" height="383"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Wf-uf-Yy9" id="KtN-Ft-ry3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="383"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="382.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Au-dI-xVl">
@@ -3514,10 +3518,10 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE18" rowHeight="206" id="9i9-N2-rEK" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7616.5" width="375" height="206"/>
+                                        <rect key="frame" x="0.0" y="7670.5" width="375" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9i9-N2-rEK" id="GgT-bf-F9z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="205.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNq-2l-uS7">
@@ -3584,7 +3588,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE19" rowHeight="253" id="FlE-rD-oaw" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7822.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="7876.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FlE-rD-oaw" id="8cw-D1-QG8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -4044,7 +4048,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE20" rowHeight="253" id="F1i-LW-lhS" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8075.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="8129.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F1i-LW-lhS" id="OkB-oa-KxV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -4694,7 +4698,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE21" rowHeight="253" id="e3B-MV-CKH" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8328.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="8382.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e3B-MV-CKH" id="DkM-39-QHV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -5263,7 +5267,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE22" rowHeight="253" id="PM3-Yn-Ipq" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8581.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="8635.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PM3-Yn-Ipq" id="1hO-mx-EFx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -5940,7 +5944,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE23" rowHeight="253" id="yCn-OW-Pzq" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8834.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="8888.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yCn-OW-Pzq" id="KV0-Ki-pQE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -6428,7 +6432,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE24" rowHeight="253" id="F0L-jh-1Oc" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9087.5" width="375" height="253"/>
+                                        <rect key="frame" x="0.0" y="9141.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0L-jh-1Oc" id="03W-Qe-X0s">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
@@ -6916,7 +6920,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE25" rowHeight="428" id="rMJ-0o-U6o" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9340.5" width="375" height="428"/>
+                                        <rect key="frame" x="0.0" y="9394.5" width="375" height="428"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rMJ-0o-U6o" id="4wU-UO-Zfq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="427.5"/>
@@ -7052,7 +7056,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE26" rowHeight="200" id="DHX-Ds-vSg" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9768.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="9822.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DHX-Ds-vSg" id="EW6-sd-xut">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -7122,7 +7126,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE27" rowHeight="305" id="4xN-14-dEG" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9968.5" width="375" height="305"/>
+                                        <rect key="frame" x="0.0" y="10022.5" width="375" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4xN-14-dEG" id="hrH-uw-3Fz">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="304.5"/>
@@ -7327,7 +7331,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE28" rowHeight="505" id="bZU-Ib-HGw" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10273.5" width="375" height="505"/>
+                                        <rect key="frame" x="0.0" y="10327.5" width="375" height="505"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bZU-Ib-HGw" id="dmz-Hf-6ME">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="504.5"/>
@@ -7706,7 +7710,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE29" rowHeight="665" id="EYH-VY-Ara" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10778.5" width="375" height="665"/>
+                                        <rect key="frame" x="0.0" y="10832.5" width="375" height="665"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EYH-VY-Ara" id="d3d-Jd-bVx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="664.5"/>
@@ -7841,7 +7845,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                             <rect key="frame" x="0.0" y="55.5" width="311" height="62"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pa2-QG-91T" id="JIc-9r-pGp">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="62"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="61.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tA3-N5-B1Z">
@@ -7897,7 +7901,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                             <rect key="frame" x="0.0" y="117.5" width="311" height="37"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ao5-N1-kri" id="9fT-fl-mES">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="36.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-wn-fxH">
@@ -8048,7 +8052,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE30" rowHeight="415" id="YwW-YM-3x9" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="11443.5" width="375" height="415"/>
+                                        <rect key="frame" x="0.0" y="11497.5" width="375" height="415"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YwW-YM-3x9" id="tHm-Le-g5d">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="414.5"/>
@@ -8327,7 +8331,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE31" rowHeight="505" id="YKk-ZC-hHN" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="11858.5" width="375" height="505"/>
+                                        <rect key="frame" x="0.0" y="11912.5" width="375" height="505"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKk-ZC-hHN" id="6O4-4P-WqA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="504.5"/>
@@ -8707,7 +8711,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE32" rowHeight="341" id="vcF-sU-8r1" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12363.5" width="375" height="341"/>
+                                        <rect key="frame" x="0.0" y="12417.5" width="375" height="341"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vcF-sU-8r1" id="1tk-U9-4UJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="340.5"/>
@@ -8812,7 +8816,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="COURSE33" rowHeight="428" id="06T-TE-jDF" customClass="CourseTableViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12704.5" width="375" height="428"/>
+                                        <rect key="frame" x="0.0" y="12758.5" width="375" height="428"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="06T-TE-jDF" id="Ryo-rK-VfH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="427.5"/>
@@ -8973,7 +8977,7 @@ NORUEGO PARA REFUGIADOS</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGt-TV-uqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="1812"/>
+            <point key="canvasLocation" x="1728.8" y="1811.2443778110946"/>
         </scene>
         <!--About Us Tab1 View Controller-->
         <scene sceneID="QtT-cC-JwI">
@@ -10283,7 +10287,7 @@ NORUEGO PARA REFUGIADOS</string>
                                 <rect key="frame" x="8" y="60" width="359" height="607"/>
                             </containerView>
                             <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YIb-yS-HJO">
-                                <rect key="frame" x="8" y="20" width="359" height="40"/>
+                                <rect key="frame" x="16" y="20" width="343" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -10355,9 +10359,9 @@ NORUEGO PARA REFUGIADOS</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MXF-uQ-lDw" firstAttribute="bottom" secondItem="Mbz-Vc-jXk" secondAttribute="bottom" id="0b1-6j-AwH"/>
-                            <constraint firstItem="YIb-yS-HJO" firstAttribute="trailing" secondItem="Mbz-Vc-jXk" secondAttribute="trailing" id="2k0-py-bCt"/>
+                            <constraint firstItem="YIb-yS-HJO" firstAttribute="trailing" secondItem="Mbz-Vc-jXk" secondAttribute="trailing" constant="-8" id="2k0-py-bCt"/>
                             <constraint firstItem="Mbz-Vc-jXk" firstAttribute="top" secondItem="YIb-yS-HJO" secondAttribute="bottom" id="3aj-xb-ee5"/>
-                            <constraint firstItem="YIb-yS-HJO" firstAttribute="leading" secondItem="Mbz-Vc-jXk" secondAttribute="leading" id="8wp-OL-ZsT"/>
+                            <constraint firstItem="YIb-yS-HJO" firstAttribute="leading" secondItem="Mbz-Vc-jXk" secondAttribute="leading" constant="8" id="8wp-OL-ZsT"/>
                             <constraint firstItem="MXF-uQ-lDw" firstAttribute="trailing" secondItem="Mbz-Vc-jXk" secondAttribute="trailing" constant="8" id="99e-3r-0it"/>
                             <constraint firstItem="YIb-yS-HJO" firstAttribute="top" secondItem="MXF-uQ-lDw" secondAttribute="top" id="JLZ-53-HHn"/>
                             <constraint firstItem="Mbz-Vc-jXk" firstAttribute="leading" secondItem="MXF-uQ-lDw" secondAttribute="leading" constant="8" id="kzO-ht-Mih"/>
@@ -10371,7 +10375,7 @@ NORUEGO PARA REFUGIADOS</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xis-dy-4Qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="3211"/>
+            <point key="canvasLocation" x="3380" y="3210.9445277361324"/>
         </scene>
         <!--Basic Rights View Controller-->
         <scene sceneID="jFR-Np-o6v">
@@ -10630,32 +10634,32 @@ NORUEGO PARA REFUGIADOS</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="body" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="84" id="eIX-z4-yW0">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="84"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="body" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="body" rowHeight="75" id="eIX-z4-yW0" customClass="CourseBodyTableViewCell" customModule="IPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eIX-z4-yW0" id="LT1-FO-lJU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcO-FF-UBu">
-                                                    <rect key="frame" x="15" y="11" width="345" height="57"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="53"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddH-Ay-RiJ">
-                                                            <rect key="frame" x="0.0" y="4" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="4" width="25" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="5R3-u4-6hK"/>
+                                                                <constraint firstAttribute="height" constant="25" id="5R3-u4-6hK"/>
                                                                 <constraint firstAttribute="width" secondItem="ddH-Ay-RiJ" secondAttribute="height" multiplier="1:1" id="bOk-6d-fQU"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-fZ-EjF">
-                                                            <rect key="frame" x="38" y="4" width="307" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1o-fZ-EjF">
+                                                            <rect key="frame" x="33" y="4" width="312" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-xg-aRG">
-                                                            <rect key="frame" x="38" y="32.5" width="307" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="33" y="31.5" width="312" height="13.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -10663,7 +10667,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                     <constraints>
                                                         <constraint firstItem="V1o-fZ-EjF" firstAttribute="leading" secondItem="ddH-Ay-RiJ" secondAttribute="trailing" constant="8" id="31e-Y7-45Y"/>
                                                         <constraint firstAttribute="trailing" secondItem="V1o-fZ-EjF" secondAttribute="trailing" id="8VK-QY-jpL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="jtZ-xg-aRG" secondAttribute="bottom" constant="4" id="FE6-mv-43f"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jtZ-xg-aRG" secondAttribute="bottom" constant="8" id="FE6-mv-43f"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ddH-Ay-RiJ" secondAttribute="bottom" constant="4" id="M5l-PO-jd2"/>
                                                         <constraint firstItem="ddH-Ay-RiJ" firstAttribute="leading" secondItem="UcO-FF-UBu" secondAttribute="leading" id="Pww-m3-OYb"/>
                                                         <constraint firstItem="V1o-fZ-EjF" firstAttribute="top" secondItem="UcO-FF-UBu" secondAttribute="top" constant="4" id="auj-al-K1e"/>
@@ -10676,12 +10680,22 @@ NORUEGO PARA REFUGIADOS</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="UcO-FF-UBu" firstAttribute="leading" secondItem="LT1-FO-lJU" secondAttribute="leadingMargin" id="IF8-Zj-2kp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UcO-FF-UBu" secondAttribute="bottom" id="dwQ-wX-yfb"/>
                                                 <constraint firstItem="UcO-FF-UBu" firstAttribute="top" secondItem="LT1-FO-lJU" secondAttribute="topMargin" id="wE7-yy-MvE"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UcO-FF-UBu" secondAttribute="trailing" id="xMW-9J-Xvd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="img_item" destination="ddH-Ay-RiJ" id="fPd-Ba-KUz"/>
+                                            <outlet property="lbl_text" destination="jtZ-xg-aRG" id="rHY-vg-EGF"/>
+                                            <outlet property="lbl_title" destination="V1o-fZ-EjF" id="Q50-Kr-QpG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wlk-4U-xW9" id="Vd9-0W-5qz"/>
+                                    <outlet property="delegate" destination="wlk-4U-xW9" id="9Iu-9d-r3T"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -10693,10 +10707,13 @@ NORUEGO PARA REFUGIADOS</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ov5-Ri-BIa"/>
                     </view>
+                    <connections>
+                        <outlet property="tbl_countryData" destination="bIb-SD-WfB" id="Dma-j8-nUB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YP7-nl-TJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4142" y="3211"/>
+            <point key="canvasLocation" x="4141.6000000000004" y="3210.9445277361324"/>
         </scene>
         <!--Weather Data View Controller-->
         <scene sceneID="OMc-b4-ivz">
@@ -10861,7 +10878,7 @@ NORUEGO PARA REFUGIADOS</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sv9-jT-MM5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="8" id="Lcf-Ys-leb"/>
                                                     </constraints>
@@ -10923,16 +10940,16 @@ NORUEGO PARA REFUGIADOS</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnF-WU-jbs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-M0-qE9">
-                                                            <rect key="frame" x="16" y="8" width="269" height="46"/>
+                                                            <rect key="frame" x="16" y="8" width="285" height="46"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-0D-geT">
-                                                            <rect key="frame" x="293" y="14" width="34" height="34"/>
+                                                            <rect key="frame" x="309" y="14" width="34" height="34"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="34" id="H8a-gU-8YM"/>
                                                                 <constraint firstAttribute="height" constant="34" id="OYv-kI-j3q"/>
@@ -11030,7 +11047,7 @@ NORUEGO PARA REFUGIADOS</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZt-VA-B8C">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="8" id="8mt-MU-gGz"/>
                                                     </constraints>

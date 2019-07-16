@@ -382,8 +382,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         itemList = SliderData().getSliderData()
 
         // Config and show Slider
-        collection_slide!.alwaysBounceVertical = true
-
         collection_slide.delegate = self
         collection_slide.dataSource = self
 
@@ -1096,10 +1094,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
-
-            // Scroll to top of the section
-            let indexPath = IndexPath(row: NSNotFound, section: section)
-            tbl_examples.scrollToRow(at: indexPath, at: .top, animated: true)
         } else {
             expandedSections.removeAllObjects()
         }
@@ -1195,7 +1189,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     //fill collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        self.pageControl.currentPage = indexPath.row
+        self.pageControl.currentPage = itemList[indexPath.row].id
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.courseSlider.rawValue, for: indexPath) as! CourseSliderCollectionViewCell
 
@@ -1211,9 +1205,17 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         let paddingSpace: CGFloat = 16
         let availableWidth = collection_slide.bounds.size.width - paddingSpace
         let cellwidth = availableWidth / itemsPerRow
-        let cellheigth = cellwidth * 1.30
+        let cellheigth = CGFloat(235)
 
         return CGSize(width: cellwidth, height: cellheigth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let leftInset = CGFloat(8)
+        let rightInset = leftInset
+        
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
 
     // MARK: - Navigation actions

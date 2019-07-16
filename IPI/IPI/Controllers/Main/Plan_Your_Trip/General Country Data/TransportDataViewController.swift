@@ -48,10 +48,6 @@ class TransportDataViewController: UIViewController, UITableViewDelegate, UITabl
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
-
-            // Scroll to top of the section
-            let indexPath = IndexPath(row: NSNotFound, section: section)
-            tbl_transportData.scrollToRow(at: indexPath, at: .top, animated: true)
         } else {
             expandedSections.removeAllObjects()
         }

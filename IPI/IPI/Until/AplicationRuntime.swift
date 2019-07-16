@@ -414,43 +414,43 @@ class AplicationRuntime {
 
         var countryName = nullString
         if let country = getCountry(fromID: planYourTrip.general_country_data.country) {
-            countryName = counrty.name
+            countryName = country.name
         }
 
         // Add currency Info
         if planYourTrip.general_country_data.currency != nil {
             list.append(GeneralCountryData(
                 icon: IPI_IMAGES.icon_moneda,
-                title: Labels.currency,
-                description: planYourTrip.general_country_data.currency))
+                description: planYourTrip.general_country_data.currency,
+                title: Labels.currency))
         }
         // Add TRM Info
         if planYourTrip.general_country_data.trm != nil {
             list.append(GeneralCountryData(
                 icon: IPI_IMAGES.icon_conversion,
-                title: Labels.trm,
-                description: planYourTrip.general_country_data.trm))
+                description: planYourTrip.general_country_data.trm,
+                title: Labels.trm))
         }
         // Add migration authority Info
         if planYourTrip.general_country_data.migration_authority != nil {
             list.append(GeneralCountryData(
                 icon: IPI_IMAGES.icon_autoridad,
-                title: Labels.migration_authority,
-                description: planYourTrip.general_country_data.migration_authority))
+                description: planYourTrip.general_country_data.migration_authority,
+                title: Labels.migration_authority))
         }
         // Add how to call from inside Info
         if planYourTrip.general_country_data.call_from_inside_requirements != nil {
             list.append(GeneralCountryData(
                 icon: IPI_IMAGES.icon_llamada_local,
-                title: String(format: Labels.call_from_inside_requirements, countryName),
-                description: planYourTrip.general_country_data.call_from_inside_requirements))
+                description: planYourTrip.general_country_data.call_from_inside_requirements,
+                title: String(format: Labels.call_from_inside_requirements, countryName)))
         }
         // Add how to call from outside
         if planYourTrip.general_country_data.call_from_outside_requirements != nil {
             list.append(GeneralCountryData(
                 icon: IPI_IMAGES.icon_llamada_exterior,
-                title: String(format: Labels.call_from_outside_requirements, countryName),
-                description: planYourTrip.general_country_data.call_from_outside_requirements))
+                description: planYourTrip.general_country_data.call_from_outside_requirements,
+                title: String(format: Labels.call_from_outside_requirements, countryName)))
         }
 
 

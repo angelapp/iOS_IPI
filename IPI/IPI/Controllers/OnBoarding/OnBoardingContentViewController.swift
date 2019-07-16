@@ -29,14 +29,4 @@ class OnBoardingContentViewController: UIViewController {
         lblTitle.text = onbortingTitle
         lblText.attributedText = addBoldWord(forText: onbortingText, toWord: ONBOARDING.PAGE_06.inBold, fontSize: lblText.font.pointSize)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

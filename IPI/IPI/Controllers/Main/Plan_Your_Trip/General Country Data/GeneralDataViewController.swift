@@ -42,19 +42,14 @@ class GeneralDataViewController: UIViewController, UITableViewDelegate, UITableV
         return UITableView.automaticDimension
     }
 
-    // Tamaño estimado de las celdas
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 42
-    }
-
     // pintado de la tabla
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue, for: indexPath) as! CourseBodyTableViewCell
-        let htmlCSSString = Formats.cssStyles + countrDataList[IndexPath.row].description
+        let htmlCSSString = Formats.cssStyles + (countrDataList?[indexPath.row].description)!
 
-        cell.img_item.image = UIImage(named: countrDataList[IndexPath.row].icon)
-        cell.lbl_title.text = countrDataList[IndexPath.row].title
+        cell.img_item.image = UIImage(named: (countrDataList?[indexPath.row].icon)!)
+        cell.lbl_title.text = countrDataList?[indexPath.row].title.uppercased()
         cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
 
         return cell
