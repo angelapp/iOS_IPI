@@ -104,6 +104,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     let TAG_OPTION_02 = 1
     let TAG_OPTION_03 = 2
 
+    // Counter for validate Answers
+    private var wrongScore: Int = 0
+    private let maxWrong: Int = 3
+
     private let courseID: Int = 1
 
     // Slider
@@ -434,6 +438,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_19.ANSWER
         error_message = IPI_COURSE.PAGE_19.ERROR
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_01.tag = 1; view_line1_01.tag = 1
@@ -480,6 +485,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_20.ANSWER
         error_message = IPI_COURSE.PAGE_20.ERROR
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_02.tag = 2; view_line1_02.tag = 2
@@ -530,6 +536,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_21.ANSWER
         error_message = IPI_COURSE.PAGE_21.ERROR
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_01.tag = 1; view_line1_01.tag = 1
@@ -579,6 +586,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_22.ANSWER
         error_message = IPI_COURSE.PAGE_22.ERROR
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_02.tag = 2; view_line1_02.tag = 2
@@ -635,6 +643,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_23.ANSWER
         error_message = IPI_COURSE.PAGE_23.ERROR
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
@@ -682,6 +691,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_24.ANSWER
         error_message = IPI_COURSE.PAGE_24.ERROR
+        wrongScore = 0|
 
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
@@ -1209,12 +1219,12 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         return CGSize(width: cellwidth, height: cellheigth)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
+
         let leftInset = CGFloat(8)
         let rightInset = leftInset
-        
+
         return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
 
@@ -1371,14 +1381,27 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         for tf in textFieldToFill {
             if tf.text?.uppercased() != String(answer_array[tf.tag]).uppercased() {
                 isAnswer = false
-                view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.pink_light.rawValue)
+                view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_wrong_letter.rawValue)
             }
             currentPosition += 1
         }
 
-        //Clean form
+        // Update wrongScore
+        if !isAnswer { wrongScore += 1 }
+
+        // Show clue and restart wrong Score
+        if wrongScore == maxWrong {
+            wrongScore = 0
+            courseDelegate?.showMessagePopup(message: error_message, inbold: nil, type: .failed)
+        }
+
+        // Add a little bit pause to show the wrongs
+        sleep(3)
+
+        //Clean form and set default background
         for tf in textFieldToFill {
             tf.text = nullString
+            view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_fill_word.rawValue)
         }
 
         return isAnswer
