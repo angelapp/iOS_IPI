@@ -169,6 +169,10 @@ class LeftMenuViewController: UIViewController {
             states.isLogin = false
             StorageFunctions.saveStates(states: states)
 
+            // Sign Out from Google
+ //           print("Signing Out")
+ //           GIDSignIn.sharedInstance().signOut()
+
             // Launch Auth Screen
             let sb = UIStoryboard(name: StoryboardID.Authentication.rawValue, bundle: nil)
             self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)

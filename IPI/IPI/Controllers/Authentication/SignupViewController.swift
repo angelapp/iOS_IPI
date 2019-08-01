@@ -257,6 +257,13 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //if success display the email on label
         printDebugMessage(tag: user.profile.email)
         printDebugMessage(tag: user.authentication.idToken)
+
+        let userToRegister = SocialNetworkRegister()
+
+        userToRegister.email = user.profile.email
+        userToRegister.access_token = user.authentication.idToken
+
+        self.signupRequest(userToRegister: userToRegister, urlApi: NetworkPOST.GOOGLE_LOGGIN)
     }
 
     // MARK: - Functions
@@ -290,7 +297,7 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let sb = UIStoryboard(name: StoryboardID.ConfigAvatar.rawValue, bundle: nil)
         self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
-    
+
     // MARK: Actions
     @IBAction func back (_ sender: UIButton){
         self.dismiss(animated: true, completion: nil)
