@@ -25,16 +25,18 @@ class PhonebookViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.automaticallyAdjustsScrollViewInsets = false
 
         //Load data
         if phoneListByType.count == 0 {
             phoneListByType = orderByOrganizationType(phoneBook: city?.cityPhonebook ?? [])
         }
 
-        tbl_phonebook.reloadData()
-
         tbl_phonebook.delegate = self
         tbl_phonebook.dataSource = self
+        
+        tbl_phonebook.reloadData()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,15 +53,22 @@ class PhonebookViewController: UIViewController, UITableViewDelegate, UITableVie
         let section = sectionTapped.tag
 
         let shouldExpand = !expandedSections.contains(section)
-
+        var indexPath: IndexPath!
+        
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
+            indexPath = IndexPath(row: 0, section: section)
         } else {
             expandedSections.removeAllObjects()
+            indexPath = IndexPath(row: NSNotFound, section: section)
         }
-
+        
         tbl_phonebook.reloadData()
+        
+        if indexPath != nil {
+            tbl_phonebook.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
 
     // MARK: - Gestures

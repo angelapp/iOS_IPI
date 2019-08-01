@@ -38,15 +38,22 @@ class DocumentsLegalViewController: UIViewController, UITableViewDelegate, UITab
         let section = sectionTapped.tag
 
         let shouldExpand = !expandedSections.contains(section)
-
+        var indexPath: IndexPath!
+        
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
+            indexPath = IndexPath(row: 0, section: section)
         } else {
             expandedSections.removeAllObjects()
+            indexPath = IndexPath(row: NSNotFound, section: section)
         }
-
+        
         tbl_documents.reloadData()
+        
+        if indexPath != nil {
+            tbl_documents.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
 
     // MARK: - TableView delegate and datasource

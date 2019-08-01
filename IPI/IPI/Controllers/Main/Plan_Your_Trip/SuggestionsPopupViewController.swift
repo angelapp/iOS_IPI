@@ -58,19 +58,22 @@ class SuggestionsPopupViewController: UIViewController, UITableViewDelegate, UIT
         let section = sectionTapped.tag
 
         let shouldExpand = !expandedSections.contains(section)
-
+        var indexPath: IndexPath!
+        
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
-
-//            // Scroll to top of the section
-//            let indexPath = IndexPath(row: 0, section: section)
-//            tbl_suggestions.scrollToRow(at: indexPath, at: .top, animated: true)
+            indexPath = IndexPath(row: 0, section: section)
         } else {
             expandedSections.removeAllObjects()
+            indexPath = IndexPath(row: NSNotFound, section: section)
         }
-
+        
         tbl_suggestions.reloadData()
+        
+        if indexPath != nil {
+            tbl_suggestions.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
 
     // MARK: - Table view Delegate and Datasource

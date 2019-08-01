@@ -1077,9 +1077,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // MARK: - User Interface
     /// Update child and parent UI
-    private func updateUI() {
+    private func updateUI(forIndexPath index: IndexPath?) {
         tbl_examples.reloadData()
         courseDelegate?.reloadTable()
+        
+        if index != nil {
+            tbl_examples.scrollToRow(at: index!, at: .top, animated: true)
+        }
     }
 
     // MARK: - Expandable tableview functions
@@ -1090,15 +1094,18 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         let section = sectionTapped.tag
 
         let shouldExpand = !expandedSections.contains(section)
-
+        var indexPath: IndexPath!
+        
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
+            indexPath = IndexPath(row: 0, section: section)
         } else {
             expandedSections.removeAllObjects()
+            indexPath = IndexPath(row: NSNotFound, section: section)
         }
 
-        updateUI()
+        updateUI(forIndexPath: indexPath)
     }
 
 
@@ -1189,8 +1196,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     //fill collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        self.pageControl.currentPage = itemList[indexPath.row].id
-
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.courseSlider.rawValue, for: indexPath) as! CourseSliderCollectionViewCell
 
         cell.lbl_title.text = itemList[indexPath.row].title
@@ -1198,6 +1203,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         return cell
     }
+    
+    // Delegate for update Page control, based in current show cell
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Change the current page
+        let witdh = scrollView.frame.width - (scrollView.contentInset.left*2)
+        let index = scrollView.contentOffset.x / witdh
+        let roundedIndex = round(index)
+        pageControl?.currentPage = Int(roundedIndex)
+    }
+    
 
      //Set Width and Heigth of the cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

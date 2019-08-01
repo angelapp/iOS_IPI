@@ -127,9 +127,10 @@ class CourseViewController: UIViewController, CourseViewControllerDelegate, AVAu
     }
     
     func reloadTable() {
+        tbl_course.reloadData()
+        
         let indexPath = IndexPath(row: 0, section: 0)
         tbl_course.scrollToRow(at: indexPath, at: .top, animated: true)
-        tbl_course.reloadData()
     }
     
     func previusPage(){

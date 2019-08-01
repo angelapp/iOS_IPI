@@ -399,27 +399,17 @@
                                                         <constraint firstItem="TNQ-YP-Ph8" firstAttribute="centerY" secondItem="Gy1-h9-ZzY" secondAttribute="centerY" id="kVQ-G5-YSA"/>
                                                         <constraint firstAttribute="bottom" secondItem="Exo-mx-l2j" secondAttribute="bottom" constant="8" id="v2R-7l-Z9F"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.89795345069999999" green="0.89816820620000004" blue="0.89384859800000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Gy1-h9-ZzY" firstAttribute="leading" secondItem="O9k-Hc-JHV" secondAttribute="leading" id="GH9-BV-xW8"/>
                                                 <constraint firstItem="Gy1-h9-ZzY" firstAttribute="top" secondItem="O9k-Hc-JHV" secondAttribute="top" id="N2b-Wh-lLV"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gy1-h9-ZzY" secondAttribute="trailing" id="UjQ-q4-9mT"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gy1-h9-ZzY" secondAttribute="bottom" id="nWf-Zt-Jnv"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <real key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="btn_openClose" destination="TNQ-YP-Ph8" id="Bqh-Un-ofm"/>
                                             <outlet property="cnt_header" destination="Gy1-h9-ZzY" id="kds-TO-W7Y"/>
@@ -540,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuQ-Kw-M0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4928.8000000000002" y="2506.5967016491754"/>
+            <point key="canvasLocation" x="1146" y="726"/>
         </scene>
         <!--Open File Popup View Controller-->
         <scene sceneID="fKi-qW-R4k">
