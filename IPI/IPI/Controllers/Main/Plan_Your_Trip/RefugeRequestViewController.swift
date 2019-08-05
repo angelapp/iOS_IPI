@@ -29,6 +29,7 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
     var headers: Array<String> = []
     var expandedSections : NSMutableSet = []
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,6 +57,10 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleAudio(notification:)), name: .stopBodyTripAudio, object: nil)
 
         lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast() as CVarArg)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        stopAudio(audio: isPlaying)
     }
 
     // MARK: - Private Functions
@@ -130,7 +135,7 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
 
         let shouldExpand = !expandedSections.contains(section)
         var indexPath: IndexPath!
-        
+
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
@@ -139,9 +144,9 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             expandedSections.removeAllObjects()
             indexPath = IndexPath(row: NSNotFound, section: section)
         }
-        
+
         tbl_requirements.reloadData()
-        
+
         if indexPath != nil {
             tbl_requirements.scrollToRow(at: indexPath, at: .top, animated: true)
         }

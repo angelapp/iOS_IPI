@@ -25,6 +25,7 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
     var currentAudioID: Int!
     var isPlaying = nullString
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +37,10 @@ class BeforeTravelViewController: UIViewController, AVAudioPlayerDelegate, UITab
         //Set background
         self.view.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
         tbl_before_travel.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        stopAudio(audio: isPlaying)
     }
 
     // MARK: - Private Functions
