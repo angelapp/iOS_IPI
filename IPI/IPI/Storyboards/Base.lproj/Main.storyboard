@@ -6435,7 +6435,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="9141.5" width="375" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0L-jh-1Oc" id="03W-Qe-X0s">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="252.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="253"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzx-Z8-YRz">
@@ -6923,7 +6923,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="9394.5" width="375" height="428"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rMJ-0o-U6o" id="4wU-UO-Zfq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="427.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="428"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bocadillo" translatesAutoresizingMaskIntoConstraints="NO" id="gcK-zL-B8p">
@@ -7059,7 +7059,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="9822.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DHX-Ds-vSg" id="EW6-sd-xut">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHU-DJ-B0B">

@@ -691,7 +691,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Load Answer
         fill_word_answer = IPI_COURSE.PAGE_24.ANSWER
         error_message = IPI_COURSE.PAGE_24.ERROR
-        wrongScore = 0|
+        wrongScore = 0
 
         //Config TextField - View Backgrounds
         tf_line1_00.tag = 0; view_line1_00.tag = 0
@@ -1296,65 +1296,55 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         // Cambia el foco a la siguente celda, cuando hay un caracter
         if textField.text!.count == MAX_LENGTH_CELL {
-            if let nextField = getNextTextField(forTextField: textField.tag) {
-                nextField.becomeFirstResponder()
+            
+            if textField.returnKeyType == UIReturnKeyType.send {
+                if checkFillWord() {
+                    courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
+                }
             }
             else {
-                if textField.returnKeyType == UIReturnKeyType.send {
-                    if checkFillWord() {
-                        courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
+                var pivot = 0
+                for tf in textFieldToFill {
+                    if tf.tag == textField.tag {
+                        printDebugMessage(tag: "Se encontró el siguiente auto")
+                        let pos = pivot < textFieldToFill.count ? pivot + 1 : pivot
+                        printDebugMessage(tag: "pivot: \(pivot), pos:\(pos)")
+                        return textFieldToFill[pos].becomeFirstResponder()
                     }
+                    pivot += 1
                 }
-                textField.resignFirstResponder()
             }
         }
 
         return true
     }
 
-    // Método para realizar desde el botón 'Return' del keyboard
+    // Método para cambiar foco desde el botón 'Return' del keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Si el botón es "Enviar" verifica la respuesta
         if textField.returnKeyType == UIReturnKeyType.send {
             if checkFillWord() {
                 courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
             }
-            else {
-//                courseDelegate?.showMessagePopup(message: error_message, inbold: nil, type: .failed)
-
+        }
+        // Cambia el Foco al siguiente TF
+        else {
+            var pivot = 0
+            for tf in textFieldToFill {
+                if tf.tag == textField.tag {
+                    let pos = pivot < textFieldToFill.count ? pivot + 1 : pivot
+                    return textFieldToFill[pos].becomeFirstResponder()
+                }
+                pivot += 1
             }
         }
-        textField.resignFirstResponder()
+        
         return false
     }
 
-    // Limpia la cailla cuando se empieza a editar
+    // Limpia la casilla cuando se empieza a editar
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = nil
-    }
-
-    /**
-     Determina cual es la celda siguiente a la que se debe cambiar el foco
-     de acuerdo a la celda actual, si no existe celda siguinete, retorna NIL
-
-     - Parameter forTexfield: Id del textField actual
-     */
-    private func getNextTextField(forTextField tag: Int) -> UITextField! {
-
-        let nextTF: UITextField! = nil
-
-//        if textFieldToFill.count > 0 {
-//
-//            for i in 0 ..< (textFieldToFill.count - 1){
-//                printDebugMessage(tag: "TL[\(i)].tag \(textFieldToFill[i].tag) =? \(tag)")
-//                if textFieldToFill[i].tag == tag {
-//                    printDebugMessage(tag: "return \(textFieldToFill[i + 1].tag)")
-//                    nextTF = textFieldToFill[i + 1]
-//                    break
-//                }
-//            }
-//        }
-
-        return nextTF
     }
 
     // MARK: - Save Activities completed
@@ -1411,13 +1401,18 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         }
 
         // Add a little bit pause to show the wrongs
-        sleep(3)
-
-        //Clean form and set default background
-        for tf in textFieldToFill {
-            tf.text = nullString
-            view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_fill_word.rawValue)
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+            
+            //Clean form and set default background
+            currentPosition = 0
+            for tf in self.textFieldToFill {
+                tf.text = nullString
+                self.view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_fill_word.rawValue)
+                currentPosition += 1
+            }
+            
+            self.textFieldToFill[0].becomeFirstResponder()
+        })
 
         return isAnswer
     }
