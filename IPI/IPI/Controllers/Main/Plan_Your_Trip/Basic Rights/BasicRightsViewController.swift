@@ -189,7 +189,7 @@ class BasicRightsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
 
         let htmlCSSString = Formats.cssStyles + basicRightsList[indexPath.section].description
-        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+        cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
 
         return cell
     }

@@ -89,16 +89,16 @@ class NationalizationRequirementsViewController: UIViewController, UITableViewDe
         case NAT_DES_TAG, DES_TAG:
             let htmlCSSString = Formats.cssStyles + text
             cell.lbl_title.font = cell.lbl_title.font.bold
-            cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+            cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
             break
         
         default:
             
             let htmlCSSString = Formats.cssItalicStyles + text
             cell.lbl_title.font = cell.lbl_title.font.boldItalic
-            cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+            cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
             
-            cell.lbl_text.isUserInteractionEnabled = true
+            cell.tv_text.isUserInteractionEnabled = true
             break
         }
         

@@ -69,10 +69,8 @@ class MigrationRequirementsViewController: UIViewController, UITableViewDelegate
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID.migrationRequirementsBody.rawValue, for: indexPath) as! CourseBodyTableViewCell
         
-        let htmtText = items[indexPath.row].replacingOccurrences(of: "\"", with: "")
-        printDebugMessage(tag: htmtText)
-        let htmlCSSString = Formats.cssStyles + htmtText//items[indexPath.row]
-        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+        let htmlCSSString = Formats.cssStyles + items[indexPath.row]
+        cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
         
         return cell
     }

@@ -911,18 +911,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QSZ-Im-JHU">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QSZ-Im-JHU">
                                 <rect key="frame" x="16" y="36" width="343" height="611"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z2T-sj-s9O">
                                     <size key="itemSize" width="127" height="147"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="planYourTripOption" id="BDJ-Yp-VIU" customClass="PlanYourTripOptionCollectionViewCell" customModule="IPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="147"/>
+                                        <rect key="frame" x="0.0" y="10" width="127" height="147"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="127" height="147"/>
@@ -9977,28 +9977,23 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoB-Gy-MSV">
                                                     <rect key="frame" x="16" y="4" width="343" height="36"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-hC-M7Q">
-                                                            <rect key="frame" x="0.0" y="4" width="22" height="22"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="aO9-0F-n3K"/>
-                                                                <constraint firstAttribute="width" constant="22" id="xO2-un-2DW"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jD-PK-cZz">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Lm-1h-uqF">
                                                             <rect key="frame" x="0.0" y="4" width="343" height="28"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="azL-fj-2Kg" id="6Hn-QR-SRV"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="Zwa-hC-M7Q" firstAttribute="top" secondItem="OoB-Gy-MSV" secondAttribute="top" constant="4" id="1lo-BC-epU"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8jD-PK-cZz" secondAttribute="bottom" constant="4" id="81k-B8-S9S"/>
-                                                        <constraint firstItem="Zwa-hC-M7Q" firstAttribute="leading" secondItem="OoB-Gy-MSV" secondAttribute="leading" id="F73-h8-jpi"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zwa-hC-M7Q" secondAttribute="bottom" constant="4" id="Kpt-nI-O7R"/>
-                                                        <constraint firstItem="8jD-PK-cZz" firstAttribute="leading" secondItem="Zwa-hC-M7Q" secondAttribute="leading" id="YeV-oy-mZF"/>
-                                                        <constraint firstItem="8jD-PK-cZz" firstAttribute="top" secondItem="OoB-Gy-MSV" secondAttribute="top" constant="4" id="cck-BN-QaP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="8jD-PK-cZz" secondAttribute="trailing" id="oQB-B8-tUZ"/>
+                                                        <constraint firstItem="3Lm-1h-uqF" firstAttribute="top" secondItem="OoB-Gy-MSV" secondAttribute="top" constant="4" id="CpX-uz-RHz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3Lm-1h-uqF" secondAttribute="trailing" id="KIv-hi-r7L"/>
+                                                        <constraint firstItem="3Lm-1h-uqF" firstAttribute="leading" secondItem="OoB-Gy-MSV" secondAttribute="leading" id="RES-lX-SAj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3Lm-1h-uqF" secondAttribute="bottom" constant="4" id="UdW-Ld-LBj"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -10010,7 +10005,7 @@ NORUEGO PARA REFUGIADOS</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lbl_text" destination="8jD-PK-cZz" id="oES-JY-J1u"/>
+                                            <outlet property="tv_text" destination="3Lm-1h-uqF" id="5FK-29-M3S"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -10039,7 +10034,7 @@ NORUEGO PARA REFUGIADOS</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzl-hU-YOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3380" y="2507"/>
+            <point key="canvasLocation" x="3380" y="2506.5967016491754"/>
         </scene>
         <!--Refuge Request View Controller-->
         <scene sceneID="gcU-Vn-Fyi">
@@ -10530,24 +10525,23 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-7W-KmJ">
                                                     <rect key="frame" x="8" y="0.0" width="327" height="37"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al9-tm-oPA">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4KV-1p-uAf">
                                                             <rect key="frame" x="8" y="8" width="311" height="21"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Label">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="16" name=".SFNSText"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lJB-ki-RuX" id="mRs-UF-csU"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="al9-tm-oPA" firstAttribute="leading" secondItem="jcd-7W-KmJ" secondAttribute="leading" constant="8" id="EKk-tb-tDt"/>
-                                                        <constraint firstAttribute="bottom" secondItem="al9-tm-oPA" secondAttribute="bottom" constant="8" id="Xx7-OO-pqi"/>
-                                                        <constraint firstItem="al9-tm-oPA" firstAttribute="top" secondItem="jcd-7W-KmJ" secondAttribute="top" constant="8" id="wKu-5d-NiY"/>
-                                                        <constraint firstAttribute="trailing" secondItem="al9-tm-oPA" secondAttribute="trailing" constant="8" id="xzo-lp-Qsq"/>
+                                                        <constraint firstItem="4KV-1p-uAf" firstAttribute="leading" secondItem="jcd-7W-KmJ" secondAttribute="leading" constant="8" id="SBJ-Nz-Lqp"/>
+                                                        <constraint firstItem="4KV-1p-uAf" firstAttribute="top" secondItem="jcd-7W-KmJ" secondAttribute="top" constant="8" id="XlO-jT-QQD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4KV-1p-uAf" secondAttribute="trailing" constant="8" id="fdl-Th-ANC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="4KV-1p-uAf" secondAttribute="bottom" constant="8" id="th1-OF-R1a"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -10560,7 +10554,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90187460180000001" green="0.90209001300000002" blue="0.89776968960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="lbl_text" destination="al9-tm-oPA" id="z23-WY-uJN"/>
+                                            <outlet property="tv_text" destination="4KV-1p-uAf" id="VBO-9q-2v8"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="8" id="m6H-1c-bUe" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
@@ -11173,24 +11167,24 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvT-3N-qgx">
                                                     <rect key="frame" x="8" y="0.0" width="327" height="37"/>
                                                     <subviews>
-                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCr-hw-nkg">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-yK-MWt">
                                                             <rect key="frame" x="8" y="8" width="311" height="21"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Label">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="16" name=".SFNSText"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lur-M1-5qa" id="OeH-AD-FR9"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="NCr-hw-nkg" secondAttribute="bottom" constant="8" id="dVd-JL-ai3"/>
-                                                        <constraint firstAttribute="trailing" secondItem="NCr-hw-nkg" secondAttribute="trailing" constant="8" id="eKE-fr-6b8"/>
-                                                        <constraint firstItem="NCr-hw-nkg" firstAttribute="leading" secondItem="fvT-3N-qgx" secondAttribute="leading" constant="8" id="rk7-f1-OaC"/>
-                                                        <constraint firstItem="NCr-hw-nkg" firstAttribute="top" secondItem="fvT-3N-qgx" secondAttribute="top" constant="8" id="tSD-yW-Sfh"/>
+                                                        <constraint firstItem="Jea-yK-MWt" firstAttribute="top" secondItem="fvT-3N-qgx" secondAttribute="top" constant="8" id="5xY-tM-jO1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Jea-yK-MWt" secondAttribute="bottom" constant="8" id="Ehl-cP-pk8"/>
+                                                        <constraint firstItem="Jea-yK-MWt" firstAttribute="leading" secondItem="fvT-3N-qgx" secondAttribute="leading" constant="8" id="TYB-dg-0Hb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Jea-yK-MWt" secondAttribute="trailing" constant="8" id="j3p-BA-VJN"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -11203,7 +11197,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="lbl_text" destination="NCr-hw-nkg" id="OAA-Vy-dSZ"/>
+                                            <outlet property="tv_text" destination="Jea-yK-MWt" id="Egd-Db-fV3"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="footer" rowHeight="8" id="MSf-ed-WBC" customClass="CourseFooterTableViewCell" customModule="IPI" customModuleProvider="target">
@@ -11551,28 +11545,26 @@ NORUEGO PARA REFUGIADOS</string>
                                                             <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyF-zt-jPT">
-                                                            <rect key="frame" x="8" y="35.5" width="311" height="19"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fEa-Dp-27z">
+                                                            <rect key="frame" x="8" y="35.5" width="311" height="19.5"/>
                                                             <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Label">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="16" name=".SFNSText"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="textColor" red="0.0" green="0.53725490200000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="8T1-AP-TKV" id="AHH-68-VUk"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="gyF-zt-jPT" firstAttribute="leading" secondItem="5Wk-2o-YNj" secondAttribute="leading" constant="8" id="Mv1-cL-zgO"/>
-                                                        <constraint firstItem="gyF-zt-jPT" firstAttribute="top" secondItem="MYq-x1-wrB" secondAttribute="bottom" constant="8" id="PGF-ow-yet"/>
-                                                        <constraint firstAttribute="trailing" secondItem="gyF-zt-jPT" secondAttribute="trailing" constant="8" id="REi-GY-hIF"/>
+                                                        <constraint firstItem="fEa-Dp-27z" firstAttribute="leading" secondItem="5Wk-2o-YNj" secondAttribute="leading" constant="8" id="EIL-Vi-nq2"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fEa-Dp-27z" secondAttribute="bottom" constant="8" id="GJv-Oj-uV0"/>
+                                                        <constraint firstItem="fEa-Dp-27z" firstAttribute="top" secondItem="MYq-x1-wrB" secondAttribute="bottom" constant="8" id="MTZ-TN-spp"/>
                                                         <constraint firstAttribute="trailing" secondItem="MYq-x1-wrB" secondAttribute="trailing" constant="8" id="T0f-8W-m6O"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gyF-zt-jPT" secondAttribute="bottom" constant="8" id="XfO-RN-Xp7"/>
                                                         <constraint firstItem="MYq-x1-wrB" firstAttribute="leading" secondItem="5Wk-2o-YNj" secondAttribute="leading" constant="8" id="kZK-V8-6dA"/>
                                                         <constraint firstItem="MYq-x1-wrB" firstAttribute="top" secondItem="5Wk-2o-YNj" secondAttribute="top" constant="8" id="rUH-py-aYm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fEa-Dp-27z" secondAttribute="trailing" constant="8" id="xxY-9z-Cbs"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -11590,8 +11582,8 @@ NORUEGO PARA REFUGIADOS</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="lbl_text" destination="gyF-zt-jPT" id="EMX-iZ-gzS"/>
                                             <outlet property="lbl_title" destination="MYq-x1-wrB" id="0eG-NN-dE8"/>
+                                            <outlet property="tv_text" destination="fEa-Dp-27z" id="0dv-t3-KDW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

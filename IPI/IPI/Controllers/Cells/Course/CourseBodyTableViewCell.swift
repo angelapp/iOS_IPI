@@ -14,6 +14,7 @@ class CourseBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_text: UILabel!
     @IBOutlet weak var img_item: UIImageView!
+    @IBOutlet weak var tv_text: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

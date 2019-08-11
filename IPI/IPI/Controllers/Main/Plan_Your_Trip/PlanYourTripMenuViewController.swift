@@ -14,9 +14,11 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
     @IBOutlet weak var colletion_options: UICollectionView!
 
     // MARK: - Properties
-    let itemsPerRow: CGFloat = 3
+    let itemsPerRow: Int = 3
 
     var optionList: Array<PlanYourTripOptions> = []
+    var optionsSection: [[PlanYourTripOptions]] = []
+    
     weak var maindelegate: MainProtocol?
 
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         //update nav bar
         setQueryData()
+        optionsSection = optionList.chunks(itemsPerRow)
 
         // Config Collection View
         colletion_options!.alwaysBounceVertical = true
@@ -50,12 +53,12 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
     //MARK: Collection view DataSource and FlowLayout Dategate
     // Set number of section in the colection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return optionsSection.count
     }
 
     //number of the items in the section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return optionList.count
+        return optionsSection[section].count
     }
 
     //fill collection
@@ -63,8 +66,8 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellID.planYourTripOption.rawValue, for: indexPath) as! PlanYourTripOptionCollectionViewCell
 
-        cell.img_option.image = UIImage(named: optionList[indexPath.row].icon)
-        cell.tag = indexPath.row
+        cell.img_option.image = UIImage(named: optionsSection[indexPath.section][indexPath.row].icon)
+        cell.tag = (indexPath.section * 3) + indexPath.row
 
         let selected = UITapGestureRecognizer(target: self, action: #selector(PlanYourTripMenuViewController.selected(gestureRecognizer:)))
         cell.addGestureRecognizer(selected)
@@ -77,31 +80,29 @@ class PlanYourTripMenuViewController: UIViewController, UICollectionViewDataSour
 
         let paddingSpace: CGFloat = 30
         let availableWidth = colletion_options.bounds.size.width - paddingSpace
+        let availableHeight = colletion_options.bounds.size.height - paddingSpace
+
         let cellwidth = availableWidth / itemsPerRow
-        let cellheigth = cellwidth * 1.18
+        let cellheigth = availableHeight / itemsPerRow
 
         return CGSize(width: cellwidth, height: cellheigth)
     }
-    /*
-    // Set UIEdgeInsets for section
-    // Source: https://stackoverflow.com/questions/34267662/how-to-center-horizontally-uicollectionview-cells
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        // Get
+        
         let paddingSpace: CGFloat = 30
         let availableWidth = colletion_options.bounds.size.width - paddingSpace
-	    let cellwidth = availableWidth / itemsPerRow
-
-	    let totalCellWidth = cellwidth * colletion_options.numberOfItems(inSection: section)
-        let totalSpacingWidth = paddingSpace * (colletion_options.numberOfItems(inSection: section) - 1)
-
-        let leftInset = (collectionViewcolletion_options.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let cellwidth = availableWidth / itemsPerRow
+        
+        let totalCellWidth = cellwidth * CGFloat(collectionView.numberOfItems(inSection: section))
+        let totalSpacingWidth = 15 * (CGFloat(collectionView.numberOfItems(inSection: section)) - 1)
+        
+        let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
         let rightInset = leftInset
-
-        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        
+        return UIEdgeInsets(top: 10, left: leftInset, bottom: 0, right: rightInset)
     }
-    */
-
+    
     // MARK: -  Gestures
     //Método para ejecutar acción al seleccionar una fila
     @objc func selected(gestureRecognizer: UITapGestureRecognizer){
