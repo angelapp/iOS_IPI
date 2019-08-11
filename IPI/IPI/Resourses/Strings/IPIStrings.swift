@@ -289,7 +289,7 @@ struct DateTimeFormat {
 struct Formats {
     static let callFormat = "tel://%@"
     static let cssStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto;} a {color: #FF7602;} </style>"
-    static let cssItalicStyles = "<style> html * {font-size: 12pt; color: #004058; font-family: Roboto; font-style: italic;} a {color: #FF7602;} </style>"
+    static let cssItalicStyles = "<style> p, ul, li {font-size: 12pt; color: #004058; font-family: Roboto; font-style: italic;} a {color: #FF7602;} </style>"
     static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let matchesFormat = "SELF MATCHES %@"
     static let contactMessage = "Email: %@ \n\n Teléfono: %@ \n\n Mensaje: %@"

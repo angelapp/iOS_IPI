@@ -27,28 +27,25 @@ class SigninViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Add delegate and Data Source to itself
         self.singin_tableView.delegate = self
         self.singin_tableView.dataSource = self
-        self.singin_tableView.isScrollEnabled = false
     }
 
     // MARK: - Action for Gestures
     //Observer for increment contentSize in the tableView
     @objc func keyboardWillShow(notification: NSNotification) {
-
-    //    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-    //        let keyboardFrame:CGRect = self.view.convert(keyboardSize, from: nil)
-
-    //        var contentInset:UIEdgeInsets = self.singin_tableView.contentInset
-    //        contentInset.bottom = keyboardFrame.size.height
-    //        self.singin_tableView.contentInset = contentInset
-            self.singin_tableView.isScrollEnabled = true
-    //    }
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardFrame:CGRect = self.view.convert(keyboardSize, from: nil)
+            
+            var contentInset:UIEdgeInsets = self.singin_tableView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            self.singin_tableView.contentInset = contentInset
+        }
     }
-
+    
     //Obeserver for move frame to origin when keyboard is hiden
     @objc func keyboardWillHide(notification: NSNotification) {
-    //    let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-    //    singin_tableView.contentInset = contentInset
-        singin_tableView.isScrollEnabled = false
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        singin_tableView.contentInset = contentInset
     }
 
     // MARK: - TableView delegate and datasource

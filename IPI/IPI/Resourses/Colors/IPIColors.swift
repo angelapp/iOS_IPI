@@ -21,9 +21,9 @@ enum ConseColors: String{
     /// General Color for Button's Background
     case button = "098790"
     case button_blue = "008690"
-    case button_facebook = "4285f4"
-    case button_facebook_hover = "3971B3"
-    case button_google_hover = "4267B3"
+    case button_facebook = "4267b2"
+    case button_facebook_hover = "3B5998"
+    case button_google_hover = "4285F4"
     
     case progress_green = "0ef90a"
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LeftMenuViewController: UIViewController {
 
@@ -169,9 +170,9 @@ class LeftMenuViewController: UIViewController {
             states.isLogin = false
             StorageFunctions.saveStates(states: states)
 
-            // Sign Out from Google
- //           print("Signing Out")
- //           GIDSignIn.sharedInstance().signOut()
+            //Sign Out from Google
+            print("Signing Out")
+            GIDSignIn.sharedInstance().signOut()
 
             // Launch Auth Screen
             let sb = UIStoryboard(name: StoryboardID.Authentication.rawValue, bundle: nil)

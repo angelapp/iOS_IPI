@@ -33,14 +33,14 @@ struct ONBOARDING {
     }
     
     struct PAGE_05 {
-        static let title = "Explora el menú lateral"
-        static let description = "Y accede rápidamente a todas las secciones y servicios que IPI te ofrece.\nIPI, Información de Protección Internacional."
-    }
-    
-    struct PAGE_06 {
         static let title = "Guarda tus consultas"
         static let description = "Puedes guardar la preparación de tu viaje y revisarla cuando estés sin conexión. Encuéntrala en el botón Última Consulta del menú lateral"
         static let inBold = "Última Consulta"
+    }
+    
+    struct PAGE_06 {
+        static let title = "Explora el menú lateral"
+        static let description = "Y accede rápidamente a todas las secciones y servicios que IPI te ofrece.\nIPI, Información de Protección Internacional."
     }
 }
 

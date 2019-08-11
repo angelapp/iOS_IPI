@@ -256,13 +256,13 @@ class SignupViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         //if success display the email on label
         printDebugMessage(tag: user.profile.email)
-        printDebugMessage(tag: user.authentication.idToken)
+        printDebugMessage(tag: user.authentication.accessToken)
 
         let userToRegister = SocialNetworkRegister()
 
         userToRegister.email = user.profile.email
-        userToRegister.access_token = user.authentication.idToken
-
+        userToRegister.access_token = user.authentication.accessToken
+        
         self.signupRequest(userToRegister: userToRegister, urlApi: NetworkPOST.GOOGLE_LOGGIN)
     }
 

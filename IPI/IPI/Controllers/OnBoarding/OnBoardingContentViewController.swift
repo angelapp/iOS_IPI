@@ -27,6 +27,6 @@ class OnBoardingContentViewController: UIViewController {
 
         ivImage.image = UIImage(named: imageName)
         lblTitle.text = onbortingTitle
-        lblText.attributedText = addBoldWord(forText: onbortingText, toWord: ONBOARDING.PAGE_06.inBold, fontSize: lblText.font.pointSize)
+        lblText.attributedText = addBoldWord(forText: onbortingText, toWord: ONBOARDING.PAGE_05.inBold, fontSize: lblText.font.pointSize)
     }
 }

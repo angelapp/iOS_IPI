@@ -12,9 +12,9 @@ target 'IPI' do
   pod 'FacebookCore', '~> 0.5.0'
   pod 'FacebookLogin', '~> 0.5.0'
   pod 'GoogleSignIn'
-  pod 'ObjectMapper'
+  pod 'ObjectMapper', '~> 3.4.2'
   pod 'SwiftyJSON', '~> 4.0.0'
-  pod 'Karte' 
+  pod 'Karte', '~> 2.2.1'
 
   target 'IPITests' do
     inherit! :search_paths

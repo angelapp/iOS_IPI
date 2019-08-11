@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb804375733272209</string>
+				<string>fb344891852795693</string>
 			</array>
 		</dict>
 		<dict>
@@ -38,9 +38,9 @@
 	<key>CFBundleVersion</key>
 	<string>10</string>
 	<key>FacebookAppID</key>
-	<string>804375733272209</string>
+	<string>344891852795693</string>
 	<key>FacebookDisplayName</key>
-	<string>IPI Conse</string>
+	<string>Ipi - NRC</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
