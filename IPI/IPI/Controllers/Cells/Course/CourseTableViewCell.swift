@@ -430,12 +430,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         saveActivity(activity: (course?.topic_activity_list?[1].abreviature)!, forModule: (course?.id)!)
     }
 
+    /// Create de UI from Ask No. 1
     func fill_CELL_19() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_19.text1
         lbl_text2.text = IPI_COURSE.PAGE_19.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_19.ANSWER
         error_message = IPI_COURSE.PAGE_19.ERROR
         wrongScore = 0
@@ -460,7 +462,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_04.text = "D"; tf_line2_04.isEnabled = false
         tf_line2_06.text = "D"; tf_line2_06.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_00.delegate = self; tf_line2_00.delegate = self
         tf_line1_01.delegate = self; tf_line2_01.delegate = self
         tf_line1_02.delegate = self; tf_line2_02.delegate = self
@@ -470,19 +472,26 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_06.delegate = self; tf_line2_06.delegate = self
         tf_line1_07.delegate = self;
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_07, tf_line2_00, tf_line2_03, tf_line2_05]
-
-        //view Arrays
+        
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_01, view_line1_02, view_line1_07, view_line2_00, view_line2_03, view_line2_05]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
 
+    /// Create de UI from Ask No. 2
     func fill_CELL_20() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_20.text1
         lbl_text2.text = IPI_COURSE.PAGE_20.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_20.ANSWER
         error_message = IPI_COURSE.PAGE_20.ERROR
         wrongScore = 0
@@ -515,25 +524,32 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_07.text = "R"; tf_line2_07.isEnabled = false
         tf_line2_09.text = "A"; tf_line2_09.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_02.delegate = self; tf_line2_00.delegate = self
         tf_line1_06.delegate = self; tf_line2_04.delegate = self
         tf_line1_09.delegate = self; tf_line2_08.delegate = self
         tf_line1_11.delegate = self
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_02, tf_line1_06, tf_line1_09, tf_line1_11, tf_line2_00, tf_line2_04, tf_line2_08]
 
-        //view Arrays
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_02, view_line1_06, view_line1_09, view_line1_11, view_line2_00, view_line2_04, view_line2_08]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
 
+    /// Create de UI from Ask No. 3
     func fill_CELL_21() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_21.text1
         lbl_text2.text = IPI_COURSE.PAGE_21.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_21.ANSWER
         error_message = IPI_COURSE.PAGE_21.ERROR
         wrongScore = 0
@@ -563,27 +579,34 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_08.text = "A"; tf_line2_08.isEnabled = false
         tf_line2_09.text = "S"; tf_line2_09.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_01.delegate = self; tf_line2_01.delegate = self
         tf_line1_02.delegate = self; tf_line2_02.delegate = self
         tf_line1_05.delegate = self; tf_line2_04.delegate = self
         tf_line1_06.delegate = self; tf_line2_06.delegate = self
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_05, tf_line1_06,
                            tf_line2_01, tf_line2_02, tf_line2_04, tf_line2_06]
 
-        //view Arrays
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_01, view_line1_02, view_line1_05, view_line1_06,
                      view_line2_01, view_line2_02, view_line2_04, view_line2_06]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
 
+    /// Create de UI from Ask No. 4
     func fill_CELL_22() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_22.text1
         lbl_text2.text = IPI_COURSE.PAGE_22.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_22.ANSWER
         error_message = IPI_COURSE.PAGE_22.ERROR
         wrongScore = 0
@@ -617,7 +640,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_04.text = "D"; tf_line2_04.isEnabled = false
         tf_line2_06.text = "R"; tf_line2_06.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_02.delegate = self; tf_line2_01.delegate = self
         tf_line1_05.delegate = self; tf_line2_03.delegate = self
         tf_line1_06.delegate = self; tf_line2_05.delegate = self
@@ -626,21 +649,28 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line1_12.delegate = self
         tf_line1_13.delegate = self
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_02, tf_line1_05, tf_line1_06, tf_line1_07, tf_line1_09, tf_line1_12, tf_line1_13,
-                           tf_line2_01, tf_line2_03, tf_line2_05, tf_line1_07, tf_line2_08]
+                           tf_line2_01, tf_line2_03, tf_line2_05, tf_line2_07, tf_line2_08]
 
-        //view Arrays
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_02, view_line1_05, view_line1_06, view_line1_07, view_line1_09, view_line1_12, view_line1_13,
-                     view_line2_01, view_line2_03, view_line2_05, view_line1_07, view_line2_08]
+                     view_line2_01, view_line2_03, view_line2_05, view_line2_07, view_line2_08]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
 
+    /// Create de UI from Ask No. 5
     func fill_CELL_23() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_23.text1
         lbl_text2.text = IPI_COURSE.PAGE_23.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_23.ANSWER
         error_message = IPI_COURSE.PAGE_23.ERROR
         wrongScore = 0
@@ -667,28 +697,35 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_01.text = "O"; tf_line2_01.isEnabled = false
         tf_line2_04.text = "L"; tf_line2_04.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_00.delegate = self; tf_line2_02.delegate = self
         tf_line1_04.delegate = self; tf_line2_03.delegate = self
         tf_line1_06.delegate = self;
         tf_line1_07.delegate = self;
         tf_line1_08.delegate = self;
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_07, tf_line1_08,
                            tf_line2_02, tf_line2_03]
 
-        //view Arrays
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_07, view_line1_08,
                      view_line2_02, view_line2_03]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
-
+    
+    /// Create de UI from Ask No. 6
     func fill_CELL_24() {
-        //Load Lables
+        
+        //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_24.text1
         lbl_text2.text = IPI_COURSE.PAGE_24.text2
 
-        //Load Answer
+        //Load Answer and error message
         fill_word_answer = IPI_COURSE.PAGE_24.ANSWER
         error_message = IPI_COURSE.PAGE_24.ERROR
         wrongScore = 0
@@ -715,19 +752,24 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         tf_line2_04.text = "R"; tf_line2_04.isEnabled = false
         tf_line2_05.text = "A"; tf_line2_05.isEnabled = false
 
-        //Set Delegate
+        //Set Delegate to editable UITextFields
         tf_line1_00.delegate = self; tf_line2_00.delegate = self
         tf_line1_04.delegate = self; tf_line2_02.delegate = self
         tf_line1_06.delegate = self; tf_line2_06.delegate = self
         tf_line1_08.delegate = self;
 
-        //TextField Arrays
+        //Array with text fields that must be filled
         textFieldToFill = [tf_line1_00, tf_line1_04, tf_line1_06, tf_line1_08,
                            tf_line2_00, tf_line2_02, tf_line2_06]
 
-        //view Arrays
+        //Array with the views containing the text fields to fill
         view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_08,
                      view_line2_00, view_line2_02, view_line2_06]
+        
+        // Add action for edit event.
+        for tf in textFieldToFill {
+            tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
+        }
     }
 
     func fill_CELL_25() {
@@ -1293,49 +1335,54 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // MARK: - TextField Delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        // Cambia el foco a la siguente celda, cuando hay un caracter
+        
         if textField.text!.count == MAX_LENGTH_CELL {
-            
-            if textField.returnKeyType == UIReturnKeyType.send {
-                if checkFillWord() {
-                    courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
-                }
-            }
-            else {
-                var pivot = 0
-                for tf in textFieldToFill {
-                    if tf.tag == textField.tag {
-                        printDebugMessage(tag: "Se encontró el siguiente auto")
-                        let pos = pivot < textFieldToFill.count ? pivot + 1 : pivot
-                        printDebugMessage(tag: "pivot: \(pivot), pos:\(pos)")
-                        return textFieldToFill[pos].becomeFirstResponder()
-                    }
-                    pivot += 1
-                }
-            }
+            return textFieldShouldReturn(textField)
         }
-
-        return true
+        else {
+            return true
+        }
+    }
+    
+    @objc func textFieldDidChange(textField: UITextField) {
+        
+        let text = textField.text
+        
+        if text?.utf16.count == 1 {
+            
+            guard textField.tag != textFieldToFill.last?.tag else {
+                _ = textFieldShouldReturn(textField)
+                return
+            }
+            
+            // current position in textFieldToFill
+            if let currentPos = textFieldToFill.firstIndex(of: textField) {
+                textFieldToFill[currentPos + 1].becomeFirstResponder()
+            }
+            
+        }
+        else {
+            textField.becomeFirstResponder()
+        }
     }
 
     // Método para cambiar foco desde el botón 'Return' del keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         // Si el botón es "Enviar" verifica la respuesta
         if textField.returnKeyType == UIReturnKeyType.send {
+            
+            //Hidde Keyboard
+            textField.resignFirstResponder()
+            
             if checkFillWord() {
                 courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
             }
         }
         // Cambia el Foco al siguiente TF
         else {
-            var pivot = 0
-            for tf in textFieldToFill {
-                if tf.tag == textField.tag {
-                    let pos = pivot < textFieldToFill.count ? pivot + 1 : pivot
-                    return textFieldToFill[pos].becomeFirstResponder()
-                }
-                pivot += 1
+            if let currentPos = textFieldToFill.firstIndex(of: textField) {
+                textFieldToFill[currentPos + 1].becomeFirstResponder()
             }
         }
         
@@ -1378,6 +1425,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
     private func checkFillWord () -> Bool {
+        
         let answer_array = Array(fill_word_answer)
         var isAnswer = true
         var currentPosition = 0
@@ -1394,12 +1442,6 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         // Update wrongScore
         if !isAnswer { wrongScore += 1 }
 
-        // Show clue and restart wrong Score
-        if wrongScore == maxWrong {
-            wrongScore = 0
-            courseDelegate?.showMessagePopup(message: error_message, inbold: nil, type: .failed)
-        }
-
         // Add a little bit pause to show the wrongs
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             
@@ -1411,7 +1453,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
                 currentPosition += 1
             }
             
-            self.textFieldToFill[0].becomeFirstResponder()
+            // Show clue and restart wrong Score
+            if self.wrongScore == self.maxWrong {
+                self.wrongScore = 0
+                self.courseDelegate?.showMessagePopup(message: self.error_message, inbold: nil, type: .failed)
+            }
+            else {
+                self.textFieldToFill[0].becomeFirstResponder()
+            }
         })
 
         return isAnswer
@@ -1443,6 +1492,9 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
         }
         else {
+            // Clean option radio Group
+            for op in radioGroup { op.isSelected = false }
+            // Show fail messege
             courseDelegate?.showMessagePopup(message: IPI_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
         }
     }
@@ -1467,12 +1519,14 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         }
     }
 
+    /// Check in the last questionary
     @IBAction func checking_questionary (_ sender: UIButton) {
 
-        // verifica que se haya respondido
+        // Auxiliar variables to determinate if user answered
         var answerValue = 0
         var isAnswered = false
 
+        // check if one answer is selected
         for op in radioGroup {
             if op.isSelected {
                 isAnswered = true
@@ -1480,14 +1534,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             }
         }
 
+        // Show message for user select one option
         guard isAnswered else {
             mainDelegate?.showMessageInMain(withMessage: ErrorMessages.unselectOption)
             return
         }
 
-        //Get answers
+        //Get answers values if user answed after
         questionaryValue = AplicationRuntime.sharedManager.getAnswersValue()
 
+        // Set de new value for the answer
         switch btn_next.tag {
 
             case TAG_ANSWER_01:
