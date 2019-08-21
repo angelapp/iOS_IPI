@@ -13,6 +13,7 @@ class ChoiceAvatarGenderViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var btn_man: UIButton!
     @IBOutlet weak var btn_woman: UIButton!
+    @IBOutlet weak var btn_back: UIButton!
 
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_message: UILabel!
@@ -32,32 +33,17 @@ class ChoiceAvatarGenderViewController: UIViewController {
         lbl_title.text = AvatarStrings.title
         lbl_message.text = AvatarStrings.message
 
-        // Add gesture for go back (Add only in edit Mode)
-        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
-        edgePan.edges = .left
+//        // Add gesture for go back (Add only in edit Mode)
+//        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+//        edgePan.edges = .left
 
-        if isEdit {view.addGestureRecognizer(edgePan)}
+        btn_back.isHidden = !isEdit
+        btn_back.isEnabled = isEdit
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Action for Gestures
-    // Acction for go back with a gesture
-    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .ended {
-
-            //remove gesture one by one from view
-            if let gestures = self.view.gestureRecognizers {
-                for gesture in gestures {
-                    self.view.removeGestureRecognizer(gesture)
-                }
-            }
-
-            self.dismiss(animated: true, completion: nil)
-        }
     }
 
     // MARK: - Actions
@@ -68,11 +54,30 @@ class ChoiceAvatarGenderViewController: UIViewController {
         performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
     }
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is MakeYourAvatarViewController {
-            let vc = segue.destination as? MakeYourAvatarViewController
-            vc?.isEditMode = true
-        }
-    }*/
+    @IBAction func dismissScreen(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+//    // MARK: - Action for Gestures
+//    // Acction for go back with a gesture
+//    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+//        if recognizer.state == .ended {
+//
+//            //remove gesture one by one from view
+//            if let gestures = self.view.gestureRecognizers {
+//                for gesture in gestures {
+//                    self.view.removeGestureRecognizer(gesture)
+//                }
+//            }
+//
+//            self.dismiss(animated: true, completion: nil)
+//        }
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is MakeYourAvatarViewController {
+//            let vc = segue.destination as? MakeYourAvatarViewController
+//            vc?.isEditMode = true
+//        }
+//    }
 }

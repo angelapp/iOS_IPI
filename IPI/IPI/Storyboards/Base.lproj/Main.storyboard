@@ -2135,7 +2135,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                             <rect key="frame" x="0.0" y="55.5" width="343" height="62"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t3I-n7-J0a" id="2Rd-uk-tzT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="61.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="62"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-fY-PY6">
@@ -2228,7 +2228,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                             <rect key="frame" x="0.0" y="154.5" width="343" height="8"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="36B-Q9-Aoi" id="uaR-go-lEM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="8"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="7.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9L-eE-LFg">
@@ -2574,7 +2574,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="5155.5" width="375" height="335"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PJb-8h-6yl" id="Bmz-PT-aNG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="334.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bse-vb-QgV">
@@ -2776,7 +2776,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         <rect key="frame" x="0.0" y="5490.5" width="375" height="296"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="as5-BG-s6b" id="nby-wm-JwN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-pn-e7s" userLabel="sheet">
@@ -7901,7 +7901,7 @@ NORUEGO PARA REFUGIADOS</string>
                                                                             <rect key="frame" x="0.0" y="117.5" width="311" height="37"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ao5-N1-kri" id="9fT-fl-mES">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="36.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="37"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-wn-fxH">
@@ -10120,18 +10120,24 @@ NORUEGO PARA REFUGIADOS</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUX-lU-WRl">
                                                     <rect key="frame" x="8" y="0.0" width="327" height="37"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np7-9t-cj9">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wFQ-ui-LyJ">
                                                             <rect key="frame" x="8" y="8" width="311" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lJB-ki-RuX" id="lPK-OE-guV"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="np7-9t-cj9" firstAttribute="leading" secondItem="WUX-lU-WRl" secondAttribute="leading" constant="8" id="LeM-1a-dnP"/>
-                                                        <constraint firstAttribute="trailing" secondItem="np7-9t-cj9" secondAttribute="trailing" constant="8" id="cGo-Gj-kRW"/>
-                                                        <constraint firstItem="np7-9t-cj9" firstAttribute="top" secondItem="WUX-lU-WRl" secondAttribute="top" constant="8" id="gkG-mn-YwD"/>
-                                                        <constraint firstAttribute="bottom" secondItem="np7-9t-cj9" secondAttribute="bottom" constant="8" id="hAo-sX-o4X"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wFQ-ui-LyJ" secondAttribute="bottom" constant="8" id="SrV-Js-z3z"/>
+                                                        <constraint firstItem="wFQ-ui-LyJ" firstAttribute="leading" secondItem="WUX-lU-WRl" secondAttribute="leading" constant="8" id="izf-1M-tWj"/>
+                                                        <constraint firstItem="wFQ-ui-LyJ" firstAttribute="top" secondItem="WUX-lU-WRl" secondAttribute="top" constant="8" id="no4-dj-EdZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wFQ-ui-LyJ" secondAttribute="trailing" constant="8" id="tVM-dB-cag"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -10144,7 +10150,7 @@ NORUEGO PARA REFUGIADOS</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="lbl_text" destination="np7-9t-cj9" id="JQa-YF-CAb"/>
+                                            <outlet property="tv_text" destination="wFQ-ui-LyJ" id="oL5-T8-bwe"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bodyAvatar" rowHeight="218" id="CSS-39-esH" customClass="RefugeRequestBobyTableViewCell" customModule="IPI" customModuleProvider="target">
@@ -10651,24 +10657,30 @@ NORUEGO PARA REFUGIADOS</string>
                                                             <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtZ-xg-aRG">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DwI-qi-3ne">
                                                             <rect key="frame" x="33" y="31.5" width="312" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" red="0.0" green="0.27058823529999998" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <color key="tintColor" red="1" green="0.46257907149999999" blue="0.0077000055459999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" red="0.0" green="0.53725490200000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lJB-ki-RuX" id="06E-nx-8gE"/>
+                                                            </connections>
+                                                        </textView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="V1o-fZ-EjF" firstAttribute="leading" secondItem="ddH-Ay-RiJ" secondAttribute="trailing" constant="8" id="31e-Y7-45Y"/>
+                                                        <constraint firstAttribute="bottom" secondItem="DwI-qi-3ne" secondAttribute="bottom" constant="8" id="56t-WW-ycy"/>
+                                                        <constraint firstItem="DwI-qi-3ne" firstAttribute="top" secondItem="V1o-fZ-EjF" secondAttribute="bottom" constant="8" id="5ID-zb-IEv"/>
                                                         <constraint firstAttribute="trailing" secondItem="V1o-fZ-EjF" secondAttribute="trailing" id="8VK-QY-jpL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="jtZ-xg-aRG" secondAttribute="bottom" constant="8" id="FE6-mv-43f"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ddH-Ay-RiJ" secondAttribute="bottom" constant="4" id="M5l-PO-jd2"/>
                                                         <constraint firstItem="ddH-Ay-RiJ" firstAttribute="leading" secondItem="UcO-FF-UBu" secondAttribute="leading" id="Pww-m3-OYb"/>
+                                                        <constraint firstItem="DwI-qi-3ne" firstAttribute="leading" secondItem="V1o-fZ-EjF" secondAttribute="leading" id="Zjn-5T-XdG"/>
                                                         <constraint firstItem="V1o-fZ-EjF" firstAttribute="top" secondItem="UcO-FF-UBu" secondAttribute="top" constant="4" id="auj-al-K1e"/>
                                                         <constraint firstItem="ddH-Ay-RiJ" firstAttribute="top" secondItem="UcO-FF-UBu" secondAttribute="top" constant="4" id="c4K-tt-s8E"/>
-                                                        <constraint firstItem="jtZ-xg-aRG" firstAttribute="leading" secondItem="V1o-fZ-EjF" secondAttribute="leading" id="cgi-j3-UmZ"/>
-                                                        <constraint firstItem="jtZ-xg-aRG" firstAttribute="top" secondItem="V1o-fZ-EjF" secondAttribute="bottom" constant="8" id="nUL-e1-fBu"/>
-                                                        <constraint firstItem="jtZ-xg-aRG" firstAttribute="trailing" secondItem="V1o-fZ-EjF" secondAttribute="trailing" id="qpD-jV-dTm"/>
+                                                        <constraint firstItem="DwI-qi-3ne" firstAttribute="trailing" secondItem="V1o-fZ-EjF" secondAttribute="trailing" id="eAn-Qy-Djv"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -10681,8 +10693,8 @@ NORUEGO PARA REFUGIADOS</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="img_item" destination="ddH-Ay-RiJ" id="fPd-Ba-KUz"/>
-                                            <outlet property="lbl_text" destination="jtZ-xg-aRG" id="rHY-vg-EGF"/>
                                             <outlet property="lbl_title" destination="V1o-fZ-EjF" id="Q50-Kr-QpG"/>
+                                            <outlet property="tv_text" destination="DwI-qi-3ne" id="7Ic-Ug-dmQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

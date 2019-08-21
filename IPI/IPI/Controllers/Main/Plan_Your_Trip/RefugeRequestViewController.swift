@@ -309,7 +309,7 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
             let cell = tableView.dequeueReusableCell(withIdentifier: CellID.body.rawValue) as! CourseBodyTableViewCell
 
             let htmlCSSString = Formats.cssStyles + text
-            cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+            cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
 
             return cell
         }

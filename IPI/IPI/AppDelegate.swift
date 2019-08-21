@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 import FBSDKCoreKit
 import GoogleSignIn
 
@@ -20,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Facebook properties
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // End Facebook
+        
+        //Crashlytics properties
+        Fabric.with([Crashlytics.self])
+        //End Crashlytics
 
         return true
     }

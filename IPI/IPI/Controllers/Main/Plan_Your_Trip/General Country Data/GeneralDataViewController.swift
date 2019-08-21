@@ -50,7 +50,7 @@ class GeneralDataViewController: UIViewController, UITableViewDelegate, UITableV
 
         cell.img_item.image = UIImage(named: (countrDataList?[indexPath.row].icon)!)
         cell.lbl_title.text = countrDataList?[indexPath.row].title.uppercased()
-        cell.lbl_text.attributedText = htmlCSSString.htmlToAttributedString!
+        cell.tv_text.attributedText = htmlCSSString.htmlToAttributedString!
 
         return cell
     }

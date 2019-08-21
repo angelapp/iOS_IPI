@@ -95,6 +95,7 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
         self.showErrorMessage(withMessage: msn)
     }
 
+    /// Allow dismiss curent screen from protocol
     func dismiss() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -143,6 +144,6 @@ class RecoveryViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Actions
     @IBAction func back (_ sender: UIButton){
-        self.dismiss(animated: true, completion: nil)
+        dismiss()
     }
 }
