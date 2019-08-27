@@ -432,7 +432,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     /// Create de UI from Ask No. 1
     func fill_CELL_19() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_19.text1
         lbl_text2.text = IPI_COURSE.PAGE_19.text2
@@ -474,10 +474,10 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         //Array with text fields that must be filled
         textFieldToFill = [tf_line1_01, tf_line1_02, tf_line1_07, tf_line2_00, tf_line2_03, tf_line2_05]
-        
+
         //Array with the views containing the text fields to fill
         view_list = [view_line1_01, view_line1_02, view_line1_07, view_line2_00, view_line2_03, view_line2_05]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
@@ -486,7 +486,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     /// Create de UI from Ask No. 2
     func fill_CELL_20() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_20.text1
         lbl_text2.text = IPI_COURSE.PAGE_20.text2
@@ -535,7 +535,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         //Array with the views containing the text fields to fill
         view_list = [view_line1_02, view_line1_06, view_line1_09, view_line1_11, view_line2_00, view_line2_04, view_line2_08]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
@@ -544,7 +544,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     /// Create de UI from Ask No. 3
     func fill_CELL_21() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_21.text1
         lbl_text2.text = IPI_COURSE.PAGE_21.text2
@@ -592,7 +592,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Array with the views containing the text fields to fill
         view_list = [view_line1_01, view_line1_02, view_line1_05, view_line1_06,
                      view_line2_01, view_line2_02, view_line2_04, view_line2_06]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
@@ -601,7 +601,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     /// Create de UI from Ask No. 4
     func fill_CELL_22() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_22.text1
         lbl_text2.text = IPI_COURSE.PAGE_22.text2
@@ -656,7 +656,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Array with the views containing the text fields to fill
         view_list = [view_line1_02, view_line1_05, view_line1_06, view_line1_07, view_line1_09, view_line1_12, view_line1_13,
                      view_line2_01, view_line2_03, view_line2_05, view_line2_07, view_line2_08]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
@@ -665,7 +665,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     /// Create de UI from Ask No. 5
     func fill_CELL_23() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_23.text1
         lbl_text2.text = IPI_COURSE.PAGE_23.text2
@@ -711,16 +711,16 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Array with the views containing the text fields to fill
         view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_07, view_line1_08,
                      view_line2_02, view_line2_03]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
         }
     }
-    
+
     /// Create de UI from Ask No. 6
     func fill_CELL_24() {
-        
+
         //Load question and add to label
         lbl_text1.text = IPI_COURSE.PAGE_24.text1
         lbl_text2.text = IPI_COURSE.PAGE_24.text2
@@ -765,7 +765,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         //Array with the views containing the text fields to fill
         view_list = [view_line1_00, view_line1_04, view_line1_06, view_line1_08,
                      view_line2_00, view_line2_02, view_line2_06]
-        
+
         // Add action for edit event.
         for tf in textFieldToFill {
             tf.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
@@ -1132,7 +1132,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     private func updateUI(forIndexPath index: IndexPath?) {
         tbl_examples.reloadData()
         courseDelegate?.reloadTable()
-        
+
         if index != nil {
             tbl_examples.scrollToRow(at: index!, at: .top, animated: true)
         }
@@ -1147,7 +1147,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         let shouldExpand = !expandedSections.contains(section)
         var indexPath: IndexPath!
-        
+
         if (shouldExpand) {
             expandedSections.removeAllObjects()
             expandedSections.add(section)
@@ -1255,7 +1255,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
         return cell
     }
-    
+
     // Delegate for update Page control, based in current show cell
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Change the current page
@@ -1264,7 +1264,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
         let roundedIndex = round(index)
         pageControl?.currentPage = Int(roundedIndex)
     }
-    
+
 
      //Set Width and Heigth of the cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -1335,7 +1335,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // MARK: - TextField Delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
+
         if textField.text!.count == MAX_LENGTH_CELL {
             return textFieldShouldReturn(textField)
         }
@@ -1343,23 +1343,23 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             return true
         }
     }
-    
+
     @objc func textFieldDidChange(textField: UITextField) {
-        
+
         let text = textField.text
-        
+
         if text?.utf16.count == 1 {
-            
+
             guard textField.tag != textFieldToFill.last?.tag else {
                 _ = textFieldShouldReturn(textField)
                 return
             }
-            
+
             // current position in textFieldToFill
             if let currentPos = textFieldToFill.firstIndex(of: textField) {
                 textFieldToFill[currentPos + 1].becomeFirstResponder()
             }
-            
+
         }
         else {
             textField.becomeFirstResponder()
@@ -1368,13 +1368,13 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
 
     // Método para cambiar foco desde el botón 'Return' del keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+
         // Si el botón es "Enviar" verifica la respuesta
         if textField.returnKeyType == UIReturnKeyType.send {
-            
+
             //Hidde Keyboard
             textField.resignFirstResponder()
-            
+
             if checkFillWord() {
                 courseDelegate?.showMessagePopup(message: IPI_COURSE.SUCCEED_ANSWER, inbold: nil, type: .success)
             }
@@ -1385,7 +1385,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
                 textFieldToFill[currentPos + 1].becomeFirstResponder()
             }
         }
-        
+
         return false
     }
 
@@ -1425,7 +1425,7 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
     // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
     private func checkFillWord () -> Bool {
-        
+
         let answer_array = Array(fill_word_answer)
         var isAnswer = true
         var currentPosition = 0
@@ -1439,29 +1439,33 @@ class CourseTableViewCell: UITableViewCell, UITextFieldDelegate, UITableViewDele
             currentPosition += 1
         }
 
-        // Update wrongScore
-        if !isAnswer { wrongScore += 1 }
+        // Error Answer Manager
+        if !isAnswer {
 
-        // Add a little bit pause to show the wrongs
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            
-            //Clean form and set default background
-            currentPosition = 0
-            for tf in self.textFieldToFill {
-                tf.text = nullString
-                self.view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_fill_word.rawValue)
-                currentPosition += 1
-            }
-            
-            // Show clue and restart wrong Score
-            if self.wrongScore == self.maxWrong {
-                self.wrongScore = 0
-                self.courseDelegate?.showMessagePopup(message: self.error_message, inbold: nil, type: .failed)
-            }
-            else {
-                self.textFieldToFill[0].becomeFirstResponder()
-            }
-        })
+            // Update wrongScore
+            wrongScore += 1
+
+            // Add a little bit pause to show the wrongs
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+
+                //Clean form and set default background
+                currentPosition = 0
+                for tf in self.textFieldToFill {
+                    tf.text = nullString
+                    self.view_list[currentPosition].backgroundColor = Colors().getColor(from: ConseColors.background_fill_word.rawValue)
+                    currentPosition += 1
+                }
+
+                // Show clue and restart wrong Score
+                if self.wrongScore == self.maxWrong {
+                    self.wrongScore = 0
+                    self.courseDelegate?.showMessagePopup(message: self.error_message, inbold: nil, type: .failed)
+                }
+                else {
+                    self.textFieldToFill[0].becomeFirstResponder()
+                }
+            })
+        }
 
         return isAnswer
     }
