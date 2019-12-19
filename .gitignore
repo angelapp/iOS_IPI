@@ -78,6 +78,6 @@ fastlane/test_output
 #
 # 
 
-IPI/IPI.xcodeproj/project.pbxproj
+# IPI/IPI.xcodeproj/project.pbxproj
 *.DS_Store
 IPI/IPI.xcworkspace/
