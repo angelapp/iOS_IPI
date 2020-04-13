@@ -42,7 +42,16 @@ class SelectActivitiesViewController: UIViewController {
         switch sender {
             
         case btn_basicConcepts:
+            //Validate if user stay logged in
+            if StorageFunctions.getStates().isLogin {
             mainDelegate?.addToContainer(viewControllerID: .course)
+            }else{
+                // Launch Auth Screen
+                let sb = UIStoryboard(name: StoryboardID.Authentication.rawValue, bundle: nil)
+                self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                
+            }
+            
             break
             
         default:

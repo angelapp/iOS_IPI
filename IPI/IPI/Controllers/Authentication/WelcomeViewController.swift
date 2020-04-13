@@ -10,13 +10,17 @@ import AVKit
 import UIKit
 import ObjectMapper
 
-class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
+class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - Outlets
-    @IBOutlet weak var btn_signin: UIButton!
-    @IBOutlet weak var btn_signup: UIButton!
-    @IBOutlet weak var lbl_title: UILabel!
+    var btn_signin: UIButton!
+    var btn_signup: UIButton!
+    var btn_continue: UIButton!
+    
+    
+    
 
+    
     // MARK: - Properties
     var avatar: UIImage!
     var avatarPieces: MyAvatarPieces!
@@ -27,11 +31,14 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lbl_title.text = Labels.welcome
-
+        //lbl_title.text = Labels.welcome
+        
+        
+        setButtons()
         loadLocalData()
         getConfiguration()
     }
+
 
     override func viewDidAppear(_ animated: Bool) {
 
@@ -146,6 +153,16 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
             self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
         }
     }
+    
+
+    
+
+    
+    
+    
+    
+    
+
 
     private func getConfiguration() {
 
@@ -189,4 +206,114 @@ class WelcomeViewController: UIViewController, WelcomeViewControllerDelegate {
             }
         })
     }
+    
+    
+    
+    private func setButtons(){
+        
+        
+        let midX = self.view.bounds.midX
+        let midY = self.view.bounds.midY
+        
+        
+        
+        let centerImage = (midX - view.frame.width / 4)
+        let centerYImage = (midY - view.frame.height / 3)
+        
+        let imageName = "logo.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: centerImage, y: centerYImage, width: view.frame.width / 2.0, height: view.frame.width / 2.0)
+        view.addSubview(imageView)
+        
+        
+        let label = UILabel(frame: CGRect(x: 0, y: imageView.frame.height + 30, width: view.frame.width, height: 70))
+        label.textAlignment = .center
+        label.textColor = .white
+        label.text = Labels.welcome
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15).isActive = true
+        label.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        
+        
+        
+        btn_continue = UIButton(frame:CGRect(x: 0, y: 0, width: 230, height: 70))
+        btn_continue.backgroundColor = Colors().getColor(from: ConseColors.button.rawValue)
+        btn_continue.setTitle("Continuar sin registrarse", for: .normal)
+        btn_continue.isUserInteractionEnabled = true
+        btn_continue.addTarget(self, action:#selector(goToHome(_:)), for: .touchDown)
+        btn_continue.layer.cornerRadius = 5
+        btn_continue.layer.borderWidth = 1
+        btn_continue.layer.borderColor = Colors().getColor(from: ConseColors.button.rawValue).cgColor
+        view.addSubview(btn_continue)
+        btn_continue.translatesAutoresizingMaskIntoConstraints = false
+        btn_continue.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        btn_continue.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 15).isActive = true
+        btn_continue.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        btn_continue.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        
+        
+        btn_signin = UIButton(frame: CGRect(x: 0, y: 0, width: 250, height: 70))
+        btn_signin.backgroundColor = Colors().getColor(from: ConseColors.button.rawValue)
+        btn_signin.setTitle("Regístrate", for: .normal)
+        btn_signin.layer.cornerRadius = 5
+        btn_signin.layer.borderWidth = 1
+        btn_signin.layer.borderColor = Colors().getColor(from: ConseColors.button.rawValue).cgColor
+        btn_signin.addTarget(self, action:#selector(goToRegister(_:)), for: .touchDown)
+        view.addSubview(btn_signin)
+        btn_signin.translatesAutoresizingMaskIntoConstraints = false
+        btn_signin.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        btn_signin.topAnchor.constraint(equalTo: btn_continue.bottomAnchor, constant: 15).isActive = true
+        btn_signin.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        btn_signin.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+    
+        btn_signup = UIButton(frame: CGRect(x: 0, y: 0, width: 250, height: 70))
+        btn_signup.backgroundColor = Colors().getColor(from: ConseColors.background_blue.rawValue)
+        btn_signup.setTitle("O Inicia Sesión", for: .normal)
+        btn_signup.layer.cornerRadius = 5
+        btn_signup.layer.borderWidth = 1
+        btn_signup.layer.borderColor = Colors().getColor(from: ConseColors.background_blue.rawValue).cgColor
+        btn_signup.addTarget(self, action:#selector(signUp(_:)), for: .touchDown)
+        view.addSubview(btn_signup)
+        btn_signup.translatesAutoresizingMaskIntoConstraints = false
+        btn_signup.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        btn_signup.topAnchor.constraint(equalTo: btn_signin.bottomAnchor, constant: 15).isActive = true
+        btn_signup.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        btn_signup.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+
+
+        
+ 
+    }
+
+
+    
+    @objc func goToRegister(_ sender: Any) {
+        print("Button singIn pressed")
+        self.performSegue(withIdentifier: "signup", sender: sender)
+    }
+    
+    
+    @objc func signUp(_ sender: Any) {
+        print("Button signUp pressed")
+        self.performSegue(withIdentifier: "signin", sender: sender)
+    }
+    
+    
+    @objc func goToHome(_ sender:UITapGestureRecognizer){
+        print("Button goToHome pressed")
+        self.presentConse(storyBoard: StoryboardID.Main.rawValue)
+    }
+
 }
+
+

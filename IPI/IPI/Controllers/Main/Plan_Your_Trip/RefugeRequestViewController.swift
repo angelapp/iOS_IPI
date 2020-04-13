@@ -52,11 +52,11 @@ class RefugeRequestViewController: UIViewController, AVAudioPlayerDelegate, UITa
         if targetCountryID != nil {
             nationality = AplicationRuntime.sharedManager.getCountry(fromID: targetCountryID, getName: false, getNationality: true)
         }
+        
 
         // Observer for stop audio
         NotificationCenter.default.addObserver(self, selector: #selector(self.toggleAudio(notification:)), name: .stopBodyTripAudio, object: nil)
-
-        lbl_msn.text = String(format: Formats.refugeRequestFormat, nationality.dropLast() as CVarArg)
+        lbl_msn.text = String(format: Formats.refugeRequestFormat, String(nationality.dropLast()) )
     }
 
     override func viewWillDisappear(_ animated: Bool) {

@@ -184,6 +184,36 @@ class LibraryDocument: Mappable {
     }
 }
 
+// NEW Model
+class ProtectionRecommendation: Mappable {
+    var id: Int!
+    var title: String!
+    var content: String!
+    var origin_country: Int!
+    var target_country: Int!
+    var available: Bool!
+
+    //inicializador vacio
+    init() {
+    }
+
+    required init?(map: Map) {
+    }
+
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        title <- map[JSONKeys.title]
+        content <- map[JSONKeys.content]
+        origin_country <- map[JSONKeys.origin_country]
+        target_country <- map[JSONKeys.target_country]
+    }
+}
+
+
+
+
+
+
 class MigrationConditionType: Mappable {
 
     var id: Int!
@@ -617,6 +647,8 @@ class PlanYourTripModel: Mappable {
     var public_tranportation_info: Array<TransportationInfoModel>!
     var phonebook: Array<CorporatePhoneBook>!
     var library: Array<LibraryDocument>!
+    
+    var protection_commendations: Array<ProtectionRecommendation>!
 
     init() {}
 
@@ -636,6 +668,8 @@ class PlanYourTripModel: Mappable {
         basic_rights <- map[JSONKeys.basic_rights]
         phonebook <- map[JSONKeys.phonebook]
         library <- map[JSONKeys.library]
+        protection_commendations <- map[JSONKeys.protection_commendations]
+        
     }
 }
 

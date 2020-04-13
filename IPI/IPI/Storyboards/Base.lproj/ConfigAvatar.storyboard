@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PNP-h5-QGO">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PNP-h5-QGO">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="choiceAvatarGender" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PNP-h5-QGO" customClass="ChoiceAvatarGenderViewController" customModule="IPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNs-ED-qQn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Nw-ME-5Wy" userLabel="Nav Bar">
-                                <rect key="frame" x="8" y="20" width="359" height="45"/>
+                                <rect key="frame" x="8" y="0.0" width="304" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtL-19-Y2C">
                                         <rect key="frame" x="8" y="0.0" width="30" height="45"/>
@@ -44,23 +42,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPC-C0-fVP">
-                                <rect key="frame" x="16" y="156.5" width="343" height="354"/>
+                                <rect key="frame" x="16" y="41.5" width="288" height="397"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arma tu Conse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmk-E1-8ol">
-                                        <rect key="frame" x="0.0" y="16" width="343" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="16" width="288" height="26.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uz-4D-Kle">
-                                        <rect key="frame" x="16" y="78.5" width="311" height="107.5"/>
+                                        <rect key="frame" x="16" y="78.5" width="256" height="150.5"/>
                                         <string key="text">Inicia por escoger el género, después, podrás definir las características físicas que más te gusten para tu Consejer o Consejera ¡Será quien te acompañe mientras usas la aplicación!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-KH-XrP" userLabel="buttons">
-                                        <rect key="frame" x="61.5" y="222" width="220" height="116"/>
+                                        <rect key="frame" x="34" y="265" width="220" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQz-QI-0V7">
                                                 <rect key="frame" x="0.0" y="0.0" width="220" height="50"/>
@@ -161,11 +159,11 @@
             <objects>
                 <viewController storyboardIdentifier="makeAvatar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WUC-RR-oDN" customClass="MakeYourAvatarViewController" customModule="IPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8B1-oY-llS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAm-ze-cgo" userLabel="Nav Bar">
-                                <rect key="frame" x="8" y="20" width="359" height="45"/>
+                                <rect key="frame" x="8" y="0.0" width="304" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9k-Tz-iDR">
                                         <rect key="frame" x="8" y="0.0" width="30" height="45"/>
@@ -190,25 +188,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrL-4d-tiM">
-                                <rect key="frame" x="16" y="65" width="343" height="190.5"/>
+                                <rect key="frame" x="16" y="45" width="288" height="160"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="167-PQ-w82">
-                                        <rect key="frame" x="78" y="0.0" width="187" height="186.5"/>
+                                        <rect key="frame" x="66" y="0.0" width="156" height="156"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="95I-s1-Hsk">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FFJ-y6-ULI">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H66-x6-orB">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xrv-J9-SFj">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Qm-lG-k11">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="186.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -244,13 +242,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcj-IT-HKb">
-                                <rect key="frame" x="16" y="263.5" width="343" height="321.5"/>
+                                <rect key="frame" x="16" y="213" width="288" height="165"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-wb-unu" userLabel="Head">
-                                        <rect key="frame" x="16" y="0.0" width="311" height="64.5"/>
+                                        <rect key="frame" x="16" y="0.0" width="256" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7F-kt-cDr">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -259,7 +257,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjY-jg-wLl">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -268,7 +266,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nab-De-Dsj">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -277,13 +275,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqW-6X-52i">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fan-sS-dxi">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vsZ-hb-35J">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -316,10 +314,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-Qz-tWb" userLabel="Eyes">
-                                        <rect key="frame" x="16" y="64.5" width="311" height="64"/>
+                                        <rect key="frame" x="16" y="33" width="256" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMC-Mm-BfB">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -328,7 +326,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrD-kD-UO5">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -337,7 +335,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ve-Ce-5jz">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -346,13 +344,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-Tw-ClD">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-dm-y4k">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMj-jP-Lnu">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -383,10 +381,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIs-zF-VsJ" userLabel="Nose">
-                                        <rect key="frame" x="16" y="128.5" width="311" height="64.5"/>
+                                        <rect key="frame" x="16" y="66" width="256" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj2-cc-OMS">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -395,7 +393,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQN-NI-2j5">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -404,7 +402,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzD-HR-YUT">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -413,13 +411,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l36-au-leX">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wuc-wn-uox">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpz-Ww-0Ra">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -450,10 +448,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKZ-KV-gkY" userLabel="Hair">
-                                        <rect key="frame" x="16" y="193" width="311" height="64"/>
+                                        <rect key="frame" x="16" y="99" width="256" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi9-Uf-gYN">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -462,7 +460,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcu-EJ-ski">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -471,7 +469,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVO-U0-Ytl">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -480,13 +478,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-hq-5WC">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b7A-WB-K5a">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjG-8k-tzL">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -517,10 +515,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anC-5Z-GaP" userLabel="Accessories">
-                                        <rect key="frame" x="16" y="257" width="311" height="64.5"/>
+                                        <rect key="frame" x="16" y="132" width="256" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-3g-gfl">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -529,7 +527,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgC-LH-Sre">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -538,7 +536,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCu-EJ-3zw">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                                 <state key="normal" image="circulo_blanco"/>
                                                 <state key="selected" image="circulo_amarillo"/>
                                                 <state key="highlighted" image="circulo_amarillo"/>
@@ -547,13 +545,13 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vwK-AA-Y7A">
-                                                <rect key="frame" x="2" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="2" y="2" width="81.5" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-Kv-yqX">
-                                                <rect key="frame" x="105.5" y="2" width="100" height="60.5"/>
+                                                <rect key="frame" x="87.5" y="2" width="81" height="29"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBg-kO-olL">
-                                                <rect key="frame" x="209.5" y="2" width="99.5" height="60.5"/>
+                                                <rect key="frame" x="172.5" y="2" width="81.5" height="29"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -608,7 +606,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kS4-cy-7qI">
-                                <rect key="frame" x="77.5" y="593" width="220" height="50"/>
+                                <rect key="frame" x="50" y="386" width="220" height="50"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.52941176469999995" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4jv-Gl-NCK"/>
@@ -701,17 +699,17 @@
             <objects>
                 <viewController storyboardIdentifier="letsStart" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xBH-yj-tEd" customClass="LetStartViewController" customModule="IPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E07-yh-1eL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbx-Pe-JmQ">
-                                <rect key="frame" x="16" y="155.5" width="343" height="356"/>
+                                <rect key="frame" x="16" y="72.5" width="288" height="315"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2b-si-LeT">
-                                        <rect key="frame" x="16" y="8" width="311" height="228.5"/>
+                                        <rect key="frame" x="16" y="8" width="256" height="187.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="14g-5K-s4e">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="228.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="187.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -723,7 +721,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-ZX-MM2">
-                                        <rect key="frame" x="61.5" y="298" width="220" height="50"/>
+                                        <rect key="frame" x="34" y="257" width="220" height="50"/>
                                         <color key="backgroundColor" red="0.035294117649999998" green="0.52941176469999995" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WGT-4N-6hO"/>
@@ -743,7 +741,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqc-I6-keF">
-                                        <rect key="frame" x="16" y="252.5" width="311" height="21.5"/>
+                                        <rect key="frame" x="16" y="211.5" width="256" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -783,7 +781,7 @@
     </scenes>
     <resources>
         <image name="btn_atras" width="61" height="109"/>
-        <image name="circulo_amarillo" width="75" height="75"/>
-        <image name="circulo_blanco" width="75" height="75"/>
+        <image name="circulo_amarillo" width="75.333335876464844" height="75.333335876464844"/>
+        <image name="circulo_blanco" width="75.333335876464844" height="75.333335876464844"/>
     </resources>
 </document>

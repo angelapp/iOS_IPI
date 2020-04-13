@@ -63,11 +63,14 @@ class LeftMenuViewController: UIViewController {
     // MARK: - Private Functions
     private func addStyles() {
 
+        
+        
+        
         setAspectFitToButton(buttons: btn_before_your_trip, btn_plan_your_trip,
                                       btn_saved_trip, btn_basic_concepts,
                                       btn_about_NRC, btn_contact_Us,
                                       btn_edit_Profile, btn_intro, btn_logout)
-
+ 
 
         //Ajusta el ancho del menú
         let screenSize = UIScreen.main.bounds
@@ -78,6 +81,19 @@ class LeftMenuViewController: UIViewController {
                 button.imageView?.contentMode = .scaleAspectFit
             }
         }
+        
+        let stateModel = StorageFunctions.getStates()
+        
+        
+        if !stateModel.isLogin {
+            btn_basic_concepts.isHidden = true
+            btn_edit_Profile.isHidden = true
+            btn_logout.isHidden = true
+            btn_about_NRC.topAnchor.constraint(equalTo: btn_saved_trip.bottomAnchor, constant: 16).isActive = true
+            btn_intro.topAnchor.constraint(equalTo: btn_contact_Us.bottomAnchor, constant: 16).isActive = true
+                        
+        }
+        
     }
 
     // MARK: - Actions
@@ -158,6 +174,7 @@ class LeftMenuViewController: UIViewController {
         default:
             // Clean user data in runtime
             AplicationRuntime.sharedManager.setUserData(user: nil)
+            
 
             // Delete cookies
             let storageCookies = HTTPCookieStorage.shared

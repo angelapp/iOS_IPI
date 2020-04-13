@@ -66,6 +66,7 @@ struct JSONKeys {
     static let address = "address"
     static let avatar_piece = "avatar_piece"
     static let avatar_pieces_list  = "avatar_pieces_list"
+    static let available  = "available"
 
     //MARK: - B
     static let basic_rights = "basic_rights"
@@ -87,6 +88,7 @@ struct JSONKeys {
     static let course = "course"
     static let course_list = "course_list"
     static let course_topics = "course_topics"
+    static let content = "content"
 
     //MARK: - D
     // static let date = "date"
@@ -122,6 +124,9 @@ struct JSONKeys {
     static let international_id = "international_id"
     static let interview = "interview"
 	static let is_active = "is_active"
+    
+    
+    
 
     //MARK: - J
 
@@ -166,6 +171,8 @@ struct JSONKeys {
     static let public_tranportation_info = "public_tranportation_info"
     static let psw_error_recomendation = "psw_error_recomendation"
     static let psw_regular_expression = "psw_regular_expression"
+    static let protection_commendations = "protection_commendations"
+    
 
     //MARK: - Q
 
@@ -189,6 +196,8 @@ struct JSONKeys {
     static let topic_activity = "topic_activity"
     static let topic_activity_list = "topic_activity_list"
     static let trm = "trm"
+    static let title = "title"
+    
 
     //MARK: - U
     static let url = "url"

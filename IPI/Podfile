@@ -11,7 +11,7 @@ target 'IPI' do
   pod 'AlamofireObjectMapper'
   pod 'FacebookCore', '~> 0.5.0'
   pod 'FacebookLogin', '~> 0.5.0'
-  pod 'GoogleSignIn'
+  pod 'GoogleSignIn', '< 5.0.0'
   pod 'ObjectMapper', '~> 3.4.2'
   pod 'SwiftyJSON', '~> 4.0.0'
   pod 'Karte', '~> 2.2.1'
